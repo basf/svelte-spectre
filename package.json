@@ -2,7 +2,7 @@
 	"name": "svelte-spectre",
 	"version": "0.1.0",
 	"private": true,
-	"main": "./package/index.js",
+	"main": "./dist/index.js",
 	"scripts": {
 		"dev": "svelte-kit dev --port 3030 --host '0.0.0.0'",
 		"build": "svelte-kit build",
