@@ -1,5 +1,5 @@
 <!-- <MorphingModal {...$$restProps} {fullscreen} {width} {height} bind:open on:toggle on:adjust> -->
-<slot />
+<!-- <slot /> -->
 <div slot="content" class:modal-fs={fullscreen} class="modal-{size}" id="modal-{mid}">
 	<div class="modal-container" {style}>
 		<div class="modal-header">

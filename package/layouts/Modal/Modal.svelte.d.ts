@@ -16,7 +16,6 @@ declare const __propDef: {
         [evt: string]: CustomEvent<any>;
     };
     slots: {
-        default: {};
         header: {};
         content: {};
         footer: {};
