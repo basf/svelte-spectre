@@ -7,8 +7,7 @@
     "package/"
   ],
   "engines": {
-    "node": ">= 15",
-    "npm": ">= 7"
+    "node": ">= 15"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
@@ -74,9 +73,6 @@
     "./components/Input/Group.svelte": "./components/Input/Group.svelte",
     "./components/Input/Input.svelte": "./components/Input/Input.svelte",
     "./components/Input": "./components/Input/index.js",
-    "./components/Pinger/Pinger.svelte": "./components/Pinger/Pinger.svelte",
-    "./components/Pinger": "./components/Pinger/index.js",
-    "./components/Pinger/ping": "./components/Pinger/ping.js",
     "./components/Progress/Progress.svelte": "./components/Progress/Progress.svelte",
     "./components/Progress": "./components/Progress/index.js",
     "./components/Radio/Radio.svelte": "./components/Radio/Radio.svelte",

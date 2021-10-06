@@ -82,9 +82,6 @@
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Form</h2>
-		<Input />
-		<Input />
-		<h2>Form</h2>
 		<Form horizontal>
 			<h4>Form horizontal</h4>
 			<FormGroup>

@@ -1,26 +1,29 @@
 <Spectre>
-	<Navbar>
-		<nav slot="left">
-			<div class="ml-2">
-				<IconButton icon="back" />
-			</div>
-		</nav>
+	<header>
+		<Navbar>
+			<nav slot="left">
+				<div class="ml-2">
+					<IconButton icon="back" />
+				</div>
+			</nav>
 
-		<svelte:fragment slot="center">
-			<img src="./b-science.svg" width="64px" height="64px" alt="Brand-Name" />
-		</svelte:fragment>
+			<svelte:fragment slot="center">
+				<img src="./b-science.svg" width="64px" height="64px" alt="Brand-Name" />
+			</svelte:fragment>
 
-		<nav slot="right">
-			<div class="mr-2">
-				<IconButton
-					href="#_"
-					size="xl"
-					icon="people"
-					on:click={(e) => toast.success({ msg: 'msg', timeout: 0, pos: 'bottom_right' })}
-				/>
-			</div>
-		</nav>
-	</Navbar>
+			<nav slot="right">
+				<div class="mr-2">
+					<IconButton
+						href="#_"
+						size="xl"
+						icon="people"
+						on:click={(e) =>
+							toast.success({ msg: 'msg', timeout: 0, pos: 'bottom_right' })}
+					/>
+				</div>
+			</nav>
+		</Navbar>
+	</header>
 
 	<main>
 		<slot />
