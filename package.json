@@ -7,7 +7,7 @@
 		"dev": "svelte-kit dev --port 3030 --host '0.0.0.0'",
 		"build": "svelte-kit build",
 		"preview": "svelte-kit preview",
-		"package": "svelte-kit package && find package/ -empty -type d -delete",
+		"package": "svelte-kit package && find dist/ -empty -type d -delete",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --ignore-path .gitignore  --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
