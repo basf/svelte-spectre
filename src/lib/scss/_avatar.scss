@@ -1,0 +1,8 @@
+// Avatar mixin
+@use "sass:math";
+
+@mixin avatar-base($size: $unit-8) {
+  font-size: math.div($size, 2);
+  height: $size;
+  width: $size;
+}
