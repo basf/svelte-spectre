@@ -1,22 +1,21 @@
 # Svelte-spectre
 
-UIkit based on spectre.css compiled & powered by SvelteJS.
+UI-kit based on [spectre.css](https://picturepan2.github.io/spectre/) powered by SvelteJS.
 
-### Required:
+### Requirements
 
 -   `node -v >= 15`
 -   `npm -v >= 7`
 
-## Install
+## Installation
 
-```sh
-# install dependensy
+```bash
 npm install
 ```
 
 ## Building package
 
-```sh
+```bash
 # build components for GUI in package folder
 npm run package
 ```
@@ -40,6 +39,4 @@ Then:
 npm run build
 ```
 
-> You can preview the built app with `npm run preview`, regardless of whether
-> you installed an adapter. This should _not_ be used to serve your app in
-> production.
+You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
