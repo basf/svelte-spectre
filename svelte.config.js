@@ -1,5 +1,6 @@
 import preprocess from 'svelte-preprocess';
 import mm from 'micromatch';
+import path from 'path'
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -82,6 +83,11 @@ export default {
 		target: '',
 		trailingSlash: 'never',
 		vite: () => ({
+			resolve: {
+				alias: {
+					'$svelte-spectre': path.resolve('./package/index.js')
+				},
+			},
 			server: { port: 3030 },
 			css: {
 				preprocessorOptions: {

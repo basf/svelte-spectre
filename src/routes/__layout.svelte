@@ -30,11 +30,11 @@
 
 <script lang="ts">
 	import '../app.scss';
-	import { Spectre } from '$lib';
+	import { IconButton, Navbar, Spectre, Toaster, toast } from '$svelte-spectre';
 	// import '../../package/spectre.css';
 	// import '$lib/spectre.scss';
-	import { Navbar } from '$lib/layouts/';
-	import { IconButton } from '$lib/components/';
-	import { Toaster } from '$lib/components/Toast/';
-	import { toast } from '$lib/components/Toast/toast';
+	// import { Navbar } from '$lib/layouts/';
+	// import { IconButton } from '$lib/components/';
+	// import { Toaster } from '$lib/components/Toast/';
+	// import { toast } from '$lib/components/Toast/toast';
 </script>
