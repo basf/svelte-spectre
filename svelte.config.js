@@ -45,7 +45,7 @@ export default {
 		hostHeader: '',
 		hydrate: true,
 		package: {
-			dir: 'dist',
+			dir: 'package',
 			exports: (filepath) => {
 				if (mm.isMatch(filepath, ['**/_*', 'spectre.scss', 'fix.scss', 'scss/*'])) return false;
 				return mm.isMatch(filepath, ['**'])
