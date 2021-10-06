@@ -1,26 +1,26 @@
-<MorphingModal {...$$restProps} {fullscreen} {width} {height} bind:open on:toggle on:adjust>
-	<slot />
-	<div slot="content" class:modal-fs={fullscreen} class="modal-{size}" id="modal-{mid}">
-		<div class="modal-container" {style}>
-			<div class="modal-header">
-				<div class="modal-title h5">
-					<slot name="header" />
-				</div>
-			</div>
-			<div class="modal-body" {style}>
-				<div class="content">
-					<slot name="content" />
-				</div>
-			</div>
-			<div class="modal-footer">
-				<slot name="footer" />
+<!-- <MorphingModal {...$$restProps} {fullscreen} {width} {height} bind:open on:toggle on:adjust> -->
+<slot />
+<div slot="content" class:modal-fs={fullscreen} class="modal-{size}" id="modal-{mid}">
+	<div class="modal-container" {style}>
+		<div class="modal-header">
+			<div class="modal-title h5">
+				<slot name="header" />
 			</div>
 		</div>
+		<div class="modal-body" {style}>
+			<div class="content">
+				<slot name="content" />
+			</div>
+		</div>
+		<div class="modal-footer">
+			<slot name="footer" />
+		</div>
 	</div>
-</MorphingModal>
+</div>
 
+<!-- </MorphingModal> -->
 <script lang="ts" context="module">
-	import MorphingModal from 'svelte-morphing-modal';
+	// import MorphingModal from 'svelte-morphing-modal';
 
 	export const SIZE = {
 		sm: 320,

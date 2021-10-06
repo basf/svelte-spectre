@@ -7,16 +7,12 @@ export declare const SIZE: {
 export declare type Size = keyof typeof SIZE;
 declare const __propDef: {
     props: {
-        [x: string]: any;
         open?: boolean;
         size?: Size;
         fullscreen?: boolean;
         height?: string;
     };
     events: {
-        toggle: any;
-        adjust: any;
-    } & {
         [evt: string]: CustomEvent<any>;
     };
     slots: {
