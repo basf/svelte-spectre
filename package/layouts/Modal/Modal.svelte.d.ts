@@ -3,10 +3,12 @@ export declare const SIZE: {
     readonly sm: 320;
     readonly md: 640;
     readonly lg: 960;
+    readonly fs: 100;
 };
 export declare type Size = keyof typeof SIZE;
 declare const __propDef: {
     props: {
+        custom?: boolean;
         open?: boolean;
         size?: Size;
         fullscreen?: boolean;
@@ -17,7 +19,7 @@ declare const __propDef: {
     };
     slots: {
         header: {};
-        content: {};
+        body: {};
         footer: {};
     };
 };
