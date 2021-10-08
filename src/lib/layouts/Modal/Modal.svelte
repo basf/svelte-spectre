@@ -35,8 +35,6 @@
 	export let custom: boolean = false;
 	export let open: boolean = false;
 	export let size: Size = 'md';
-	// export let fullscreen: boolean = false;
-	// export let height: string = 'auto';
 
 	const mid: string = uuid();
 	const dispatch = createEventDispatcher();
@@ -44,9 +42,6 @@
 	const close = () => {
 		!custom ? (open = false) : dispatch('close', 'detail value');
 	};
-
-	// $: width = fullscreen ? '100%' : `${SIZE[size]}px`;
-	// $: style = `min-width: ${width}; min-height: ${height};`;
 </script>
 
 <style lang="scss">
