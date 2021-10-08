@@ -259,7 +259,6 @@
 		Input,
 		InputGroup,
 		Modal,
-		Modaller,
 		Radio,
 		Range,
 		Select,
