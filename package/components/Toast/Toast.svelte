@@ -59,9 +59,7 @@ const resume = () => {
     options = { duration: remaining };
 };
 const close = () => {
-    next = 0;
-    options = { duration: 0 };
-    tost.timeout = 0;
+    toast.close(tost.id);
     visible = false;
 };
 function pausable(node, paused) {
