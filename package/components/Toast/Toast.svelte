@@ -41,9 +41,9 @@ export let visible = true;
 let init = reverse ? 1 : 0, next = reverse ? 0 : 1, start = Date.now(), remaining = tost.timeout, options = { duration: remaining };
 const defaults = { delay: 0, duration: 0, easing: linear };
 const progress = tweened(init, { ...defaults });
-$: tost.timeout && progress.set(next, options).then(autoclose);
+$: progress.set(next, options).then(autoclose);
 const autoclose = () => {
-    if ($progress % 1 === 0) {
+    if ($progress % 1 === 0 && tost.timeout) {
         toast.close(tost.id);
         visible = false;
     }

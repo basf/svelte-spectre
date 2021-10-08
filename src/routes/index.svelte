@@ -78,7 +78,7 @@
 					<IconButton
 						icon="message"
 						variant="default"
-						on:click={(e) => toast.success({ msg: pos, pos: pos, timeout: 5000 })}
+						on:click={(e) => toast.success({ msg: pos, pos: pos, timeout: 1000 })}
 					/>
 				{/each}
 			</Col>
