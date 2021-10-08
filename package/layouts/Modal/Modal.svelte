@@ -1,42 +1,47 @@
-<!-- <MorphingModal {...$$restProps} {fullscreen} {width} {height} bind:open on:toggle on:adjust> -->
-<!-- <slot /> -->
-<!-- <div slot="content" class:modal-fs={fullscreen} class="modal-{size}" id="modal-{mid}"> -->
-<div class="modal-container" {style}>
-	<div class="modal-header">
-		<div class="modal-title h5">
+<div class:modal={!custom} class:active={custom || open} class="modal-{size}" id="modal-{mid}">
+	{#if !custom}
+		<a href="#" on:click={close} class="modal-overlay" aria-label="Close" />
+	{/if}
+	<div class="modal-container">
+		<div class="modal-header">
 			<slot name="header" />
+			<IconButton icon="cross" on:click={close} />
 		</div>
-	</div>
-	<div class="modal-body" {style}>
-		<div class="content">
-			<slot name="content" />
+		<div class="modal-body">
+			<slot name="body" />
 		</div>
-	</div>
-	<div class="modal-footer">
-		<slot name="footer" />
+		<div class="modal-footer">
+			<slot name="footer" />
+		</div>
 	</div>
 </div>
-<!-- </div> -->
 
-<!-- </MorphingModal> -->
-<script  context="module">// import MorphingModal from 'svelte-morphing-modal';
+<script  context="module">import { createEventDispatcher } from 'svelte';
+import { IconButton } from '../../components/Button';
+import uuid from '../../helpers/uuid';
 export const SIZE = {
     sm: 320,
     md: 640,
     lg: 960,
+    fs: 100,
 };
 </script>
 
-<script >export let open = false;
+<script >export let custom = false;
+export let open = false;
 export let size = 'md';
-export let fullscreen = true;
-export let height = '100%';
-const mid = Date.now();
-$: width = fullscreen ? '100%' : `${SIZE[size]}px`;
-$: style = `min-width: ${width}; min-height: ${height};`;
+export let fullscreen = false;
+export let height = 'auto';
+const mid = uuid();
+const dispatch = createEventDispatcher();
+const close = () => {
+    !custom ? (open = false) : dispatch('close', 'detail value');
+};
+// $: width = fullscreen ? '100%' : `${SIZE[size]}px`;
+// $: style = `min-width: ${width}; min-height: ${height};`;
 </script>
 
-<style >:global(.spectre) .modal, :global(.spectre) .modal-lg, :global(.spectre) .modal-sm {
+<style >:global(.spectre) .modal, :global(.spectre) .modal-fs, :global(.spectre) .modal-lg, :global(.spectre) .modal-sm {
   align-items: center;
   bottom: 0;
   display: none;
@@ -49,12 +54,12 @@ $: style = `min-width: ${width}; min-height: ${height};`;
   right: 0;
   top: 0;
 }
-:global(.spectre) .modal:target, :global(.spectre) .modal-lg:target, :global(.spectre) .modal-sm:target, :global(.spectre) .modal.active, :global(.spectre) .active.modal-lg, :global(.spectre) .active.modal-sm {
+:global(.spectre) .modal:target, :global(.spectre) .modal-fs:target, :global(.spectre) .modal-lg:target, :global(.spectre) .modal-sm:target, :global(.spectre) .modal.active, :global(.spectre) .active.modal-fs, :global(.spectre) .active.modal-lg, :global(.spectre) .active.modal-sm {
   display: flex;
   opacity: 1;
   z-index: 400;
 }
-:global(.spectre) .modal:target .modal-overlay, :global(.spectre) .modal-lg:target .modal-overlay, :global(.spectre) .modal-sm:target .modal-overlay, :global(.spectre) .modal.active .modal-overlay, :global(.spectre) .active.modal-lg .modal-overlay, :global(.spectre) .active.modal-sm .modal-overlay {
+:global(.spectre) .modal:target .modal-overlay, :global(.spectre) .modal-fs:target .modal-overlay, :global(.spectre) .modal-lg:target .modal-overlay, :global(.spectre) .modal-sm:target .modal-overlay, :global(.spectre) .modal.active .modal-overlay, :global(.spectre) .active.modal-fs .modal-overlay, :global(.spectre) .active.modal-lg .modal-overlay, :global(.spectre) .active.modal-sm .modal-overlay {
   background: rgba(247, 248, 249, 0.75);
   bottom: 0;
   cursor: default;
@@ -64,7 +69,7 @@ $: style = `min-width: ${width}; min-height: ${height};`;
   right: 0;
   top: 0;
 }
-:global(.spectre) .modal:target .modal-container, :global(.spectre) .modal-lg:target .modal-container, :global(.spectre) .modal-sm:target .modal-container, :global(.spectre) .modal.active .modal-container, :global(.spectre) .active.modal-lg .modal-container, :global(.spectre) .active.modal-sm .modal-container {
+:global(.spectre) .modal:target .modal-container, :global(.spectre) .modal-fs:target .modal-container, :global(.spectre) .modal-lg:target .modal-container, :global(.spectre) .modal-sm:target .modal-container, :global(.spectre) .modal.active .modal-container, :global(.spectre) .active.modal-fs .modal-container, :global(.spectre) .active.modal-lg .modal-container, :global(.spectre) .active.modal-sm .modal-container {
   -webkit-animation: slide-down 0.2s ease 1;
           animation: slide-down 0.2s ease 1;
   z-index: 1;
@@ -73,10 +78,10 @@ $: style = `min-width: ${width}; min-height: ${height};`;
   max-width: 320px;
   padding: 0 0.4rem;
 }
-:global(.spectre) .modal.modal-lg .modal-overlay, :global(.spectre) .modal-lg .modal-overlay {
+:global(.spectre) .modal.modal-lg .modal-overlay, :global(.spectre) .modal-lg .modal-overlay, :global(.spectre) .modal-fs .modal-overlay {
   background: #fff;
 }
-:global(.spectre) .modal.modal-lg .modal-container, :global(.spectre) .modal-lg .modal-container {
+:global(.spectre) .modal.modal-lg .modal-container, :global(.spectre) .modal-lg .modal-container, :global(.spectre) .modal-fs .modal-container {
   box-shadow: none;
   max-width: 960px;
 }
@@ -107,8 +112,57 @@ $: style = `min-width: ${width}; min-height: ${height};`;
   padding: 0.8rem;
   text-align: right;
 }
+@-webkit-keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-1.6rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-1.6rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-[slot=content] {
-  width: 100%;
-  height: 100%;
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-header > :global(*),
+.modal-footer > :global(*) {
+  margin-bottom: 0 !important;
+}
+
+.modal-fs .modal-container {
+  max-width: 100vw !important;
+  max-height: 100vh;
+  width: calc(100vw - 0.4rem);
+  height: calc(100vh - 0.4rem);
+  justify-content: space-between;
 }</style>
