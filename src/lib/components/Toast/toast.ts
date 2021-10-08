@@ -1,11 +1,10 @@
 import { writable } from 'svelte/store';
+
 import type { Icons } from '../../types/icons';
 import type { Color } from '../../types/bg';
 import type { Pos } from './positions';
 
-export type { Pos, Tost }
-
-type Tost = {
+interface Tost {
 	id?: number,
 	type?: Color,
 	title?: string,
@@ -19,6 +18,8 @@ type Tost = {
 	reverse?: boolean,
 	pos?: Pos
 }
+
+export type { Pos, Tost }
 
 const defaults: Tost = { close: true, pos: 'top_center' }
 

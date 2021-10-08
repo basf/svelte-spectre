@@ -41,7 +41,7 @@
 
 <script lang="ts">
 	import '../app.scss';
-	import { IconButton, Navbar, Spectre, Toaster, toast } from '$svelte-spectre';
+	import { IconButton, Navbar, Spectre, Toaster, toast } from '$lib';
 	import Xray from '$assets/b-science.svg';
 	import XrayUrl from '$assets/b-science.svg?url';
 	import XraySrc from '$assets/b-science.svg?src';

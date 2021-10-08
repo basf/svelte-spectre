@@ -72,7 +72,6 @@
 			visible = false;
 		}
 	};
-
 	const pause = () => {
 		remaining -= Date.now() - start;
 		next = $progress;
@@ -83,10 +82,9 @@
 		next = reverse ? 0 : 1;
 		options = { duration: remaining };
 	};
+
 	const close = () => {
-		next = 0;
-		options = { duration: 0 };
-		tost.timeout = 0;
+		toast.close(tost.id);
 		visible = false;
 	};
 

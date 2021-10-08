@@ -264,15 +264,15 @@
 		Accordion,
 		Button,
 		Card,
-		// Col,
+		Col,
 		Container,
 		Checkbox,
-		// Divider,
+		Divider,
 		Empty,
 		Form,
 		FormGroup,
 		Hero,
-		// Grid,
+		Grid,
 		Icon,
 		IconButton,
 		Input,
@@ -282,16 +282,13 @@
 		Range,
 		Select,
 		Switch,
-		// Toast,
+		Toast,
 		toast,
-	} from '$svelte-spectre';
-	import type { Pos } from '$svelte-spectre';
+	} from '$lib';
+	import type { Pos } from '$lib';
 </script>
 
 <script lang="ts">
-	import { Divider, Toast } from '$lib/components';
-	import { Col, Grid } from '$lib/layouts';
-
 	let questions = [
 			{ id: 1, text: `Where did you go to school?` },
 			{ id: 2, text: `What is your mother's name?` },
