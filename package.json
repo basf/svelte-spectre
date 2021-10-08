@@ -26,11 +26,13 @@
 	"devDependencies": {
 		"@babel/core": "^7.15.8",
 		"@babel/preset-env": "^7.15.8",
+		"@poppanator/sveltekit-svg": "^0.1.7",
 		"@storybook/addon-actions": "^6.3.10",
 		"@storybook/addon-essentials": "^6.3.10",
 		"@storybook/addon-links": "^6.3.10",
 		"@storybook/addon-svelte-csf": "^1.1.0",
 		"@storybook/svelte": "^6.3.10",
+		"@sveltejs/adapter-static": "1.0.0-next.20",
 		"@sveltejs/kit": "^1.0.0-next.180",
 		"@testing-library/jest-dom": "^5.14.1",
 		"@testing-library/svelte": "^3.0.3",
