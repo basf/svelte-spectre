@@ -1,7 +1,8 @@
 @import "../static/fonts/Exo2_64_Latin-ext.scss";
 html,
-body {
-    font-family: Exo2, sans-serif !important;
+body,
+.spectre {
+    font-family: Exo2, sans-serif;
     font-size: 20px;
     margin: 0;
 }

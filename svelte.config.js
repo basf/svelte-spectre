@@ -1,6 +1,8 @@
 import preprocess from 'svelte-preprocess';
 import mm from 'micromatch';
 import path from 'path'
+import svg from "@poppanator/sveltekit-svg";
+import adapterStatic from '@sveltejs/adapter-static';
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -18,6 +20,7 @@ const options = {
 	// replace: !dev ? [[/ lang=("|')(.*?)("|')/g, '']] : [],
 };
 
+
 /** @type {import('@sveltejs/kit').Config} */
 export default {
 	// https://github.com/sveltejs/svelte-preprocess
@@ -25,12 +28,12 @@ export default {
 	preprocess: [preprocess(options)],
 	extensions: ['.svelte'],
 	kit: {
-		// adapter: adapterStatic({
-		// 	// default options are shown
-		// 	pages: 'build',
-		// 	assets: 'build',
-		// 	fallback: null
-		// }),
+		adapter: adapterStatic({
+			// default options are shown
+			pages: 'build',
+			assets: 'build',
+			fallback: null
+		}),
 		amp: false,
 		appDir: '_app',
 		files: {
@@ -85,10 +88,14 @@ export default {
 		vite: () => ({
 			resolve: {
 				alias: {
-					'$svelte-spectre': path.resolve('./package/index.js')
+					'$svelte-spectre': path.resolve('./package/index.js'),
+					'$assets': path.resolve('./static')
 				},
 			},
-			server: { port: 3030 },
+			server: {
+				port: 3030,
+				hmr: { overlay: true }
+			},
 			css: {
 				preprocessorOptions: {
 					scss: {
@@ -99,6 +106,16 @@ export default {
 				},
 			},
 			plugins: [
+				svg(options)
+				// svelteSVG({
+				// 	// optional SVGO options
+				// 	// pass empty object to enable defaults
+				// 	svgo: {},
+				// 	// vite-specific
+				// 	// https://vitejs.dev/guide/api-plugin.html#plugin-ordering
+				// 	// enforce: 'pre' | 'post'
+				// 	enforce: "pre",
+				// }),
 				// postcss({
 				// 	include: "./src/lib/spectre.scss",
 				// 	extract: resolve('package/spectre.css')
