@@ -41,18 +41,28 @@ export let visible = true;
 let init = reverse ? 1 : 0, next = reverse ? 0 : 1, start = Date.now(), remaining = tost.timeout, options = { duration: remaining };
 const defaults = { delay: 0, duration: 0, easing: linear };
 const progress = tweened(init, { ...defaults });
-const autoclose = () => ($progress === 1 || $progress === 0) && stack ? toast.close(tost.id) : (visible = false);
-progress.set(next, options).then(() => tost.timeout && visible && autoclose());
+$: tost.timeout && progress.set(next, options).then(autoclose);
+const autoclose = () => {
+    if ($progress % 1 === 0) {
+        toast.close(tost.id);
+        visible = false;
+    }
+};
 const pause = () => {
     remaining -= Date.now() - start;
-    progress.set($progress, { duration: 0 });
+    next = $progress;
+    options = { duration: 0 };
 };
 const resume = () => {
     start = Date.now();
-    progress.set(next, { duration: remaining }).then(autoclose);
+    next = reverse ? 0 : 1;
+    options = { duration: remaining };
 };
 const close = () => {
-    progress.set(0, { duration: 0 }).then(autoclose);
+    next = 0;
+    options = { duration: 0 };
+    tost.timeout = 0;
+    visible = false;
 };
 function pausable(node, paused) {
     if (paused) {

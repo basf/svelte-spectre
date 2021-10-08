@@ -45,6 +45,46 @@
 		</Modal>
 	</Hero>
 	<Hero offset="my-2" size="sm">
+		<h2>Toast</h2>
+		<Grid>
+			<Col>
+				<h5>Single</h5>
+				<Grid>
+					<Col col="auto">
+						<Button on:click={() => (tostVis = !tostVis)}
+							>{tostVis ? 'Close' : 'Open'}</Button
+						>
+					</Col>
+					<Col>
+						{#if tostVis}
+							<Toast
+								bind:visible={tostVis}
+								tost={{
+									id: 1,
+									timeout: 1000,
+									close: true,
+									icon: 'home',
+									type: 'primary',
+								}}>Toast</Toast
+							>
+						{/if}
+					</Col>
+				</Grid>
+			</Col>
+			<Divider align="vertical" />
+			<Col>
+				<h5>Toaster</h5>
+				{#each positions as pos}
+					<IconButton
+						icon="message"
+						variant="default"
+						on:click={(e) => toast.success({ msg: pos, pos: pos, timeout: 5000 })}
+					/>
+				{/each}
+			</Col>
+		</Grid>
+	</Hero>
+	<Hero offset="my-2" size="sm">
 		<h2>Buttons & Icons</h2>
 		<Button
 			variant="primary"
@@ -53,13 +93,6 @@
 		>
 			<Icon icon="emoji" offset="mr-2" />Button
 		</Button>
-		{#each positions as pos}
-			<IconButton
-				icon="message"
-				variant="default"
-				on:click={(e) => toast.success({ msg: pos, pos: pos, timeout: 5000 })}
-			/>
-		{/each}
 		<IconButton
 			size="xxl"
 			variant="success"
@@ -184,25 +217,6 @@
 		</Form>
 	</Hero>
 	<Hero offset="my-2" size="sm">
-		<h2>Toast</h2>
-		<Button on:click={() => (tostVis = !tostVis)}>Tost {tostVis ? 'close' : 'open'}</Button>
-		<br /><br />
-		{#if tostVis}
-			<Toast
-				bind:visible={tostVis}
-				tost={{
-					id: 1,
-					init: 0,
-					next: 1,
-					timeout: 5000,
-					close: true,
-					icon: 'home',
-					type: 'primary',
-				}}>Toast</Toast
-			>
-		{/if}
-	</Hero>
-	<Hero offset="my-2" size="sm">
 		<h2>Grid</h2>
 		<Grid stack>
 			<Col col="5"><div class="bg-secondary p-1">col-5</div></Col>
@@ -250,15 +264,15 @@
 		Accordion,
 		Button,
 		Card,
-		Col,
+		// Col,
 		Container,
 		Checkbox,
-		Divider,
+		// Divider,
 		Empty,
 		Form,
 		FormGroup,
 		Hero,
-		Grid,
+		// Grid,
 		Icon,
 		IconButton,
 		Input,
@@ -268,13 +282,16 @@
 		Range,
 		Select,
 		Switch,
-		Toast,
+		// Toast,
 		toast,
 	} from '$svelte-spectre';
 	import type { Pos } from '$svelte-spectre';
 </script>
 
 <script lang="ts">
+	import { Divider, Toast } from '$lib/components';
+	import { Col, Grid } from '$lib/layouts';
+
 	let questions = [
 			{ id: 1, text: `Where did you go to school?` },
 			{ id: 2, text: `What is your mother's name?` },
@@ -286,7 +303,7 @@
 		selected = 1,
 		radios = 1;
 
-	$: console.log(selected, radios);
+	$: console.log(selected, radios, $toast);
 
 	let loading = false,
 		positions: Pos[] = [
@@ -300,7 +317,7 @@
 			'top_left',
 			'center_center',
 		],
-		tostVis: boolean,
+		tostVis: boolean = true,
 		modalVis: boolean;
 
 	const CARDS = [
