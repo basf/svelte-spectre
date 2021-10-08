@@ -30,15 +30,11 @@ export const SIZE = {
 <script >export let custom = false;
 export let open = false;
 export let size = 'md';
-export let fullscreen = false;
-export let height = 'auto';
 const mid = uuid();
 const dispatch = createEventDispatcher();
 const close = () => {
     !custom ? (open = false) : dispatch('close', 'detail value');
 };
-// $: width = fullscreen ? '100%' : `${SIZE[size]}px`;
-// $: style = `min-width: ${width}; min-height: ${height};`;
 </script>
 
 <style >:global(.spectre) .modal, :global(.spectre) .modal-fs, :global(.spectre) .modal-lg, :global(.spectre) .modal-sm {

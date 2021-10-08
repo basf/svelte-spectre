@@ -185,17 +185,22 @@
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Toast</h2>
-		<Toast
-			tost={{
-				id: 1,
-				init: 0,
-				next: 1,
-				timeout: 5000,
-				close: true,
-				icon: 'home',
-				type: 'primary',
-			}}>Toast</Toast
-		>
+		<Button on:click={() => (tostVis = !tostVis)}>Tost {tostVis ? 'close' : 'open'}</Button>
+		<br /><br />
+		{#if tostVis}
+			<Toast
+				bind:visible={tostVis}
+				tost={{
+					id: 1,
+					init: 0,
+					next: 1,
+					timeout: 5000,
+					close: true,
+					icon: 'home',
+					type: 'primary',
+				}}>Toast</Toast
+			>
+		{/if}
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Grid</h2>
