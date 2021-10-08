@@ -7,11 +7,14 @@
 		display: contents;
 		box-sizing: border-box;
 		overflow-x: hidden;
-		font-size: 0.8rem;
+		font-size: $font-size;
+		font-family: $body-font-family;
 		text-rendering: optimizeLegibility;
 		-ms-text-size-adjust: 100%;
 		-webkit-text-size-adjust: 100%;
 		-webkit-tap-highlight-color: transparent;
+		background: $body-bg;
+		color: $body-font-color;
 
 		:global {
 			@import 'spectre.css/src/base';
