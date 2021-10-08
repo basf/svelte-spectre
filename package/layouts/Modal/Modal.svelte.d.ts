@@ -11,8 +11,6 @@ declare const __propDef: {
         custom?: boolean;
         open?: boolean;
         size?: Size;
-        fullscreen?: boolean;
-        height?: string;
     };
     events: {
         [evt: string]: CustomEvent<any>;
