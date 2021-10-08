@@ -38,12 +38,12 @@
 	import type { Color } from '../../types/bg';
 	import type { Icons } from '../../types/icons';
 
-	type Options = {
+	interface Options {
 		delay?: number;
 		duration?: number;
 		easing?: (t: number) => number;
 		interpolate?: (a: number, b: number) => (t: number) => number;
-	};
+	}
 
 	export type { Color, Icons, Tost };
 </script>
@@ -64,10 +64,10 @@
 	const defaults: Options = { delay: 0, duration: 0, easing: linear };
 	const progress: Tweened<number> = tweened(init, { ...defaults });
 
-	$: tost.timeout && progress.set(next, options).then(autoclose);
+	$: progress.set(next, options).then(autoclose);
 
 	const autoclose = () => {
-		if ($progress % 1 === 0) {
+		if (tost.timeout && $progress % 1 === 0) {
 			toast.close(tost.id);
 			visible = false;
 		}
