@@ -66,12 +66,13 @@
 
 	$: progress.set(next, options).then(autoclose);
 
-	const autoclose = () => {
-		if (tost.timeout && $progress % 1 === 0) {
-			toast.close(tost.id);
-			visible = false;
-		}
+	const autoclose = () => tost.timeout && $progress % 1 === 0 && close();
+
+	const close = () => {
+		toast.close(tost.id);
+		visible = false;
 	};
+
 	const pause = () => {
 		remaining -= Date.now() - start;
 		next = $progress;
@@ -81,11 +82,6 @@
 		start = Date.now();
 		next = reverse ? 0 : 1;
 		options = { duration: remaining };
-	};
-
-	const close = () => {
-		toast.close(tost.id);
-		visible = false;
 	};
 
 	function pausable(node: HTMLElement, paused: boolean) {
