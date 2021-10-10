@@ -270,8 +270,8 @@
 		Switch,
 		Toast,
 		toast,
-	} from '$svelte-spectre';
-	import type { Pos } from '$svelte-spectre';
+	} from '../lib';
+	import type { Pos } from '../lib';
 </script>
 
 <script lang="ts">
