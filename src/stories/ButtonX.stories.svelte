@@ -57,5 +57,5 @@
 
 <script>
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
-	import { Button } from 'svelte-spectre';
+	import Button from './ButtonX.svelte';
 </script>
