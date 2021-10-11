@@ -4,7 +4,7 @@
 
 <script lang="ts" context="module">
 	import Button from './Button.svelte';
-	import { Icon } from '../Icon';
+	import Icon from '../Icon/Icon.svelte';
 
 	import type { Variant } from '../Button';
 	import type { Zoom, Icons } from '../Icon';
