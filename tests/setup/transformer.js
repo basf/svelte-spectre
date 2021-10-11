@@ -32,7 +32,7 @@ const transform = (source, filename) => {
 	});
 
 	warnings.forEach(warning => {
-		console.warn(`\nSvelte Warning in ${warning.filename}:`);
+		console.warn(`\n${warning.filename}:`);
 		console.warn(warning.message);
 		console.warn(warning.frame);
 	});
