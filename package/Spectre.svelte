@@ -7,13 +7,10 @@
   box-sizing: border-box;
   overflow-x: hidden;
   font-size: 0.8rem;
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   text-rendering: optimizeLegibility;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
-  background: #fff;
-  color: #3b4351;
 }
 .spectre {
   /* Manually forked from Normalize.css */

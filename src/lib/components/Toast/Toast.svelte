@@ -10,10 +10,7 @@
 			</Col>
 		{/if}
 		<Col inset="py-2">
-			<slot>
-				{#if tost.title}<h5>{tost.title}</h5>{/if}
-				{#if tost.msg}<p>{tost.msg}</p>{/if}
-			</slot>
+			<slot>Default text</slot>
 		</Col>
 		{#if tost.close}
 			<Col col="auto" inset="px-0">
@@ -30,11 +27,10 @@
 	import { fade } from 'svelte/transition';
 	import { tweened } from 'svelte/motion';
 	import { linear } from 'svelte/easing';
-	import Col from '../../layouts/Grid/Col.svelte';
-	import Grid from '../../layouts/Grid/Grid.svelte';
-	import IconButton from '../Button/IconButton.svelte';
-	import Icon from '../Icon/Icon.svelte';
-	import Progress from '../Progress/Progress.svelte';
+	import { IconButton } from '../Button';
+	import { Icon } from '../Icon';
+	import { Grid, Col } from '../../layouts/Grid';
+	import { Progress } from '../Progress';
 	import { toast } from './toast';
 
 	import type { Tweened } from 'svelte/motion';
@@ -53,22 +49,10 @@
 </script>
 
 <script lang="ts">
-	export let tost: Tost = {
-		id: 0,
-		type: 'initial',
-		title: 'title',
-		msg: 'msg',
-		icon: '',
-		close: true,
-		timeout: 0,
-		init: 0,
-		next: 1,
-		invert: false,
-		reverse: false,
-		pos: '',
-	};
+	export let tost: Tost;
 	export let invert: boolean = tost.invert;
 	export let reverse: boolean = tost.reverse;
+	export let stack: boolean;
 	export let visible: boolean = true;
 
 	let init: number = reverse ? 1 : 0,

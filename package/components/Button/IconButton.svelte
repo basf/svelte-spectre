@@ -3,7 +3,7 @@
 </Button>
 
 <script  context="module">import Button from './Button.svelte';
-import Icon from '../Icon/Icon.svelte';
+import { Icon } from '../Icon';
 </script>
 
 <script >export let icon;
