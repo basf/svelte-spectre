@@ -61,13 +61,13 @@
 								bind:visible={tostVis}
 								tost={{
 									id: 1,
-									timeout: 1000,
+									timeout: 0,
 									close: true,
 									icon: 'home',
 									type: 'primary',
 								}}>Toast</Toast
 							>
-						{/if}
+						{/if}<br /><Toast />
 					</Col>
 				</Grid>
 			</Col>
