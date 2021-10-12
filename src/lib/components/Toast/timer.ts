@@ -1,4 +1,3 @@
-
 export interface Timer extends ReturnType<typeof setTimeout> {
     set(remaining: number): Function;
     pause(): Function;
@@ -7,7 +6,9 @@ export interface Timer extends ReturnType<typeof setTimeout> {
 }
 
 export function Timer(callback: Function, delay: number): void {
-    let timerId: number, start: number, remaining: number = delay;
+    let timerId: number,
+        start: number,
+        remaining: number = delay;
 
     const set = (remaining: number) => {
         clearTimeout(timerId);
@@ -31,5 +32,5 @@ export function Timer(callback: Function, delay: number): void {
 
     resume();
 
-    return { set, pause, resume, clear, timerId }
+    return { set, pause, resume, clear, timerId };
 }

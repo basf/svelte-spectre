@@ -1,6 +1,6 @@
 import { test } from 'uvu';
 import * as assert from 'uvu/assert';
-import * as ENV from '../../setup/testenv'
+import * as ENV from '../../setup/testenv';
 
 import IconButton from '../../../src/lib/components/Button/IconButton.svelte';
 
@@ -22,7 +22,7 @@ test('check IconButton iconSize', () => {
 });
 
 test('check IconButton is color', () => {
-    const color = 'primary'
+    const color = 'primary';
     const { container } = ENV.render(IconButton, { color });
     const button = container.querySelector('button i');
     assert.is(button.classList.contains(`text-${color}`), true);

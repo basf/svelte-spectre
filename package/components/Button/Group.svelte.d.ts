@@ -1,4 +1,4 @@
-import { SvelteComponentTyped } from "svelte";
+import { SvelteComponentTyped } from 'svelte';
 declare const __propDef: {
     props: {
         block?: boolean;
@@ -14,6 +14,9 @@ declare const __propDef: {
 export declare type GroupProps = typeof __propDef.props;
 export declare type GroupEvents = typeof __propDef.events;
 export declare type GroupSlots = typeof __propDef.slots;
-export default class Group extends SvelteComponentTyped<GroupProps, GroupEvents, GroupSlots> {
-}
+export default class Group extends SvelteComponentTyped<
+    GroupProps,
+    GroupEvents,
+    GroupSlots
+> {}
 export {};

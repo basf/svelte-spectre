@@ -1,4 +1,4 @@
-import { SvelteComponentTyped } from "svelte";
+import { SvelteComponentTyped } from 'svelte';
 import type { Offset } from '../../types/position';
 export type { Offset };
 declare const __propDef: {
@@ -18,5 +18,8 @@ declare const __propDef: {
 export declare type EmptyProps = typeof __propDef.props;
 export declare type EmptyEvents = typeof __propDef.events;
 export declare type EmptySlots = typeof __propDef.slots;
-export default class Empty extends SvelteComponentTyped<EmptyProps, EmptyEvents, EmptySlots> {
-}
+export default class Empty extends SvelteComponentTyped<
+    EmptyProps,
+    EmptyEvents,
+    EmptySlots
+> {}

@@ -26,10 +26,11 @@
 <script context="module" >import { fade } from 'svelte/transition';
 import { tweened } from 'svelte/motion';
 import { linear } from 'svelte/easing';
-import { IconButton } from '../Button';
-import { Icon } from '../Icon';
-import { Grid, Col } from '../../layouts/Grid';
-import { Progress } from '../Progress';
+import IconButton from '../Button/IconButton.svelte';
+import Icon from '../Icon/Icon.svelte';
+import Grid from '../../layouts/Grid/Grid.svelte';
+import Col from '../../layouts/Grid/Col.svelte';
+import Progress from '../Progress/Progress.svelte';
 import { toast } from './toast';
 </script>
 

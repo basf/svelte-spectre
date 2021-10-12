@@ -1,25 +1,29 @@
-@use "sass:math";
+@use 'sass:math';
 
 // @import "./node_modules/spectre.css/src/variables";
-@import "./node_modules/spectre.css/src/mixins";
+@import './node_modules/spectre.css/src/mixins';
 
-@import "./scss/variables";
+@import './scss/variables';
 // src/scss/variables.scss
 $control-padding-y: math.div($control-size - $line-height, 2) - $border-width !default;
-$control-padding-y-sm: math.div($control-size-sm - $line-height, 2) - $border-width !default;
-$control-padding-y-lg: math.div($control-size-lg - $line-height, 2) - $border-width !default;
+$control-padding-y-sm: math.div($control-size-sm - $line-height, 2) -
+    $border-width !default;
+$control-padding-y-lg: math.div($control-size-lg - $line-height, 2) -
+    $border-width !default;
 
-@import "./scss/viewer-360.scss";
+@import './scss/viewer-360.scss';
 // src/scss/viewer-360.scss
 @mixin viewer-slider-size($image-number: 36) {
     @for $s from 1 through ($image-number) {
-        .viewer-slider[max="#{$image-number}"][value="#{$s}"] + .viewer-image {
-            background-position-y: percentage(math.div((($s)-1) * 1, ($image-number)-1));
+        .viewer-slider[max='#{$image-number}'][value='#{$s}'] + .viewer-image {
+            background-position-y: percentage(
+                math.div((($s)-1) * 1, ($image-number)-1)
+            );
         }
     }
 }
 
-@import "./scss/avatar";
+@import './scss/avatar';
 // src/scss/mixins/avatar
 @mixin avatar-base($size: $unit-8) {
     font-size: math.div($size, 2);
@@ -27,14 +31,15 @@ $control-padding-y-lg: math.div($control-size-lg - $line-height, 2) - $border-wi
     width: $size;
 }
 
-@import "./scss/forms";
+@import './scss/forms';
 // src/scss/forms.scss
 .form-checkbox,
 .form-radio,
 .form-switch {
     margin: math.div($control-size - $control-size-sm, 2) 0;
     padding: math.div($control-size-sm - $line-height, 2) $control-padding-x
-        math.div($control-size-sm - $line-height, 2) ($control-icon-size + $control-padding-x);
+        math.div($control-size-sm - $line-height, 2)
+        ($control-icon-size + $control-padding-x);
 
     &.input-lg {
         margin: math.div($control-size-lg - $control-size-sm, 2) 0;
@@ -54,13 +59,14 @@ $control-padding-y-lg: math.div($control-size-lg - $line-height, 2) - $border-wi
     }
 }
 
-@import "./scss/layout";
+@import './scss/layout';
 // src/scss/layout.scss
 .container {
-    $grid-spacing: math.div($layout-spacing, $layout-spacing * 0 + 1) * $html-font-size;
+    $grid-spacing: math.div($layout-spacing, $layout-spacing * 0 + 1) *
+        $html-font-size;
 }
 
-@import "./scss/sliders";
+@import './scss/sliders';
 // src/scss/sliders.scss
 .slider {
     &::-webkit-slider-thumb {
@@ -70,8 +76,8 @@ $control-padding-y-lg: math.div($control-size-lg - $line-height, 2) - $border-wi
 
 // src/scss/icons/icons-action.scss
 $icon-border-width: $border-width-lg;
-$icon-prefix: "icon";
-@import "./scss/icons-action";
+$icon-prefix: 'icon';
+@import './scss/icons-action';
 .icon-delete {
     &::after {
         top: math.div($icon-border-width, 2);
