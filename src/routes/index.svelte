@@ -67,7 +67,7 @@
 									type: 'primary',
 								}}>Toast</Toast
 							>
-						{/if}
+						{/if}<br /><Toast />
 					</Col>
 				</Grid>
 			</Col>
