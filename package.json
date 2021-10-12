@@ -62,7 +62,7 @@
 		"prettier": "^2.4.1",
 		"prettier-plugin-svelte": "^2.4.0",
 		"sass": "^1.42.1",
-		"spectre.css": "github:Valexr/spectre",
+		"spectre.css": "^0.5.9",
 		"svelte": "^3.43.1",
 		"svelte-check": "^2.2.7",
 		"svelte-jester": "^2.1.5",
