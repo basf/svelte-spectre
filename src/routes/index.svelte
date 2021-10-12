@@ -61,7 +61,7 @@
 								bind:visible={tostVis}
 								tost={{
 									id: 1,
-									timeout: 0,
+									timeout: 1000,
 									close: true,
 									icon: 'home',
 									type: 'primary',
