@@ -10,7 +10,10 @@
 			</Col>
 		{/if}
 		<Col inset="py-2">
-			<slot>Default text</slot>
+			<slot>
+				{#if tost.title}<h5>{tost.title}</h5>{/if}
+				{#if tost.msg}<p>{tost.msg}</p>{/if}
+			</slot>
 		</Col>
 		{#if tost.close}
 			<Col col="auto" inset="px-0">
@@ -26,17 +29,30 @@
 <script context="module" >import { fade } from 'svelte/transition';
 import { tweened } from 'svelte/motion';
 import { linear } from 'svelte/easing';
-import { IconButton } from '../Button';
-import { Icon } from '../Icon';
-import { Grid, Col } from '../../layouts/Grid';
-import { Progress } from '../Progress';
+import Col from '../../layouts/Grid/Col.svelte';
+import Grid from '../../layouts/Grid/Grid.svelte';
+import IconButton from '../Button/IconButton.svelte';
+import Icon from '../Icon/Icon.svelte';
+import Progress from '../Progress/Progress.svelte';
 import { toast } from './toast';
 </script>
 
-<script >export let tost;
+<script >export let tost = {
+    id: 0,
+    type: 'initial',
+    title: 'title',
+    msg: 'msg',
+    icon: '',
+    close: true,
+    timeout: 0,
+    init: 0,
+    next: 1,
+    invert: false,
+    reverse: false,
+    pos: '',
+};
 export let invert = tost.invert;
 export let reverse = tost.reverse;
-export let stack;
 export let visible = true;
 let init = reverse ? 1 : 0, next = reverse ? 0 : 1, start = Date.now(), remaining = tost.timeout, options = { duration: remaining };
 const defaults = { delay: 0, duration: 0, easing: linear };
