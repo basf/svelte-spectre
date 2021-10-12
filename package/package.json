@@ -65,7 +65,6 @@
 		"./components/Button/Button.svelte": "./components/Button/Button.svelte",
 		"./components/Button/Group.svelte": "./components/Button/Group.svelte",
 		"./components/Button/IconButton.svelte": "./components/Button/IconButton.svelte",
-		"./components/Button/index.spec": "./components/Button/index.spec.js",
 		"./components/Button": "./components/Button/index.js",
 		"./components/Checkbox/Checkbox.svelte": "./components/Checkbox/Checkbox.svelte",
 		"./components/Checkbox": "./components/Checkbox/index.js",
