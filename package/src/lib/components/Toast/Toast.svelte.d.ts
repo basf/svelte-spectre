@@ -5,10 +5,9 @@ import type { Icons } from '../../types/icons';
 export type { Color, Icons, Tost };
 declare const __propDef: {
     props: {
-        tost: Tost;
+        tost?: Tost;
         invert?: boolean;
         reverse?: boolean;
-        stack: boolean;
         visible?: boolean;
     };
     events: {

@@ -284,8 +284,8 @@
 		Switch,
 		Toast,
 		toast,
-	} from '$lib';
-	import type { Pos } from '$lib';
+	} from '../lib';
+	import type { Pos } from '../lib';
 </script>
 
 <script lang="ts">
