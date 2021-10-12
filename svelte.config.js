@@ -14,10 +14,10 @@ const options = {
 			@import './node_modules/spectre.css/src/variables';
 			@import './node_modules/spectre.css/src/mixins';
 		`,
+		quietDeps: true
 	},
 	postcss: true,
 	typescript: true,
-	// replace: !dev ? [[/ lang=("|')(.*?)("|')/g, '']] : [],
 };
 
 
@@ -27,6 +27,12 @@ export default {
 	compilerOptions: null,
 	preprocess: [preprocess(options)],
 	extensions: ['.svelte'],
+	onwarn: (warning, handler) => {
+		const ignore = ['a11y-missing-content', 'css-unused-selector', 'a11y-invalid-attribute', 'unused-export-let', 'a11y-structure', 'a11y-label-has-associated-control', 'missing-declaration']
+		if (ignore.includes(warning.code)) return;
+		console.log('w:', warning)
+		handler(warning);
+	},
 	kit: {
 		adapter: adapterStatic({
 			// default options are shown
@@ -58,14 +64,6 @@ export default {
 				if (mm.isMatch(filepath, ['**/_*', 'spectre.scss', 'fix.scss', 'scss/*'])) return false
 				return mm.isMatch(filepath, ['**'])
 			},
-			// exports: {
-			// 	include: ['**'],
-			// 	exclude: ['**/_*', 'spectre.scss', 'fix.scss', 'scss/*'],
-			// },
-			// files: {
-			// 	include: ['**'],
-			// 	exclude: ['spectre.scss', 'fix.scss', 'scss/*'],
-			// },
 			emitTypes: true,
 		},
 		paths: {
@@ -107,20 +105,6 @@ export default {
 			},
 			plugins: [
 				svg(options)
-				// svelteSVG({
-				// 	// optional SVGO options
-				// 	// pass empty object to enable defaults
-				// 	svgo: {},
-				// 	// vite-specific
-				// 	// https://vitejs.dev/guide/api-plugin.html#plugin-ordering
-				// 	// enforce: 'pre' | 'post'
-				// 	enforce: "pre",
-				// }),
-				// postcss({
-				// 	include: "./src/lib/spectre.scss",
-				// 	extract: resolve('package/spectre.css')
-				// }),
-				// sassPlugin(),
 			],
 		}),
 	},
