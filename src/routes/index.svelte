@@ -45,6 +45,46 @@
 		</Modal>
 	</Hero>
 	<Hero offset="my-2" size="sm">
+		<h2>Toast</h2>
+		<Grid>
+			<Col>
+				<h5>Single</h5>
+				<Grid>
+					<Col col="auto">
+						<Button on:click={() => (tostVis = !tostVis)}
+							>{tostVis ? 'Close' : 'Open'}</Button
+						>
+					</Col>
+					<Col>
+						{#if tostVis}
+							<Toast
+								bind:visible={tostVis}
+								tost={{
+									id: 1,
+									timeout: 0,
+									close: true,
+									icon: 'home',
+									type: 'primary',
+								}}>Toast</Toast
+							>
+						{/if}<br /><Toast />
+					</Col>
+				</Grid>
+			</Col>
+			<Divider align="vertical" />
+			<Col>
+				<h5>Toaster</h5>
+				{#each positions as pos}
+					<IconButton
+						icon="message"
+						variant="default"
+						on:click={(e) => toast.success({ msg: pos, pos: pos, timeout: 1000 })}
+					/>
+				{/each}
+			</Col>
+		</Grid>
+	</Hero>
+	<Hero offset="my-2" size="sm">
 		<h2>Buttons & Icons</h2>
 		<Button
 			variant="primary"
@@ -270,8 +310,8 @@
 		Switch,
 		Toast,
 		toast,
-	} from '$svelte-spectre';
-	import type { Pos } from '$svelte-spectre';
+	} from '../lib';
+	import type { Pos } from '../lib';
 </script>
 
 <script lang="ts">
