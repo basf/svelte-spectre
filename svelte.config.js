@@ -28,13 +28,13 @@ export default {
 	extensions: ['.svelte'],
 	onwarn: (warning, handler) => {
 		const ignore = [
-			'a11y-missing-content',
-			'css-unused-selector',
 			'a11y-invalid-attribute',
-			'unused-export-let',
-			'a11y-structure',
 			'a11y-label-has-associated-control',
+			'a11y-missing-content',
+			'a11y-structure',
+			'css-unused-selector',
 			'missing-declaration',
+			'unused-export-let',
 		];
 		if (ignore.includes(warning.code)) return;
 		console.log('w:', warning);
