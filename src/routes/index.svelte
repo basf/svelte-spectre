@@ -70,7 +70,8 @@
 						{/if}
 						<br />
 						<Toast toastItem={{ invert: false, close: true }}
-							>I'm pure static Toast</Toast
+							><h5>header</h5>
+							I'm pure static Toast</Toast
 						>
 					</Col>
 				</Grid>
