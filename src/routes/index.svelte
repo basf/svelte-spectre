@@ -4,6 +4,10 @@
 		Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
 	</p>
 	<Hero offset="my-2" size="sm">
+		<h2>Table</h2>
+		<Table items={table} hoverable />
+	</Hero>
+	<Hero offset="my-2" size="sm">
 		<h2>Modal</h2>
 		<Button on:click={() => (modalVis = !modalVis)}>Open Modal</Button>
 		<Modal bind:open={modalVis} size="md">
@@ -307,10 +311,11 @@
 		Range,
 		Select,
 		Switch,
+		Table,
 		Toast,
 		toast,
 	} from '$lib';
-	import type { Pos } from '$lib';
+	import type { Pos, TableItems } from '$lib';
 </script>
 
 <script lang="ts">
@@ -323,11 +328,8 @@
 			},
 		],
 		selected = 1,
-		radios = 1;
-
-	$: console.log(selected, radios);
-
-	let loading = false,
+		radios = 1,
+		loading = false,
 		positions: Pos[] = [
 			'top_center',
 			'top_right',
@@ -341,7 +343,25 @@
 		],
 		tostVis: boolean,
 		modalVis: boolean,
-		arrows: string[] = ['↑', '↗', '→', '↘', '↓', '↙', '←', '↖', '☩'];
+		arrows: string[] = ['↑', '↗', '→', '↘', '↓', '↙', '←', '↖', '☩'],
+		table: TableItems = {
+			cols: ['name', 'genre', 'release'],
+			rows: [
+				{
+					name: 'The Shawshank Redemption',
+					genre: 'Crime, Drama',
+					release: '14 October 1994',
+				},
+				{
+					name: 'The Godfather',
+					genre: 'Crime, Drama',
+					release: '24 March 1972',
+					active: true,
+				},
+				{ name: 'Schindler`s List', genre: 'Biography, Drama', release: '4 February 1994' },
+				{ name: 'Se7en', genre: 'Crime, Mystery', release: '22 September 1995' },
+			],
+		};
 
 	const CARDS = [
 		{
