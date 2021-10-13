@@ -9,7 +9,8 @@
 	class:has-icon-left={$$slots.iconLeft}
 	class:has-icon-right={$$slots.iconRight}
 	class:col-8={$$slots.default}
-	class="col col-{expand}-12"
+	class:flex-none={width}
+	class="{width && `col-${width}`} col-{expand}-12"
 >
 	{#if rows > 1}
 		<textarea
@@ -62,6 +63,7 @@ export let inline = false;
 export let validity = false;
 export let size = 'md';
 export let expand = 'xs';
+export let width = '';
 const fid = uuid();
 </script>
 
@@ -567,6 +569,9 @@ input:disabled + .form-icon, input.disabled + .form-icon {
   display: inline-block;
 }
 
+:global(.spectre) .flex-none {
+  flex: none;
+}
 :global(.spectre) .form-group.d-flex {
   flex-wrap: wrap;
 }
