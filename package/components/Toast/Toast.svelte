@@ -1,27 +1,18 @@
 <div
-	class="toast {tost.type && `toast-${tost.type}`}"
-	use:pausable={tost.timeout > 0}
+	class="toast {toastItem.type && `toast-${toastItem.type}`}"
+	use:pausable={toastItem.timeout > 0}
 	transition:fade
 >
-	<Grid align="center">
-		{#if tost.icon}
-			<Col col="auto">
-				<Icon icon={tost.icon} />
-			</Col>
-		{/if}
-		<Col inset="py-2">
-			<slot>
-				{#if tost.title}<h5>{tost.title}</h5>{/if}
-				{#if tost.msg}<p>{tost.msg}</p>{/if}
-			</slot>
-		</Col>
-		{#if tost.close}
-			<Col col="auto" inset="px-0">
-				<IconButton icon="cross" on:click={close} />
-			</Col>
-		{/if}
-	</Grid>
-	{#if tost.timeout}
+	{#if toastItem.icon}
+		<Icon icon={toastItem.icon} offset="mr-2" />
+	{/if}
+	<div class="toast-content">
+		<slot />
+	</div>
+	{#if toastItem.close}
+		<IconButton icon="cross" on:click={close} />
+	{/if}
+	{#if toastItem.timeout}
 		<Progress value={$progress} {invert} />
 	{/if}
 </div>
@@ -29,15 +20,13 @@
 <script context="module" >import { fade } from 'svelte/transition';
 import { tweened } from 'svelte/motion';
 import { linear } from 'svelte/easing';
-import Col from '../../layouts/Grid/Col.svelte';
-import Grid from '../../layouts/Grid/Grid.svelte';
 import IconButton from '../Button/IconButton.svelte';
 import Icon from '../Icon/Icon.svelte';
 import Progress from '../Progress/Progress.svelte';
 import { toast } from './toast';
 </script>
 
-<script >export let tost = {
+<script >export let toastItem = {
     id: 0,
     type: 'initial',
     title: 'title',
@@ -51,16 +40,16 @@ import { toast } from './toast';
     reverse: false,
     pos: '',
 };
-export let invert = tost.invert;
-export let reverse = tost.reverse;
+export let invert = toastItem.invert;
+export let reverse = toastItem.reverse;
 export let visible = true;
-let init = reverse ? 1 : 0, next = reverse ? 0 : 1, start = Date.now(), remaining = tost.timeout, options = { duration: remaining };
+let init = reverse ? 1 : 0, next = reverse ? 0 : 1, start = Date.now(), remaining = toastItem.timeout, options = { duration: remaining };
 const defaults = { delay: 0, duration: 0, easing: linear };
 const progress = tweened(init, { ...defaults });
 $: progress.set(next, options).then(autoclose);
-const autoclose = () => tost.timeout && $progress % 1 === 0 && close();
+const autoclose = () => toastItem.timeout && $progress % 1 === 0 && close();
 const close = () => {
-    toast.close(tost.id);
+    toast.close(toastItem.id);
     visible = false;
 };
 const pause = () => {
@@ -128,9 +117,16 @@ function pausable(node, paused) {
 }
 :global(.spectre) .toast {
   position: relative;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding: 0;
+  padding-left: 0.4rem;
   word-wrap: break-word;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+:global(.spectre) .toast .toast-content {
+  flex-direction: column;
+  padding: 0.4rem 0;
 }
 :global(.spectre) .toast :global(.btn-link) {
   color: currentColor;
