@@ -3,7 +3,7 @@
 	use:pausable={toastItem.timeout > 0}
 	transition:fade
 >
-	<Grid align="center">
+	<Grid align="center" oneline>
 		{#if toastItem.icon}
 			<Col col="auto">
 				<Icon icon={toastItem.icon} />
