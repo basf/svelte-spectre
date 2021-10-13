@@ -67,7 +67,7 @@
 									type: 'primary',
 								}}>Toast</Toast
 							>
-						{/if}<br /><Toast />
+						{/if}<br /><Toast tost={{ invert: false }} />
 					</Col>
 				</Grid>
 			</Col>

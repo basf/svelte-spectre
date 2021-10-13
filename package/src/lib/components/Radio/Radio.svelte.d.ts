@@ -1,4 +1,4 @@
-import { SvelteComponentTyped } from "svelte";
+import { SvelteComponentTyped } from 'svelte';
 declare type Validity = 'success' | 'error' | false;
 export type { Validity };
 declare const __propDef: {
@@ -21,5 +21,8 @@ declare const __propDef: {
 export declare type RadioProps = typeof __propDef.props;
 export declare type RadioEvents = typeof __propDef.events;
 export declare type RadioSlots = typeof __propDef.slots;
-export default class Radio extends SvelteComponentTyped<RadioProps, RadioEvents, RadioSlots> {
-}
+export default class Radio extends SvelteComponentTyped<
+    RadioProps,
+    RadioEvents,
+    RadioSlots
+> {}

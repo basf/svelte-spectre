@@ -1,4 +1,4 @@
-import { SvelteComponentTyped } from "svelte";
+import { SvelteComponentTyped } from 'svelte';
 import type { Zoom } from '../../types/size';
 import type { Icons } from '../../types/icons';
 import type { Offset } from '../../types/position';
@@ -22,5 +22,8 @@ declare const __propDef: {
 export declare type IconProps = typeof __propDef.props;
 export declare type IconEvents = typeof __propDef.events;
 export declare type IconSlots = typeof __propDef.slots;
-export default class Icon extends SvelteComponentTyped<IconProps, IconEvents, IconSlots> {
-}
+export default class Icon extends SvelteComponentTyped<
+    IconProps,
+    IconEvents,
+    IconSlots
+> {}

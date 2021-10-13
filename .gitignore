@@ -1,8 +1,7 @@
-.DS_Store
-node_modules
-/coverage
-/build
+/node_modules
 /.svelte-kit
-# /package
-/storybook-static
+/build
+/coverage
+
+.DS_Store
 *-lock.*

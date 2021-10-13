@@ -1,4 +1,4 @@
-import { SvelteComponentTyped } from "svelte";
+import { SvelteComponentTyped } from 'svelte';
 import type { Size } from '../../types/size';
 import type { Color } from '../../types/bg';
 import type { Offset } from '../../types/position';
@@ -19,5 +19,8 @@ declare const __propDef: {
 export declare type HeroProps = typeof __propDef.props;
 export declare type HeroEvents = typeof __propDef.events;
 export declare type HeroSlots = typeof __propDef.slots;
-export default class Hero extends SvelteComponentTyped<HeroProps, HeroEvents, HeroSlots> {
-}
+export default class Hero extends SvelteComponentTyped<
+    HeroProps,
+    HeroEvents,
+    HeroSlots
+> {}

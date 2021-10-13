@@ -1,4 +1,4 @@
-import { SvelteComponentTyped } from "svelte";
+import { SvelteComponentTyped } from 'svelte';
 import type { Color } from '../../types/bg';
 export type { Color };
 declare const __propDef: {
@@ -16,5 +16,8 @@ declare const __propDef: {
 export declare type ProgressProps = typeof __propDef.props;
 export declare type ProgressEvents = typeof __propDef.events;
 export declare type ProgressSlots = typeof __propDef.slots;
-export default class Progress extends SvelteComponentTyped<ProgressProps, ProgressEvents, ProgressSlots> {
-}
+export default class Progress extends SvelteComponentTyped<
+    ProgressProps,
+    ProgressEvents,
+    ProgressSlots
+> {}

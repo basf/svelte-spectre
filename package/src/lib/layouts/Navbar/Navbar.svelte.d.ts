@@ -1,4 +1,4 @@
-import { SvelteComponentTyped } from "svelte";
+import { SvelteComponentTyped } from 'svelte';
 declare const __propDef: {
     props: {
         classes: string;
@@ -15,6 +15,9 @@ declare const __propDef: {
 export declare type NavbarProps = typeof __propDef.props;
 export declare type NavbarEvents = typeof __propDef.events;
 export declare type NavbarSlots = typeof __propDef.slots;
-export default class Navbar extends SvelteComponentTyped<NavbarProps, NavbarEvents, NavbarSlots> {
-}
+export default class Navbar extends SvelteComponentTyped<
+    NavbarProps,
+    NavbarEvents,
+    NavbarSlots
+> {}
 export {};

@@ -1,4 +1,4 @@
-import { SvelteComponentTyped } from "svelte";
+import { SvelteComponentTyped } from 'svelte';
 declare const __propDef: {
     props: {
         [x: string]: any;
@@ -16,6 +16,9 @@ declare const __propDef: {
 export declare type FormProps = typeof __propDef.props;
 export declare type FormEvents = typeof __propDef.events;
 export declare type FormSlots = typeof __propDef.slots;
-export default class Form extends SvelteComponentTyped<FormProps, FormEvents, FormSlots> {
-}
+export default class Form extends SvelteComponentTyped<
+    FormProps,
+    FormEvents,
+    FormSlots
+> {}
 export {};

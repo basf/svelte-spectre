@@ -1,6 +1,6 @@
-import { addHook } from 'pirates'
-import { transform } from './transformer'
+import { addHook } from 'pirates';
+import { transform } from './transformer';
 
-const handleSvelte = (source, filename) => transform(source, filename)
+const handleSvelte = (source, filename) => transform(source, filename);
 
-addHook(handleSvelte, { exts: ['.svelte'] })
+addHook(handleSvelte, { exts: ['.svelte'] });

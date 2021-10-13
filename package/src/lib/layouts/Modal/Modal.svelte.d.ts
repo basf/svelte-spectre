@@ -1,4 +1,4 @@
-import { SvelteComponentTyped } from "svelte";
+import { SvelteComponentTyped } from 'svelte';
 export declare const SIZE: {
     readonly sm: 320;
     readonly md: 640;
@@ -24,6 +24,9 @@ declare const __propDef: {
 export declare type ModalProps = typeof __propDef.props;
 export declare type ModalEvents = typeof __propDef.events;
 export declare type ModalSlots = typeof __propDef.slots;
-export default class Modal extends SvelteComponentTyped<ModalProps, ModalEvents, ModalSlots> {
-}
+export default class Modal extends SvelteComponentTyped<
+    ModalProps,
+    ModalEvents,
+    ModalSlots
+> {}
 export {};

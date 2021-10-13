@@ -1,4 +1,4 @@
-import { SvelteComponentTyped } from "svelte";
+import { SvelteComponentTyped } from 'svelte';
 export declare type Position = 'top' | 'middle' | 'bottom';
 declare const __propDef: {
     props: {
@@ -19,6 +19,9 @@ declare const __propDef: {
 export declare type CardProps = typeof __propDef.props;
 export declare type CardEvents = typeof __propDef.events;
 export declare type CardSlots = typeof __propDef.slots;
-export default class Card extends SvelteComponentTyped<CardProps, CardEvents, CardSlots> {
-}
+export default class Card extends SvelteComponentTyped<
+    CardProps,
+    CardEvents,
+    CardSlots
+> {}
 export {};
