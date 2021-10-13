@@ -7,15 +7,15 @@
 >
 	<thead>
 		<tr>
-			{#each items.cols as col}
+			{#each cols as col}
 				<th>{col}</th>
 			{/each}
 		</tr>
 	</thead>
 	<tbody>
-		{#each items.rows as row}
+		{#each rows as row}
 			<tr class:active={row.active}>
-				{#each items.cols as col}
+				{#each cols as col}
 					<td>{row[col]}</td>
 				{/each}
 			</tr>
@@ -26,10 +26,6 @@
 <script lang="ts" context="module">
 	import type { Offset } from '../../types/position';
 
-	interface TableItems {
-		cols: Array<string>;
-		rows: Array<Row>;
-	}
 	type Row = {
 		active?: boolean;
 	};
@@ -65,11 +61,12 @@
 	// 		.map(([key]) => key as keyof T);
 	// }
 
-	export type { TableItems };
+	export type { Row };
 </script>
 
 <script lang="ts">
-	export let items: TableItems;
+	export let cols: string[];
+	export let rows: Row[];
 	export let striped: boolean = false;
 	export let hoverable: boolean = false;
 	export let scrollable: boolean = false;

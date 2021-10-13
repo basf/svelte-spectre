@@ -5,7 +5,7 @@
 	</p>
 	<Hero offset="my-2" size="sm">
 		<h2>Table</h2>
-		<Table items={table} hoverable />
+		<Table cols={table.cols} rows={table.rows} hoverable />
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Modal</h2>
@@ -319,7 +319,7 @@
 		Toast,
 		toast,
 	} from '$lib';
-	import type { Pos, TableItems } from '$lib';
+	import type { Pos, Row } from '$lib';
 </script>
 
 <script lang="ts">
@@ -348,7 +348,7 @@
 		tostVis: boolean,
 		modalVis: boolean,
 		arrows: string[] = ['↑', '↗', '→', '↘', '↓', '↙', '←', '↖', '☩'],
-		table: TableItems = {
+		table = {
 			cols: ['name', 'genre', 'release'],
 			rows: [
 				{
