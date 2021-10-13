@@ -67,19 +67,22 @@
 									type: 'primary',
 								}}>Toast</Toast
 							>
-						{/if}<br /><Toast tost={{ invert: false }} />
+						{/if}
+						<br />
+						<Toast tost={{ invert: false, close: true }}>I'm pure static Toast</Toast>
 					</Col>
 				</Grid>
 			</Col>
 			<Divider align="vertical" />
 			<Col>
 				<h5>Toaster</h5>
-				{#each positions as pos}
+				{#each positions as pos, i}
 					<IconButton
-						icon="message"
+						icon="↑"
 						variant="default"
 						on:click={(e) => toast.success({ msg: pos, pos: pos, timeout: 1000 })}
-					/>
+						>{arrows[i]}</IconButton
+					>
 				{/each}
 			</Col>
 		</Grid>
@@ -284,8 +287,8 @@
 		Switch,
 		Toast,
 		toast,
-	} from '../lib';
-	import type { Pos } from '../lib';
+	} from '$lib';
+	import type { Pos } from '$lib';
 </script>
 
 <script lang="ts">
@@ -314,8 +317,9 @@
 			'top_left',
 			'center_center',
 		],
-		tostVis: boolean = true,
-		modalVis: boolean;
+		tostVis: boolean,
+		modalVis: boolean,
+		arrows: string[] = ['↑', '↗', '→', '↘', '↓', '↙', '←', '↖', '☩'];
 
 	const CARDS = [
 		{
