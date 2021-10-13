@@ -3,4 +3,11 @@ function addClass(node: HTMLElement, classes: string[]) {
     node.classList.add(...classes);
 }
 
-export { addClass };
+function addBadge(node: HTMLElement, badge: string) {
+    if (badge) {
+        node.classList.add('badge');
+        badge.length && node.setAttribute("data-badge", badge);
+    }
+}
+
+export { addClass, addBadge };
