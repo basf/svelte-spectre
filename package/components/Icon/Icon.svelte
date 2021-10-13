@@ -614,6 +614,8 @@ export let color = '';
 }
 .icon[svg=true] {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon-diamond {
