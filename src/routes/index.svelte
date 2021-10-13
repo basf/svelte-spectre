@@ -211,6 +211,11 @@
 				</Select>
 			</FormGroup>
 			<FormGroup>
+				<Select options={questions} bind:value={selected} multiple let:option>
+					{option.text}
+				</Select>
+			</FormGroup>
+			<FormGroup>
 				<h4>Radio</h4>
 				<Radio label="Radios" radios={questions} bind:group={radios} let:radio>
 					{radio.text}
@@ -312,7 +317,7 @@
 				text: `What is another personal fact that an attacker could easily find with Google?`,
 			},
 		],
-		selected = 1,
+		selected = [1],
 		radios = 1;
 
 	$: console.log(selected, radios, $toast);
