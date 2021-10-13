@@ -58,6 +58,7 @@
 	"exports": {
 		"./package.json": "./package.json",
 		"./Spectre.svelte": "./Spectre.svelte",
+		"./components/.DS_Store": "./components/.DS_Store",
 		"./components/Accordion/Accordion.svelte": "./components/Accordion/Accordion.svelte",
 		"./components/Accordion": "./components/Accordion/index.js",
 		"./components/Avatar/Avatar.svelte": "./components/Avatar/Avatar.svelte",
@@ -123,17 +124,7 @@
 		"./layouts/Panel": "./layouts/Panel/index.js",
 		"./layouts/Tile/Tile.svelte": "./layouts/Tile/Tile.svelte",
 		"./layouts/Tile": "./layouts/Tile/index.js",
-		"./layouts": "./layouts/index.js",
-		"./types/asset.d.ts": "./types/asset.d.ts",
-		"./types/asyncable.d.ts": "./types/asyncable.d.ts",
-		"./types/bg.d.ts": "./types/bg.d.ts",
-		"./types/const.d.ts": "./types/const.d.ts",
-		"./types/display.d.ts": "./types/display.d.ts",
-		"./types/icons.d.ts": "./types/icons.d.ts",
-		"./types/position.d.ts": "./types/position.d.ts",
-		"./types/shape.d.ts": "./types/shape.d.ts",
-		"./types/size.d.ts": "./types/size.d.ts",
-		"./types/text.d.ts": "./types/text.d.ts"
+		"./layouts": "./layouts/index.js"
 	},
 	"svelte": "./index.js"
 }

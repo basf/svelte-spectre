@@ -15,6 +15,7 @@ const options = {
 			@import './node_modules/spectre.css/src/mixins';
 		`,
 		quietDeps: true,
+		renderSync: true,
 	},
 	postcss: true,
 	typescript: true,
@@ -63,16 +64,16 @@ export default {
 		hydrate: true,
 		package: {
 			dir: 'package',
-			exports: (filepath) => {
-				if (mm.isMatch(filepath, ['**/_*', 'spectre.scss', 'fix.scss', 'scss/*']))
-					return false;
-				return mm.isMatch(filepath, ['**']);
-			},
-			files: (filepath) => {
-				if (mm.isMatch(filepath, ['**/_*', 'spectre.scss', 'fix.scss', 'scss/*']))
-					return false;
-				return mm.isMatch(filepath, ['**']);
-			},
+			// exports: (filepath) => {
+			// 	if (mm.isMatch(filepath, ['**/_*', 'spectre.scss', 'fix.scss', 'scss/*']))
+			// 		return false;
+			// 	return mm.isMatch(filepath, ['**']);
+			// },
+			// files: (filepath) => {
+			// 	if (mm.isMatch(filepath, ['**/_*', 'spectre.scss', 'fix.scss', 'scss/*']))
+			// 		return false;
+			// 	return mm.isMatch(filepath, ['**']);
+			// },
 			emitTypes: true,
 		},
 		paths: {
