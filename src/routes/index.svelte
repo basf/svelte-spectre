@@ -76,14 +76,16 @@
 			<Divider align="vertical" />
 			<Col>
 				<h5>Toaster</h5>
-				{#each positions as pos, i}
-					<IconButton
-						icon="↑"
-						variant="default"
-						on:click={(e) => toast.success({ msg: pos, pos: pos, timeout: 1000 })}
-						>{arrows[i]}</IconButton
-					>
-				{/each}
+				<ButtonGroup>
+					{#each positions as pos, i}
+						<IconButton
+							icon="↑"
+							variant="default"
+							on:click={(e) => toast.success({ msg: pos, pos: pos, timeout: 1000 })}
+							>{arrows[i]}</IconButton
+						>
+					{/each}
+				</ButtonGroup>
 			</Col>
 		</Grid>
 	</Hero>
@@ -266,6 +268,7 @@
 	import {
 		Accordion,
 		Button,
+		ButtonGroup,
 		Card,
 		Col,
 		Container,
