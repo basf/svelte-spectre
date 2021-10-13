@@ -13,5 +13,6 @@ export * from './Range';
 export * from './Select';
 export * from './Steps/';
 export * from './Switch/';
+export * from './Table/';
 export * from './Tabs/';
 export * from './Toast/';
