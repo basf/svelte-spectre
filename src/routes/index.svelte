@@ -59,9 +59,9 @@
 						{#if tostVis}
 							<Toast
 								bind:visible={tostVis}
-								tost={{
+								toastItem={{
 									id: 1,
-									timeout: 0,
+									timeout: 1000,
 									close: true,
 									icon: 'home',
 									type: 'primary',
@@ -69,23 +69,29 @@
 							>
 						{/if}
 						<br />
-						<Toast tost={{ invert: false, close: true }}>I'm pure static Toast</Toast>
+						<Toast toastItem={{ invert: false, close: true }}
+							><h5>header</h5>
+							I'm pure static Toast</Toast
+						>
 					</Col>
 				</Grid>
 			</Col>
 			<Divider align="vertical" />
 			<Col>
 				<h5>Toaster</h5>
-				<ButtonGroup>
-					{#each positions as pos, i}
-						<IconButton
-							icon="↑"
-							variant="default"
-							on:click={(e) => toast.success({ msg: pos, pos: pos, timeout: 1000 })}
-							>{arrows[i]}</IconButton
-						>
-					{/each}
-				</ButtonGroup>
+				<div class="toaster-grid">
+					<ButtonGroup>
+						{#each positions as pos, i}
+							<IconButton
+								icon=""
+								variant="default"
+								on:click={(e) =>
+									toast.success({ msg: pos, pos: pos, timeout: 1000 })}
+								>{arrows[i]}</IconButton
+							>
+						{/each}
+					</ButtonGroup>
+				</div>
 			</Col>
 		</Grid>
 	</Hero>
@@ -225,25 +231,6 @@
 		</Form>
 	</Hero>
 	<Hero offset="my-2" size="sm">
-		<h2>Toast</h2>
-		<Button on:click={() => (tostVis = !tostVis)}>Tost {tostVis ? 'close' : 'open'}</Button>
-		<br /><br />
-		{#if tostVis}
-			<Toast
-				bind:visible={tostVis}
-				tost={{
-					id: 1,
-					init: 0,
-					next: 1,
-					timeout: 5000,
-					close: true,
-					icon: 'home',
-					type: 'primary',
-				}}>Toast</Toast
-			>
-		{/if}
-	</Hero>
-	<Hero offset="my-2" size="sm">
 		<h2>Grid</h2>
 		<Grid stack>
 			<Col col="5"><div class="bg-secondary p-1">col-5</div></Col>
@@ -328,23 +315,23 @@
 		selected = 1,
 		radios = 1;
 
-	$: console.log(selected, radios);
+	$: console.log(selected, radios, $toast);
 
 	let loading = false,
 		positions: Pos[] = [
+			'top_left',
 			'top_center',
 			'top_right',
-			'center_right',
-			'bottom_right',
-			'bottom_center',
-			'bottom_left',
 			'center_left',
-			'top_left',
 			'center_center',
+			'center_right',
+			'bottom_left',
+			'bottom_center',
+			'bottom_right',
 		],
 		tostVis: boolean,
 		modalVis: boolean,
-		arrows: string[] = ['↑', '↗', '→', '↘', '↓', '↙', '←', '↖', '☩'];
+		arrows: string[] = ['↖', '↑', '↗', '←', '☩', '→', '↙', '↓', '↘'];
 
 	const CARDS = [
 		{
@@ -385,5 +372,16 @@
 <style lang="scss">
 	:global(.loading) {
 		pointer-events: auto !important;
+	}
+	.toaster-grid {
+		:global(.btn-group) {
+			gap: 0.25rem;
+		}
+		:global(.btn-group > button) {
+			flex: 1 0 30%;
+
+			// display: grid;
+			// grid-template-columns: ;
+		}
 	}
 </style>
