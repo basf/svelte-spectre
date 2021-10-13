@@ -211,11 +211,25 @@
 					>
 				</InputGroup>
 			</FormGroup>
+			<FormGroup>
+				<InputGroup let:button>
+					<Checkbox />
+					<Input width="7" />
+					<Select options={questions} bind:value={selected} let:option>
+						{option.text}
+					</Select>
+				</InputGroup>
+			</FormGroup>
 		</Form>
 		<Form>
 			<h4>Select</h4>
 			<FormGroup>
 				<Select options={questions} bind:value={selected} let:option>
+					{option.text}
+				</Select>
+			</FormGroup>
+			<FormGroup>
+				<Select options={questions} bind:value={selected} multiple let:option>
 					{option.text}
 				</Select>
 			</FormGroup>
@@ -322,7 +336,7 @@
 				text: `What is another personal fact that an attacker could easily find with Google?`,
 			},
 		],
-		selected = 1,
+		selected = [1],
 		radios = 1;
 
 	$: console.log(selected, radios, $toast);

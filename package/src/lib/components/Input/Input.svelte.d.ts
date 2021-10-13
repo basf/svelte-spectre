@@ -12,6 +12,7 @@ declare const __propDef: {
         validity?: Validity;
         size?: Size;
         expand?: Size;
+        width?: string;
     };
     events: {
         change: Event;
