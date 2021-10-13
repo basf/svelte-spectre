@@ -67,7 +67,9 @@
 									type: 'primary',
 								}}>Toast</Toast
 							>
-						{/if}<br /><Toast tost={{ invert: false }} />
+						{/if}
+						<br />
+						<Toast tost={{ invert: false, close: true }}>I'm pure static Toast</Toast>
 					</Col>
 				</Grid>
 			</Col>
@@ -310,8 +312,8 @@
 		Switch,
 		Toast,
 		toast,
-	} from '../lib';
-	import type { Pos } from '../lib';
+	} from '$lib';
+	import type { Pos } from '$lib';
 </script>
 
 <script lang="ts">
