@@ -5,6 +5,7 @@ export * from './Checkbox/';
 export * from './Divider/';
 export * from './Icon/';
 export * from './Input/';
+export * from './Label/';
 export * from './Progress/';
 export * from './Radio';
 export * from './Range';

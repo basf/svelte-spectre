@@ -4,6 +4,15 @@
 		Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
 	</p>
 	<Hero offset="my-2" size="sm">
+		<h2>Labels</h2>
+		<Label offset="mr-1">default label</Label>
+		<Label color="primary" offset="mr-1" rounded>primary rounded</Label>
+		<Label color="secondary" offset="mr-1">secondary label</Label>
+		<Label color="success" offset="mr-1" rounded>success rounded</Label>
+		<Label color="warning" offset="mr-1">warning label</Label>
+		<Label color="error" rounded>error rounded</Label>
+	</Hero>
+	<Hero offset="my-2" size="sm">
 		<h2>Modal</h2>
 		<Button on:click={() => (modalVis = !modalVis)}>Open Modal</Button>
 		<Modal bind:open={modalVis} size="md">
@@ -283,6 +292,7 @@
 		IconButton,
 		Input,
 		InputGroup,
+		Label,
 		Modal,
 		Radio,
 		Range,
