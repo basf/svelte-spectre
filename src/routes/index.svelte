@@ -211,6 +211,15 @@
 					>
 				</InputGroup>
 			</FormGroup>
+			<FormGroup>
+				<InputGroup let:button>
+					<Checkbox />
+					<Input width="7" />
+					<Select options={questions} bind:value={selected} let:option>
+						{option.text}
+					</Select>
+				</InputGroup>
+			</FormGroup>
 		</Form>
 		<Form>
 			<h4>Select</h4>
