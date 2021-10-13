@@ -1,14 +1,13 @@
 import { SvelteComponentTyped } from 'svelte';
-import type { Tost } from './toast';
+import type { ToastItem } from './toast';
 import type { Color } from '../../types/bg';
 import type { Icons } from '../../types/icons';
-export type { Color, Icons, Tost };
+export type { Color, Icons, ToastItem };
 declare const __propDef: {
     props: {
-        tost: Tost;
+        toastItem?: ToastItem;
         invert?: boolean;
         reverse?: boolean;
-        stack: boolean;
         visible?: boolean;
     };
     events: {
