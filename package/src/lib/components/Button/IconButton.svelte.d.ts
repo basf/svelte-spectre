@@ -1,4 +1,4 @@
-import { SvelteComponentTyped } from "svelte";
+import { SvelteComponentTyped } from 'svelte';
 import type { Variant } from '../Button';
 import type { Zoom, Icons } from '../Icon';
 import type { Color } from '../../types/text';
@@ -23,5 +23,8 @@ declare const __propDef: {
 export declare type IconButtonProps = typeof __propDef.props;
 export declare type IconButtonEvents = typeof __propDef.events;
 export declare type IconButtonSlots = typeof __propDef.slots;
-export default class IconButton extends SvelteComponentTyped<IconButtonProps, IconButtonEvents, IconButtonSlots> {
-}
+export default class IconButton extends SvelteComponentTyped<
+    IconButtonProps,
+    IconButtonEvents,
+    IconButtonSlots
+> {}

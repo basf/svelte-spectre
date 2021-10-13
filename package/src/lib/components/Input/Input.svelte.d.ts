@@ -1,4 +1,4 @@
-import { SvelteComponentTyped } from "svelte";
+import { SvelteComponentTyped } from 'svelte';
 import type { Size } from '../../types/size';
 declare type Validity = 'success' | 'error' | false;
 export type { Size, Validity };
@@ -29,5 +29,8 @@ declare const __propDef: {
 export declare type InputProps = typeof __propDef.props;
 export declare type InputEvents = typeof __propDef.events;
 export declare type InputSlots = typeof __propDef.slots;
-export default class Input extends SvelteComponentTyped<InputProps, InputEvents, InputSlots> {
-}
+export default class Input extends SvelteComponentTyped<
+    InputProps,
+    InputEvents,
+    InputSlots
+> {}

@@ -1,6 +1,6 @@
 import { test } from 'uvu';
 import * as assert from 'uvu/assert';
-import * as ENV from './setup/testenv'
+import * as ENV from './setup/testenv';
 
 import Index from '../src/routes/index.svelte';
 

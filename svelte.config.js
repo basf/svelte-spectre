@@ -1,7 +1,7 @@
 import preprocess from 'svelte-preprocess';
 import mm from 'micromatch';
-import path from 'path'
-import svg from "@poppanator/sveltekit-svg";
+import path from 'path';
+import svg from '@poppanator/sveltekit-svg';
 import adapterStatic from '@sveltejs/adapter-static';
 
 const mode = process.env.NODE_ENV;
@@ -14,12 +14,12 @@ const options = {
 			@import './node_modules/spectre.css/src/variables';
 			@import './node_modules/spectre.css/src/mixins';
 		`,
-		quietDeps: true
+		quietDeps: true,
+		renderSync: true,
 	},
 	postcss: true,
 	typescript: true,
 };
-
 
 /** @type {import('@sveltejs/kit').Config} */
 export default {
@@ -28,9 +28,17 @@ export default {
 	preprocess: [preprocess(options)],
 	extensions: ['.svelte'],
 	onwarn: (warning, handler) => {
-		const ignore = ['a11y-missing-content', 'css-unused-selector', 'a11y-invalid-attribute', 'unused-export-let', 'a11y-structure', 'a11y-label-has-associated-control', 'missing-declaration']
+		const ignore = [
+			'a11y-invalid-attribute',
+			'a11y-label-has-associated-control',
+			'a11y-missing-content',
+			'a11y-structure',
+			'css-unused-selector',
+			'missing-declaration',
+			'unused-export-let',
+		];
 		if (ignore.includes(warning.code)) return;
-		console.log('w:', warning)
+		console.log('w:', warning);
 		handler(warning);
 	},
 	kit: {
@@ -38,7 +46,7 @@ export default {
 			// default options are shown
 			pages: 'build',
 			assets: 'build',
-			fallback: null
+			fallback: null,
 		}),
 		amp: false,
 		appDir: '_app',
@@ -56,14 +64,16 @@ export default {
 		hydrate: true,
 		package: {
 			dir: 'package',
-			exports: (filepath) => {
-				if (mm.isMatch(filepath, ['**/_*', 'spectre.scss', 'fix.scss', 'scss/*'])) return false;
-				return mm.isMatch(filepath, ['**'])
-			},
-			files: (filepath) => {
-				if (mm.isMatch(filepath, ['**/_*', 'spectre.scss', 'fix.scss', 'scss/*'])) return false
-				return mm.isMatch(filepath, ['**'])
-			},
+			// exports: (filepath) => {
+			// 	if (mm.isMatch(filepath, ['**/_*', 'spectre.scss', 'fix.scss', 'scss/*']))
+			// 		return false;
+			// 	return mm.isMatch(filepath, ['**']);
+			// },
+			// files: (filepath) => {
+			// 	if (mm.isMatch(filepath, ['**/_*', 'spectre.scss', 'fix.scss', 'scss/*']))
+			// 		return false;
+			// 	return mm.isMatch(filepath, ['**']);
+			// },
 			emitTypes: true,
 		},
 		paths: {
@@ -87,12 +97,12 @@ export default {
 			resolve: {
 				alias: {
 					'$svelte-spectre': path.resolve('./package/index.js'),
-					'$assets': path.resolve('./static')
+					$assets: path.resolve('./static'),
 				},
 			},
 			server: {
 				port: 3030,
-				hmr: { overlay: true }
+				hmr: { overlay: true },
 			},
 			css: {
 				preprocessorOptions: {
@@ -103,9 +113,7 @@ export default {
 					},
 				},
 			},
-			plugins: [
-				svg(options)
-			],
+			plugins: [svg(options)],
 		}),
 	},
 };

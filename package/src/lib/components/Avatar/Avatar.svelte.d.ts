@@ -1,4 +1,4 @@
-import { SvelteComponentTyped } from "svelte";
+import { SvelteComponentTyped } from 'svelte';
 import type { Size } from '../../types/size';
 import type { Weight } from '../../types/text';
 export declare type Status = 'online' | 'busy' | 'away' | 'offline' | false;
@@ -27,5 +27,8 @@ declare const __propDef: {
 export declare type AvatarProps = typeof __propDef.props;
 export declare type AvatarEvents = typeof __propDef.events;
 export declare type AvatarSlots = typeof __propDef.slots;
-export default class Avatar extends SvelteComponentTyped<AvatarProps, AvatarEvents, AvatarSlots> {
-}
+export default class Avatar extends SvelteComponentTyped<
+    AvatarProps,
+    AvatarEvents,
+    AvatarSlots
+> {}

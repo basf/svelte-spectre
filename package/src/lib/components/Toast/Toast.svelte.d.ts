@@ -1,4 +1,4 @@
-import { SvelteComponentTyped } from "svelte";
+import { SvelteComponentTyped } from 'svelte';
 import type { Tost } from './toast';
 import type { Color } from '../../types/bg';
 import type { Icons } from '../../types/icons';
@@ -20,5 +20,8 @@ declare const __propDef: {
 export declare type ToastProps = typeof __propDef.props;
 export declare type ToastEvents = typeof __propDef.events;
 export declare type ToastSlots = typeof __propDef.slots;
-export default class Toast extends SvelteComponentTyped<ToastProps, ToastEvents, ToastSlots> {
-}
+export default class Toast extends SvelteComponentTyped<
+    ToastProps,
+    ToastEvents,
+    ToastSlots
+> {}

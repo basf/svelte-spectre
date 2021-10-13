@@ -30,7 +30,7 @@ export function reset() {
 export function render(Tag, props = {}) {
 	Tag = Tag.default || Tag;
 	const container = window.document.body;
-	const component = new Tag({ props, target: container  });
+	const component = new Tag({ props, target: container });
 	return { container, component };
 }
 

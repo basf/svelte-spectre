@@ -17,7 +17,11 @@ interface Tost {
 }
 export type { Pos, Tost };
 export declare const toast: {
-    subscribe: (this: void, run: import("svelte/store").Subscriber<any[]>, invalidate?: (value?: any[]) => void) => import("svelte/store").Unsubscriber;
+    subscribe: (
+        this: void,
+        run: import('svelte/store').Subscriber<any[]>,
+        invalidate?: (value?: any[]) => void
+    ) => import('svelte/store').Unsubscriber;
     send: (toast?: Tost) => void;
     close: (id: number) => void;
     clear: () => void;
