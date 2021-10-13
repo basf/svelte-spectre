@@ -84,11 +84,11 @@ legend {
   line-height: 1.2rem;
   padding: 0.3rem 0;
 }
-.form-label.label-sm, .form-label.label-xs {
+.form-label.label-sm, :global(.spectre) .form-label.label-xs {
   font-size: 0.7rem;
   padding: 0.1rem 0;
 }
-.form-label.label-lg, .form-label.label-xl {
+.form-label.label-lg, :global(.spectre) .form-label.label-xl {
   font-size: 0.9rem;
   padding: 0.4rem 0;
 }
@@ -126,12 +126,12 @@ legend {
 .form-input::placeholder {
   color: #bcc3ce;
 }
-.form-input.input-sm, .form-input.input-xs {
+.form-input.input-sm, :global(.spectre) .form-input.input-xs {
   font-size: 0.7rem;
   height: 1.4rem;
   padding: 0.05rem 0.3rem;
 }
-.form-input.input-lg, .form-input.input-xl {
+.form-input.input-lg, :global(.spectre) .form-input.input-xl {
   font-size: 0.9rem;
   height: 2rem;
   padding: 0.35rem 0.6rem;
@@ -145,7 +145,7 @@ legend {
   height: auto;
 }
 
-textarea.form-input, textarea.form-input.input-lg, textarea.form-input.input-sm {
+textarea.form-input, textarea.form-input.input-lg, :global(.spectre) textarea.form-input.input-xl, textarea.form-input.input-sm, :global(.spectre) textarea.form-input.input-xs {
   height: auto;
 }
 
@@ -276,19 +276,19 @@ textarea.form-input, textarea.form-input.input-lg, textarea.form-input.input-sm 
   position: absolute;
   transition: background 0.2s, border 0.2s, box-shadow 0.2s, color 0.2s;
 }
-.form-checkbox.input-sm, .form-checkbox.input-xs,
+.form-checkbox.input-sm, :global(.spectre) .form-checkbox.input-xs,
 .form-radio.input-sm,
-.form-radio.input-xs,
+:global(.spectre) .form-radio.input-xs,
 .form-switch.input-sm,
-.form-switch.input-xs {
+:global(.spectre) .form-switch.input-xs {
   font-size: 0.7rem;
   margin: 0;
 }
-.form-checkbox.input-lg, .form-checkbox.input-xl,
+.form-checkbox.input-lg, :global(.spectre) .form-checkbox.input-xl,
 .form-radio.input-lg,
-.form-radio.input-xl,
+:global(.spectre) .form-radio.input-xl,
 .form-switch.input-lg,
-.form-switch.input-xl {
+:global(.spectre) .form-switch.input-xl {
   font-size: 0.9rem;
   margin: 0.3rem 0;
 }
@@ -567,18 +567,23 @@ input:disabled + .form-icon, input.disabled + .form-icon {
   display: inline-block;
 }
 
-.form-group.d-flex {
+:global(.spectre) .form-group.d-flex {
   flex-wrap: wrap;
 }
-
-.form-icon > :global(*) {
+:global(.spectre) .form-icon {
+  width: auto;
+  height: auto;
+  margin: 0;
+}
+:global(.spectre) .form-icon > :global(.icon) {
+  margin: 0 0.25rem;
+}
+:global(.spectre) .form-icon > :global(*) {
   display: flex !important;
 }
-
-.input-xl {
+:global(.spectre) .input-xl {
   height: 2.4rem;
 }
-
-.input-xs {
+:global(.spectre) .input-xs {
   height: 1rem;
 }</style>
