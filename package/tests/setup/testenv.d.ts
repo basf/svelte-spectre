@@ -15,7 +15,11 @@ export function render(Tag: any, props?: {}): RenderOutput;
  * @param {any} [details]
  * @returns Promise<void>
  */
-export function fire(elem: HTMLElement, event: string, details?: any): Promise<void>;
+export function fire(
+    elem: HTMLElement,
+    event: string,
+    details?: any
+): Promise<void>;
 export type RenderOutput = {
     container: HTMLElement;
     component: import('svelte').SvelteComponent;
