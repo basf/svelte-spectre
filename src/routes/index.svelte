@@ -4,13 +4,22 @@
 		Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
 	</p>
 	<Hero offset="my-2" size="sm">
-		<h2>Labels</h2>
-		<Label offset="mr-1">default label</Label>
-		<Label color="primary" offset="mr-1" rounded>primary rounded</Label>
-		<Label color="secondary" offset="mr-1">secondary label</Label>
-		<Label color="success" offset="mr-1" rounded>success rounded</Label>
-		<Label color="warning" offset="mr-1">warning label</Label>
-		<Label color="error" rounded>error rounded</Label>
+		<h2>Avatars</h2>
+		<!-- <Avatar /> -->
+	</Hero>
+	<Hero offset="my-2" size="sm">
+		<h2>Badges</h2>
+		<Badge offset="mr-1">default Badge</Badge>
+		<Badge color="primary" offset="mr-1" rounded>primary rounded</Badge>
+		<Badge color="secondary" offset="mr-1">secondary Badge</Badge>
+		<Badge color="success" offset="mr-1" rounded>success rounded</Badge>
+		<Badge color="warning" offset="mr-1">warning Badge</Badge>
+		<Badge color="error" rounded>error rounded</Badge>
+		<Divider />
+		<Button variant="primary" badge>primary</Button>
+		<Button variant="secondary" badge="0">secondary</Button>
+		<Button variant="success" badge="1">success</Button>
+		<Button variant="error" badge="badge">error</Button>
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Modal</h2>
@@ -229,6 +238,11 @@
 				</Select>
 			</FormGroup>
 			<FormGroup>
+				<Select options={questions} bind:value={selected} multiple let:option>
+					{option.text}
+				</Select>
+			</FormGroup>
+			<FormGroup>
 				<h4>Radio</h4>
 				<Radio label="Radios" radios={questions} bind:group={radios} let:radio>
 					{radio.text}
@@ -294,6 +308,8 @@
 <script context="module" lang="ts">
 	import {
 		Accordion,
+		Avatar,
+		Badge,
 		Button,
 		ButtonGroup,
 		Card,
@@ -310,7 +326,6 @@
 		IconButton,
 		Input,
 		InputGroup,
-		Label,
 		Modal,
 		Radio,
 		Range,
@@ -331,7 +346,7 @@
 				text: `What is another personal fact that an attacker could easily find with Google?`,
 			},
 		],
-		selected = 1,
+		selected = [1],
 		radios = 1;
 
 	$: console.log(selected, radios, $toast);
