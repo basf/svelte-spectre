@@ -3,13 +3,13 @@ import * as assert from 'uvu/assert';
 import * as ENV from '../../setup/testenv';
 
 import { Toast } from '../../../src/lib/components/Toast';
-const tost = { invert: false, close: true, icon: 'emoji', timeout: 1000 };
+const toastItem = { invert: false, close: true, icon: 'emoji', timeout: 1000 };
 
 test.before(ENV.setup);
 test.before.each(ENV.reset);
 
 test('check Toast', () => {
-    const { container, component } = ENV.render(Toast, { tost });
+    const { container, component } = ENV.render(Toast, { toastItem });
     console.log(container, component);
     const toast = container.querySelector('.toast');
     assert.is(toast.innerHTML.includes(`Default text`), true);
