@@ -9,7 +9,8 @@
 	class:has-icon-left={$$slots.iconLeft}
 	class:has-icon-right={$$slots.iconRight}
 	class:col-8={$$slots.default}
-	class="col col-{expand}-12"
+	class:flex-none={width}
+	class="{width && `col-${width}`} col-{expand}-12"
 >
 	{#if rows > 1}
 		<textarea
@@ -69,6 +70,7 @@
 	export let validity: Validity = false;
 	export let size: Size = 'md';
 	export let expand: Size = 'xs';
+	export let width: string = '';
 
 	const fid: string = uuid();
 </script>
@@ -77,6 +79,9 @@
 	@import 'spectre.css/src/forms';
 
 	:global(.spectre) {
+		.flex-none {
+			flex: none;
+		}
 		.form-group {
 			&.d-flex {
 				flex-wrap: wrap;
