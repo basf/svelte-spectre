@@ -3,24 +3,15 @@
 	use:pausable={toastItem.timeout > 0}
 	transition:fade
 >
-	<Grid align="center">
-		{#if toastItem.icon}
-			<Col col="auto">
-				<Icon icon={toastItem.icon} />
-			</Col>
-		{/if}
-		<Col inset="py-2">
-			<slot>
-				{#if toastItem.title}<h5>{toastItem.title}</h5>{/if}
-				{#if toastItem.msg}<p>{toastItem.msg}</p>{/if}
-			</slot>
-		</Col>
-		{#if toastItem.close}
-			<Col col="auto" inset="px-0">
-				<IconButton icon="cross" on:click={close} />
-			</Col>
-		{/if}
-	</Grid>
+	{#if toastItem.icon}
+		<Icon icon={toastItem.icon} offset="mr-2" />
+	{/if}
+	<div class="toast-content">
+		<slot />
+	</div>
+	{#if toastItem.close}
+		<IconButton icon="cross" on:click={close} />
+	{/if}
 	{#if toastItem.timeout}
 		<Progress value={$progress} {invert} />
 	{/if}
@@ -30,8 +21,6 @@
 	import { fade } from 'svelte/transition';
 	import { tweened } from 'svelte/motion';
 	import { linear } from 'svelte/easing';
-	import Col from '../../layouts/Grid/Col.svelte';
-	import Grid from '../../layouts/Grid/Grid.svelte';
 	import IconButton from '../Button/IconButton.svelte';
 	import Icon from '../Icon/Icon.svelte';
 	import Progress from '../Progress/Progress.svelte';
@@ -120,9 +109,16 @@
 
 		.toast {
 			position: relative;
-			padding-top: 0;
-			padding-bottom: 0;
+			padding: 0;
+			padding-left: $unit-2;
 			word-wrap: break-word;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			.toast-content {
+				flex-direction: column;
+				padding: $unit-2 0;
+			}
 			:global(.btn-link) {
 				color: currentColor;
 				opacity: 1;

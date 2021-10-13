@@ -79,7 +79,8 @@
 						{/if}
 						<br />
 						<Toast toastItem={{ invert: false, close: true }}
-							>I'm pure static Toast</Toast
+							><h5>header</h5>
+							I'm pure static Toast</Toast
 						>
 					</Col>
 				</Grid>
@@ -87,16 +88,19 @@
 			<Divider align="vertical" />
 			<Col>
 				<h5>Toaster</h5>
-				<ButtonGroup>
-					{#each positions as pos, i}
-						<IconButton
-							icon=""
-							variant="default"
-							on:click={(e) => toast.success({ msg: pos, pos: pos, timeout: 1000 })}
-							>{arrows[i]}</IconButton
-						>
-					{/each}
-				</ButtonGroup>
+				<div class="toaster-grid">
+					<ButtonGroup>
+						{#each positions as pos, i}
+							<IconButton
+								icon=""
+								variant="default"
+								on:click={(e) =>
+									toast.success({ msg: pos, pos: pos, timeout: 1000 })}
+								>{arrows[i]}</IconButton
+							>
+						{/each}
+					</ButtonGroup>
+				</div>
 			</Col>
 		</Grid>
 	</Hero>
@@ -325,19 +329,19 @@
 
 	let loading = false,
 		positions: Pos[] = [
+			'top_left',
 			'top_center',
 			'top_right',
-			'center_right',
-			'bottom_right',
-			'bottom_center',
-			'bottom_left',
 			'center_left',
-			'top_left',
 			'center_center',
+			'center_right',
+			'bottom_left',
+			'bottom_center',
+			'bottom_right',
 		],
 		tostVis: boolean,
 		modalVis: boolean,
-		arrows: string[] = ['↑', '↗', '→', '↘', '↓', '↙', '←', '↖', '☩'];
+		arrows: string[] = ['↖', '↑', '↗', '←', '☩', '→', '↙', '↓', '↘'];
 
 	const CARDS = [
 		{
@@ -378,5 +382,16 @@
 <style lang="scss">
 	:global(.loading) {
 		pointer-events: auto !important;
+	}
+	.toaster-grid {
+		:global(.btn-group) {
+			gap: 0.25rem;
+		}
+		:global(.btn-group > button) {
+			flex: 1 0 30%;
+
+			// display: grid;
+			// grid-template-columns: ;
+		}
 	}
 </style>

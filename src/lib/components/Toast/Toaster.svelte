@@ -4,7 +4,10 @@
 			<ul class="toast-list pos-{pos}">
 				{#each toasted(pos) as toastItem, i (toastItem.id)}
 					<li in:fly={flying(toastItem.pos)} animate:flip={{ duration: 250 }}>
-						<Toast {toastItem} invert reverse />
+						<Toast {toastItem} invert reverse>
+							{#if toastItem.title}<h5>{toastItem.title}</h5>{/if}
+							{#if toastItem.msg}<p>{toastItem.msg}</p>{/if}
+						</Toast>
 					</li>
 				{/each}
 			</ul>
