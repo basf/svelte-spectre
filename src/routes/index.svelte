@@ -174,7 +174,10 @@
 				<Input validity="success">Success</Input>
 			</FormGroup>
 			<FormGroup>
-				<Input validity="error">Error</Input>
+				<Input validity="error">Error <Icon slot="iconRight" icon="emoji" /></Input>
+			</FormGroup>
+			<FormGroup>
+				<Input validity="error">Error <IconButton slot="iconRight" icon="emoji" /></Input>
 			</FormGroup>
 		</Form>
 		<Form>

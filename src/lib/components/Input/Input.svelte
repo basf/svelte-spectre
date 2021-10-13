@@ -76,26 +76,36 @@
 <style lang="scss">
 	@import 'spectre.css/src/forms';
 
-	.form-group {
-		&.d-flex {
-			flex-wrap: wrap;
+	:global(.spectre) {
+		.form-group {
+			&.d-flex {
+				flex-wrap: wrap;
+			}
 		}
-	}
-	.form-icon > :global(*) {
-		display: flex !important;
-	}
-	.label-xl {
-		@extend .label-lg;
-	}
-	.label-xs {
-		@extend .label-sm;
-	}
-	.input-xl {
-		@extend .input-lg;
-		height: $unit-12;
-	}
-	.input-xs {
-		@extend .input-sm;
-		height: $unit-5;
+		.form-icon {
+			width: auto;
+			height: auto;
+			margin: 0;
+			& > :global(.icon) {
+				margin: 0 0.25rem;
+			}
+			& > :global(*) {
+				display: flex !important;
+			}
+		}
+		.label-xl {
+			@extend .label-lg;
+		}
+		.label-xs {
+			@extend .label-sm;
+		}
+		.input-xl {
+			@extend .input-lg;
+			height: $unit-12;
+		}
+		.input-xs {
+			@extend .input-sm;
+			height: $unit-5;
+		}
 	}
 </style>
