@@ -76,12 +76,13 @@
 			<Divider align="vertical" />
 			<Col>
 				<h5>Toaster</h5>
-				{#each positions as pos}
+				{#each positions as pos, i}
 					<IconButton
-						icon="message"
+						icon="↑"
 						variant="default"
 						on:click={(e) => toast.success({ msg: pos, pos: pos, timeout: 1000 })}
-					/>
+						>{arrows[i]}</IconButton
+					>
 				{/each}
 			</Col>
 		</Grid>
@@ -95,13 +96,6 @@
 		>
 			<Icon icon="emoji" offset="mr-2" />Button
 		</Button>
-		{#each positions as pos}
-			<IconButton
-				icon="message"
-				variant="default"
-				on:click={(e) => toast.success({ msg: pos, pos: pos, timeout: 5000 })}
-			/>
-		{/each}
 		<IconButton
 			size="xxl"
 			variant="success"
@@ -343,7 +337,8 @@
 			'center_center',
 		],
 		tostVis: boolean,
-		modalVis: boolean;
+		modalVis: boolean,
+		arrows: string[] = ['↑', '↗', '→', '↘', '↓', '↙', '←', '↖', '☩'];
 
 	const CARDS = [
 		{
