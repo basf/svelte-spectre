@@ -91,6 +91,7 @@
 		"./components/Tabs/Tabs.svelte": "./components/Tabs/Tabs.svelte",
 		"./components/Tabs": "./components/Tabs/index.js",
 		"./components/Toast/Toast.svelte": "./components/Toast/Toast.svelte",
+		"./components/Toast/Toast.uvu": "./components/Toast/Toast.uvu.js",
 		"./components/Toast/Toaster.svelte": "./components/Toast/Toaster.svelte",
 		"./components/Toast": "./components/Toast/index.js",
 		"./components/Toast/positions": "./components/Toast/positions.js",

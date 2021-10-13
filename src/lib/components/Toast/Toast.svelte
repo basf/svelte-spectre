@@ -1,24 +1,18 @@
 <div
-	class="toast {tost.type && `toast-${tost.type}`}"
-	use:pausable={tost.timeout > 0}
+	class="toast {toastItem.type && `toast-${toastItem.type}`}"
+	use:pausable={toastItem.timeout > 0}
 	transition:fade
 >
-	<Grid align="center">
-		{#if tost.icon}
-			<Col col="auto">
-				<Icon icon={tost.icon} />
-			</Col>
-		{/if}
-		<Col inset="py-2">
-			<slot>Default text</slot>
-		</Col>
-		{#if tost.close}
-			<Col col="auto" inset="px-0">
-				<IconButton icon="cross" on:click={close} />
-			</Col>
-		{/if}
-	</Grid>
-	{#if tost.timeout}
+	{#if toastItem.icon}
+		<Icon icon={toastItem.icon} offset="mr-2" />
+	{/if}
+	<div class="toast-content">
+		<slot />
+	</div>
+	{#if toastItem.close}
+		<IconButton icon="cross" on:click={close} />
+	{/if}
+	{#if toastItem.timeout}
 		<Progress value={$progress} {invert} />
 	{/if}
 </div>
@@ -29,57 +23,70 @@
 	import { linear } from 'svelte/easing';
 	import IconButton from '../Button/IconButton.svelte';
 	import Icon from '../Icon/Icon.svelte';
-	import Grid from '../../layouts/Grid/Grid.svelte';
-	import Col from '../../layouts/Grid/Col.svelte';
 	import Progress from '../Progress/Progress.svelte';
 	import { toast } from './toast';
 
 	import type { Tweened } from 'svelte/motion';
-	import type { Tost } from './toast';
+	import type { ToastItem } from './toast';
 	import type { Color } from '../../types/bg';
 	import type { Icons } from '../../types/icons';
 
-	type Options = {
+	interface Options {
 		delay?: number;
 		duration?: number;
 		easing?: (t: number) => number;
 		interpolate?: (a: number, b: number) => (t: number) => number;
-	};
+	}
 
-	export type { Color, Icons, Tost };
+	export type { Color, Icons, ToastItem };
 </script>
 
 <script lang="ts">
-	export let tost: Tost;
-	export let invert: boolean = tost.invert;
-	export let reverse: boolean = tost.reverse;
-	export let stack: boolean;
+	export let toastItem: ToastItem = {
+		id: 0,
+		type: 'initial',
+		title: 'title',
+		msg: 'msg',
+		icon: '',
+		close: true,
+		timeout: 0,
+		init: 0,
+		next: 1,
+		invert: false,
+		reverse: false,
+		pos: '',
+	};
+	export let invert: boolean = toastItem.invert;
+	export let reverse: boolean = toastItem.reverse;
 	export let visible: boolean = true;
 
 	let init: number = reverse ? 1 : 0,
 		next: number = reverse ? 0 : 1,
 		start: number = Date.now(),
-		remaining: number = tost.timeout,
+		remaining: number = toastItem.timeout,
 		options: Options = { duration: remaining };
 
 	const defaults: Options = { delay: 0, duration: 0, easing: linear };
 	const progress: Tweened<number> = tweened(init, { ...defaults });
 
-	const autoclose = () =>
-		($progress === 1 || $progress === 0) && stack ? toast.close(tost.id) : (visible = false);
+	$: progress.set(next, options).then(autoclose);
 
-	progress.set(next, options).then(() => tost.timeout && visible && autoclose());
+	const autoclose = () => toastItem.timeout && $progress % 1 === 0 && close();
+
+	const close = () => {
+		toast.close(toastItem.id);
+		visible = false;
+	};
 
 	const pause = () => {
 		remaining -= Date.now() - start;
-		progress.set($progress, { duration: 0 });
+		next = $progress;
+		options = { duration: 0 };
 	};
 	const resume = () => {
 		start = Date.now();
-		progress.set(next, { duration: remaining }).then(autoclose);
-	};
-	const close = () => {
-		progress.set(0, { duration: 0 }).then(autoclose);
+		next = reverse ? 0 : 1;
+		options = { duration: remaining };
 	};
 
 	function pausable(node: HTMLElement, paused: boolean) {
@@ -102,9 +109,16 @@
 
 		.toast {
 			position: relative;
-			padding-top: 0;
-			padding-bottom: 0;
+			padding: 0;
+			padding-left: $unit-2;
 			word-wrap: break-word;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			.toast-content {
+				flex-direction: column;
+				padding: $unit-2 0;
+			}
 			:global(.btn-link) {
 				color: currentColor;
 				opacity: 1;

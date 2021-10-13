@@ -1,8 +1,7 @@
 import type { Icons } from '../../types/icons';
 import type { Color } from '../../types/bg';
 import type { Pos } from './positions';
-export type { Pos, Tost };
-declare type Tost = {
+interface ToastItem {
     id?: number;
     type?: Color;
     title?: string;
@@ -15,19 +14,20 @@ declare type Tost = {
     invert?: boolean;
     reverse?: boolean;
     pos?: Pos;
-};
+}
+export type { Pos, ToastItem };
 export declare const toast: {
     subscribe: (
         this: void,
         run: import('svelte/store').Subscriber<any[]>,
         invalidate?: (value?: any[]) => void
     ) => import('svelte/store').Unsubscriber;
-    send: (toast?: Tost) => void;
+    send: (toast?: ToastItem) => void;
     close: (id: number) => void;
     clear: () => void;
-    default: (toast?: Tost) => void;
-    error: (toast?: Tost) => void;
-    warning: (toast?: Tost) => void;
-    primary: (toast?: Tost) => void;
-    success: (toast?: Tost) => void;
+    default: (toast?: ToastItem) => void;
+    error: (toast?: ToastItem) => void;
+    warning: (toast?: ToastItem) => void;
+    primary: (toast?: ToastItem) => void;
+    success: (toast?: ToastItem) => void;
 };

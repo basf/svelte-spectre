@@ -2,11 +2,11 @@
 	<section class="toaster">
 		{#each positions as pos}
 			<ul class="toast-list pos-{pos}">
-				{#each toasted(pos) as tost, i (tost.id)}
-					<li in:fly={flying(tost.pos)} animate:flip={{ duration: 250 }}>
-						<Toast {tost} invert reverse stack>
-							{#if tost.title}<h5>{tost.title}</h5>{/if}
-							<p>{tost.msg}</p>
+				{#each toasted(pos) as toastItem, i (toastItem.id)}
+					<li in:fly={flying(toastItem.pos)} animate:flip={{ duration: 250 }}>
+						<Toast {toastItem} invert reverse>
+							{#if toastItem.title}<h5>{toastItem.title}</h5>{/if}
+							{#if toastItem.msg}<p>{toastItem.msg}</p>{/if}
 						</Toast>
 					</li>
 				{/each}
