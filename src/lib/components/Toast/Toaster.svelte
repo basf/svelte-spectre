@@ -2,9 +2,9 @@
 	<section class="toaster">
 		{#each positions as pos}
 			<ul class="toast-list pos-{pos}">
-				{#each toasted(pos) as tost, i (tost.id)}
-					<li in:fly={flying(tost.pos)} animate:flip={{ duration: 250 }}>
-						<Toast {tost} invert reverse />
+				{#each toasted(pos) as toastItem, i (toastItem.id)}
+					<li in:fly={flying(toastItem.pos)} animate:flip={{ duration: 250 }}>
+						<Toast {toastItem} invert reverse />
 					</li>
 				{/each}
 			</ul>
