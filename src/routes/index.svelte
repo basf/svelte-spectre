@@ -4,6 +4,30 @@
 		Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
 	</p>
 	<Hero offset="my-2" size="sm">
+		<h2>Figure</h2>
+		<Grid stack>
+			<Col col="4" sm="12">
+				<Figure src="img/osx-el-capitan-2.jpg" alt="macOS Yosemite Wallpaper" contain />
+			</Col>
+			<Col col="4" sm="12">
+				<Figure
+					src="img/osx-yosemite.jpg"
+					alt="macOS Yosemite Wallpaper"
+					contain
+					caption="img-fit-contain"
+				/>
+			</Col>
+			<Col col="4" sm="12">
+				<Figure
+					src="img/osx-yosemite-2.jpg"
+					alt="macOS Yosemite Wallpaper"
+					cover
+					caption="img-fit-cover"
+				/>
+			</Col>
+		</Grid>
+	</Hero>
+	<Hero offset="my-2" size="sm">
 		<h2>Modal</h2>
 		<Button on:click={() => (modalVis = !modalVis)}>Open Modal</Button>
 		<Modal bind:open={modalVis} size="md">
@@ -306,6 +330,7 @@
 		IconButton,
 		Input,
 		InputGroup,
+		Figure,
 		Modal,
 		Radio,
 		Range,
