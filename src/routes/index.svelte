@@ -30,6 +30,10 @@
 		<Button variant="error" badge="badge">error</Button>
 	</Hero>
 	<Hero offset="my-2" size="sm">
+		<h2>Breadcrumbs</h2>
+		<Breadcrumbs {links} />
+	</Hero>
+	<Hero offset="my-2" size="sm">
 		<h2>Chips</h2>
 		<Chip>Chip</Chip>
 		<Chip initial="CP">Chip</Chip>
@@ -316,14 +320,12 @@
 			<Divider align="vertical" text="RIGHT" />
 		</Grid>
 	</Hero>
-
 	<Empty offset="">
 		<Icon slot="icon" icon="home" size="3x" color="primary" />
 		<h1 slot="title">Title</h1>
 		<p slot="subtitle">Subtitle</p>
 		<Button slot="action" variant="primary">Action</Button>
 	</Empty>
-	<!-- <Empty icon="home" titleSize="h1" buttonVariant="primary" buttonHref="#_" /> -->
 	<Hero offset="my-2" bg="dark" />
 </Container>
 
@@ -333,6 +335,7 @@
 		Avatar,
 		Badge,
 		Button,
+		Breadcrumbs,
 		ButtonGroup,
 		Card,
 		Col,
@@ -358,7 +361,7 @@
 		Toast,
 		toast,
 	} from '$lib';
-	import type { Pos, Row } from '$lib';
+	import type { Pos, Row, Link } from '$lib';
 </script>
 
 <script lang="ts">
@@ -372,11 +375,13 @@
 		],
 		selected = 1,
 		multi = [1],
-		radios = 1;
-
-	$: console.log(selected, radios, $toast);
-
-	let loading = false,
+		radios = 1,
+		links: Link[] = [
+			{ href: 'href', title: 'link1' },
+			{ href: 'href', title: 'link2' },
+			{ href: 'href', title: 'link3' },
+		],
+		loading = false,
 		positions: Pos[] = [
 			'top_left',
 			'top_center',
