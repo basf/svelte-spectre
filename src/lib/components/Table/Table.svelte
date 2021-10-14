@@ -14,7 +14,7 @@
 	</thead>
 	<tbody>
 		{#each rows as row}
-			<tr class:active={row}>
+			<tr>
 				{#each cols as col}
 					<td>{row[col]}</td>
 				{/each}
