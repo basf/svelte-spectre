@@ -4,6 +4,16 @@
 		Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
 	</p>
 	<Hero offset="my-2" size="sm">
+		<h2>Chips</h2>
+		<Chip initial="CP" status="busy" closable>
+			<img slot="avatar" src="../img/avatar-1.png" alt="Thor Odinson" />Chip
+		</Chip>
+		<Avatar initial="CP" status="busy">
+			<img src="../img/avatar-1.png" alt="Thor Odinson" />
+			<!-- <img slot="sub" src="../img/avatar-1.png" alt="Thor Odinson" /> -->
+		</Avatar>
+	</Hero>
+	<Hero offset="my-2" size="sm">
 		<h2>Modal</h2>
 		<Button on:click={() => (modalVis = !modalVis)}>Open Modal</Button>
 		<Modal bind:open={modalVis} size="md">
@@ -290,12 +300,14 @@
 <script context="module" lang="ts">
 	import {
 		Accordion,
+		Avatar,
 		Button,
 		ButtonGroup,
 		Card,
 		Col,
 		Container,
 		Checkbox,
+		Chip,
 		Divider,
 		Empty,
 		Form,
