@@ -371,7 +371,7 @@
 		],
 		tostVis: boolean,
 		modalVis: boolean,
-		arrows: string[] = ['↑', '↗', '→', '↘', '↓', '↙', '←', '↖', '☩'],
+		arrows: string[] = ['↖', '↑', '↗', '←', '☩', '→', '↙', '↓', '↘'],
 		table = {
 			cols: ['name', 'genre', 'release'],
 			rows: [
