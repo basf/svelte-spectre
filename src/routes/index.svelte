@@ -224,7 +224,7 @@
 				</Select>
 			</FormGroup>
 			<FormGroup>
-				<Select options={questions} bind:value={selected} multiple let:option>
+				<Select options={questions} bind:value={multi} multiple let:option>
 					{option.text}
 				</Select>
 			</FormGroup>
@@ -332,8 +332,12 @@
 			},
 		],
 		selected = 1,
-		radios = 1,
-		loading = false,
+		multi = [1],
+		radios = 1;
+
+	$: console.log(selected, radios, $toast);
+
+	let loading = false,
 		positions: Pos[] = [
 			'top_left',
 			'top_center',
