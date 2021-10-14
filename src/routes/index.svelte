@@ -238,7 +238,7 @@
 				</Select>
 			</FormGroup>
 			<FormGroup>
-				<Select options={questions} bind:value={selected} multiple let:option>
+				<Select options={questions} bind:value={multi} multiple let:option>
 					{option.text}
 				</Select>
 			</FormGroup>
@@ -346,7 +346,8 @@
 				text: `What is another personal fact that an attacker could easily find with Google?`,
 			},
 		],
-		selected = [1],
+		selected = 1,
+		multi = [1],
 		radios = 1;
 
 	$: console.log(selected, radios, $toast);
