@@ -4,14 +4,26 @@
 		Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
 	</p>
 	<Hero offset="my-2" size="sm">
+		<h2>Avatars</h2>
+		<Avatar initial="AV" size="sm" />
+		<Avatar initial="AV" status="online" />
+		<Avatar status="busy" size="lg">
+			<img src="../img/avatar-1.png" alt="Thor Odinson" />
+		</Avatar>
+		<Avatar size="xl">
+			<img src="../img/avatar-1.png" alt="Thor Odinson" />
+			<img slot="sub" src="../img/avatar-1.png" alt="Thor Odinson" />
+		</Avatar>
+	</Hero>
+	<Hero offset="my-2" size="sm">
 		<h2>Chips</h2>
+		<Chip>Chip</Chip>
+		<Chip initial="CP">Chip</Chip>
+		<Chip initial="CP" status="online">Chip</Chip>
+		<Chip initial="CP" status="busy" closable>Chip</Chip>
 		<Chip initial="CP" status="busy" closable>
 			<img slot="avatar" src="../img/avatar-1.png" alt="Thor Odinson" />Chip
 		</Chip>
-		<Avatar initial="CP" status="busy">
-			<img src="../img/avatar-1.png" alt="Thor Odinson" />
-			<!-- <img slot="sub" src="../img/avatar-1.png" alt="Thor Odinson" /> -->
-		</Avatar>
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Modal</h2>
