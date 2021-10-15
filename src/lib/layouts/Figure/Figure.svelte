@@ -1,15 +1,14 @@
 <figure class="figure {offset}">
-	<slot>
+	<slot name="img">
 		<img
 			class="img-responsive"
 			class:img-fit-contain={contain}
 			class:img-fit-cover={cover}
-			{src}
-			{alt}
+			{...$$restProps}
 		/>
 	</slot>
-	{#if caption}
-		<figcaption class="figure-caption text-{align}">{caption}</figcaption>
+	{#if $$slots.default}
+		<figcaption class="figure-caption text-{align}"><slot /></figcaption>
 	{/if}
 </figure>
 
@@ -23,9 +22,6 @@
 	export let offset: Offset = '';
 	export let contain: boolean = false;
 	export let cover: boolean = false;
-	export let src: string = '';
-	export let alt: string = '';
-	export let caption: string = '';
 	export let align: Align = 'center';
 </script>
 
