@@ -16,12 +16,12 @@ interface ToastItem {
     next?: number,
     invert?: boolean,
     reverse?: boolean,
-    pos?: Pos
+    pos?: Pos;
 }
 
-export type { Pos, ToastItem }
+export type { Pos, ToastItem };
 
-const defaults: ToastItem = { close: true, pos: 'top_center' }
+const defaults: ToastItem = { close: true, pos: 'top_center' };
 
 function createToast() {
     const { subscribe, set, update } = writable([]);
@@ -51,7 +51,7 @@ function createToast() {
         primary: (toast: ToastItem = {}) =>
             send({ type: 'primary', icon: 'flag', ...toast }),
         success: (toast: ToastItem = {}) =>
-            send({ type: 'success', icon: 'emoji', ...toast }),
+            send({ type: 'success', icon: 'check', ...toast }),
     };
 }
 
