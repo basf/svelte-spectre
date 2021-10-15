@@ -10,10 +10,8 @@ interface ToastItem {
     title?: string,
     msg?: string,
     icon?: Icons,
-    close?: boolean,
+    closable?: boolean,
     timeout?: number,
-    init?: number,
-    next?: number,
     invert?: boolean,
     reverse?: boolean,
     pos?: Pos;
@@ -21,7 +19,7 @@ interface ToastItem {
 
 export type { Pos, ToastItem };
 
-const defaults: ToastItem = { close: true, pos: 'top_center' };
+const defaults: ToastItem = { closable: true, pos: 'top_center' };
 
 function createToast() {
     const { subscribe, set, update } = writable([]);
