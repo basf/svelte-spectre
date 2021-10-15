@@ -56,21 +56,7 @@
 						>
 					</Col>
 					<Col>
-						<Toast
-							bind:visible={tostVis}
-							offset="m-2"
-							toastItem={{
-								id: 1,
-								timeout: 1000,
-								close: true,
-								icon: 'home',
-								type: 'primary',
-							}}>Toast</Toast
-						>
-						<Toast
-							bind:visible={tostVis}
-							offset="m-2"
-							toastItem={{ invert: false, close: true }}
+						<Toast bind:visible={tostVis} toastItem={{ invert: false, close: true }}
 							><h5>header</h5>
 							I'm pure static Toast</Toast
 						>

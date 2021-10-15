@@ -2,7 +2,6 @@
 	<div
 		class="toast {toastItem.type && `toast-${toastItem.type}`} {offset}"
 		use:pausable={toastItem.timeout > 0}
-		in:fade
 	>
 		{#if toastItem.icon}
 			<Icon icon={toastItem.icon} offset="mr-2" />

@@ -2,7 +2,6 @@
 	<div
 		class="toast {toastItem.type && `toast-${toastItem.type}`} {offset}"
 		use:pausable={toastItem.timeout > 0}
-		in:fade
 	>
 		{#if toastItem.icon}
 			<Icon icon={toastItem.icon} offset="mr-2" />
@@ -19,7 +18,7 @@
 	</div>
 {/if}
 
-<script context="module" >import { fade } from 'svelte/transition';
+<script context="module" >import 'svelte/transition';
 import { tweened } from 'svelte/motion';
 import { linear } from 'svelte/easing';
 import IconButton from '../Button/IconButton.svelte';
