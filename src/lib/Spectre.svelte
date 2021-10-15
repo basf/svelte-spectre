@@ -85,6 +85,7 @@
 			}
 			.mb--2 {
 				margin-bottom: -$unit-2;
+			}
 			.m-auto {
 				margin: auto;
 			}
