@@ -7,6 +7,20 @@ export type { Color, Icons, ToastItem };
 declare const __propDef: {
     props: {
         toastItem?: ToastItem;
+        id?: number;
+        type?:
+            | 'primary'
+            | 'secondary'
+            | 'success'
+            | 'error'
+            | 'initial'
+            | 'dark'
+            | 'gray'
+            | 'light'
+            | 'warning';
+        icon?: Icons;
+        timeout?: number;
+        closable?: true;
         invert?: boolean;
         reverse?: boolean;
         visible?: boolean;

@@ -56,10 +56,10 @@
 						>
 					</Col>
 					<Col>
-						<Toast bind:visible={tostVis} toastItem={{ invert: false, close: true }}
-							><h5>header</h5>
-							I'm pure static Toast</Toast
-						>
+						<Toast bind:visible={tostVis} type="initial">
+							<h5>header</h5>
+							I'm pure static Toast
+						</Toast>
 					</Col>
 				</Grid>
 			</Col>
