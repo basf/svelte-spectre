@@ -28,7 +28,9 @@ import Progress from '../Progress/Progress.svelte';
 import { toast } from './toast';
 </script>
 
-<script >export let toastItem = {
+<script >import { createEventDispatcher } from 'svelte';
+const dispatch = createEventDispatcher();
+export let toastItem = {
     id: 0,
     type: 'initial',
     title: 'title',
@@ -52,6 +54,7 @@ const progress = tweened(init, { ...defaults });
 $: progress.set(next, options).then(autoclose);
 const autoclose = () => toastItem.timeout && $progress % 1 === 0 && close();
 const close = () => {
+    dispatch('close', toastItem.id);
     toast.close(toastItem.id);
     visible = false;
 };

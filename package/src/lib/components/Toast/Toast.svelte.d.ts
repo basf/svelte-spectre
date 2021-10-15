@@ -13,6 +13,8 @@ declare const __propDef: {
         offset?: Offset;
     };
     events: {
+        close: CustomEvent<any>;
+    } & {
         [evt: string]: CustomEvent<any>;
     };
     slots: {

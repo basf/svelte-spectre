@@ -23,6 +23,7 @@
 	import { fade } from 'svelte/transition';
 	import { tweened } from 'svelte/motion';
 	import { linear } from 'svelte/easing';
+
 	import IconButton from '../Button/IconButton.svelte';
 	import Icon from '../Icon/Icon.svelte';
 	import Progress from '../Progress/Progress.svelte';
@@ -45,6 +46,9 @@
 </script>
 
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+
 	export let toastItem: ToastItem = {
 		id: 0,
 		type: 'initial',
@@ -78,6 +82,7 @@
 	const autoclose = () => toastItem.timeout && $progress % 1 === 0 && close();
 
 	const close = () => {
+		dispatch('close', toastItem.id);
 		toast.close(toastItem.id);
 		visible = false;
 	};
