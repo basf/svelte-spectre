@@ -40,6 +40,10 @@ type Offset =
     | 'mr-1'
     | 'mr-2'
     | 'mr-auto'
+    | 'm-0'
+    | 'm-1'
+    | 'm-2'
+    | 'm-auto'
     | '';
 
 /* global inset rules */
@@ -62,4 +66,7 @@ type Inset =
     | 'pr-0'
     | 'pr-1'
     | 'pr-2'
+    | 'p-0'
+    | 'p-1'
+    | 'p-2'
     | '';

@@ -1604,4 +1604,7 @@
 }
 .spectre :global(.mb-auto) {
   margin-bottom: auto;
+}
+.spectre :global(.m-auto) {
+  margin: auto;
 }</style>
