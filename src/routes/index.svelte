@@ -70,7 +70,6 @@
 					<ButtonGroup>
 						{#each positions as pos, i}
 							<IconButton
-								icon=""
 								variant="default"
 								on:click={(e) =>
 									toast.success({ msg: pos, pos: pos, timeout: 1000 })}
