@@ -58,7 +58,6 @@
 	"exports": {
 		"./package.json": "./package.json",
 		"./Spectre.svelte": "./Spectre.svelte",
-		"./components/.DS_Store": "./components/.DS_Store",
 		"./components/Accordion/Accordion.svelte": "./components/Accordion/Accordion.svelte",
 		"./components/Accordion": "./components/Accordion/index.js",
 		"./components/Avatar/Avatar.svelte": "./components/Avatar/Avatar.svelte",
