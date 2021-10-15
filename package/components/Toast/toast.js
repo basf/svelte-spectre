@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-const defaults = { close: true, pos: 'top_center' };
+const defaults = { closable: true, pos: 'top_center' };
 function createToast() {
 	const { subscribe, set, update } = writable([]);
 	let id = 0;

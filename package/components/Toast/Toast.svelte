@@ -1,24 +1,21 @@
-<div
-	class="toast {toastItem.type && `toast-${toastItem.type}`}"
-	use:pausable={toastItem.timeout > 0}
-	transition:fade
->
-	{#if toastItem.icon}
-		<Icon icon={toastItem.icon} offset="mr-2" />
-	{/if}
-	<div class="toast-content">
-		<slot />
+{#if visible}
+	<div class="toast {type && `toast-${type}`} {offset}" use:pausable={timeout > 0}>
+		{#if icon}
+			<Icon {icon} offset="mr-2" />
+		{/if}
+		<div class="toast-content">
+			<slot />
+		</div>
+		{#if closable}
+			<IconButton icon="cross" on:click={close} />
+		{/if}
+		{#if timeout}
+			<Progress value={$progress} {invert} />
+		{/if}
 	</div>
-	{#if toastItem.close}
-		<IconButton icon="cross" on:click={close} />
-	{/if}
-	{#if toastItem.timeout}
-		<Progress value={$progress} {invert} />
-	{/if}
-</div>
+{/if}
 
-<script context="module" >import { fade } from 'svelte/transition';
-import { tweened } from 'svelte/motion';
+<script context="module" >import { tweened } from 'svelte/motion';
 import { linear } from 'svelte/easing';
 import IconButton from '../Button/IconButton.svelte';
 import Icon from '../Icon/Icon.svelte';
@@ -26,30 +23,26 @@ import Progress from '../Progress/Progress.svelte';
 import { toast } from './toast';
 </script>
 
-<script >export let toastItem = {
-    id: 0,
-    type: 'initial',
-    title: 'title',
-    msg: 'msg',
-    icon: '',
-    close: true,
-    timeout: 0,
-    init: 0,
-    next: 1,
-    invert: false,
-    reverse: false,
-    pos: '',
-};
-export let invert = toastItem.invert;
-export let reverse = toastItem.reverse;
+<script >import { createEventDispatcher } from 'svelte';
+const dispatch = createEventDispatcher();
+export let toastItem = {};
+export let id = toastItem.id || 0;
+export let type = toastItem.type || 'initial';
+export let icon = toastItem.icon;
+export let timeout = toastItem.timeout || 0;
+export let closable = toastItem.closable || true;
+export let invert = toastItem.invert || false;
+export let reverse = toastItem.reverse || false;
 export let visible = true;
+export let offset = '';
 let init = reverse ? 1 : 0, next = reverse ? 0 : 1, start = Date.now(), remaining = toastItem.timeout, options = { duration: remaining };
 const defaults = { delay: 0, duration: 0, easing: linear };
 const progress = tweened(init, { ...defaults });
 $: progress.set(next, options).then(autoclose);
-const autoclose = () => toastItem.timeout && $progress % 1 === 0 && close();
+const autoclose = () => timeout && $progress % 1 === 0 && close();
 const close = () => {
-    toast.close(toastItem.id);
+    dispatch('close', id);
+    toast.close(id);
     visible = false;
 };
 const pause = () => {
