@@ -1,21 +1,23 @@
-<div
-	class="toast {toastItem.type && `toast-${toastItem.type}`} {offset}"
-	use:pausable={toastItem.timeout > 0}
-	transition:fade
->
-	{#if toastItem.icon}
-		<Icon icon={toastItem.icon} offset="mr-2" />
-	{/if}
-	<div class="toast-content">
-		<slot />
+{#if visible}
+	<div
+		class="toast {toastItem.type && `toast-${toastItem.type}`} {offset}"
+		use:pausable={toastItem.timeout > 0}
+		transition:fade
+	>
+		{#if toastItem.icon}
+			<Icon icon={toastItem.icon} offset="mr-2" />
+		{/if}
+		<div class="toast-content">
+			<slot />
+		</div>
+		{#if toastItem.close}
+			<IconButton icon="cross" on:click={close} />
+		{/if}
+		{#if toastItem.timeout}
+			<Progress value={$progress} {invert} />
+		{/if}
 	</div>
-	{#if toastItem.close}
-		<IconButton icon="cross" on:click={close} />
-	{/if}
-	{#if toastItem.timeout}
-		<Progress value={$progress} {invert} />
-	{/if}
-</div>
+{/if}
 
 <script context="module" >import { fade } from 'svelte/transition';
 import { tweened } from 'svelte/motion';
