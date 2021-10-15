@@ -7,10 +7,8 @@ interface ToastItem {
     title?: string;
     msg?: string;
     icon?: Icons;
-    close?: boolean;
+    closable?: boolean;
     timeout?: number;
-    init?: number;
-    next?: number;
     invert?: boolean;
     reverse?: boolean;
     pos?: Pos;

@@ -60,23 +60,10 @@
 						>
 					</Col>
 					<Col>
-						{#if tostVis}
-							<Toast
-								bind:visible={tostVis}
-								toastItem={{
-									id: 1,
-									timeout: 1000,
-									close: true,
-									icon: 'home',
-									type: 'primary',
-								}}>Toast</Toast
-							>
-						{/if}
-						<br />
-						<Toast toastItem={{ invert: false, close: true }}
-							><h5>header</h5>
-							I'm pure static Toast</Toast
-						>
+						<Toast bind:visible={tostVis} type="initial">
+							<h5>header</h5>
+							I'm pure static Toast
+						</Toast>
 					</Col>
 				</Grid>
 			</Col>
@@ -87,7 +74,6 @@
 					<ButtonGroup>
 						{#each positions as pos, i}
 							<IconButton
-								icon=""
 								variant="default"
 								on:click={(e) =>
 									toast.success({ msg: pos, pos: pos, timeout: 1000 })}
@@ -349,7 +335,7 @@
 			'bottom_center',
 			'bottom_right',
 		],
-		tostVis: boolean,
+		tostVis: boolean = true,
 		modalVis: boolean,
 		arrows: string[] = ['↖', '↑', '↗', '←', '☩', '→', '↙', '↓', '↘'],
 		table = {
