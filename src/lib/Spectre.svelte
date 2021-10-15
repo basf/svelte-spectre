@@ -46,6 +46,9 @@
 			.mb-auto {
 				margin-bottom: auto;
 			}
+			.m-auto {
+				margin: auto;
+			}
 		}
 	}
 </style>

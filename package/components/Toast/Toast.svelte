@@ -1,5 +1,5 @@
 <div
-	class="toast {toastItem.type && `toast-${toastItem.type}`}"
+	class="toast {toastItem.type && `toast-${toastItem.type}`} {offset}"
 	use:pausable={toastItem.timeout > 0}
 	transition:fade
 >
@@ -43,6 +43,7 @@ import { toast } from './toast';
 export let invert = toastItem.invert;
 export let reverse = toastItem.reverse;
 export let visible = true;
+export let offset = '';
 let init = reverse ? 1 : 0, next = reverse ? 0 : 1, start = Date.now(), remaining = toastItem.timeout, options = { duration: remaining };
 const defaults = { delay: 0, duration: 0, easing: linear };
 const progress = tweened(init, { ...defaults });

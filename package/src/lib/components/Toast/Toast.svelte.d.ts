@@ -2,6 +2,7 @@ import { SvelteComponentTyped } from 'svelte';
 import type { ToastItem } from './toast';
 import type { Color } from '../../types/bg';
 import type { Icons } from '../../types/icons';
+import type { Offset } from '../../types/position';
 export type { Color, Icons, ToastItem };
 declare const __propDef: {
     props: {
@@ -9,6 +10,7 @@ declare const __propDef: {
         invert?: boolean;
         reverse?: boolean;
         visible?: boolean;
+        offset?: Offset;
     };
     events: {
         [evt: string]: CustomEvent<any>;

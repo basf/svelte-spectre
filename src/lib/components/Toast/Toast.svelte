@@ -1,5 +1,5 @@
 <div
-	class="toast {toastItem.type && `toast-${toastItem.type}`}"
+	class="toast {toastItem.type && `toast-${toastItem.type}`} {offset}"
 	use:pausable={toastItem.timeout > 0}
 	transition:fade
 >
@@ -30,6 +30,7 @@
 	import type { ToastItem } from './toast';
 	import type { Color } from '../../types/bg';
 	import type { Icons } from '../../types/icons';
+	import type { Offset } from '../../types/position';
 
 	interface Options {
 		delay?: number;
@@ -59,6 +60,7 @@
 	export let invert: boolean = toastItem.invert;
 	export let reverse: boolean = toastItem.reverse;
 	export let visible: boolean = true;
+	export let offset: Offset = '';
 
 	let init: number = reverse ? 1 : 0,
 		next: number = reverse ? 0 : 1,
