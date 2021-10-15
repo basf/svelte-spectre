@@ -20,7 +20,7 @@ function createToast() {
 		error: (toast = {}) => send({ type: 'error', icon: 'stop', ...toast }),
 		warning: (toast = {}) => send({ type: 'warning', icon: 'mail', ...toast }),
 		primary: (toast = {}) => send({ type: 'primary', icon: 'flag', ...toast }),
-		success: (toast = {}) => send({ type: 'success', icon: 'emoji', ...toast }),
+		success: (toast = {}) => send({ type: 'success', icon: 'check', ...toast }),
 	};
 }
 export const toast = createToast();
