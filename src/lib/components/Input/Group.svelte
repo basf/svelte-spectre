@@ -1,4 +1,4 @@
-<div class="input-group">
+<div class="input-group {offset}">
 	{#if $$slots.addon}
 		<span class="input-group-addon addon-{size}"><slot name="addon" /></span>
 	{/if}
@@ -12,6 +12,7 @@
 
 <script lang="ts" context="module">
 	import type { Size } from '../../types/size';
+	import type { Offset } from '../../types/position';
 
 	export type { Size };
 </script>
@@ -19,6 +20,7 @@
 <script lang="ts">
 	export let button: string = 'input-group-btn';
 	export let size: Size = 'md';
+	export let offset: Offset = '';
 </script>
 
 <style lang="scss">
