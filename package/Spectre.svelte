@@ -1607,4 +1607,15 @@
 }
 .spectre :global(.m-auto) {
   margin: auto;
+}
+.spectre :global(.overlay) {
+  position: absolute;
+  inset: 0;
+  cursor: default;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  background: rgba(247, 248, 249, 0.75);
+  color: #e85600;
 }</style>

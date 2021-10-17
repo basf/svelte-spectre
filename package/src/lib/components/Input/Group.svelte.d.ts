@@ -1,13 +1,13 @@
 import { SvelteComponentTyped } from 'svelte';
 import type { Size } from '../../types/size';
-import type { Margin, Padding } from '../../types/position';
+import type { Offset, Inset } from '../../types/position';
 export type { Size };
 declare const __propDef: {
     props: {
         button?: string;
         size?: Size;
-        margin: Margin;
-        padding: Padding;
+        offset: Offset;
+        inset: Inset;
     };
     events: {
         [evt: string]: CustomEvent<any>;

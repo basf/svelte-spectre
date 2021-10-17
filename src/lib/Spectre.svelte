@@ -88,6 +88,17 @@
 			.m-auto {
 				margin: auto;
 			}
+			.overlay {
+				position: absolute;
+				inset: 0;
+				cursor: default;
+				display: flex;
+				flex-flow: column nowrap;
+				align-items: center;
+				justify-content: center;
+				background: rgba($bg-color, 0.75);
+				color: $error-color;
+			}
 		}
 	}
 </style>
