@@ -62,6 +62,8 @@
 		"./components/Accordion": "./components/Accordion/index.js",
 		"./components/Avatar/Avatar.svelte": "./components/Avatar/Avatar.svelte",
 		"./components/Avatar": "./components/Avatar/index.js",
+		"./components/Breadcrumbs/Breadcrumbs.svelte": "./components/Breadcrumbs/Breadcrumbs.svelte",
+		"./components/Breadcrumbs": "./components/Breadcrumbs/index.js",
 		"./components/Button/Button.svelte": "./components/Button/Button.svelte",
 		"./components/Button/Group.svelte": "./components/Button/Group.svelte",
 		"./components/Button/IconButton.svelte": "./components/Button/IconButton.svelte",
