@@ -65,14 +65,14 @@ export default {
 		package: {
 			dir: 'package',
 			// exports: (filepath) => {
-			// 	if (mm.isMatch(filepath, ['**/_*', 'spectre.scss', 'fix.scss', 'scss/*']))
+			// 	if (mm.isMatch(filepath, ['**/_*']))
 			// 		return false;
-			// 	return mm.isMatch(filepath, ['**']);
+			// 	return mm.isMatch(filepath, ['!**/lib/*']);
 			// },
 			// files: (filepath) => {
-			// 	if (mm.isMatch(filepath, ['**/_*', 'spectre.scss', 'fix.scss', 'scss/*']))
+			// 	if (mm.isMatch(filepath, ['**/_*']))
 			// 		return false;
-			// 	return mm.isMatch(filepath, ['**']);
+			// 	return mm.isMatch(filepath, ['!**/lib/*']);
 			// },
 			emitTypes: true,
 		},
