@@ -5,15 +5,15 @@ import type { Color } from '../../types/bg';
 import type { Pos } from './positions';
 
 interface ToastItem {
-    id?: number,
-    type?: Color,
-    title?: string,
-    msg?: string,
-    icon?: Icons,
-    closable?: boolean,
-    timeout?: number,
-    invert?: boolean,
-    reverse?: boolean,
+    id?: number;
+    type?: Color;
+    title?: string;
+    msg?: string;
+    icon?: Icons;
+    closable?: boolean;
+    timeout?: number;
+    invert?: boolean;
+    reverse?: boolean;
     pos?: Pos;
 }
 
