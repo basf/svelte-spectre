@@ -5,7 +5,25 @@
 	</p>
 	<Hero offset="my-2" size="sm">
 		<h2>Avatars</h2>
-		<!-- <Avatar /> -->
+		<Avatar name="AV" size="sm" badge />
+		<Avatar name="AV" status="online" badge />
+		<Avatar name="AV" status="busy" size="lg" badge="0">
+			<img src="../img/avatar-1.png" alt="Thor Odinson" />
+		</Avatar>
+		<Avatar name="AV" size="xl" badge="0">
+			<img src="../img/avatar-1.png" alt="Thor Odinson" />
+			<img slot="sub" src="../img/avatar-1.png" alt="Thor Odinson" />
+		</Avatar>
+	</Hero>
+	<Hero offset="my-2" size="sm">
+		<h2>Chips</h2>
+		<Chip>Chip</Chip>
+		<Chip initial="CP">Chip</Chip>
+		<Chip initial="CP" status="online">Chip</Chip>
+		<Chip initial="CP" status="busy" closable>Chip</Chip>
+		<Chip initial="CP" status="busy" closable>
+			<img slot="avatar" src="../img/avatar-1.png" alt="Thor Odinson" />Chip
+		</Chip>
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Badges</h2>
@@ -326,6 +344,7 @@
 		Col,
 		Container,
 		Checkbox,
+		Chip,
 		Divider,
 		Empty,
 		Form,
@@ -344,8 +363,8 @@
 		Switch,
 		Toast,
 		toast,
-	} from '$lib';
-	import type { Pos } from '$lib';
+	} from '../lib';
+	import type { Pos } from '../lib';
 </script>
 
 <script lang="ts">
