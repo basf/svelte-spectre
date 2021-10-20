@@ -8,7 +8,7 @@
         text-align: center;
         color: {color.isLight() ? '#000' : '#fff'}
     "
-	use:badge={badgeData}
+	use:addBadge={badge}
 >
 	<slot />
 	{#if $$slots.sub}
@@ -28,7 +28,7 @@
 	// import tinycolor from 'tinycolor2';
 	import type { Size } from '../../types/size';
 	import type { Weight } from '../../types/text';
-	import { badge } from '../../components/Badge';
+	import { badge as addBadge } from '../../components/Badge';
 	// import { SIZE } from '../../types/const';
 	import { str_to_rgb } from '../../helpers/str_to_rgb';
 	import { getPredefinedInitials } from '../../helpers/getPredefinedInitials';
@@ -46,7 +46,7 @@
 	export let size: Size = 'md';
 	export let weight: Weight = 'normal';
 	export let status: Status = false;
-	export let badgeData: any;
+	export let badge: any;
 
 	let words: RegExpMatchArray;
 	let clip: number;
