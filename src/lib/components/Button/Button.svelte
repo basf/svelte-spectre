@@ -11,7 +11,7 @@
 		class:active
 		on:click
 		on:dblclick
-		use:addBadge={badge}
+		use:badge={badgeData}
 	>
 		<slot>Text</slot>
 	</a>
@@ -27,7 +27,7 @@
 		class:active
 		on:click
 		on:dblclick
-		use:addBadge={badge}
+		use:badge={badgeData}
 	>
 		<slot>Text</slot>
 	</button>
@@ -35,7 +35,7 @@
 
 <script lang="ts" context="module">
 	import type { Size } from '../../types/size';
-	import { addBadge } from '../../helpers/actions';
+	import { badge } from '../../components/Badge';
 
 	type Variant = 'default' | 'primary' | 'secondary' | 'link' | 'success' | 'error';
 	type Shape = 'square' | 'circle' | false;
@@ -52,7 +52,7 @@
 	export let block: boolean = false;
 	export let input: boolean = false;
 	export let href: string = '';
-	export let badge: string;
+	export let badgeData: any;
 </script>
 
 <style lang="scss">
