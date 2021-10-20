@@ -26,20 +26,12 @@
 	import type { Size } from '../../types/size';
 	import type { Weight } from '../../types/text';
 	import type { Offset } from '../../types/position';
-	import { SIZE } from '../../types/const.d.ts';
+	import { SIZE } from '../../types/const';
 	export type Status = 'online' | 'busy' | 'away' | 'offline' | false;
 	export type { Offset, Size, Weight };
 </script>
 
 <script lang="ts">
-	// const SIZE = {
-	// 	xs: 16,
-	// 	sm: 24,
-	// 	md: 32,
-	// 	lg: 40,
-	// 	xl: 48,
-	// 	xxl: 64,
-	// };
 	export let name: string = '';
 	export let bg: string = '#f6f6f6';
 	export let len: number = 0;
