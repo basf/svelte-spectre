@@ -5,6 +5,8 @@
 <script lang="ts" context="module">
 	import type { Offset } from '../../types/position';
 	import type { Color } from '../../types/text';
+
+	export type { Offset, Color };
 </script>
 
 <script lang="ts">
