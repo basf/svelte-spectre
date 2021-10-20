@@ -24,12 +24,10 @@
 		<Badge color="warning" offset="mr-1">warning Badge</Badge>
 		<Badge color="error" rounded>error rounded</Badge>
 		<Divider />
-		<Button variant="primary" badgeData>primary</Button>
-		<Button variant="secondary" badgeData="0">secondary</Button>
-		<Button variant="success" badgeData="1">success</Button>
-		<Button variant="error" badgeData={badge} on:click={(e) => (badge = 'e.target')}
-			>error</Button
-		>
+		<Button variant="primary" badge>primary</Button>
+		<Button variant="secondary" badge="0">secondary</Button>
+		<Button variant="success" badge="1">success</Button>
+		<Button variant="error" {badge} on:click={(e) => (badge = 'e.target')}>error</Button>
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Breadcrumbs</h2>
