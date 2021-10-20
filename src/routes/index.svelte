@@ -5,12 +5,12 @@
 	</p>
 	<Hero offset="my-2" size="sm">
 		<h2>Avatars</h2>
-		<Avatar initial="AV" size="sm" />
-		<Avatar initial="AV" status="online" />
-		<Avatar status="busy" size="lg">
+		<Avatar initials="AV" size="sm" />
+		<Avatar initials="AV" status="online" />
+		<Avatar initials="AV" status="busy" size="lg">
 			<img src="../img/avatar-1.png" alt="Thor Odinson" />
 		</Avatar>
-		<Avatar size="xl">
+		<Avatar initials="AV" size="xl">
 			<img src="../img/avatar-1.png" alt="Thor Odinson" />
 			<img slot="sub" src="../img/avatar-1.png" alt="Thor Odinson" />
 		</Avatar>
@@ -363,8 +363,8 @@
 		Switch,
 		Toast,
 		toast,
-	} from '$lib';
-	import type { Pos } from '$lib';
+	} from '../lib';
+	import type { Pos } from '../lib';
 </script>
 
 <script lang="ts">
