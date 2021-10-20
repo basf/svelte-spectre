@@ -26,6 +26,20 @@
 		</Chip>
 	</Hero>
 	<Hero offset="my-2" size="sm">
+		<h2>Badges</h2>
+		<Badge offset="mr-1">default Badge</Badge>
+		<Badge color="primary" offset="mr-1" rounded>primary rounded</Badge>
+		<Badge color="secondary" offset="mr-1">secondary Badge</Badge>
+		<Badge color="success" offset="mr-1" rounded>success rounded</Badge>
+		<Badge color="warning" offset="mr-1">warning Badge</Badge>
+		<Badge color="error" rounded>error rounded</Badge>
+		<Divider />
+		<Button variant="primary" badge>primary</Button>
+		<Button variant="secondary" badge="0">secondary</Button>
+		<Button variant="success" badge="1">success</Button>
+		<Button variant="error" {badge} on:click={(e) => (badge = 'e.target')}>error</Button>
+	</Hero>
+	<Hero offset="my-2" size="sm">
 		<h2>Figure</h2>
 		<Grid stack>
 			<Col col="4" sm="12">
@@ -323,6 +337,7 @@
 	import {
 		Accordion,
 		Avatar,
+		Badge,
 		Button,
 		ButtonGroup,
 		Card,
@@ -383,6 +398,7 @@
 		modalVis: boolean,
 		arrows: string[] = ['↖', '↑', '↗', '←', '☩', '→', '↙', '↓', '↘'];
 
+	let badge = 'badge';
 	const CARDS = [
 		{
 			pos: 'top',
