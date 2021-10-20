@@ -6,6 +6,7 @@
         font-size: {fontSize}px;
         color: {color.isLight() ? '#000' : '#fff'}
     "
+	use:addBadge={badge}
 >
 	<slot />
 	{#if $$slots.sub}
@@ -23,10 +24,12 @@
 
 <script lang="ts" context="module">
 	import tinycolor from 'tinycolor2';
+	import { badge as addBadge } from '../../components/Badge';
+	import { SIZE } from '../../types/const';
+
 	import type { Size } from '../../types/size';
 	import type { Weight } from '../../types/text';
 	import type { Offset } from '../../types/position';
-	import { SIZE } from '../../types/const';
 	export type Status = 'online' | 'busy' | 'away' | 'offline' | false;
 	export type { Offset, Size, Weight };
 </script>
@@ -40,6 +43,7 @@
 	export let weight: Weight = 'normal';
 	export let status: Status = false;
 	export let offset: Offset = '';
+	export let badge: any;
 	let words: RegExpMatchArray;
 	let clip: number;
 	let fontSize: number;

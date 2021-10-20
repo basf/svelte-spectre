@@ -5,12 +5,12 @@
 	</p>
 	<Hero offset="my-2" size="sm">
 		<h2>Avatars</h2>
-		<Avatar initials="AV" size="sm" />
-		<Avatar initials="AV" status="online" />
-		<Avatar initials="AV" status="busy" size="lg">
+		<Avatar name="AV" size="sm" badge />
+		<Avatar name="AV" status="online" badge />
+		<Avatar name="AV" status="busy" size="lg" badge="0">
 			<img src="../img/avatar-1.png" alt="Thor Odinson" />
 		</Avatar>
-		<Avatar initials="AV" size="xl">
+		<Avatar name="AV" size="xl" badge="0">
 			<img src="../img/avatar-1.png" alt="Thor Odinson" />
 			<img slot="sub" src="../img/avatar-1.png" alt="Thor Odinson" />
 		</Avatar>
