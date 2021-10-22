@@ -6,7 +6,7 @@
 			</slot>
 		</a>
 	</li>
-	{#if pages}
+	{#if pages.length}
 		{#each spreaded(pages) as page, i}
 			<li class="page-item" class:active={active === page}>
 				{#if typeof page === 'boolean'}
@@ -17,7 +17,7 @@
 			</li>
 		{/each}
 	{/if}
-	<li class="page-item" class:disabled={active === pages.length - 1}>
+	<li class="page-item" class:disabled={active === total - 1}>
 		<a href="#_" on:click={next}>
 			<slot name="next">
 				<Icon icon="forward" />
@@ -37,13 +37,13 @@
 	const dispatch = createEventDispatcher();
 
 	export let total: number;
-	export let spread: number;
 	export let active: number;
+	export let spread: number;
 	export let offset: Offset = '';
 
 	const pages = [...Array(total).keys()];
 	const start = 0;
-	const end = pages.length - 1;
+	const end = total - 1;
 	const half = Math.trunc(spread / 2);
 
 	const prev = () => (active > start && active--, dispatch('prev', active));
@@ -59,7 +59,7 @@
 			![start, end, ...around].includes(i) ? around.every((a) => a > i) : i
 		);
 		const uniq = (a: (number | boolean)[]): (number | boolean)[] => [...new Set(a)];
-		return spread ? uniq(result) : pages;
+		return spread ? uniq(result) : items;
 	};
 </script>
 
