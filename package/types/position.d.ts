@@ -15,30 +15,42 @@ export type Margin = 'm' | 'mt' | 'mb' | 'mx' | 'my' | false;
 export type Padding = 'p' | 'pt' | 'pb' | 'px' | 'py' | false;
 
 /* global offset rules */
-type Offset =
+export type Offset =
     | 'my-0'
     | 'my-1'
     | 'my-2'
+    | 'my--1'
+    | 'my--2'
     | 'my-auto'
     | 'mx-0'
     | 'mx-1'
     | 'mx-2'
+    | 'mx--1'
+    | 'mx--2'
     | 'mx-auto'
     | 'mt-0'
     | 'mt-1'
     | 'mt-2'
+    | 'mt--1'
+    | 'mt--2'
     | 'mt-auto'
     | 'mb-0'
     | 'mb-1'
     | 'mb-2'
+    | 'mb--1'
+    | 'mb--2'
     | 'mb-auto'
     | 'ml-0'
     | 'ml-1'
     | 'ml-2'
+    | 'ml--1'
+    | 'ml--2'
     | 'ml-auto'
     | 'mr-0'
     | 'mr-1'
     | 'mr-2'
+    | 'mr--1'
+    | 'mr--2'
     | 'mr-auto'
     | 'm-0'
     | 'm-1'
@@ -47,7 +59,7 @@ type Offset =
     | '';
 
 /* global inset rules */
-type Inset =
+export type Inset =
     | 'py-0'
     | 'py-1'
     | 'py-2'
