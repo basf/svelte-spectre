@@ -8,7 +8,7 @@
 	</li>
 	{#each spreaded() as page, i}
 		<li class="page-item" class:active={active === page}>
-			{#if page === null || page === Infinity}
+			{#if typeof page === 'boolean'}
 				<span>...</span>
 			{:else}
 				<a href={'#_'} on:click={() => cur(page)}><slot {page}>{page}</slot></a>
@@ -54,13 +54,10 @@
 		const after = active + half;
 		const around = pages.slice(before >= start ? before : start, after + 1);
 		const result = pages.map((i) => {
-			if (i === start || i === end) return i;
-			else if (around.some((a) => a === i)) return i;
-			else if (i > start && around.every((a) => a > i)) return null;
-			else if (i < end && around.every((a) => a < i)) return Infinity;
-			else return;
+			if ([start, end].includes(i) || around.includes(i)) return i;
+			return around.every((a) => a > i);
 		});
-		const uniq = (a: number[]): number[] => [...new Set(a)];
+		const uniq = (a: (number | boolean)[]): (number | boolean)[] => [...new Set(a)];
 		return spread ? uniq(result) : pages;
 	};
 </script>
