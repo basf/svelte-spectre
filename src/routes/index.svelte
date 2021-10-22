@@ -386,8 +386,6 @@
 </script>
 
 <script lang="ts">
-	import { page, page } from '$app/stores';
-
 	let questions = [
 			{ id: 1, text: `Where did you go to school?` },
 			{ id: 2, text: `What is your mother's name?` },
@@ -398,11 +396,8 @@
 		],
 		selected = 1,
 		multi = [1],
-		radios = 1;
-
-	$: console.log(selected, radios, $toast);
-
-	let loading = false,
+		radios = 1,
+		loading = false,
 		positions: Pos[] = [
 			'top_left',
 			'top_center',
@@ -417,9 +412,8 @@
 		tostVis: boolean = true,
 		modalVis: boolean,
 		arrows: string[] = ['↖', '↑', '↗', '←', '☩', '→', '↙', '↓', '↘'],
-		pages = [...Array(arrows.length).keys()];
+		badge = 'badge';
 
-	let badge = 'badge';
 	const CARDS = [
 		{
 			pos: 'top',
