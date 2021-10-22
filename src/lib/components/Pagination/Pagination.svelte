@@ -6,15 +6,17 @@
 			</slot>
 		</a>
 	</li>
-	{#each spreaded() as page, i}
-		<li class="page-item" class:active={active === page}>
-			{#if typeof page === 'boolean'}
-				<span>...</span>
-			{:else}
-				<a href={'#_'} on:click={() => cur(page)}><slot {page}>{page}</slot></a>
-			{/if}
-		</li>
-	{/each}
+	{#if pages}
+		{#each spreaded(pages) as page, i}
+			<li class="page-item" class:active={active === page}>
+				{#if typeof page === 'boolean'}
+					<span>...</span>
+				{:else}
+					<a href={'#_'} on:click={() => cur(page)}>{page}</a>
+				{/if}
+			</li>
+		{/each}
+	{/if}
 	<li class="page-item" class:disabled={active === pages.length - 1}>
 		<a href="#_" on:click={next}>
 			<slot name="next">
@@ -26,9 +28,7 @@
 
 <script lang="ts" context="module">
 	import Icon from '../Icon/Icon.svelte';
-
 	import type { Offset } from '../../types/position';
-
 	export type { Offset };
 </script>
 
@@ -48,12 +48,12 @@
 	const cur = (i: number) => ((active = i), dispatch('current', i));
 	const next = () => (active < end && active++, dispatch('next', active));
 
-	$: spreaded = () => {
+	$: spreaded = (items: number[]) => {
 		const half = Math.trunc(spread / 2);
 		const before = active - half;
 		const after = active + half;
-		const around = pages.slice(before >= start ? before : start, after + 1);
-		const result = pages.map((i) => {
+		const around = items.slice(before >= start ? before : start, after + 1);
+		const result = items.map((i) => {
 			if ([start, end].includes(i) || around.includes(i)) return i;
 			return around.every((a) => a > i);
 		});
