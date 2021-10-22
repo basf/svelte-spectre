@@ -13,7 +13,7 @@
 		{/if}
 		{#each options as option, index}
 			<option value={getValue(option, index)}>
-				<slot {option}>{getLabel(option)}</slot>
+				<slot {option}>{getLabel(option, index)}</slot>
 			</option>
 		{/each}
 	</select>
@@ -30,7 +30,7 @@
 		{/if}
 		{#each options as option, index}
 			<option value={getValue(option, index)}>
-				<slot {option}>{getLabel(option)}</slot>
+				<slot {option}>{getLabel(option, index)}</slot>
 			</option>
 		{/each}
 	</select>
@@ -54,9 +54,9 @@
 	export let options: Option[] = [];
 	export let value: Value;
 	export let selected: Selected;
-	export let inline: boolean = false;
-	export let multiple: boolean = false;
-	export let unselected: boolean = false;
+	export let inline = false;
+	export let multiple = false;
+	export let unselected = false;
 	export let size: Size;
 	export let validity: Validity = false;
 
@@ -76,8 +76,8 @@
 		return i < 0 ? undefined : i;
 	}
 
-	function getLabel(option: Option) {
-		return typeof option !== 'object' ? option : option.label;
+	function getLabel(option: Option, index: number) {
+		return typeof option !== 'object' ? option : option.label || index + 1;
 	}
 
 	function getValue(option: Option, index: number) {

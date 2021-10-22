@@ -9,15 +9,15 @@ declare const __propDef: {
         toastItem?: ToastItem;
         id?: number;
         type?:
+            | 'initial'
             | 'primary'
             | 'secondary'
-            | 'success'
-            | 'error'
-            | 'initial'
             | 'dark'
             | 'gray'
             | 'light'
-            | 'warning';
+            | 'success'
+            | 'warning'
+            | 'error';
         icon?: Icons;
         timeout?: number;
         closable?: true;

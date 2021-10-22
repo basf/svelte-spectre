@@ -1,13 +1,12 @@
 <figure
-	class="avatar avatar-{size} text-{weight}"
-	data-initial={`${initials} v${apiVersion}`}
+	class="avatar avatar-{size} text-{weight} {offset}"
+	data-initial={initials}
 	style="
-        background-color: inherit;
+        background-color: {color};
         font-size: {fontSize}px;
-        overflow-wrap: break-word;
-        text-align: center;
         color: {color.isLight() ? '#000' : '#fff'}
     "
+	use:addBadge={badge}
 >
 	<slot />
 	{#if $$slots.sub}
@@ -24,30 +23,30 @@
 </figure>
 
 <script context="module">
-	// import { SIZE } from '../../types/const';
-	import '../../helpers/str_to_rgb';
-	import { getPredefinedInitials } from '../../helpers/getPredefinedInitials';
+	import tinycolor from 'tinycolor2';
+	import { badge as addBadge } from '../../components/Badge';
+	import { SIZE } from '../../types/const';
 </script>
 
 <script>
 	export let name = '';
-	export let id = '';
-	export let apiVersion = '';
 	export let bg = '#f6f6f6';
 	export let len = 0;
 	export let caption = false;
 	export let size = 'md';
 	export let weight = 'normal';
 	export let status = false;
+	export let offset = '';
+	export let badge;
 	let words;
 	let clip;
-	// let fontSize: number;
+	let fontSize;
 	let initials;
-	// $: color = tinycolor(str_to_rgb(name));
-	$: words = name.replace('.', '/').match(/\b(\w)|([A-Z])|(\/)/g);
+	$: color = bg ? tinycolor(bg) : tinycolor.random();
+	$: words = name.length && name.replace('.', '/').match(/\b(\w)|([A-Z])|(\/)/g);
 	$: clip = len || words.length;
-	// $: fontSize = SIZE[size] * (1 / (clip + 2));
-	$: initials = getPredefinedInitials(id, words.slice(0, clip).join('').toUpperCase());
+	$: fontSize = SIZE[size] * (1 / clip);
+	$: initials = words && words.slice(0, clip).join('').toUpperCase();
 </script>
 
 <style>
@@ -728,12 +727,18 @@
 		word-wrap: break-word;
 	}
 
-	.avatar .avatar-icon {
+	:global(.spectre) .avatar :global(img) {
 		border-radius: 50%;
-		padding: 0.05rem 0.1rem;
+		height: 100%;
+		position: relative;
+		width: 100%;
+		z-index: 1;
 	}
-
-	figcaption {
+	:global(.spectre) .avatar .avatar-icon {
+		border-radius: 50%;
+		display: flex;
+	}
+	:global(.spectre) figcaption {
 		position: absolute;
 		top: 100%;
 		left: 50%;
@@ -741,10 +746,5 @@
 		font-size: 80%;
 		color: black;
 		text-align: center;
-	}
-
-	.avatar-presence {
-		width: 0.7em !important;
-		height: 0.7em !important;
 	}
 </style>

@@ -11,6 +11,7 @@
 		class:active
 		on:click
 		on:dblclick
+		use:addBadge={badge}
 	>
 		<slot>Text</slot>
 	</a>
@@ -26,12 +27,15 @@
 		class:active
 		on:click
 		on:dblclick
+		use:addBadge={badge}
 	>
 		<slot>Text</slot>
 	</button>
 {/if}
 
-<script context="module"></script>
+<script context="module">
+	import { badge as addBadge } from '../../components/Badge';
+</script>
 
 <script>
 	export let variant = 'default';
@@ -42,6 +46,7 @@
 	export let block = false;
 	export let input = false;
 	export let href = '';
+	export let badge;
 </script>
 
 <style>

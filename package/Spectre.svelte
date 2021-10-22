@@ -1630,21 +1630,61 @@
 		margin-left: auto;
 		margin-right: auto;
 	}
+	.spectre :global(.mx--1) {
+		margin-left: -0.2rem;
+		margin-right: -0.2rem;
+	}
+	.spectre :global(.mx--2) {
+		margin-left: -0.4rem;
+		margin-right: -0.4rem;
+	}
 	.spectre :global(.my-auto) {
 		margin-top: auto;
 		margin-bottom: auto;
 	}
+	.spectre :global(.my--1) {
+		margin-top: -0.2rem;
+		margin-bottom: -0.2rem;
+	}
+	.spectre :global(.my--2) {
+		margin-top: -0.4rem;
+		margin-bottom: -0.4rem;
+	}
 	.spectre :global(.ml-auto) {
 		margin-left: auto;
+	}
+	.spectre :global(.ml--1) {
+		margin-left: -0.2rem;
+	}
+	.spectre :global(.ml--2) {
+		margin-left: -0.4rem;
 	}
 	.spectre :global(.mr-auto) {
 		margin-right: auto;
 	}
+	.spectre :global(.mr--1) {
+		margin-right: -0.2rem;
+	}
+	.spectre :global(.mr--2) {
+		margin-right: -0.4rem;
+	}
 	.spectre :global(.mt-auto) {
 		margin-top: auto;
 	}
+	.spectre :global(.mt--1) {
+		margin-top: -0.2rem;
+	}
+	.spectre :global(.mt--2) {
+		margin-top: -0.4rem;
+	}
 	.spectre :global(.mb-auto) {
 		margin-bottom: auto;
+	}
+	.spectre :global(.mb--1) {
+		margin-bottom: -0.2rem;
+	}
+	.spectre :global(.mb--2) {
+		margin-bottom: -0.4rem;
 	}
 	.spectre :global(.m-auto) {
 		margin: auto;

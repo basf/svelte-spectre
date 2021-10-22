@@ -1,14 +1,26 @@
 import { SvelteComponentTyped } from 'svelte';
 import type { Size } from '../../types/size';
 declare type Validity = 'success' | 'error' | false;
-export type { Size, Validity };
+declare type Primitive = string | number | boolean;
+declare type Value = Primitive[] | Primitive | undefined;
+declare type Selected = number[] | number | undefined;
+declare type Option =
+    | Primitive
+    | {
+          value: Primitive;
+          label?: string;
+      };
+export type { Size, Validity, Value, Option };
 declare const __propDef: {
     props: {
-        options?: any[];
-        value?: any[];
-        multiple?: boolean;
-        size: Size;
+        [x: string]: any;
+        options?: Option[];
+        value: Value;
+        selected: Selected;
         inline?: boolean;
+        multiple?: boolean;
+        unselected?: boolean;
+        size: Size;
         validity?: Validity;
     };
     events: {
@@ -16,7 +28,7 @@ declare const __propDef: {
     };
     slots: {
         default: {
-            option: any;
+            option: Option;
         };
     };
 };
