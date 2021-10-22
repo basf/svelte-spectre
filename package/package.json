@@ -23,13 +23,16 @@
 			"prettier-plugin-svelte"
 		]
 	},
+	"dependencies": {
+		"tinycolor2": "^1.4.2"
+	},
 	"devDependencies": {
 		"@poppanator/sveltekit-svg": "^0.1.7",
 		"@sveltejs/adapter-static": "1.0.0-next.20",
-		"@sveltejs/kit": "^1.0.0-next.184",
+		"@sveltejs/kit": "^1.0.0-next.187",
 		"@types/jsdom": "^16.2.13",
-		"@typescript-eslint/eslint-plugin": "^5.0.0",
-		"@typescript-eslint/parser": "^5.0.0",
+		"@typescript-eslint/eslint-plugin": "^5.1.0",
+		"@typescript-eslint/parser": "^5.1.0",
 		"autoprefixer": "^10.3.7",
 		"cssnano": "^5.0.8",
 		"eslint": "^8.0.1",
@@ -38,7 +41,7 @@
 		"jsdom": "^18.0.0",
 		"micromatch": "^4.0.4",
 		"pirates": "^4.0.1",
-		"postcss": "^8.3.9",
+		"postcss": "^8.3.10",
 		"postcss-load-config": "^3.1.0",
 		"prettier": "^2.4.1",
 		"prettier-plugin-svelte": "^2.4.0",
@@ -62,6 +65,9 @@
 		"./components/Accordion": "./components/Accordion/index.js",
 		"./components/Avatar/Avatar.svelte": "./components/Avatar/Avatar.svelte",
 		"./components/Avatar": "./components/Avatar/index.js",
+		"./components/Badge/Badge.svelte": "./components/Badge/Badge.svelte",
+		"./components/Badge/action": "./components/Badge/action.js",
+		"./components/Badge": "./components/Badge/index.js",
 		"./components/Breadcrumbs/Breadcrumbs.svelte": "./components/Breadcrumbs/Breadcrumbs.svelte",
 		"./components/Breadcrumbs": "./components/Breadcrumbs/index.js",
 		"./components/Button/Button.svelte": "./components/Button/Button.svelte",
@@ -70,6 +76,8 @@
 		"./components/Button": "./components/Button/index.js",
 		"./components/Checkbox/Checkbox.svelte": "./components/Checkbox/Checkbox.svelte",
 		"./components/Checkbox": "./components/Checkbox/index.js",
+		"./components/Chip/Chip.svelte": "./components/Chip/Chip.svelte",
+		"./components/Chip": "./components/Chip/index.js",
 		"./components/Divider/Divider.svelte": "./components/Divider/Divider.svelte",
 		"./components/Divider": "./components/Divider/index.js",
 		"./components/Icon/Icon.svelte": "./components/Icon/Icon.svelte",
@@ -109,6 +117,8 @@
 		"./layouts/Container": "./layouts/Container/index.js",
 		"./layouts/Empty/Empty.svelte": "./layouts/Empty/Empty.svelte",
 		"./layouts/Empty": "./layouts/Empty/index.js",
+		"./layouts/Figure/Figure.svelte": "./layouts/Figure/Figure.svelte",
+		"./layouts/Figure": "./layouts/Figure/index.js",
 		"./layouts/Form/Form.svelte": "./layouts/Form/Form.svelte",
 		"./layouts/Form/Group.svelte": "./layouts/Form/Group.svelte",
 		"./layouts/Form": "./layouts/Form/index.js",
@@ -125,7 +135,8 @@
 		"./layouts/Panel": "./layouts/Panel/index.js",
 		"./layouts/Tile/Tile.svelte": "./layouts/Tile/Tile.svelte",
 		"./layouts/Tile": "./layouts/Tile/index.js",
-		"./layouts": "./layouts/index.js"
+		"./layouts": "./layouts/index.js",
+		"./types/const": "./types/const.js"
 	},
 	"svelte": "./index.js"
 }

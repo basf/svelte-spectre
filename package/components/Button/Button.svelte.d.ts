@@ -20,6 +20,7 @@ declare const __propDef: {
         block?: boolean;
         input?: boolean;
         href?: string;
+        badge: any;
     };
     events: {
         click: MouseEvent;
