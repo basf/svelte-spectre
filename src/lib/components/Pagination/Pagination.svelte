@@ -41,17 +41,18 @@
 	export let active: number;
 	export let offset: Offset = '';
 
-	const prev = () => (active > 0 && active--, dispatch('prev', active));
+	const start = 0;
+	const end = pages.length - 1;
+
+	const prev = () => (active > start && active--, dispatch('prev', active));
 	const cur = (i: number) => ((active = i), dispatch('current', i));
-	const next = () => (active < pages.length - 1 && active++, dispatch('next', active));
+	const next = () => (active < end && active++, dispatch('next', active));
 
 	$: spreaded = () => {
-		const start = 0;
-		const end = pages.length - 1;
-		const diff = Math.trunc(spread / 2);
-		const before = active - diff;
-		const after = active + diff;
-		const around = pages.slice(before >= 0 ? before : 0, after + 1);
+		const half = Math.trunc(spread / 2);
+		const before = active - half;
+		const after = active + half;
+		const around = pages.slice(before >= start ? before : start, after + 1);
 		const result = pages.map((i) => {
 			if (i === start || i === end) return i;
 			else if (around.some((a) => a === i)) return i;
@@ -66,11 +67,14 @@
 
 <style lang="scss">
 	@import 'spectre.css/src/pagination';
-	.page-item {
-		a {
-			font-weight: bold;
-			:global(.icon) {
-				vertical-align: sub;
+	.pagination {
+		justify-content: center;
+		.page-item {
+			a {
+				font-weight: bold;
+				:global(.icon) {
+					vertical-align: sub;
+				}
 			}
 		}
 	}
