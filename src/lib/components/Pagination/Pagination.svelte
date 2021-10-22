@@ -6,16 +6,14 @@
 			</slot>
 		</a>
 	</li>
-	{#each items as page, i}
-		{#if spread !== 0 && spreaded(i).every((s) => s !== i)}
-			<li class="page-item" class:disabled class:active={active === i}>
+	{#each spreaded() as page, i}
+		<li class="page-item" class:active={active === page}>
+			{#if page === null || page === Infinity}
 				<span>...</span>
-			</li>
-		{:else}
-			<li class="page-item" class:disabled class:active={active === i}>
-				<a href={'#_'} on:click={() => cur(i)}><slot {page}>{page}</slot></a>
-			</li>
-		{/if}
+			{:else}
+				<a href={'#_'} on:click={() => cur(page)}><slot {page}>{page}</slot></a>
+			{/if}
+		</li>
 	{/each}
 	<li class="page-item" class:disabled={active === pages.length - 1}>
 		<a href="#_" on:click={next}>
@@ -39,30 +37,31 @@
 	const dispatch = createEventDispatcher();
 
 	export let pages: number[];
-	export let spread: number = 0;
+	export let spread: number;
 	export let active: number;
-	export let disabled: boolean;
 	export let offset: Offset = '';
 
 	const prev = () => (active > 0 && active--, dispatch('prev', active));
 	const cur = (i: number) => ((active = i), dispatch('current', i));
 	const next = () => (active < pages.length - 1 && active++, dispatch('next', active));
 
-	let items = pages;
-	const start = 0;
-	const end = pages.length - 1;
-	const diff = (pages.length - (spread + 2)) / 2;
-	const uniq = (a: number[]) => [...new Set(a)];
-	// $: pages.length = spread !== 0 ? pages.length - diff : pages.length;
-
-	$: spreaded = (i: number): number[] => {
-		const before = active - Math.trunc(spread / 2);
-		const after = active + Math.trunc(spread / 2);
-		const around = items.slice(before >= 0 ? before : 0, after + 1);
-		return uniq([start, ...around, end]);
+	$: spreaded = () => {
+		const start = 0;
+		const end = pages.length - 1;
+		const diff = Math.trunc(spread / 2);
+		const before = active - diff;
+		const after = active + diff;
+		const around = pages.slice(before >= 0 ? before : 0, after + 1);
+		const result = pages.map((i) => {
+			if (i === start || i === end) return i;
+			else if (around.some((a) => a === i)) return i;
+			else if (i > start && around.every((a) => a > i)) return null;
+			else if (i < end && around.every((a) => a < i)) return Infinity;
+			else return;
+		});
+		const uniq = (a: number[]): number[] => [...new Set(a)];
+		return spread ? uniq(result) : pages;
 	};
-	// const collapsed = (items: number[], i: number) => spreaded(items).every((s) => s !== i);
-	$: console.log(active, items, spreaded());
 </script>
 
 <style lang="scss">
