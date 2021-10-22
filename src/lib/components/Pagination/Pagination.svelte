@@ -43,20 +43,20 @@
 
 	const start = 0;
 	const end = pages.length - 1;
+	const half = Math.trunc(spread / 2);
 
 	const prev = () => (active > start && active--, dispatch('prev', active));
 	const cur = (i: number) => ((active = i), dispatch('current', i));
 	const next = () => (active < end && active++, dispatch('next', active));
 
 	$: spreaded = (items: number[]) => {
-		const half = Math.trunc(spread / 2);
 		const before = active - half;
 		const after = active + half;
-		const around = items.slice(before >= start ? before : start, after + 1);
-		const result = items.map((i) => {
-			if ([start, end].includes(i) || around.includes(i)) return i;
-			return around.every((a) => a > i);
-		});
+		const from = before >= start ? before : start;
+		const around = items.slice(from, after + 1);
+		const result = items.map((i) =>
+			![start, end, ...around].includes(i) ? around.every((a) => a > i) : i
+		);
 		const uniq = (a: (number | boolean)[]): (number | boolean)[] => [...new Set(a)];
 		return spread ? uniq(result) : pages;
 	};

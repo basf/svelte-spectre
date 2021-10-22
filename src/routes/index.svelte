@@ -442,9 +442,9 @@
 				{ name: 'Schindler`s List', genre: 'Biography, Drama', release: '4 February 1994' },
 				{ name: 'Se7en', genre: 'Crime, Mystery', release: '22 September 1995' },
 			],
-		};
+		},
+		badge = 'badge';
 
-	let badge = 'badge';
 	const CARDS = [
 		{
 			pos: 'top',
