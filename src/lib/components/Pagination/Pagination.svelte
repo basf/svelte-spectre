@@ -11,7 +11,7 @@
 			{#if spread !== 0 && spreaded?.some((s) => s === i)}
 				<span>...</span>
 			{:else}
-				<a href={'#_'} on:click={(e) => (active = i)}><slot {page}>{page}</slot></a>
+				<a href={'#_'} on:click={() => cur(i)}><slot {page}>{page}</slot></a>
 			{/if}
 		</li>
 	{/each}
@@ -33,14 +33,18 @@
 </script>
 
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+
 	export let pages: number[];
 	export let spread: number = 0;
 	export let active: number;
 	export let disabled: boolean;
 	export let offset: Offset = '';
 
-	const prev = () => active > 0 && active--;
-	const next = () => active < pages.length - 1 && active++;
+	const prev = () => (active > 0 && active--, dispatch('prev', active));
+	const cur = (i: number) => ((active = i), dispatch('current', i));
+	const next = () => (active < pages.length - 1 && active++, dispatch('next', active));
 
 	let items = pages;
 	const diff = (pages.length - (spread + 2)) / 2;

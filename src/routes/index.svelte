@@ -65,7 +65,15 @@
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Pagination</h2>
-		<Pagination pages={[...Array(arrows.length).keys()]} let:page active={4} spread={3} />
+		<Pagination
+			pages={[...Array(arrows.length).keys()]}
+			let:page
+			active={4}
+			spread={3}
+			on:prev={(e) => console.log(e.detail)}
+			on:current={(e) => console.log(e.detail)}
+			on:next={(e) => console.log(e.detail)}
+		/>
 		<Pagination pages={[...Array(arrows.length).keys()]} let:page active={4} spread={0} />
 	</Hero>
 	<Hero offset="my-2" size="sm">
