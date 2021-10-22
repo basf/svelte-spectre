@@ -7,13 +7,15 @@
 		</a>
 	</li>
 	{#each items as page, i}
-		<li class="page-item" class:disabled class:active={active === i}>
-			{#if spread !== 0 && spreaded?.some((s) => s === i)}
+		{#if spread !== 0 && spreaded(i).every((s) => s !== i)}
+			<li class="page-item" class:disabled class:active={active === i}>
 				<span>...</span>
-			{:else}
+			</li>
+		{:else}
+			<li class="page-item" class:disabled class:active={active === i}>
 				<a href={'#_'} on:click={() => cur(i)}><slot {page}>{page}</slot></a>
-			{/if}
-		</li>
+			</li>
+		{/if}
 	{/each}
 	<li class="page-item" class:disabled={active === pages.length - 1}>
 		<a href="#_" on:click={next}>
@@ -47,20 +49,27 @@
 	const next = () => (active < pages.length - 1 && active++, dispatch('next', active));
 
 	let items = pages;
+	const start = 0;
+	const end = pages.length - 1;
 	const diff = (pages.length - (spread + 2)) / 2;
+	const uniq = (a: number[]) => [...new Set(a)];
 	// $: pages.length = spread !== 0 ? pages.length - diff : pages.length;
-	$: spreaded = items.reduce((acc = [], c, i) => {
-		console.log(acc);
-		if (c !== 0 && c !== pages.length - 1) return [...acc, c];
-	}, []);
 
-	$: console.log(active, spreaded);
+	$: spreaded = (i: number): number[] => {
+		const before = active - Math.trunc(spread / 2);
+		const after = active + Math.trunc(spread / 2);
+		const around = items.slice(before >= 0 ? before : 0, after + 1);
+		return uniq([start, ...around, end]);
+	};
+	// const collapsed = (items: number[], i: number) => spreaded(items).every((s) => s !== i);
+	$: console.log(active, items, spreaded());
 </script>
 
 <style lang="scss">
 	@import 'spectre.css/src/pagination';
 	.page-item {
 		a {
+			font-weight: bold;
 			:global(.icon) {
 				vertical-align: sub;
 			}

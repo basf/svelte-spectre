@@ -65,8 +65,11 @@
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Pagination</h2>
+		<h5>Default</h5>
+		<Pagination bind:pages let:page active={4} spread={0} />
+		<h5>Spread = 3</h5>
 		<Pagination
-			pages={[...Array(arrows.length).keys()]}
+			bind:pages
 			let:page
 			active={4}
 			spread={3}
@@ -74,7 +77,8 @@
 			on:current={(e) => console.log(e.detail)}
 			on:next={(e) => console.log(e.detail)}
 		/>
-		<Pagination pages={[...Array(arrows.length).keys()]} let:page active={4} spread={0} />
+		<h5>Spread = 5</h5>
+		<Pagination bind:pages let:page active={4} spread={5} />
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Modal</h2>
@@ -412,7 +416,8 @@
 		],
 		tostVis: boolean = true,
 		modalVis: boolean,
-		arrows: string[] = ['↖', '↑', '↗', '←', '☩', '→', '↙', '↓', '↘'];
+		arrows: string[] = ['↖', '↑', '↗', '←', '☩', '→', '↙', '↓', '↘'],
+		pages = [...Array(arrows.length).keys()];
 
 	let badge = 'badge';
 	const CARDS = [
