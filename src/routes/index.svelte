@@ -4,6 +4,10 @@
 		Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
 	</p>
 	<Hero offset="my-2" size="sm">
+		<h2>Table</h2>
+		<Table cols={table.cols} rows={table.rows} hoverable />
+	</Hero>
+	<Hero offset="my-2" size="sm">
 		<h2>Avatars</h2>
 		<Avatar name="AV" size="sm" badge />
 		<Avatar name="AV" status="online" badge />
