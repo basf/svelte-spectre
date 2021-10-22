@@ -36,11 +36,12 @@
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 
-	export let pages: number[];
+	export let total: number;
 	export let spread: number;
 	export let active: number;
 	export let offset: Offset = '';
 
+	const pages = [...Array(total).keys()];
 	const start = 0;
 	const end = pages.length - 1;
 	const half = Math.trunc(spread / 2);

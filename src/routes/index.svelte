@@ -67,18 +67,18 @@
 		<h2>Pagination</h2>
 		<h5>Default</h5>
 		<Pagination
-			pages={[...Array(9).keys()]}
+			total={9}
 			active={4}
 			on:prev={(e) => console.log(e.detail)}
 			on:current={(e) => console.log(e.detail)}
 			on:next={(e) => console.log(e.detail)}
 		/>
 		<h5>Spread = 3</h5>
-		<Pagination pages={[...Array(9).keys()]} active={4} spread={3} />
+		<Pagination total={9} active={4} spread={3} />
 		<h5>Spread = 5</h5>
-		<Pagination pages={[...Array(15).keys()]} let:page active={8} spread={5} />
+		<Pagination total={15} active={8} spread={5} />
 		<h5>Spread = 7</h5>
-		<Pagination pages={[...Array(25).keys()]} let:page active={12} spread={7} />
+		<Pagination total={25} active={12} spread={7} />
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Modal</h2>
