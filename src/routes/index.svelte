@@ -64,6 +64,11 @@
 		</Grid>
 	</Hero>
 	<Hero offset="my-2" size="sm">
+		<h2>Pagination</h2>
+		<Pagination pages={[...Array(arrows.length).keys()]} let:page active={4} spread={3} />
+		<Pagination pages={[...Array(arrows.length).keys()]} let:page active={4} spread={0} />
+	</Hero>
+	<Hero offset="my-2" size="sm">
 		<h2>Modal</h2>
 		<Button on:click={() => (modalVis = !modalVis)}>Open Modal</Button>
 		<Modal bind:open={modalVis} size="md">
@@ -357,6 +362,7 @@
 		InputGroup,
 		Figure,
 		Modal,
+		Pagination,
 		Radio,
 		Range,
 		Select,
@@ -368,6 +374,8 @@
 </script>
 
 <script lang="ts">
+	import { page, page } from '$app/stores';
+
 	let questions = [
 			{ id: 1, text: `Where did you go to school?` },
 			{ id: 2, text: `What is your mother's name?` },
