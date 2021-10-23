@@ -1,5 +1,5 @@
 <ul class="pagination {offset}">
-	<li class="page-item" class:disabled={active === start}>
+	<li class="page-item" class:disabled={active === 1}>
 		<a href="#_" on:click={prev}>
 			<slot name="prev">
 				<Icon icon="back" />
@@ -17,7 +17,7 @@
 			</li>
 		{/each}
 	{/if}
-	<li class="page-item" class:disabled={active === end}>
+	<li class="page-item" class:disabled={active === pages.length}>
 		<a href="#_" on:click={next}>
 			<slot name="next">
 				<Icon icon="forward" />
@@ -42,23 +42,20 @@
 	export let spread: number;
 	export let offset: Offset = '';
 
-	const pages = [...Array(Math.ceil(total / limit)).keys()].map((p) => p + 1);
-
-	const start = 1;
-	const end = pages.length;
-	const half = Math.trunc(spread / 2);
-
-	const prev = () => (active > start && active--, dispatch('prev', active));
+	const prev = () => (active > 1 && active--, dispatch('prev', active));
 	const cur = (i: number) => ((active = i), dispatch('current', i));
-	const next = () => (active < end && active++, dispatch('next', active));
+	const next = () => (active < pages.length && active++, dispatch('next', active));
+
+	$: pages = [...Array(Math.ceil(total / limit)).keys()].map((p) => p + 1);
 
 	$: spreaded = (items: number[]) => {
+		const half = Math.trunc(spread / 2);
 		const before = active - half;
 		const after = active + half;
-		const from = before >= start ? before - 1 : start;
+		const from = before >= 1 ? before - 1 : 1;
 		const around = items.slice(from, after);
 		const result = items.map((i) =>
-			![start, end, ...around].includes(i) ? around.every((a) => a > i) : i
+			![1, pages.length, ...around].includes(i) ? around.every((a) => a > i) : i
 		);
 		const uniq = (a: (number | boolean)[]): (number | boolean)[] => [...new Set(a)];
 		return spread ? uniq(result) : items;
