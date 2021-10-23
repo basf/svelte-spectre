@@ -1,5 +1,5 @@
 <ul class="pagination {offset}">
-	<li class="page-item" class:disabled={active === 0}>
+	<li class="page-item" class:disabled={active === start}>
 		<a href="#_" on:click={prev}>
 			<slot name="prev">
 				<Icon icon="back" />
@@ -12,12 +12,12 @@
 				{#if typeof page === 'boolean'}
 					<span>...</span>
 				{:else}
-					<a href={'#_'} on:click={() => cur(page)}>{page}</a>
+					<a href={'#_'} on:click={() => cur(page)}>{page + 1}</a>
 				{/if}
 			</li>
 		{/each}
 	{/if}
-	<li class="page-item" class:disabled={active === total - 1}>
+	<li class="page-item" class:disabled={active === end}>
 		<a href="#_" on:click={next}>
 			<slot name="next">
 				<Icon icon="forward" />
@@ -37,13 +37,15 @@
 	const dispatch = createEventDispatcher();
 
 	export let total: number;
+	export let limit: number;
 	export let active: number;
 	export let spread: number;
 	export let offset: Offset = '';
 
-	const pages = [...Array(total).keys()];
+	const pages = [...Array(Math.ceil(total / limit)).keys()];
+
 	const start = 0;
-	const end = total - 1;
+	const end = pages.length - 1;
 	const half = Math.trunc(spread / 2);
 
 	const prev = () => (active > start && active--, dispatch('prev', active));
@@ -66,13 +68,39 @@
 <style lang="scss">
 	@import 'spectre.css/src/pagination';
 	.pagination {
-		justify-content: center;
+		// display: inline-flex;
+		// justify-content: space-between;
+		// list-style: none;
+		// margin: 0.2rem auto;
+		// padding: 0.2rem 0;
+		// overflow-x: auto;
+		// margin: auto;
+		// position: relative;
+		// width: 30%;
 		.page-item {
 			a {
 				font-weight: bold;
 				:global(.icon) {
 					vertical-align: sub;
 				}
+			}
+			&:first-child,
+			&:last-child {
+				// position: relative;
+				// top: 0;
+				// background: aliceblue;
+				// margin: 0;
+				// bottom: 0;
+				// justify-content: center;
+				// display: flex;
+				// align-items: center;
+				// z-index: 1;
+			}
+			&:first-child {
+				// left: 0.1rem;
+			}
+			&:last-child {
+				// right: 0.1rem;
 			}
 		}
 	}
