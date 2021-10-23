@@ -69,17 +69,17 @@
 		<Pagination
 			total={90}
 			limit={10}
-			active={4}
+			active={5}
 			on:prev={(e) => console.log(e.detail)}
 			on:current={(e) => console.log(e.detail)}
 			on:next={(e) => console.log(e.detail)}
 		/>
 		<h5>Spread = 3</h5>
-		<Pagination total={90} limit={10} active={4} spread={3} />
+		<Pagination total={90} limit={10} active={5} spread={3} />
 		<h5>Spread = 5</h5>
-		<Pagination total={150} limit={10} active={8} spread={5} />
+		<Pagination total={150} limit={10} active={9} spread={5} />
 		<h5>Spread = 7</h5>
-		<Pagination total={250} limit={10} active={12} spread={7} />
+		<Pagination total={250} limit={10} active={13} spread={7} />
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Modal</h2>

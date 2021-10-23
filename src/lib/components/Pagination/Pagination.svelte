@@ -12,7 +12,7 @@
 				{#if typeof page === 'boolean'}
 					<span>...</span>
 				{:else}
-					<a href="#_" on:click={() => cur(page)}>{page + 1}</a>
+					<a href="#_" on:click={() => cur(page)}>{page}</a>
 				{/if}
 			</li>
 		{/each}
@@ -42,10 +42,10 @@
 	export let spread: number;
 	export let offset: Offset = '';
 
-	const pages = [...Array(Math.ceil(total / limit)).keys()];
+	const pages = [...Array(Math.ceil(total / limit)).keys()].map((p) => p + 1);
 
-	const start = 0;
-	const end = pages.length - 1;
+	const start = 1;
+	const end = pages.length;
 	const half = Math.trunc(spread / 2);
 
 	const prev = () => (active > start && active--, dispatch('prev', active));
@@ -55,8 +55,8 @@
 	$: spreaded = (items: number[]) => {
 		const before = active - half;
 		const after = active + half;
-		const from = before >= start ? before : start;
-		const around = items.slice(from, after + 1);
+		const from = before >= start ? before - 1 : start;
+		const around = items.slice(from, after);
 		const result = items.map((i) =>
 			![start, end, ...around].includes(i) ? around.every((a) => a > i) : i
 		);
