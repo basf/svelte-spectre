@@ -12,7 +12,7 @@
 				{#if typeof page === 'boolean'}
 					<span>...</span>
 				{:else}
-					<a href={'#_'} on:click={() => cur(page)}>{page + 1}</a>
+					<a href="#_" on:click={() => cur(page)}>{page + 1}</a>
 				{/if}
 			</li>
 		{/each}
