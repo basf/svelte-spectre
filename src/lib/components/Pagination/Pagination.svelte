@@ -56,6 +56,7 @@
 		const around = items.slice(from, after);
 		const visible = [1, pages.length, ...around];
 		const result = items.map((i) => (!visible.includes(i) ? around.every((a) => a > i) : i));
+
 		const uniq = (a: (number | boolean)[]): (number | boolean)[] => [...new Set(a)];
 		return spread ? uniq(result) : items;
 	};
