@@ -1,18 +1,18 @@
 import { SvelteComponentTyped } from 'svelte';
 import type { Size } from '../../types/size';
 declare type Validity = 'success' | 'error' | false;
-export type { Size, Validity };
+declare type Option = string | number | boolean;
+export type { Size, Validity, Option };
 declare const __propDef: {
     props: {
         [x: string]: any;
-        label?: string;
         value?: string;
         rows?: number;
-        inline?: boolean;
         validity?: Validity;
         size?: Size;
         expand?: Size;
         width?: string;
+        options?: Option[];
     };
     events: {
         change: Event;

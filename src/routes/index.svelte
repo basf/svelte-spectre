@@ -66,20 +66,14 @@
 	<Hero offset="my-2" size="sm">
 		<h2>Pagination</h2>
 		<h5>Default</h5>
-		<Pagination
-			total={90}
-			limit={10}
-			active={5}
-			on:prev={(e) => console.log(e.detail)}
-			on:current={(e) => console.log(e.detail)}
-			on:next={(e) => console.log(e.detail)}
-		/>
+		<Pagination total={100} limit={10} bind:page />
+		<p>Page: {page}</p>
 		<h5>Spread = 3</h5>
-		<Pagination total={90} limit={10} active={5} spread={3} />
-		<h5>Spread = 5</h5>
-		<Pagination total={150} limit={10} active={9} spread={5} />
+		<Pagination total={100} limit={20} page={5} rest={3} />
+		<h5>Spread = 4</h5>
+		<Pagination total={150} limit={10} page={9} rest={4} />
 		<h5>Spread = 7</h5>
-		<Pagination total={250} limit={10} active={13} spread={7} />
+		<Pagination total={250} limit={30} page={13} rest={7} perpage={false} />
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Modal</h2>
@@ -246,6 +240,7 @@
 				<Input validity="error">Error <IconButton slot="iconRight" icon="emoji" /></Input>
 			</FormGroup>
 		</Form>
+		<!--
 		<Form>
 			<h4>InputGroup</h4>
 			<FormGroup>
@@ -307,6 +302,7 @@
 				<Range label="" />
 			</FormGroup>
 		</Form>
+-->
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Grid</h2>
@@ -447,6 +443,8 @@
 			text: 'Flexbox-based, responsive and mobile-friendly layout',
 		},
 	];
+
+	let page;
 
 	export let name: string = 'Spectre';
 </script>
