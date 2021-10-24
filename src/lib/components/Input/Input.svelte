@@ -19,6 +19,7 @@
 			class:is-success={validity === 'success'}
 			class:is-error={validity === 'error'}
 			class="form-input input-{size}"
+			list="list-{fid}"
 			id="input-{fid}"
 			{rows}
 			on:change
@@ -31,6 +32,7 @@
 			class:is-success={validity === 'success'}
 			class:is-error={validity === 'error'}
 			class="form-input input-{size}"
+			list="list-{fid}"
 			id="input-{fid}"
 			on:change
 			on:input
@@ -52,25 +54,31 @@
 		<slot name="hint" />
 	</div>
 {/if}
+{#if options.length}
+	<datalist id="list-{fid}">
+		{#each options as value}
+			<option {value} />{/each}
+	</datalist>
+{/if}
 
 <script lang="ts" context="module">
 	import uuid from '../../helpers/uuid';
 	import type { Size } from '../../types/size';
 
 	type Validity = 'success' | 'error' | false;
+	type Option = string | number | boolean;
 
-	export type { Size, Validity };
+	export type { Size, Validity, Option };
 </script>
 
 <script lang="ts">
-	export let label: string = '';
 	export let value: string = '';
 	export let rows: number = 1;
-	export let inline: boolean = false;
 	export let validity: Validity = false;
 	export let size: Size = 'md';
 	export let expand: Size = 'xs';
 	export let width: string = '';
+	export let options: Option[] = [];
 
 	const fid: string = uuid();
 </script>
