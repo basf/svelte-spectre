@@ -61,36 +61,72 @@
 	{/if}
 </div>
 
-<script lang="ts" context="module">
-	import Icon from '../Icon/';
-	import Select from '../Select/';
+<script  context="module">import Icon from '../Icon/';
+import Select from '../Select/';
 </script>
 
-<script lang="ts">
-	export let page = 1;
-	export let total = 0;
-	export let limit = 10;
-	export let rest: number;
-	export let perpage = true;
-
-	const limits = Array.from({ length: 10 }, (_, i) => (i + 1) * limit);
-
-	$: length = Math.ceil(total / limit);
-	$: shift = Math.trunc(rest / 2);
-	$: page > length && (page = length);
+<script >export let page = 1;
+export let total = 0;
+export let limit = 10;
+export let rest;
+export let perpage = true;
+const limits = Array.from({ length: 10 }, (_, i) => (i + 1) * limit);
+$: length = Math.ceil(total / limit);
+$: shift = Math.trunc(rest / 2);
+$: page > length && (page = length);
 </script>
 
-<style lang="scss">
-	@import 'spectre.css/src/pagination';
-	.pagination {
-		flex-wrap: wrap;
-		.page-item {
-			a {
-				font-weight: bold;
-				:global(.icon) {
-					vertical-align: sub;
-				}
-			}
-		}
-	}
-</style>
+<style >.pagination {
+  display: flex;
+  list-style: none;
+  margin: 0.2rem 0;
+  padding: 0.2rem 0;
+}
+.pagination .page-item {
+  margin: 0.2rem 0.05rem;
+}
+.pagination .page-item span {
+  display: inline-block;
+  padding: 0.2rem 0.2rem;
+}
+.pagination .page-item a {
+  border-radius: 0.1rem;
+  display: inline-block;
+  padding: 0.2rem 0.4rem;
+  text-decoration: none;
+}
+.pagination .page-item a:focus, .pagination .page-item a:hover {
+  color: #5755d9;
+}
+.pagination .page-item.disabled a {
+  cursor: default;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.pagination .page-item.active a {
+  background: #5755d9;
+  color: #fff;
+}
+.pagination .page-item.page-prev, .pagination .page-item.page-next {
+  flex: 1 0 50%;
+}
+.pagination .page-item.page-next {
+  text-align: right;
+}
+.pagination .page-item .page-item-title {
+  margin: 0;
+}
+.pagination .page-item .page-item-subtitle {
+  margin: 0;
+  opacity: 0.5;
+}
+
+.pagination {
+  flex-wrap: wrap;
+}
+.pagination .page-item a {
+  font-weight: bold;
+}
+.pagination .page-item a :global(.icon) {
+  vertical-align: sub;
+}</style>

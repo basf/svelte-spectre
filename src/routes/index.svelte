@@ -12,11 +12,11 @@
 		<Avatar name="AV" size="sm" badge />
 		<Avatar name="AV" status="online" badge />
 		<Avatar name="AV" status="busy" size="lg" badge="0">
-			<img src="../img/avatar-1.png" alt="Thor Odinson" />
+			<img src="img/avatar-1.png" alt="Thor Odinson" />
 		</Avatar>
 		<Avatar name="AV" size="xl" badge="0">
-			<img src="../img/avatar-1.png" alt="Thor Odinson" />
-			<img slot="sub" src="../img/avatar-1.png" alt="Thor Odinson" />
+			<img src="img/avatar-1.png" alt="Thor Odinson" />
+			<img slot="sub" src="img/avatar-1.png" alt="Thor Odinson" />
 		</Avatar>
 	</Hero>
 	<Hero offset="my-2" size="sm">
@@ -26,7 +26,7 @@
 		<Chip initial="CP" status="online">Chip</Chip>
 		<Chip initial="CP" status="busy" closable>Chip</Chip>
 		<Chip initial="CP" status="busy" closable>
-			<img slot="avatar" src="../img/avatar-1.png" alt="Thor Odinson" />Chip
+			<img slot="avatar" src="img/avatar-1.png" alt="Thor Odinson" />Chip
 		</Chip>
 	</Hero>
 	<Hero offset="my-2" size="sm">
@@ -74,19 +74,14 @@
 	<Hero offset="my-2" size="sm">
 		<h2>Pagination</h2>
 		<h5>Default</h5>
-		<Pagination
-			total={9}
-			active={4}
-			on:prev={(e) => console.log(e.detail)}
-			on:current={(e) => console.log(e.detail)}
-			on:next={(e) => console.log(e.detail)}
-		/>
-		<h5>Spread = 3</h5>
-		<Pagination total={9} active={4} spread={3} />
-		<h5>Spread = 5</h5>
-		<Pagination total={15} active={8} spread={5} />
-		<h5>Spread = 7</h5>
-		<Pagination total={25} active={12} spread={7} />
+		<Pagination total={100} limit={10} bind:page />
+		<p>Page: {page}</p>
+		<h5>Rest = 3</h5>
+		<Pagination total={100} limit={20} page={5} rest={3} />
+		<h5>Rest = 4</h5>
+		<Pagination total={150} limit={10} page={9} rest={4} />
+		<h5>Rest = 7</h5>
+		<Pagination total={250} limit={30} page={13} rest={7} perpage={false} />
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Modal</h2>
@@ -253,6 +248,7 @@
 				<Input validity="error">Error <IconButton slot="iconRight" icon="emoji" /></Input>
 			</FormGroup>
 		</Form>
+		<!--
 		<Form>
 			<h4>InputGroup</h4>
 			<FormGroup>
@@ -314,6 +310,7 @@
 				<Range label="" />
 			</FormGroup>
 		</Form>
+-->
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Grid</h2>
@@ -477,6 +474,8 @@
 			text: 'Flexbox-based, responsive and mobile-friendly layout',
 		},
 	];
+
+	let page;
 
 	export let name: string = 'Spectre';
 </script>
