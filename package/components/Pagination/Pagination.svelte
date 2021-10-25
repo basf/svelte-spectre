@@ -8,43 +8,57 @@
 			</a>
 		</li>
 		{#each { length } as _, p (++p)}
-			<li class="page-item" class:active={page === p}>
-				{#if !rest}
+			{#if !rest}
+				<li class="page-item" class:active={page === p}>
 					<a href="#" on:click|preventDefault={() => (page = p)}>{p}</a>
-				{:else if page <= rest}
-					{#if p <= rest + 1 || p === length}
+				</li>
+			{:else if page <= rest}
+				{#if p <= rest + 1 || p === length}
+					<li class="page-item" class:active={page === p}>
 						<a href="#" on:click|preventDefault={() => (page = p)}>{p}</a>
-					{/if}
-					{#if p === rest + 1}
-						<slot name="rest">
-							<span>...</span>
-						</slot>
-					{/if}
-				{:else if page > rest && page <= length - rest}
-					{#if p === length}
-						<slot name="rest">
-							<span>...</span>
-						</slot>
-					{/if}
-					{#if (p >= page - shift && p < page + (rest - shift)) || p === length || p === 1}
-						<a href="#" on:click|preventDefault={() => (page = p)}>{p}</a>
-					{/if}
-					{#if p === 1}
-						<slot name="rest">
-							<span>...</span>
-						</slot>
-					{/if}
-				{:else if page > length - rest}
-					{#if p === length - rest}
-						<slot name="rest">
-							<span>...</span>
-						</slot>
-					{/if}
-					{#if p >= length - rest || p === 1}
-						<a href="#" on:click|preventDefault={() => (page = p)}>{p}</a>
-					{/if}
+					</li>
 				{/if}
-			</li>
+				{#if p === rest + 1}
+					<li class="page-item" class:active={page === p}>
+						<slot name="rest">
+							<span>...</span>
+						</slot>
+					</li>
+				{/if}
+			{:else if page > rest && page <= length - rest}
+				{#if p === length}
+					<li class="page-item" class:active={page === p}>
+						<slot name="rest">
+							<span>...</span>
+						</slot>
+					</li>
+				{/if}
+				{#if (p >= page - shift && p < page + (rest - shift)) || p === length || p === 1}
+					<li class="page-item" class:active={page === p}>
+						<a href="#" on:click|preventDefault={() => (page = p)}>{p}</a>
+					</li>
+				{/if}
+				{#if p === 1}
+					<li class="page-item" class:active={page === p}>
+						<slot name="rest">
+							<span>...</span>
+						</slot>
+					</li>
+				{/if}
+			{:else if page > length - rest}
+				{#if p === length - rest}
+					<li class="page-item" class:active={page === p}>
+						<slot name="rest">
+							<span>...</span>
+						</slot>
+					</li>
+				{/if}
+				{#if p >= length - rest || p === 1}
+					<li class="page-item" class:active={page === p}>
+						<a href="#" on:click|preventDefault={() => (page = p)}>{p}</a>
+					</li>
+				{/if}
+			{/if}
 		{/each}
 		<li class="page-item" class:disabled={page === length}>
 			<a href="#" on:click|preventDefault={() => page++}>
