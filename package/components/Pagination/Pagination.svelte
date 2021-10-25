@@ -8,43 +8,57 @@
 			</a>
 		</li>
 		{#each { length } as _, p (++p)}
-			<li class="page-item" class:active={page === p}>
-				{#if !rest}
+			{#if !rest}
+				<li class="page-item" class:active={page === p}>
 					<a href="#" on:click|preventDefault={() => (page = p)}>{p}</a>
-				{:else if page <= rest}
-					{#if p <= rest + 1 || p === length}
+				</li>
+			{:else if page <= rest}
+				{#if p <= rest + 1 || p === length}
+					<li class="page-item" class:active={page === p}>
 						<a href="#" on:click|preventDefault={() => (page = p)}>{p}</a>
-					{/if}
-					{#if p === rest + 1}
-						<slot name="rest">
-							<span>...</span>
-						</slot>
-					{/if}
-				{:else if page > rest && page <= length - rest}
-					{#if p === length}
-						<slot name="rest">
-							<span>...</span>
-						</slot>
-					{/if}
-					{#if (p >= page - shift && p < page + (rest - shift)) || p === length || p === 1}
-						<a href="#" on:click|preventDefault={() => (page = p)}>{p}</a>
-					{/if}
-					{#if p === 1}
-						<slot name="rest">
-							<span>...</span>
-						</slot>
-					{/if}
-				{:else if page > length - rest}
-					{#if p === length - rest}
-						<slot name="rest">
-							<span>...</span>
-						</slot>
-					{/if}
-					{#if p >= length - rest || p === 1}
-						<a href="#" on:click|preventDefault={() => (page = p)}>{p}</a>
-					{/if}
+					</li>
 				{/if}
-			</li>
+				{#if p === rest + 1}
+					<li class="page-item" class:active={page === p}>
+						<slot name="rest">
+							<span>...</span>
+						</slot>
+					</li>
+				{/if}
+			{:else if page > rest && page <= length - rest}
+				{#if p === length}
+					<li class="page-item" class:active={page === p}>
+						<slot name="rest">
+							<span>...</span>
+						</slot>
+					</li>
+				{/if}
+				{#if (p >= page - shift && p < page + (rest - shift)) || p === length || p === 1}
+					<li class="page-item" class:active={page === p}>
+						<a href="#" on:click|preventDefault={() => (page = p)}>{p}</a>
+					</li>
+				{/if}
+				{#if p === 1}
+					<li class="page-item" class:active={page === p}>
+						<slot name="rest">
+							<span>...</span>
+						</slot>
+					</li>
+				{/if}
+			{:else if page > length - rest}
+				{#if p === length - rest}
+					<li class="page-item" class:active={page === p}>
+						<slot name="rest">
+							<span>...</span>
+						</slot>
+					</li>
+				{/if}
+				{#if p >= length - rest || p === 1}
+					<li class="page-item" class:active={page === p}>
+						<a href="#" on:click|preventDefault={() => (page = p)}>{p}</a>
+					</li>
+				{/if}
+			{/if}
 		{/each}
 		<li class="page-item" class:disabled={page === length}>
 			<a href="#" on:click|preventDefault={() => page++}>
@@ -56,7 +70,12 @@
 	</ul>
 	{#if perpage}
 		<div class="column col-2 col-xs-12 my-2">
-			<Select bind:value={limit} options={limits} size="xs" />
+			<Select
+				on:select={() => dispatch('limited', limit)}
+				bind:value={limit}
+				options={limits}
+				size="xs"
+			/>
 		</div>
 	{/if}
 </div>
@@ -65,15 +84,17 @@
 import Select from '../Select/';
 </script>
 
-<script >export let page = 1;
+<script >import { createEventDispatcher } from 'svelte';
+const dispatch = createEventDispatcher();
+export let page = 1;
 export let total = 0;
 export let limit = 10;
 export let rest;
 export let perpage = true;
-const limits = Array.from({ length: 10 }, (_, i) => (i + 1) * limit);
+export let limits = Array.from({ length: 10 }, (_, i) => (i + 1) * limit);
 $: length = Math.ceil(total / limit);
 $: shift = Math.trunc(rest / 2);
-$: page > length && (page = length);
+$: page = (page > length ? length : page) || 1;
 </script>
 
 <style >.pagination {
