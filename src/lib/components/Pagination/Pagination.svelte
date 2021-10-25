@@ -81,11 +81,11 @@
 </script>
 
 <script lang="ts">
-	export let page = 1;
-	export let total = 0;
-	export let limit = 10;
+	export let page: number = 1;
+	export let total: number = 0;
+	export let limit: number = 10;
 	export let rest: number;
-	export let perpage = true;
+	export let perpage: boolean = true;
 
 	const limits = Array.from({ length: 10 }, (_, i) => (i + 1) * limit);
 
