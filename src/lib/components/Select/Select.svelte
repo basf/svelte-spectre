@@ -7,6 +7,7 @@
 		class="form-select is-{validity} select-{size}"
 		class:form-inline={inline}
 		bind:value
+		on:change={() => dispatch('select', value)}
 	>
 		{#if unselected}
 			<option />
@@ -24,6 +25,7 @@
 		class="form-select is-{validity} select-{size}"
 		class:form-inline={inline}
 		bind:value
+		on:change={() => dispatch('select', value)}
 	>
 		{#if unselected}
 			<option />
@@ -51,6 +53,9 @@
 </script>
 
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+
 	export let options: Option[] = [];
 	export let value: Value;
 	export let selected: Selected;

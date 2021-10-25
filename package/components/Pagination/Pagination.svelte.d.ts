@@ -6,8 +6,11 @@ declare const __propDef: {
         limit?: number;
         rest: number;
         perpage?: boolean;
+        limits?: number[];
     };
     events: {
+        limited: CustomEvent<any>;
+    } & {
         [evt: string]: CustomEvent<any>;
     };
     slots: {

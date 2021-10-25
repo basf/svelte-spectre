@@ -7,6 +7,7 @@
 		class="form-select is-{validity} select-{size}"
 		class:form-inline={inline}
 		bind:value
+		on:change={() => dispatch('select', value)}
 	>
 		{#if unselected}
 			<option />
@@ -24,6 +25,7 @@
 		class="form-select is-{validity} select-{size}"
 		class:form-inline={inline}
 		bind:value
+		on:change={() => dispatch('select', value)}
 	>
 		{#if unselected}
 			<option />
@@ -39,7 +41,9 @@
 <script  context="module">import uuid from '../../helpers/uuid';
 </script>
 
-<script >export let options = [];
+<script >import { createEventDispatcher } from 'svelte';
+const dispatch = createEventDispatcher();
+export let options = [];
 export let value;
 export let selected;
 export let inline = false;

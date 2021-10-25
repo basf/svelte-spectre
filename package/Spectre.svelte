@@ -1649,7 +1649,7 @@
   margin: auto;
 }
 .spectre :global(.overlay) {
-  position: absolute;
+  position: fixed;
   inset: 0;
   cursor: default;
   display: flex;
