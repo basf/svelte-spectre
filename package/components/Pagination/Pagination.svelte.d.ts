@@ -8,6 +8,8 @@ declare const __propDef: {
         perpage?: boolean;
     };
     events: {
+        limited: CustomEvent<any>;
+    } & {
         [evt: string]: CustomEvent<any>;
     };
     slots: {

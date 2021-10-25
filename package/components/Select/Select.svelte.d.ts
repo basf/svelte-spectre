@@ -24,6 +24,8 @@ declare const __propDef: {
         validity?: Validity;
     };
     events: {
+        select: CustomEvent<any>;
+    } & {
         [evt: string]: CustomEvent<any>;
     };
     slots: {

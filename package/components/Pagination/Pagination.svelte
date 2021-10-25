@@ -70,7 +70,12 @@
 	</ul>
 	{#if perpage}
 		<div class="column col-2 col-xs-12 my-2">
-			<Select bind:value={limit} options={limits} size="xs" />
+			<Select
+				on:select={() => dispatch('limited', limit)}
+				bind:value={limit}
+				options={limits}
+				size="xs"
+			/>
 		</div>
 	{/if}
 </div>
@@ -79,7 +84,9 @@
 import Select from '../Select/';
 </script>
 
-<script >export let page = 1;
+<script >import { createEventDispatcher } from 'svelte';
+const dispatch = createEventDispatcher();
+export let page = 1;
 export let total = 0;
 export let limit = 10;
 export let rest;
