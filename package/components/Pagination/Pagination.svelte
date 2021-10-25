@@ -94,7 +94,7 @@ export let perpage = true;
 const limits = Array.from({ length: 10 }, (_, i) => (i + 1) * limit);
 $: length = Math.ceil(total / limit);
 $: shift = Math.trunc(rest / 2);
-$: page > length && (page = length);
+$: page = (page > length ? length : page) || 1;
 </script>
 
 <style >.pagination {

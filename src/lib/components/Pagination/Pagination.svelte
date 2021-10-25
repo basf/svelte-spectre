@@ -99,7 +99,7 @@
 
 	$: length = Math.ceil(total / limit);
 	$: shift = Math.trunc(rest / 2);
-	$: page > length && (page = length);
+	$: page = (page > length ? length : page) || 1;
 </script>
 
 <style lang="scss">
