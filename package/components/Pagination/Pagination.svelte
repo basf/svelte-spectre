@@ -91,7 +91,7 @@ export let total = 0;
 export let limit = 10;
 export let rest;
 export let perpage = true;
-const limits = Array.from({ length: 10 }, (_, i) => (i + 1) * limit);
+export let limits = Array.from({ length: 10 }, (_, i) => (i + 1) * limit);
 $: length = Math.ceil(total / limit);
 $: shift = Math.trunc(rest / 2);
 $: page = (page > length ? length : page) || 1;
