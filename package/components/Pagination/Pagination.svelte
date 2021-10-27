@@ -1,7 +1,7 @@
 <div class="columns">
 	<ul class="pagination column col-{perpage ? 10 : 12} col-xs-12">
 		<li class="page-item" class:disabled={page === 1}>
-			<a href="#" on:click|preventDefault={() => page > 1 && page--}>
+			<a href="#" on:click|preventDefault={() => page--}>
 				<slot name="prev">
 					<Icon icon="back" />
 				</slot>
@@ -61,7 +61,7 @@
 			{/if}
 		{/each}
 		<li class="page-item" class:disabled={page === length}>
-			<a href="#" on:click|preventDefault={() => page < length && page++}>
+			<a href="#" on:click|preventDefault={() => page++}>
 				<slot name="next">
 					<Icon icon="forward" />
 				</slot>
@@ -94,6 +94,7 @@ export let perpage = true;
 export let limits = Array.from({ length: 10 }, (_, i) => (i + 1) * limit);
 $: length = Math.ceil(total / limit);
 $: shift = Math.trunc(rest / 2);
+$: page = page > length ? length : page;
 </script>
 
 <style >.pagination {
