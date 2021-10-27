@@ -1,5 +1,5 @@
 import preprocess from 'svelte-preprocess';
-import mm from 'micromatch';
+// import mm from 'micromatch';
 import path from 'path';
 import svg from '@poppanator/sveltekit-svg';
 import adapterStatic from '@sveltejs/adapter-static';
@@ -87,16 +87,16 @@ export default {
 			onError: 'fail',
 		},
 		router: true,
-		serviceWorker: {
-			files: (filepath) => true,
-		},
+		// serviceWorker: {
+		// 	files: (filepath) => true,
+		// },
 		ssr: true,
 		target: '',
 		trailingSlash: 'never',
 		vite: () => ({
 			resolve: {
 				alias: {
-					'$svelte-spectre': path.resolve('./package/index.js'),
+					// '$svelte-spectre': path.resolve('./package/index.js'),
 					$assets: path.resolve('./static'),
 				},
 			},
