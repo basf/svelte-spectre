@@ -4,8 +4,9 @@
 		Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
 	</p>
 	<Hero offset="my-2" size="sm">
-		<h2>Table</h2>
-		<Table cols={table.cols} rows={table.rows} hoverable />
+		<h2>Autocomplete</h2>
+		<Autocomplete bind:selected={autocompleted} predefined={positions} />
+		{autocompleted}
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Avatars</h2>
@@ -22,11 +23,12 @@
 	<Hero offset="my-2" size="sm">
 		<h2>Chips</h2>
 		<Chip>Chip</Chip>
-		<Chip initial="CP">Chip</Chip>
-		<Chip initial="CP" status="online">Chip</Chip>
-		<Chip initial="CP" status="busy" closable>Chip</Chip>
+		<Chip active>Active</Chip>
+		<Chip initial="CP">Avatar</Chip>
+		<Chip initial="CP" status="online">Online</Chip>
+		<Chip initial="CP" status="busy">Busy</Chip>
 		<Chip initial="CP" status="busy" closable>
-			<img slot="avatar" src="img/avatar-1.png" alt="Thor Odinson" />Chip
+			<img slot="avatar" src="img/avatar-1.png" alt="Thor Odinson" />Closable
 		</Chip>
 	</Hero>
 	<Hero offset="my-2" size="sm">
@@ -123,6 +125,10 @@
 			</div>
 			<p slot="footer"><Button variant="primary">Modal footer</Button></p>
 		</Modal>
+	</Hero>
+	<Hero offset="my-2" size="sm">
+		<h2>Table</h2>
+		<Table cols={table.cols} rows={table.rows} hoverable />
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Toast</h2>
@@ -357,6 +363,7 @@
 	import {
 		Accordion,
 		Avatar,
+		Autocomplete,
 		Badge,
 		Button,
 		Breadcrumbs,
@@ -475,7 +482,7 @@
 		},
 	];
 
-	let page;
+	let page, autocompleted;
 
 	export let name: string = 'Spectre';
 </script>
