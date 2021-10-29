@@ -41,13 +41,7 @@
 </div>
 
 <script lang="ts" context="module">
-	import type { Zoom } from '../../types/size';
-	import type { Icons } from '../../types/icons';
-	import type { Offset } from '../../types/position';
-	import type { Color } from '../../types/text';
 	import Chip from '../Chip/Chip.svelte';
-
-	export type { Zoom, Icons };
 </script>
 
 <script lang="ts">
@@ -56,15 +50,10 @@
 	export let predefined: string[] = [];
 	export let selected: string[] = [];
 
-	export let icon: Icons = '';
-	export let size: Zoom = '1x';
-	export let offset: Offset = '';
-	export let color: Color = '';
-
-	let input,
-		menu,
+	let input: HTMLElement,
+		menu: HTMLElement,
 		links: HTMLElement[] = [],
-		focused = false;
+		focused: boolean = false;
 
 	$: suggested = predefined.filter((p) => p.includes(value) && !selected.some((s) => s === p));
 
