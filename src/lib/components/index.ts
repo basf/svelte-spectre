@@ -1,4 +1,5 @@
 export * from './Accordion/';
+export * from './Autocomplete/';
 export * from './Avatar/';
 export * from './Badge/';
 export * from './Breadcrumbs/';

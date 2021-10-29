@@ -1,4 +1,4 @@
-<div {...$$restProps} class="chip {offset}">
+<div {...$$restProps} class="chip {offset}" class:active>
 	{#if initial || $$slots.avatar}
 		<Avatar size="sm" {initial} {status} offset="ml--2 mr-2">
 			<slot name="avatar" />
@@ -6,7 +6,12 @@
 	{/if}
 	<slot />
 	{#if closable}
-		<IconButton icon="cross" size="xs" shape="circle" />
+		<IconButton
+			icon="cross"
+			size="xs"
+			shape="circle"
+			on:click={() => dispatch('close', 'chip close')}
+		/>
 	{/if}
 </div>
 
@@ -19,9 +24,13 @@
 </script>
 
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+
 	export let offset: Offset = '';
 	export let initial: string = '';
 	export let status: Status = false;
+	export let active: boolean = false;
 	export let closable: boolean = false;
 </script>
 
