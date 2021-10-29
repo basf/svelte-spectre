@@ -64,14 +64,14 @@
 	function selectSuggestion(e: KeyboardEvent, i: number, item: string) {
 		let index = i,
 			items = links.filter(Boolean);
-		if (e.code === 'Enter') {
+		if (e.key === 'Enter') {
 			confirmSuggestion(item);
-		} else if (e.code === 'Tab' || e.code === 'ArrowDown') {
+		} else if (e.key === 'Tab' || e.key === 'ArrowDown') {
 			index < items.length - 1 ? items[index + 1].focus() : input.focus();
-		} else if (e.code === 'ArrowUp') {
+		} else if (e.key === 'ArrowUp') {
 			index > 0 ? items[index - 1].focus() : input.focus();
 			input.setSelectionRange(value.length, value.length);
-		} else if (e.code === 'Escape') {
+		} else if (e.key === 'Escape') {
 			suggested.length = 0;
 			input.focus();
 		} else input.focus();
