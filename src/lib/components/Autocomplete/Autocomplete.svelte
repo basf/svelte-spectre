@@ -72,7 +72,7 @@
 		return item.replace(value, `<mark>${value}</mark>`);
 	}
 
-	function selectSuggestion(e, i: number, item: string) {
+	function selectSuggestion(e: KeyboardEvent, i: number, item: string) {
 		let index = i,
 			items = links.filter(Boolean);
 		if (e.code === 'Enter') {
