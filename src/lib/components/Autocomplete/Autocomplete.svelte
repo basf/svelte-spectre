@@ -102,12 +102,12 @@
 		node.onfocus = () => (focused = true);
 		node.onblur = () => (focused = false);
 		node.onkeydown = (e) => {
-			const codes = ['ArrowDown', 'Tab'];
-			console.log(e.code);
-			if (codes.includes(e.code) && menu) {
+			const metas = ['ArrowDown', 'Tab'];
+			console.log(e);
+			if (metas.includes(e.key) && menu) {
 				e.preventDefault();
-				menu.querySelector('a:first-child').focus();
-			} else if (e.code === 'Backspace') {
+				links[0].focus();
+			} else if (e.key === 'Backspace' && (e.ctrlKey || e.metaKey)) {
 				!value
 					? ((selected = selected.length === 1 ? [] : selected.slice(-1)),
 					  console.log(selected))
