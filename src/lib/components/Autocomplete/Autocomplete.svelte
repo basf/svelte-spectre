@@ -9,6 +9,7 @@
 				class="form-input"
 				type="text"
 				placeholder="typing here"
+				bind:this={input}
 				bind:value
 				use:focusing
 			/>
@@ -19,10 +20,15 @@
 	</div>
 
 	{#if value.length > 0 && suggested.length > 0}
-		<ul class="menu">
+		<ul class="menu" bind:this={menu}>
 			{#each suggested as item, i}
 				<li class="menu-item">
-					<a href="#" on:click|preventDefault={() => selectSuggestion(item)}>
+					<a
+						href="#"
+						bind:this={links[i]}
+						on:click|preventDefault={() => confirmSuggestion(item)}
+						on:keydown|preventDefault={(e) => selectSuggestion(e, i, item)}
+					>
 						<div class="tile tile-centered">
 							<div class="tile-icon">{i}</div>
 							<div class="tile-content">{@html markSuggestion(item)}</div>
@@ -55,7 +61,10 @@
 	export let offset: Offset = '';
 	export let color: Color = '';
 
-	let focused = false;
+	let input,
+		menu,
+		links: HTMLElement[] = [],
+		focused = false;
 
 	$: suggested = predefined.filter((p) => p.includes(value) && !selected.some((s) => s === p));
 
@@ -63,9 +72,26 @@
 		return item.replace(value, `<mark>${value}</mark>`);
 	}
 
-	function selectSuggestion(item: string) {
+	function selectSuggestion(e, i: number, item: string) {
+		let index = i,
+			items = links.filter(Boolean);
+		if (e.code === 'Enter') {
+			confirmSuggestion(item);
+		} else if (e.code === 'Tab' || e.code === 'ArrowDown') {
+			index < items.length - 1 ? items[index + 1].focus() : input.focus();
+		} else if (e.code === 'ArrowUp') {
+			index > 0 ? items[index - 1].focus() : input.focus();
+			input.setSelectionRange(value.length, value.length);
+		} else if (e.code === 'Escape') {
+			suggested.length = 0;
+			input.focus();
+		} else input.focus();
+	}
+
+	function confirmSuggestion(item: string) {
 		selected = [...selected, item];
 		value = '';
+		input.focus();
 	}
 
 	function removeSelected(item: string) {
@@ -75,6 +101,14 @@
 	function focusing(node: HTMLElement) {
 		node.onfocus = () => (focused = true);
 		node.onblur = () => (focused = false);
+		node.onkeydown = (e) => {
+			const codes = ['ArrowDown', 'Tab'];
+			console.log(e.code);
+			if (codes.includes(e.code) && menu) {
+				e.preventDefault();
+				menu.querySelector('a:first-child').focus();
+			}
+		};
 	}
 </script>
 
