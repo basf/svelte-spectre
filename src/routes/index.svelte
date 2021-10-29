@@ -5,7 +5,8 @@
 	</p>
 	<Hero offset="my-2" size="sm">
 		<h2>Autocomplete</h2>
-		<Autocomplete predefined={positions} />
+		<Autocomplete bind:selected={autocompleted} predefined={positions} />
+		{autocompleted}
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Avatars</h2>
@@ -450,7 +451,7 @@
 		},
 	];
 
-	let page;
+	let page, autocompleted;
 
 	export let name: string = 'Spectre';
 </script>

@@ -107,6 +107,11 @@
 			if (codes.includes(e.code) && menu) {
 				e.preventDefault();
 				menu.querySelector('a:first-child').focus();
+			} else if (e.code === 'Backspace') {
+				!value
+					? ((selected = selected.length === 1 ? [] : selected.slice(-1)),
+					  console.log(selected))
+					: null;
 			}
 		};
 	}
