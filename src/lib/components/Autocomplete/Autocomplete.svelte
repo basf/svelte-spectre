@@ -60,9 +60,7 @@
 	$: suggested = predefined.filter((p) => p.includes(value) && !selected.some((s) => s === p));
 
 	function markSuggestion(item: string): string {
-		return [...item].reduce((a, c) => {
-			return (a += value.includes(c) ? `<mark>${c}</mark>` : c);
-		}, '');
+		return item.replace(value, `<mark>${value}</mark>`);
 	}
 
 	function selectSuggestion(item: string) {
