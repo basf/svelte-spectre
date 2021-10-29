@@ -1,7 +1,7 @@
 <div {...$$restProps} class="form-autocomplete">
 	<div class="form-autocomplete-input form-input" class:is-focused={focused}>
-		{#each selected as chip}
-			<Chip closable on:close={() => removeSelected(chip)}>{chip}</Chip>
+		{#each selected as chip, i}
+			<Chip closable on:close={() => removeSelected(i)}>{chip}</Chip>
 		{/each}
 
 		<div class="form-input-icon-wrap" class:has-icon-left={value.length > 0}>
@@ -83,24 +83,21 @@
 		input.focus();
 	}
 
-	function removeSelected(item: string) {
-		selected = selected.filter((s) => s !== item);
+	function removeSelected(index: number) {
+		selected = selected.filter((s, i) => i !== index);
 	}
 
 	function focusing(node: HTMLElement) {
 		node.onfocus = () => (focused = true);
 		node.onblur = () => (focused = false);
 		node.onkeydown = (e) => {
-			const metas = ['ArrowDown', 'Tab'];
+			const keys = ['ArrowDown', 'Tab'];
 			console.log(e);
-			if (metas.includes(e.key) && menu) {
+			if (keys.includes(e.key) && menu) {
 				e.preventDefault();
 				links[0].focus();
 			} else if (e.key === 'Backspace' && (e.ctrlKey || e.metaKey)) {
-				!value
-					? ((selected = selected.length === 1 ? [] : selected.slice(-1)),
-					  console.log(selected))
-					: null;
+				!value && removeSelected(selected.length - 1);
 			}
 		};
 	}
