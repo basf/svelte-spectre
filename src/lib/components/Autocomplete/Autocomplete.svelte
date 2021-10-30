@@ -11,7 +11,7 @@
 				{placeholder}
 				bind:value
 				on:focus={() => (focused = true)}
-				on:blur={() => (focused = false)}
+				on:blur|preventDefault={() => (focused = false)}
 				on:keydown={selectSuggestion}
 			/>
 			{#if value.length > 0}
@@ -47,10 +47,10 @@
 
 <script lang="ts">
 	export let value: string = '';
-	export let suggested: string[] = [];
-	export let predefined: string[] = [];
-	export let selected: string[] = [];
 	export let placeholder: string = 'typing here';
+	export let predefined: string[] = [];
+	export let suggested: string[] = [];
+	export let selected: string[] = [];
 
 	let focused: boolean = false,
 		active: number = 0;
@@ -72,6 +72,10 @@
 		} else if (e.key === 'ArrowUp') {
 			e.preventDefault();
 			active > 0 ? active-- : (active = suggested.length - 1);
+		} else if (e.key === 'Escape') {
+			e.preventDefault();
+			value = '';
+			active = 0;
 		}
 	}
 
