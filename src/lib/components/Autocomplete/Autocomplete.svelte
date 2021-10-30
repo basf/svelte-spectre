@@ -60,7 +60,7 @@
 	);
 
 	function markSuggestion(item: string): string {
-		const regex = new RegExp(value, 'i');
+		const regex = new RegExp(value, 'ig');
 		const match = item.match(regex);
 		return item.replace(match.join(''), `<mark>${match}</mark>`);
 	}
