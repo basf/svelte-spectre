@@ -62,20 +62,33 @@
 	}
 
 	function selectSuggestion(e: KeyboardEvent) {
-		if (e.key === 'Backspace' && (e.ctrlKey || e.metaKey)) {
-			!value && removeSelected(selected.length - 1);
-		} else if (e.key === 'Enter') {
-			confirmSuggestion(suggested[active]);
-		} else if (e.key === 'Tab' || e.key === 'ArrowDown') {
-			e.preventDefault();
-			active < suggested.length - 1 ? active++ : (active = 0);
-		} else if (e.key === 'ArrowUp') {
-			e.preventDefault();
-			active > 0 ? active-- : (active = suggested.length - 1);
-		} else if (e.key === 'Escape') {
-			e.preventDefault();
-			value = '';
-			active = 0;
+		switch (e.key) {
+			case 'Backspace':
+				!value && removeSelected(selected.length - 1);
+				break;
+			case 'Tab':
+				e.preventDefault();
+				confirmSuggestion(suggested[active]);
+				break;
+			case 'Enter':
+				confirmSuggestion(suggested[active]);
+				break;
+			case 'ArrowDown':
+				e.preventDefault();
+				active < suggested.length - 1 ? active++ : (active = 0);
+				break;
+			case 'ArrowUp':
+				e.preventDefault();
+				active > 0 ? active-- : (active = suggested.length - 1);
+				break;
+			case 'Escape':
+				e.preventDefault();
+				value = '';
+				active = 0;
+				break;
+
+			default:
+				break;
 		}
 	}
 
