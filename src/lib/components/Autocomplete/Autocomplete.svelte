@@ -11,7 +11,7 @@
 				{placeholder}
 				bind:value
 				on:focus={() => (focused = true)}
-				on:blur|preventDefault={() => (focused = false)}
+				on:blur={() => (focused = false)}
 				on:keydown={selectSuggestion}
 			/>
 			{#if value.length > 0}
@@ -31,7 +31,7 @@
 						on:mouseover|preventDefault={() => (active = i)}
 					>
 						<div class="tile tile-centered">
-							<div class="tile-icon">{i}</div>
+							<!-- <div class="tile-icon">{i}</div> -->
 							<div class="tile-content">{@html markSuggestion(item)}</div>
 						</div>
 					</a>
@@ -60,9 +60,9 @@
 	);
 
 	function markSuggestion(item: string): string {
-		const regex = new RegExp(value, 'ig');
-		const match = item.match(regex);
-		return item.replace(match.join(''), `<mark>${match}</mark>`);
+		const regex = new RegExp(value, 'i');
+		const match = item.match(regex).join('');
+		return item.replace(match, `<mark>${match}</mark>`);
 	}
 
 	function selectSuggestion(e: KeyboardEvent) {
