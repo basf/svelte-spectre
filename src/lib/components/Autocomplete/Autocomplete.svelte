@@ -74,10 +74,8 @@
 				!value && removeSelected(selected.length - 1);
 				break;
 			case 'Tab':
-				e.preventDefault();
-				suggested.length && confirmSuggestion(suggested[active]);
-				break;
 			case 'Enter':
+				e.preventDefault();
 				suggested.length && confirmSuggestion(suggested[active]);
 				break;
 			case 'ArrowDown':
