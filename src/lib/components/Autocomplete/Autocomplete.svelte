@@ -55,10 +55,13 @@
 	let focused: boolean = false,
 		active: number = 0;
 
-	$: suggested = predefined.filter(
-		(p) => p.toLowerCase().includes(value.toLowerCase()) && !selected.some((s) => s === p)
-	);
+	$: if (focused && value.length > 0) calcSuggestion(value);
 
+	function calcSuggestion(value: string) {
+		suggested = predefined.filter((p) => {
+			return p.toLowerCase().includes(value.toLowerCase()) && !selected.some((s) => s === p);
+		});
+	}
 	function markSuggestion(item: string): string {
 		const regex = new RegExp(value, 'i');
 		const match = item.match(regex).join('');
@@ -72,10 +75,10 @@
 				break;
 			case 'Tab':
 				e.preventDefault();
-				confirmSuggestion(suggested[active]);
+				suggested.length && confirmSuggestion(suggested[active]);
 				break;
 			case 'Enter':
-				confirmSuggestion(suggested[active]);
+				suggested.length && confirmSuggestion(suggested[active]);
 				break;
 			case 'ArrowDown':
 				e.preventDefault();
@@ -98,6 +101,7 @@
 
 	function confirmSuggestion(item: string) {
 		selected = [...selected, item];
+		suggested = [];
 		value = '';
 		active = 0;
 	}

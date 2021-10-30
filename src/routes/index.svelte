@@ -451,7 +451,8 @@
 		},
 	];
 
-	let page, autocompleted;
+	let page,
+		autocompleted = [];
 
 	export let name: string = 'Spectre';
 </script>
