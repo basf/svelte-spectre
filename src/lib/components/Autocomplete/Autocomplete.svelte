@@ -1,17 +1,18 @@
 <div {...$$restProps} class="form-autocomplete">
 	<div class="form-autocomplete-input form-input" class:is-focused={focused}>
-		{#each selected as chip}
-			<Chip closable on:close={() => removeSelected(chip)}>{chip}</Chip>
+		{#each selected as chip, i}
+			<Chip closable on:close={() => removeSelected(i)}>{chip}</Chip>
 		{/each}
 
-		<div class="form-input-icon-wrap" class:has-icon-left={value.length > 0}>
+		<div class="form-input-icon-wrap" class:has-icon-right={value.length > 0}>
 			<input
 				class="form-input"
 				type="text"
-				placeholder="typing here"
-				bind:this={input}
+				{placeholder}
 				bind:value
-				use:focusing
+				on:focus={() => (focused = true)}
+				on:blur={() => (focused = false)}
+				on:keydown={selectSuggestion}
 			/>
 			{#if value.length > 0}
 				<i class="form-icon loading" />
@@ -20,17 +21,17 @@
 	</div>
 
 	{#if value.length > 0 && suggested.length > 0}
-		<ul class="menu" bind:this={menu}>
+		<ul class="menu">
 			{#each suggested as item, i}
 				<li class="menu-item">
 					<a
 						href="#"
-						bind:this={links[i]}
+						class:active={active === i}
 						on:click|preventDefault={() => confirmSuggestion(item)}
-						on:keydown|preventDefault={(e) => selectSuggestion(e, i, item)}
+						on:mouseover|preventDefault={() => (active = i)}
 					>
 						<div class="tile tile-centered">
-							<div class="tile-icon">{i}</div>
+							<!-- <div class="tile-icon">{i}</div> -->
 							<div class="tile-content">{@html markSuggestion(item)}</div>
 						</div>
 					</a>
@@ -46,63 +47,65 @@
 
 <script lang="ts">
 	export let value: string = '';
-	export let suggested: string[] = [];
+	export let placeholder: string = 'typing here';
 	export let predefined: string[] = [];
+	export let suggested: string[] = [];
 	export let selected: string[] = [];
 
-	let input: HTMLElement,
-		menu: HTMLElement,
-		links: HTMLElement[] = [],
-		focused: boolean = false;
+	let focused: boolean = false,
+		active: number = 0;
 
-	$: suggested = predefined.filter((p) => p.includes(value) && !selected.some((s) => s === p));
+	$: if (focused && value.length > 0) calcSuggestion(value);
 
+	function calcSuggestion(value: string) {
+		suggested = predefined.filter((p) => {
+			return p.toLowerCase().includes(value.toLowerCase()) && !selected.some((s) => s === p);
+		});
+	}
 	function markSuggestion(item: string): string {
-		return item.replace(value, `<mark>${value}</mark>`);
+		const regex = new RegExp(value, 'i');
+		const match = item.match(regex).join('');
+		return item.replace(match, `<mark>${match}</mark>`);
 	}
 
-	function selectSuggestion(e: KeyboardEvent, i: number, item: string) {
-		let index = i,
-			items = links.filter(Boolean);
-		if (e.key === 'Enter') {
-			confirmSuggestion(item);
-		} else if (e.key === 'Tab' || e.key === 'ArrowDown') {
-			index < items.length - 1 ? items[index + 1].focus() : input.focus();
-		} else if (e.key === 'ArrowUp') {
-			index > 0 ? items[index - 1].focus() : input.focus();
-			input.setSelectionRange(value.length, value.length);
-		} else if (e.key === 'Escape') {
-			suggested.length = 0;
-			input.focus();
-		} else input.focus();
+	function selectSuggestion(e: KeyboardEvent) {
+		switch (e.key) {
+			case 'Backspace':
+				!value && removeSelected(selected.length - 1);
+				break;
+			case 'Tab':
+			case 'Enter':
+				e.preventDefault();
+				suggested.length && confirmSuggestion(suggested[active]);
+				break;
+			case 'ArrowDown':
+				e.preventDefault();
+				active < suggested.length - 1 ? active++ : (active = 0);
+				break;
+			case 'ArrowUp':
+				e.preventDefault();
+				active > 0 ? active-- : (active = suggested.length - 1);
+				break;
+			case 'Escape':
+				e.preventDefault();
+				value = '';
+				active = 0;
+				break;
+
+			default:
+				break;
+		}
 	}
 
 	function confirmSuggestion(item: string) {
 		selected = [...selected, item];
+		suggested = [];
 		value = '';
-		input.focus();
+		active = 0;
 	}
 
-	function removeSelected(item: string) {
-		selected = selected.filter((s) => s !== item);
-	}
-
-	function focusing(node: HTMLElement) {
-		node.onfocus = () => (focused = true);
-		node.onblur = () => (focused = false);
-		node.onkeydown = (e) => {
-			const metas = ['ArrowDown', 'Tab'];
-			console.log(e);
-			if (metas.includes(e.key) && menu) {
-				e.preventDefault();
-				links[0].focus();
-			} else if (e.key === 'Backspace' && (e.ctrlKey || e.metaKey)) {
-				!value
-					? ((selected = selected.length === 1 ? [] : selected.slice(-1)),
-					  console.log(selected))
-					: null;
-			}
-		};
+	function removeSelected(index: number) {
+		selected = selected.filter((s, i) => i !== index);
 	}
 </script>
 
@@ -111,6 +114,7 @@
 	@import 'spectre.css/src/menus';
 	@import 'spectre.css/src/tiles';
 	@import 'spectre.css/src/forms';
+	@import 'spectre.css/src/icons';
 	:global(.spectre) {
 		.form-autocomplete {
 			.form-autocomplete-input {
@@ -128,6 +132,10 @@
 			}
 			.menu {
 				.menu-item {
+					& > a:not(.active):hover {
+						background: inherit;
+						color: inherit;
+					}
 					:global(mark) {
 						padding: 0;
 					}
