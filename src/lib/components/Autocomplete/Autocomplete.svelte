@@ -55,10 +55,14 @@
 	let focused: boolean = false,
 		active: number = 0;
 
-	$: suggested = predefined.filter((p) => p.includes(value) && !selected.some((s) => s === p));
+	$: suggested = predefined.filter(
+		(p) => p.toLowerCase().includes(value.toLowerCase()) && !selected.some((s) => s === p)
+	);
 
 	function markSuggestion(item: string): string {
-		return item.replace(value, `<mark>${value}</mark>`);
+		const regex = new RegExp(value, 'i');
+		const match = item.match(regex);
+		return item.replace(match.join(''), `<mark>${match}</mark>`);
 	}
 
 	function selectSuggestion(e: KeyboardEvent) {
