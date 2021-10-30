@@ -4,14 +4,15 @@
 			<Chip closable on:close={() => removeSelected(i)}>{chip}</Chip>
 		{/each}
 
-		<div class="form-input-icon-wrap" class:has-icon-left={value.length > 0}>
+		<div class="form-input-icon-wrap" class:has-icon-right={value.length > 0}>
 			<input
 				class="form-input"
 				type="text"
-				placeholder="typing here"
-				bind:this={input}
+				{placeholder}
 				bind:value
-				use:focusing
+				on:focus={() => (focused = true)}
+				on:blur={() => (focused = false)}
+				on:keydown={selectSuggestion}
 			/>
 			{#if value.length > 0}
 				<i class="form-icon loading" />
@@ -20,14 +21,14 @@
 	</div>
 
 	{#if value.length > 0 && suggested.length > 0}
-		<ul class="menu" bind:this={menu}>
+		<ul class="menu">
 			{#each suggested as item, i}
 				<li class="menu-item">
 					<a
 						href="#"
-						bind:this={links[i]}
+						class:active={active === i}
 						on:click|preventDefault={() => confirmSuggestion(item)}
-						on:keydown|preventDefault={(e) => selectSuggestion(e, i, item)}
+						on:mouseover|preventDefault={() => (active = i)}
 					>
 						<div class="tile tile-centered">
 							<div class="tile-icon">{i}</div>
@@ -49,11 +50,10 @@
 	export let suggested: string[] = [];
 	export let predefined: string[] = [];
 	export let selected: string[] = [];
+	export let placeholder: string = 'typing here';
 
-	let input: HTMLElement,
-		menu: HTMLElement,
-		links: HTMLElement[] = [],
-		focused: boolean = false;
+	let focused: boolean = false,
+		active: number = 0;
 
 	$: suggested = predefined.filter((p) => p.includes(value) && !selected.some((s) => s === p));
 
@@ -61,45 +61,28 @@
 		return item.replace(value, `<mark>${value}</mark>`);
 	}
 
-	function selectSuggestion(e: KeyboardEvent, i: number, item: string) {
-		let index = i,
-			items = links.filter(Boolean);
-		if (e.key === 'Enter') {
-			confirmSuggestion(item);
+	function selectSuggestion(e: KeyboardEvent) {
+		if (e.key === 'Backspace' && (e.ctrlKey || e.metaKey)) {
+			!value && removeSelected(selected.length - 1);
+		} else if (e.key === 'Enter') {
+			confirmSuggestion(suggested[active]);
 		} else if (e.key === 'Tab' || e.key === 'ArrowDown') {
-			index < items.length - 1 ? items[index + 1].focus() : input.focus();
+			e.preventDefault();
+			active < suggested.length - 1 ? active++ : (active = 0);
 		} else if (e.key === 'ArrowUp') {
-			index > 0 ? items[index - 1].focus() : input.focus();
-			input.setSelectionRange(value.length, value.length);
-		} else if (e.key === 'Escape') {
-			suggested.length = 0;
-			input.focus();
-		} else input.focus();
+			e.preventDefault();
+			active > 0 ? active-- : (active = suggested.length - 1);
+		}
 	}
 
 	function confirmSuggestion(item: string) {
 		selected = [...selected, item];
 		value = '';
-		input.focus();
+		active = 0;
 	}
 
 	function removeSelected(index: number) {
 		selected = selected.filter((s, i) => i !== index);
-	}
-
-	function focusing(node: HTMLElement) {
-		node.onfocus = () => (focused = true);
-		node.onblur = () => (focused = false);
-		node.onkeydown = (e) => {
-			const keys = ['ArrowDown', 'Tab'];
-			console.log(e);
-			if (keys.includes(e.key) && menu) {
-				e.preventDefault();
-				links[0].focus();
-			} else if (e.key === 'Backspace' && (e.ctrlKey || e.metaKey)) {
-				!value && removeSelected(selected.length - 1);
-			}
-		};
 	}
 </script>
 
@@ -108,6 +91,7 @@
 	@import 'spectre.css/src/menus';
 	@import 'spectre.css/src/tiles';
 	@import 'spectre.css/src/forms';
+	@import 'spectre.css/src/icons';
 	:global(.spectre) {
 		.form-autocomplete {
 			.form-autocomplete-input {
@@ -125,6 +109,10 @@
 			}
 			.menu {
 				.menu-item {
+					& > a:not(.active):hover {
+						background: inherit;
+						color: inherit;
+					}
 					:global(mark) {
 						padding: 0;
 					}
