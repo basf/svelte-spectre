@@ -4,7 +4,11 @@
 			<Chip closable on:close={() => removeSelected(i)}>{chip}</Chip>
 		{/each}
 
-		<div class="form-input-icon-wrap" class:has-icon-right={value.length > 0}>
+		<div
+			class="form-input-icon-wrap"
+			class:has-icon-right={value.length > 0}
+			data-active={value.length ? prompt : ''}
+		>
 			<input
 				class="form-input"
 				type="text"
@@ -53,15 +57,31 @@
 	export let selected: string[] = [];
 
 	let focused: boolean = false,
-		active: number = 0;
+		active: number = 0,
+		prompt: string = '';
 
-	$: if (focused && value.length > 0) calcSuggestion(value);
+	$: if (focused && value.length > 0) {
+		calcSuggestion(value);
+		calcPrompt(active);
+	}
 
 	function calcSuggestion(value: string) {
-		suggested = predefined.filter((p) => {
-			return p.toLowerCase().includes(value.toLowerCase()) && !selected.some((s) => s === p);
-		});
+		suggested = predefined
+			.filter(
+				(p) =>
+					p.toLowerCase().includes(value.toLowerCase()) && !selected.some((s) => s === p)
+			)
+			.sort((f, s) => (f.toLowerCase().charAt(0) === value.toLowerCase().charAt(0) ? -1 : 1));
 	}
+
+	function calcPrompt(active: number) {
+		prompt =
+			suggested[active] &&
+			suggested[active].toLowerCase().charAt(0) === value.toLowerCase().charAt(0)
+				? suggested[active]
+				: '';
+	}
+
 	function markSuggestion(item: string): string {
 		const regex = new RegExp(value, 'i');
 		const match = item.match(regex).join('');
@@ -85,6 +105,10 @@
 			case 'ArrowUp':
 				e.preventDefault();
 				active > 0 ? active-- : (active = suggested.length - 1);
+				break;
+			case 'ArrowRight':
+				e.preventDefault();
+				suggested.length && confirmSuggestion(suggested[active]);
 				break;
 			case 'Escape':
 				e.preventDefault();
@@ -127,6 +151,16 @@
 						line-height: 1.2rem;
 						margin: 0;
 						width: 100%;
+						background: transparent;
+					}
+					&:is([data-active]) {
+						&::before {
+							content: attr(data-active);
+							position: absolute;
+							padding: 0.25rem 0.4rem;
+							color: $gray-color;
+							border: 0.05rem solid transparent;
+						}
 					}
 				}
 			}
