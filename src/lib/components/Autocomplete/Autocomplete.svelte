@@ -4,7 +4,11 @@
 			<Chip closable on:close={() => removeSelected(i)}>{chip}</Chip>
 		{/each}
 
-		<div class="form-input-icon-wrap" class:has-icon-right={value.length > 0}>
+		<div
+			class="form-input-icon-wrap"
+			class:has-icon-right={value.length > 0}
+			data-active={value.length ? prompt : ''}
+		>
 			<input
 				class="form-input"
 				type="text"
@@ -29,11 +33,7 @@
 						class:active={active === i}
 						on:click|preventDefault={() => confirmSuggestion(item)}
 						on:mouseover|preventDefault={() => (active = i)}
-					>
-						<div class="tile tile-centered">
-							<!-- <div class="tile-icon">{i}</div> -->
-							<div class="tile-content">{@html markSuggestion(item)}</div>
-						</div>
+						>{@html markSuggestion(item, value)}
 					</a>
 				</li>
 			{/each}
@@ -53,25 +53,44 @@
 	export let selected: string[] = [];
 
 	let focused: boolean = false,
-		active: number = 0;
+		active: number = 0,
+		prompt: string = '';
 
-	$: if (focused && value.length > 0) calcSuggestion(value);
-
-	function calcSuggestion(value: string) {
-		suggested = predefined.filter((p) => {
-			return p.toLowerCase().includes(value.toLowerCase()) && !selected.some((s) => s === p);
-		});
+	$: if (focused && value.length > 0) {
+		suggested = calcSuggestion(predefined, selected, value);
+		prompt = calcPrompt(suggested, value, active);
 	}
-	function markSuggestion(item: string): string {
+
+	function calcSuggestion(predefined: string[], selected: string[], value: string): string[] {
+		return predefined
+			.filter((p) => stringIndex(p, value) >= 0 && !selected.some((s) => s === p))
+			.sort((f, s) => (stringIndex(f, value) === 0 ? -1 : 1));
+	}
+
+	function calcPrompt(suggested: string[], value: string, active: number): string {
+		return stringIndex(suggested[active], value) === 0 ? suggested[active] : '';
+	}
+
+	function stringIndex(item: string, value: string): number {
 		const regex = new RegExp(value, 'i');
-		const match = item.match(regex).join('');
+		return item?.search(regex);
+	}
+
+	function stringMatch(item: string, value: string): string {
+		const regex = new RegExp(value, 'i');
+		return item?.match(regex).join('');
+	}
+
+	function markSuggestion(item: string, value: string): string {
+		const match = stringMatch(item, value);
 		return item.replace(match, `<mark>${match}</mark>`);
 	}
 
 	function selectSuggestion(e: KeyboardEvent) {
 		switch (e.key) {
 			case 'Backspace':
-				!value && removeSelected(selected.length - 1);
+				if (!value)
+					e.metaKey || e.ctrlKey ? (selected = []) : removeSelected(selected.length - 1);
 				break;
 			case 'Tab':
 			case 'Enter':
@@ -86,13 +105,17 @@
 				e.preventDefault();
 				active > 0 ? active-- : (active = suggested.length - 1);
 				break;
+			case 'ArrowRight':
+				e.preventDefault();
+				suggested.length && confirmSuggestion(suggested[active]);
+				break;
 			case 'Escape':
 				e.preventDefault();
 				value = '';
 				active = 0;
 				break;
-
 			default:
+				null;
 				break;
 		}
 	}
@@ -112,9 +135,7 @@
 <style lang="scss">
 	@import 'spectre.css/src/autocomplete';
 	@import 'spectre.css/src/menus';
-	@import 'spectre.css/src/tiles';
 	@import 'spectre.css/src/forms';
-	@import 'spectre.css/src/icons';
 	:global(.spectre) {
 		.form-autocomplete {
 			.form-autocomplete-input {
@@ -127,6 +148,16 @@
 						line-height: 1.2rem;
 						margin: 0;
 						width: 100%;
+						background: transparent;
+					}
+					&:is([data-active]) {
+						&::before {
+							content: attr(data-active);
+							position: absolute;
+							padding: 0.25rem 0.4rem;
+							color: $gray-color;
+							border: 0.05rem solid transparent;
+						}
 					}
 				}
 			}
