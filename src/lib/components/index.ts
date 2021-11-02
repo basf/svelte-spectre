@@ -18,3 +18,4 @@ export * from './Steps/';
 export * from './Switch/';
 export * from './Tabs/';
 export * from './Toast/';
+export * from './Transition/';
