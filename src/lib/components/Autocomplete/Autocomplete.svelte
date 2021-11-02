@@ -6,7 +6,7 @@
 
 		<div
 			class="form-input-icon-wrap"
-			class:has-icon-right={value.length > 0}
+			class:has-icon-right={value.length > 0 || selected.length}
 			data-active={value.length ? prompt : ''}
 		>
 			<input
@@ -20,6 +20,14 @@
 			/>
 			{#if value.length > 0}
 				<i class="form-icon loading" />
+			{:else if selected.length}
+				<button
+					href="#"
+					class="btn btn-clear mr--1"
+					aria-label="Close"
+					role="button"
+					on:click={() => (selected = [])}
+				/>
 			{/if}
 		</div>
 	</div>
@@ -171,6 +179,31 @@
 						padding: 0;
 					}
 				}
+			}
+		}
+		.btn-clear {
+			background: transparent;
+			border: 0;
+			color: currentColor;
+			height: $unit-5;
+			line-height: $unit-4;
+			margin: 0 0.25rem;
+			opacity: 1;
+			padding: $unit-h;
+			text-decoration: none;
+			width: $unit-5;
+			cursor: pointer;
+			position: absolute;
+			top: 50%;
+			right: $unit-h;
+			transform: translateY(-50%);
+			&:focus,
+			&:hover {
+				background: rgba($bg-color, 0.5);
+				opacity: 0.95;
+			}
+			&::before {
+				content: '\2715';
 			}
 		}
 	}
