@@ -2,7 +2,7 @@
 	class="avatar avatar-{size} text-{weight} {offset}"
 	data-initial={initials}
 	style="
-        background-color: {color};
+        background-color: {color.toHexString()};
         font-size: {fontSize}px;
         color: {color.isLight() ? '#000' : '#fff'}
     "
@@ -23,7 +23,7 @@
 </figure>
 
 <script lang="ts" context="module">
-	import tinycolor from 'tinycolor2';
+	import { TinyColor, random } from '@ctrl/tinycolor';
 	import { badge as addBadge } from '../../components/Badge';
 	import { SIZE } from '../../types/const';
 
@@ -48,7 +48,7 @@
 	let clip: number;
 	let fontSize: number;
 	let initials: string;
-	$: color = bg ? tinycolor(bg) : tinycolor.random();
+	$: color = bg ? new TinyColor(bg) : random();
 	$: words = name.length && name.replace('.', '/').match(/\b(\w)|([A-Z])|(\/)/g);
 	$: clip = len || words.length;
 	$: fontSize = SIZE[size] * (1 / clip);
