@@ -8,17 +8,15 @@ test.before(ENV.setup);
 test.before.each(ENV.reset);
 
 test('check button variants', () => {
-    const variant = 'primary';
-    const { container } = ENV.render(Button, { variant });
+    const { container } = ENV.render(Button, { variant: 'primary' });
     const button = container.querySelector('button');
-    assert.is(button.classList.contains(`btn-${variant}`), true);
+    assert.is(button.classList.contains(`btn-primary`), true);
 });
 
 test('check button sizes', () => {
-    const size = 'lg';
-    const { container } = ENV.render(Button, { size });
+    const { container } = ENV.render(Button, { size: 'lg' });
     const button = container.querySelector('button');
-    assert.is(button.classList.contains(`btn-${size}`), true);
+    assert.is(button.classList.contains(`btn-lg`), true);
 });
 
 test('check button is active', () => {

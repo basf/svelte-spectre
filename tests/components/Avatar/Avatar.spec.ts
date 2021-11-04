@@ -9,12 +9,11 @@ test.before.each(ENV.reset);
 
 test('check Avatar', async () => {
     const { container, component } = ENV.render(Avatar, { title: 'Accordion' });
-    console.log(container, component);
     const avatar: HTMLElement = container.querySelector('.avatar');
     avatar.innerHTML = 'avatar';
 
     assert.is(avatar.innerHTML.includes(`avatar`), true);
-    assert.snapshot(container.innerHTML, 'just render view');
+    // assert.snapshot(container.innerHTML, 'just render view');
 });
 
 test.run();
