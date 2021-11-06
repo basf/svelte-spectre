@@ -1,51 +1,112 @@
 <Spectre>
-	<header>
-		<Navbar>
-			<nav slot="left">
-				<div class="ml-2">
-					<IconButton icon="back" />
-				</div>
-			</nav>
+	<Aside extclose bind:open bind:show>
+		<header>
+			<Navbar>
+				<nav slot="left">
+					{#if !show}
+						<div class="ml-2">
+							<IconButton icon="menu" on:click={() => (open = !open)} />
+						</div>
+					{/if}
+				</nav>
 
-			<IconButton slot="center" size="xxl" iconSize="4x" color="dark" href="/">
-				<!-- <svg viewBox="0 0 900 900" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+				<IconButton slot="center" size="xxl" iconSize="4x" color="dark" href="/">
+					<!-- <svg viewBox="0 0 900 900" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
 					<path
 						d="M326.716 149.024C305.401 154.746 156.321 198.737 152.629 200.287C150.248 201.36 147.152 203.386 145.842 204.817C143.818 206.963 73.326 331.663 66.0625 345.85C62.9666 351.93 62.8475 357.533 65.7053 362.541C69.0394 368.74 439.836 748.921 443.884 750.352C449.243 752.259 454.363 751.782 459.126 748.802C463.532 746.179 830.28 370.051 834.209 364.21C835.638 362.183 836.352 358.845 836.352 354.791C836.352 348.473 835.4 346.685 796.344 279.685C774.315 241.774 754.906 209.109 753.358 206.963C751.691 204.817 748.119 201.956 745.499 200.764C742.76 199.452 700.013 187.054 650.597 173.106L560.696 147.712L446.98 147.474C349.459 147.235 332.312 147.474 326.716 149.024ZM611.779 198.975C643.214 207.917 669.173 215.308 669.292 215.547C669.887 216.023 449.957 271.101 447.338 271.101C443.765 271.101 226.693 215.904 227.408 215.189C227.765 214.831 251.699 207.44 280.634 198.856L333.265 183.12L443.884 183L554.504 182.881L611.779 198.975ZM692.63 247.497C691.797 248.927 620.233 342.512 593.203 377.443L581.415 392.702L531.999 345.969L482.703 299.237L587.13 272.771C644.643 258.226 692.154 246.185 692.63 246.185C693.225 246.066 693.225 246.781 692.63 247.497ZM309.212 273.009C364.938 287.196 410.901 299.117 411.258 299.356C411.973 300.071 320.405 391.51 318.976 391.51C318.38 391.391 293.375 360.275 263.606 322.245C200.854 242.251 204.665 247.258 206.332 247.258C207.046 247.258 253.366 258.822 309.212 273.009ZM765.503 296.495C780.269 322.007 792.057 343.227 791.7 343.585C790.747 344.539 631.069 387.934 630.593 387.338C630.354 387.099 654.169 355.745 683.461 317.596C712.754 279.566 737.164 248.808 737.64 249.285C738.116 249.762 750.619 271.101 765.503 296.495ZM223.002 411.539L304.449 433.832L320.405 471.981C341.481 522.052 365.296 578.442 382.919 619.691C390.658 637.931 396.85 653.071 396.731 653.31C396.374 653.667 174.063 425.606 151.915 402.12C145.128 394.967 140.008 389.126 140.603 389.245C141.079 389.245 178.23 399.259 223.002 411.539ZM556.171 438.243C553.075 446.35 451.267 686.809 450.672 687.405C450.314 687.882 442.813 671.55 434.239 651.044C425.547 630.539 402.089 574.984 381.966 527.417C361.961 479.85 345.172 440.031 344.934 438.839C344.339 436.932 349.935 436.812 450.553 436.812C535.095 436.812 556.648 437.17 556.171 438.243Z"
 					/>
 				</svg> -->
-				<Xray />
-				<!-- <img src={XrayUrl} /> -->
-				<!-- {@html XraySrc} -->
-				<!-- <svelte:component this={Xray} /> -->
-			</IconButton>
+					<Xray />
+					<!-- <img src={XrayUrl} /> -->
+					<!-- {@html XraySrc} -->
+					<!-- <svelte:component this={Xray} /> -->
+				</IconButton>
 
-			<nav slot="right">
-				<div class="mr-2">
-					<IconButton
-						href="#_"
-						size="xl"
-						icon="people"
-						on:click={(e) =>
-							toast.success({ msg: 'msg', timeout: 0, pos: 'bottom_right' })}
-					/>
-				</div>
-			</nav>
-		</Navbar>
-	</header>
+				<nav slot="right">
+					<div class="mr-2">
+						<IconButton
+							size="sm"
+							iconSize="2x"
+							on:click={(e) =>
+								toast.success({ msg: 'msg', timeout: 0, pos: 'bottom_right' })}
+							><GitHub /></IconButton
+						>
+					</div>
+				</nav>
+			</Navbar>
+		</header>
+		<nav slot="sidebar" class="m-2">
+			<h2>SvelteSpectre</h2>
+			<Accordion>
+				<strong slot="title">GETTING STARTED</strong>
+				<ul class="menu menu-nav">
+					<!-- menu header text -->
+					<!-- <li class="divider" data-content="LINKS" /> -->
+					<!-- menu item standard -->
+					<li class="menu-item">
+						<a href="#">
+							<i class="icon icon-link" /> Slack
+						</a>
+					</li>
+				</ul>
+			</Accordion>
+			<Accordion>
+				<strong slot="title">Layouts</strong>
+				<ul class="menu menu-nav">
+					<!-- menu header text -->
+					<!-- <li class="divider" data-content="LINKS" /> -->
+					<!-- menu item standard -->
+					<li class="menu-item">
+						<a href="#">
+							<i class="icon icon-link" /> Slack
+						</a>
+					</li>
+				</ul>
+			</Accordion>
+			<Accordion>
+				<strong slot="title">Components</strong>
+				<ul class="menu menu-nav">
+					<!-- menu header text -->
+					<!-- <li class="divider" data-content="LINKS" /> -->
+					<!-- menu item standard -->
+					<li class="menu-item">
+						<a href="#">
+							<i class="icon icon-link" /> Slack
+						</a>
+					</li>
+				</ul>
+			</Accordion>
+		</nav>
 
-	<main>
-		<slot />
-	</main>
+		<main>
+			<slot />
+		</main>
+	</Aside>
 	<Toaster />
 </Spectre>
 
 <script lang="ts">
 	import '../app.scss';
-	import { IconButton, Navbar, Spectre, Toaster, toast } from '$lib';
+	import { Accordion, Aside, IconButton, Navbar, Spectre, Toaster, toast } from '$lib';
 	import Xray from '$assets/b-science.svg';
+	import GitHub from '$assets/github.svg';
 	import XrayUrl from '$assets/b-science.svg?url';
 	import XraySrc from '$assets/b-science.svg?src';
+
+	let open = false,
+		show = false;
 </script>
 
 <style lang="scss">
+	@import 'spectre.css/src/menus';
+	@import 'spectre.css/src/icons';
+	header {
+		position: sticky;
+		top: 0;
+		z-index: $zindex-2;
+		background: white;
+	}
+	strong {
+		text-transform: uppercase;
+	}
 </style>

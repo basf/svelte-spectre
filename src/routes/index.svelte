@@ -119,7 +119,7 @@
 	<Hero offset="my-2" size="sm">
 		<h2>Toast</h2>
 		<Grid>
-			<Col>
+			<Col sm="12">
 				<h5>Single</h5>
 				<Grid>
 					<Col col="auto">
@@ -136,7 +136,7 @@
 				</Grid>
 			</Col>
 			<Divider align="vertical" />
-			<Col>
+			<Col sm="12">
 				<h5>Toaster</h5>
 				<div class="toaster-grid">
 					<ButtonGroup>
@@ -222,9 +222,15 @@
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Accordion</h2>
-		<Accordion title="Accordion" opened>Accordion<br />Accordion<br />Accordion</Accordion>
-		<Accordion title="Accordion1">Accordion1<br />Accordion1<br />Accordion1</Accordion>
-		<Accordion title="Accordion2">Accordion2<br />Accordion2<br />Accordion2</Accordion>
+		<Accordion opened
+			><b slot="title">Accordion1</b>Accordion<br />Accordion<br />Accordion</Accordion
+		>
+		<Accordion
+			><b slot="title">Accordion2</b>Accordion1<br />Accordion1<br />Accordion1</Accordion
+		>
+		<Accordion
+			><b slot="title">Accordion2</b>Accordion2<br />Accordion2<br />Accordion2</Accordion
+		>
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Form</h2>

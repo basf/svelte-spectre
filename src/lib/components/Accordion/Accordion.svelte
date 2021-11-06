@@ -4,8 +4,8 @@
 	on:click|preventDefault={toggled ? toggle : open}
 >
 	<summary class="accordion-header">
-		<i class="icon icon-arrow-right mr-1" />
-		{title}
+		<!-- <i class="icon icon-arrow-right mr-1" /> -->
+		<slot name="title" />
 	</summary>
 	{#if opened}
 		<div class="accordion-body" transition:slide>
