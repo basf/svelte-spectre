@@ -27,8 +27,8 @@
 </div>
 
 <script context="module" lang="ts">
-	import type { Size } from '../../types/size';
-	import type { Offset } from '../../types/position';
+	import type { Size } from '$lib/types/size';
+	import type { Offset } from '$lib/types/position';
 
 	export type { Size, Offset };
 </script>
@@ -60,7 +60,7 @@
 				width: calc(100% - var(--sidebar, 0));
 			}
 			.off-canvas-sidebar {
-				height: 100vh;
+				max-height: 100vh;
 				z-index: $zindex-4;
 				&.active + .off-canvas-overlay {
 					z-index: $zindex-3;

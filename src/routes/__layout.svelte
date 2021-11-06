@@ -35,76 +35,113 @@
 				</nav>
 			</Navbar>
 		</header>
+
 		<nav slot="sidebar" class="m-2">
-			<h2>SvelteSpectre</h2>
-			<Accordion>
-				<strong slot="title">GETTING STARTED</strong>
-				<ul class="menu menu-nav">
-					<!-- menu header text -->
-					<!-- <li class="divider" data-content="LINKS" /> -->
-					<!-- menu item standard -->
-					<li class="menu-item">
-						<a href="#">
-							<i class="icon icon-link" /> Slack
-						</a>
-					</li>
-				</ul>
-			</Accordion>
-			<Accordion>
-				<strong slot="title">Layouts</strong>
-				<ul class="menu menu-nav">
-					<!-- menu header text -->
-					<!-- <li class="divider" data-content="LINKS" /> -->
-					<!-- menu item standard -->
-					<li class="menu-item">
-						<a href="#">
-							<i class="icon icon-link" /> Slack
-						</a>
-					</li>
-				</ul>
-			</Accordion>
-			<Accordion>
-				<strong slot="title">Components</strong>
-				<ul class="menu menu-nav">
-					<!-- menu header text -->
-					<!-- <li class="divider" data-content="LINKS" /> -->
-					<!-- menu item standard -->
-					<li class="menu-item">
-						<a href="#">
-							<i class="icon icon-link" /> Slack
-						</a>
-					</li>
-				</ul>
-			</Accordion>
+			<h3><a href="/">SvelteSpectre</a></h3>
+			{#each Object.entries(menu) as [key, value], i}
+				<Accordion opened={$page.path.includes(key.replace(' ', '_'))} offset="my-2">
+					<strong slot="title">{key}</strong>
+					<ul class="menu menu-nav">
+						{#each value as link, i}
+							<li class="menu-item">
+								<a
+									href={href(key, link)}
+									class:active={$page.path === href(key, link)}
+									on:click={() => (active = { [key]: i })}>{link}</a
+								>
+							</li>
+						{/each}
+					</ul>
+				</Accordion>
+			{/each}
 		</nav>
 
 		<main>
-			<slot />
+			<Container>
+				<h1>{$page.path.match('[^/]+(?=/$|$)').join('').replace('_', ' ') || ''}</h1>
+				<slot />
+			</Container>
 		</main>
 	</Aside>
-	<Toaster />
+
+	<!-- <Toaster /> -->
 </Spectre>
 
 <script lang="ts">
+	import { page } from '$app/stores';
+
 	import '../app.scss';
-	import { Accordion, Aside, IconButton, Navbar, Spectre, Toaster, toast } from '$lib';
+	import { Accordion, Aside, Container, IconButton, Navbar, Spectre, Toaster, toast } from '$lib';
 	import Xray from '$assets/b-science.svg';
 	import GitHub from '$assets/github.svg';
 	import XrayUrl from '$assets/b-science.svg?url';
 	import XraySrc from '$assets/b-science.svg?src';
 
 	let open = false,
-		show = false;
+		show = false,
+		active = {};
+
+	const href = (key, link) =>
+		`/${key.replace(' ', '_').toLowerCase()}/${link.replace(' ', '_').toLowerCase()}`;
+	$: console.log(active, $page);
+
+	const menu = {
+		['getting started']: ['Installation', 'Custom version', 'Browser support'],
+		['layouts']: [
+			'Aside',
+			'Card',
+			'Container',
+			'Empty',
+			'Figure',
+			'Form',
+			'Grid',
+			'Hero',
+			'Modal',
+			'Navbar',
+			'Panel',
+			'Tile',
+		],
+		['conponents']: [
+			'Accordion',
+			'Avatar',
+			'Badge',
+			'Breadcrumbs',
+			'Button',
+			'Checkbox',
+			'Chip',
+			'Divider',
+			'Icon',
+			'Input',
+			'Pagination',
+			'Progress',
+			'Radio',
+			'Range',
+			'Select',
+			'Steps',
+			'Switch',
+			'Tabs',
+			'Toast',
+			'Transition',
+		],
+	};
 </script>
 
 <style lang="scss">
-	@import 'spectre.css/src/menus';
-	@import 'spectre.css/src/icons';
+	:global(.spectre) {
+		@import 'spectre.css/src/menus';
+		@import 'spectre.css/src/icons';
+	}
 	header {
 		position: sticky;
 		top: 0;
 		z-index: $zindex-2;
 		background: white;
+	}
+	main {
+		padding: 1rem;
+	}
+	h1 {
+		text-transform: capitalize;
 	}
 	strong {
 		text-transform: uppercase;
