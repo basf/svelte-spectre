@@ -1,3 +1,5 @@
+import { mdsvex } from 'mdsvex';
+import mdsvexConfig from './mdsvex.config.js';
 import preprocess from 'svelte-preprocess';
 // import mm from 'micromatch';
 import path from 'path';
@@ -25,8 +27,9 @@ const options = {
 export default {
 	// https://github.com/sveltejs/svelte-preprocess
 	compilerOptions: null,
-	preprocess: [preprocess(options)],
-	extensions: ['.svelte'],
+	preprocess: [preprocess(options), mdsvex(mdsvexConfig)],
+	extensions: ['.svelte', ...mdsvexConfig.extensions],
+
 	onwarn: (warning, handler) => {
 		const ignore = [
 			'a11y-invalid-attribute',
@@ -41,6 +44,7 @@ export default {
 		console.log('w:', warning);
 		handler(warning);
 	},
+
 	kit: {
 		adapter: adapterStatic({
 			// default options are shown

@@ -1,5 +1,6 @@
 export * from './Aside/';
 export * from './Card/';
+export * from './Code/';
 export * from './Container/';
 export * from './Empty/';
 export * from './Figure/';

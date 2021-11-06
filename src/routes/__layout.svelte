@@ -58,7 +58,7 @@
 
 		<main>
 			<Container>
-				<h1>{$page.path.match('[^/]+(?=/$|$)').join('').replace('_', ' ') || ''}</h1>
+				<!-- <h1>{$page.path.match('[^/]+(?=/$|$)').join('').replace('_', ' ') || ''}</h1> -->
 				<slot />
 			</Container>
 		</main>
@@ -131,6 +131,134 @@
 		@import 'spectre.css/src/menus';
 		@import 'spectre.css/src/icons';
 	}
+	:global {
+		@import 'spectre.css/src/codes';
+		code {
+			font-size: 90% !important;
+			&[class*='language-'] {
+				padding: 1rem;
+				display: block;
+				overflow-x: auto;
+			}
+		}
+		code[class*='language-'],
+		pre[class*='language-'] {
+			color: $body-font-color;
+			background: $bg-color;
+			font-family: $mono-font-family;
+			text-align: left;
+			white-space: pre;
+			word-spacing: normal;
+			word-break: normal;
+			word-wrap: normal;
+			line-height: 1.5;
+			-moz-tab-size: 4;
+			-o-tab-size: 4;
+			tab-size: 4;
+
+			-webkit-hyphens: none;
+			-moz-hyphens: none;
+			-ms-hyphens: none;
+			hyphens: none;
+		}
+
+		pre[class*='language-']::-moz-selection,
+		pre[class*='language-'] ::-moz-selection,
+		code[class*='language-']::-moz-selection,
+		code[class*='language-'] ::-moz-selection {
+			text-shadow: none;
+			background: $highlight-color;
+		}
+
+		pre[class*='language-']::selection,
+		pre[class*='language-'] ::selection,
+		code[class*='language-']::selection,
+		code[class*='language-'] ::selection {
+			text-shadow: none;
+			background: $highlight-color;
+		}
+
+		@media print {
+			code[class*='language-'],
+			pre[class*='language-'] {
+				text-shadow: none;
+			}
+		}
+
+		.token.comment,
+		.token.prolog,
+		.token.doctype,
+		.token.cdata {
+			color: $gray-color;
+			font-style: italic;
+		}
+
+		.token.punctuation {
+			color: $body-font-color;
+		}
+
+		.token.namespace {
+			opacity: 0.7;
+		}
+
+		.token.property,
+		.token.tag,
+		.token.boolean,
+		.token.number,
+		.token.constant,
+		.token.symbol,
+		.token.deleted {
+			color: $code-color;
+		}
+
+		.token.selector,
+		.token.attr-name,
+		.token.string,
+		.token.char,
+		.token.builtin,
+		.token.inserted {
+			color: $body-font-color;
+		}
+
+		.token.operator,
+		.token.entity,
+		.token.url,
+		.language-css .token.string,
+		.style .token.string {
+			color: $code-color;
+			/* This background color was intended by the author of this theme. */
+			/* background: hsla(0, 0%, 100%, 0.5; */
+		}
+
+		.token.atrule,
+		.token.attr-value,
+		.token.keyword {
+			color: $primary-color;
+		}
+
+		.token.function,
+		.token.class-name {
+			color: $code-color;
+		}
+
+		.token.regex,
+		.token.important,
+		.token.variable {
+			color: $code-color;
+		}
+
+		.token.important,
+		.token.bold {
+			/* font-weight: bold; */
+		}
+		.token.italic {
+			font-style: italic;
+		}
+
+		.token.entity {
+			cursor: help;
+		}
+	}
 	header {
 		position: sticky;
 		top: 0;
@@ -138,7 +266,7 @@
 		background: white;
 	}
 	main {
-		padding: 1rem;
+		padding: 0 2rem 2rem;
 	}
 	h1 {
 		text-transform: capitalize;
