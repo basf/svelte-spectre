@@ -18,8 +18,8 @@ Download the compiled and minified Spectre CSS file (core ~10KB min+gzip):
 
 <p><Button variant="primary">Download</Button></p>
 
-Include `spectre.css` located in /dist in your website or Web app . Also, you
-can add `spectre-icons.css` and `spectre-exp.css` accordingly.
+Include `spectre.css` located in **/dist** in your website or Web app . Also,
+you can add `spectre-icons.css` and `spectre-exp.css` accordingly.
 
 ```html
 <!-- comment -->

@@ -82,7 +82,7 @@ export default {
 		},
 		paths: {
 			assets: '',
-			base: '',
+			base: '/sveltekit',
 		},
 		prerender: {
 			crawl: true,
@@ -96,7 +96,7 @@ export default {
 		// },
 		ssr: true,
 		target: '',
-		trailingSlash: 'never',
+		trailingSlash: 'always',
 		vite: () => ({
 			resolve: {
 				alias: {

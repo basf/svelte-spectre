@@ -51,6 +51,8 @@
 	@import 'spectre.css/src/accordions';
 	@import 'spectre.css/src/icons';
 	.accordion {
-		cursor: pointer;
+		.accordion-header {
+			cursor: pointer;
+		}
 	}
 </style>
