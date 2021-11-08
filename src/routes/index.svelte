@@ -7,11 +7,11 @@
 	<Avatar name="AV" size="sm" badge />
 	<Avatar name="AV" status="online" badge />
 	<Avatar name="AV" status="busy" size="lg" badge="0">
-		<img src="img/avatar-1.png" alt="Thor Odinson" />
+		<img src="/sveltekit/img/avatar-1.png" alt="Thor Odinson" />
 	</Avatar>
 	<Avatar name="AV" size="xl" badge="0">
-		<img src="img/avatar-1.png" alt="Thor Odinson" />
-		<img slot="sub" src="img/avatar-1.png" alt="Thor Odinson" />
+		<img src="/sveltekit/img/avatar-1.png" alt="Thor Odinson" />
+		<img slot="sub" src="/sveltekit/img/avatar-1.png" alt="Thor Odinson" />
 	</Avatar>
 </Hero>
 <Hero offset="my-2" size="sm">
@@ -21,7 +21,7 @@
 	<Chip initial="CP" status="online">Chip</Chip>
 	<Chip initial="CP" status="busy" closable>Chip</Chip>
 	<Chip initial="CP" status="busy" closable>
-		<img slot="avatar" src="img/avatar-1.png" alt="Thor Odinson" />Chip
+		<img slot="avatar" src="/sveltekit/img/avatar-1.png" alt="Thor Odinson" />Chip
 	</Chip>
 </Hero>
 <Hero offset="my-2" size="sm">
@@ -42,11 +42,15 @@
 	<h2>Figure</h2>
 	<Grid stack>
 		<Col col="4" sm="12">
-			<Figure src="img/osx-el-capitan-2.jpg" alt="macOS Yosemite Wallpaper" contain />
+			<Figure
+				src="/sveltekit/img/osx-el-capitan-2.jpg"
+				alt="macOS Yosemite Wallpaper"
+				contain
+			/>
 		</Col>
 		<Col col="4" sm="12">
 			<Figure
-				src="img/osx-yosemite.jpg"
+				src="/sveltekit/img/osx-yosemite.jpg"
 				alt="macOS Yosemite Wallpaper"
 				contain
 				caption="img-fit-contain"
@@ -54,7 +58,7 @@
 		</Col>
 		<Col col="4" sm="12">
 			<Figure
-				src="img/osx-yosemite-2.jpg"
+				src="/sveltekit/img/osx-yosemite-2.jpg"
 				alt="macOS Yosemite Wallpaper"
 				cover
 				caption="img-fit-cover"
@@ -314,7 +318,7 @@
 		{#each CARDS as { col, pos, img, text }}
 			<Col {col}>
 				<Card {pos}>
-					<img class="img-responsive" src="img/{img}" alt="img" slot="img" />
+					<img class="img-responsive" src="/sveltekit/img/{img}" alt="img" slot="img" />
 					<div slot="title" class="h5">Title</div>
 					<div slot="subtitle" class="text-gray">SubTitle</div>
 					<p>{text}</p>
