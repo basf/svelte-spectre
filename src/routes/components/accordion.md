@@ -16,11 +16,11 @@ Accordions are used to toggle sections of content.
         <strong slot="title">Accordion1</strong>
         Accordion content<br />Accordion content<br />Accordion content
     </Accordion>
-    <Accordion>
+    <Accordion icon="arrow-right">
         <strong slot="title">Accordion2</strong>
         Accordion1<br />Accordion1<br />Accordion1
     </Accordion>
-    <Accordion>
+    <Accordion icon="arrow-right">
         <strong slot="title">Accordion2</strong>
         Accordion2<br />Accordion2<br />Accordion2
     </Accordion>

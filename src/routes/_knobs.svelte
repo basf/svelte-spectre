@@ -36,7 +36,6 @@
 
 <script lang="ts">
 	import { Grid, Col } from '$lib';
-	import uuid from '$lib/helpers/uuid';
 
 	export let state: Record<string, unknown> = {};
 	export let config: Record<
@@ -55,13 +54,10 @@
 
 		return (...args: unknown[]) => {
 			const key = args.join('~');
-
 			let id = used.get(key);
-
 			if (!id) {
 				used.set(key, (id = `${prefix}~${safe(key)}~${uid}`));
 			}
-
 			return id;
 		};
 	}

@@ -240,69 +240,61 @@
 			<Input validity="error">Error <IconButton slot="iconRight" icon="emoji" /></Input>
 		</FormGroup>
 	</Form>
-	<!--
-		<Form>
-			<h4>InputGroup</h4>
-			<FormGroup>
-				<InputGroup let:button>
-					<Switch />
-					<Input expand="" />
-					<Button slot="button" variant="primary" let:button input class={button}
-						>{button}</Button
-					>
-				</InputGroup>
-			</FormGroup>
-			<FormGroup>
-				<InputGroup let:button>
-					<Checkbox />
-					<Input expand="" />
-					<Button slot="button" variant="primary" let:button input class={button}
-						>{button}</Button
-					>
-				</InputGroup>
-			</FormGroup>
-			<FormGroup>
-				<InputGroup let:button>
-					<Checkbox />
-					<Input width="7" />
-					<Select options={questions} bind:value={selected} let:option>
-						{option.text}
-					</Select>
-				</InputGroup>
-			</FormGroup>
-		</Form>
-		<Form>
-			<h4>Select</h4>
-			<FormGroup>
-				<Select options={questions} bind:value={selected} let:option>
-					{option.text}
-				</Select>
-			</FormGroup>
-			<FormGroup>
-				<Select options={questions} bind:value={multi} multiple let:option>
-					{option.text}
-				</Select>
-			</FormGroup>
-			<FormGroup>
-				<h4>Radio</h4>
-				<Radio label="Radios" radios={questions} bind:group={radios} let:radio>
-					{radio.text}
-				</Radio>
-			</FormGroup>
-			<FormGroup>
-				<h4>Checkbox</h4>
-				<Checkbox label="Checkbox" indeterminate />
-			</FormGroup>
-			<FormGroup>
-				<h4>Switch</h4>
-				<Switch label="Switch" />
-			</FormGroup>
-			<FormGroup>
-				<h4>Range</h4>
-				<Range label="" />
-			</FormGroup>
-		</Form>
--->
+	<Form>
+		<h4>InputGroup</h4>
+		<FormGroup>
+			<InputGroup let:button>
+				<Switch />
+				<Input expand="" />
+				<Button slot="button" variant="primary" let:button input class={button}
+					>{button}</Button
+				>
+			</InputGroup>
+		</FormGroup>
+		<FormGroup>
+			<InputGroup let:button>
+				<Checkbox />
+				<Input expand />
+				<Button slot="button" variant="primary" let:button input class={button}
+					>{button}</Button
+				>
+			</InputGroup>
+		</FormGroup>
+		<FormGroup>
+			<InputGroup let:button>
+				<Checkbox />
+				<Input width="7" />
+				<Select options={questions} bind:value={selected} />
+			</InputGroup>
+		</FormGroup>
+	</Form>
+	<Form>
+		<h4>Select</h4>
+		<FormGroup>
+			<Select options={questions} bind:value={selected} />
+		</FormGroup>
+		<FormGroup>
+			<!-- <Select options={questions} bind:value={multi} multiple /> -->
+		</FormGroup>
+		<FormGroup>
+			<h4>Radio</h4>
+			<Radio label="Radios" radios={questions} group={radios} let:radio>
+				{radio.label}
+			</Radio>
+		</FormGroup>
+		<FormGroup>
+			<h4>Checkbox</h4>
+			<Checkbox label="Checkbox" indeterminate />
+		</FormGroup>
+		<FormGroup>
+			<h4>Switch</h4>
+			<Switch label="Switch" />
+		</FormGroup>
+		<FormGroup>
+			<h4>Range</h4>
+			<Range label="" />
+		</FormGroup>
+	</Form>
 </Hero>
 <Hero offset="my-2" size="sm">
 	<h2>Grid</h2>
@@ -383,14 +375,14 @@
 
 <script lang="ts">
 	let questions = [
-			{ id: 1, text: `Where did you go to school?` },
-			{ id: 2, text: `What is your mother's name?` },
+			{ value: 1, label: `Where did you go to school?` },
+			{ value: 2, label: `What is your mother's name?` },
 			{
-				id: 3,
-				text: `What is another personal fact that an attacker could easily find with Google?`,
+				value: 3,
+				label: `What is another personal fact that an attacker could easily find with Google?`,
 			},
 		],
-		selected = 1,
+		selected = 3,
 		multi = [1],
 		radios = 1,
 		loading = false,

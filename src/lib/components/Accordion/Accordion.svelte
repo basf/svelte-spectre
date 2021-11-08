@@ -53,6 +53,7 @@
 	.accordion {
 		.accordion-header {
 			cursor: pointer;
+			padding: $unit-2 0;
 		}
 	}
 </style>

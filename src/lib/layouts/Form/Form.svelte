@@ -9,10 +9,11 @@
 <style lang="scss">
 	@import 'spectre.css/src/forms';
 
+	form {
+		padding: $layout-spacing 0;
+	}
 	:global(.spectre) {
 		.form-horizontal {
-			padding: $layout-spacing 0;
-
 			:global(.form-group) {
 				display: flex;
 				flex-wrap: wrap;
