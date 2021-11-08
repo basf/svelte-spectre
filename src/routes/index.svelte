@@ -351,7 +351,6 @@
 		ButtonGroup,
 		Card,
 		Col,
-		Container,
 		Checkbox,
 		Chip,
 		Divider,

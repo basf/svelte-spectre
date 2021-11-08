@@ -39,8 +39,7 @@
 								<a
 									href={base + path.replace(/\.|md/g, '')}
 									class:active={$page.path === path.replace(/\.|md/g, '') + '/'}
-									on:click={() => ((active = { [key]: i }), (open = false))}
-									>{title}</a
+									on:click={() => (open = false)}>{title}</a
 								>
 							</li>
 						{/each}
@@ -65,91 +64,35 @@
 	for (let path in allMd) {
 		body.push(
 			allMd[path]().then(({ metadata }) => {
-				// console.log(path.match('[^/]+(?=/$|$)'));
-				// console.log(path.split('/')[1]);
 				return { path, metadata };
 			})
 		);
 	}
 
 	export async function load() {
-		const posts = await Promise.all(body);
-		// console.log('posts', posts);
-		const links = posts.reduce((a, c) => {
+		const mds = await Promise.all(body);
+		const links = mds.reduce((a, c) => {
 			const key = c.path.split('/')[1];
 			return { ...a, [key]: a[key] ? [...a[key], c] : [c] };
 		}, {});
-		// console.log('links', links);
 		return {
-			props: { posts, links },
+			props: { links },
 		};
 	}
-
-	// $: console.log(allMd, body);
 </script>
 
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
-
-	import '../app.scss';
 	import { Accordion, Aside, Container, IconButton, Navbar, Spectre, Toaster, toast } from '$lib';
 	import Xray from '$assets/b-science.svg';
 	import GitHub from '$assets/github.svg';
-	import XrayUrl from '$assets/b-science.svg?url';
-	import XraySrc from '$assets/b-science.svg?src';
+	import '../app.scss';
 
 	let open = false,
-		show = false,
-		active = {};
+		show = false;
 
-	export let posts, links;
-	// $: console.log(posts, links);
-
-	const href = (key: string, link: string) =>
-		`/${key.replace(' ', '_').toLowerCase()}/${link.replace(' ', '_').toLowerCase()}`;
-
-	$: console.log(links, $page.path);
-
-	const menu = {
-		['getting started']: ['Installation', 'Custom version', 'Browser support'],
-		['layouts']: [
-			'Aside',
-			'Card',
-			'Container',
-			'Empty',
-			'Figure',
-			'Form',
-			'Grid',
-			'Hero',
-			'Modal',
-			'Navbar',
-			'Panel',
-			'Tile',
-		],
-		['components']: [
-			'Accordion',
-			'Avatar',
-			'Badge',
-			'Breadcrumbs',
-			'Button',
-			'Checkbox',
-			'Chip',
-			'Divider',
-			'Icon',
-			'Input',
-			'Pagination',
-			'Progress',
-			'Radio',
-			'Range',
-			'Select',
-			'Steps',
-			'Switch',
-			'Tabs',
-			'Toast',
-			'Transition',
-		],
-	};
+	export let links;
 </script>
 
 <style lang="scss">
@@ -158,16 +101,18 @@
 		@import 'code';
 		.off-canvas .off-canvas-sidebar {
 			min-width: 12rem !important;
-			.accordion .menu .menu-item > a {
-				color: $gray-color-dark;
-				font-size: 0.72rem;
-			}
 		}
 	}
-
 	@import 'spectre.css/src/menus';
 	@import 'spectre.css/src/icons';
 
+	.accordion .menu .menu-item > a {
+		color: $gray-color-dark;
+		font-size: 0.75rem;
+		&.active {
+			color: $primary-color;
+		}
+	}
 	header {
 		position: sticky;
 		top: 0;
