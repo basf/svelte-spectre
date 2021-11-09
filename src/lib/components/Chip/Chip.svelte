@@ -1,4 +1,4 @@
-<div {...$$restProps} class="chip {offset}">
+<div {...$$restProps} class="chip {offset}" class:active>
 	{#if initial || $$slots.avatar}
 		<Avatar size="sm" {initial} {status} offset="ml--2 mr-2">
 			<slot name="avatar" />
@@ -6,7 +6,13 @@
 	{/if}
 	<slot />
 	{#if closable}
-		<IconButton icon="cross" size="xs" shape="circle" />
+		<button
+			href="#"
+			class="btn btn-clear mr--1"
+			aria-label="Close"
+			role="button"
+			on:click={() => dispatch('close', 'chip close')}
+		/>
 	{/if}
 </div>
 
@@ -15,21 +21,43 @@
 	import type { Status } from '../Avatar/Avatar.svelte';
 
 	import Avatar from '../Avatar/Avatar.svelte';
-	import IconButton from '../Button/IconButton.svelte';
 </script>
 
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+
 	export let offset: Offset = '';
 	export let initial: string = '';
 	export let status: Status = false;
+	export let active: boolean = false;
 	export let closable: boolean = false;
 </script>
 
 <style lang="scss">
 	@import 'spectre.css/src/chips';
-	:global(.spectre .chip .btn-link) {
-		color: $dark-color !important;
-		margin-left: $unit-1;
-		margin-right: -$unit-1;
+	:global(.spectre) {
+		.chip .btn-clear {
+			background: transparent;
+			border: 0;
+			color: currentColor;
+			height: $unit-5;
+			line-height: $unit-4;
+			margin-left: $unit-1;
+			margin-right: -2px;
+			opacity: 1;
+			padding: $unit-h;
+			text-decoration: none;
+			width: $unit-5;
+			cursor: pointer;
+			&:focus,
+			&:hover {
+				background: rgba($bg-color, 0.5);
+				opacity: 0.95;
+			}
+			&::before {
+				content: '\2715';
+			}
+		}
 	}
 </style>
