@@ -5,7 +5,7 @@
 	style="--range: {range}%;"
 	data-range={range}
 >
-	{label}
+	<slot />
 	<input class="slider" type="range" bind:value={range} {min} {max} on:input on:change />
 </label>
 
@@ -18,7 +18,6 @@
 </script>
 
 <script lang="ts">
-	export let label: string;
 	export let range: number = 50;
 	export let min: number = 0;
 	export let max: number = 100;
