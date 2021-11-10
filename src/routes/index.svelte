@@ -7,7 +7,15 @@
 		<h2>Menu</h2>
 		<Grid>
 			<Col>
-				<Menu items={menu} bind:radiogroup />
+				<Menu items={menu} bind:radiogroup>
+					<Tile slot="header">
+						<Avatar slot="icon">
+							<img class="avatar" src="../img/avatar-4.png" alt="Avatar" />
+						</Avatar>
+						<div slot="title" class="tile-content">Steve Rogers</div>
+					</Tile>
+					<Button slot="footer" block variant="primary">Footer</Button>
+				</Menu>
 			</Col>
 			<Col>
 				<Menu>
@@ -420,6 +428,7 @@
 		Range,
 		Select,
 		Switch,
+		Tile,
 		Toast,
 		toast,
 	} from '../lib';

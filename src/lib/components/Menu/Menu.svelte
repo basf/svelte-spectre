@@ -1,4 +1,9 @@
 <ul class="menu" class:menu-nav={nav}>
+	{#if $$slots.header}
+		<li class="menu-item">
+			<slot name="header" />
+		</li>
+	{/if}
 	{#if items}
 		{#each items as item, i}
 			{#if item.divider}
@@ -35,6 +40,11 @@
 		{/each}
 	{:else}
 		<slot />
+	{/if}
+	{#if $$slots.footer}
+		<li class="menu-item">
+			<slot name="footer" />
+		</li>
 	{/if}
 </ul>
 
@@ -78,18 +88,26 @@
 	.menu {
 		.menu-item {
 			border-radius: $border-radius;
-			&:focus,
-			&:hover {
-				background: $secondary-color;
-				color: $primary-color;
+			&:first-child {
+				margin-bottom: $unit-4;
 			}
-			&:active,
-			&.active {
-				background: $secondary-color;
-				color: $primary-color;
+			&:last-child {
+				margin-top: $unit-4;
 			}
-			&:active {
-				@include control-shadow();
+			&:not(:first-child, :last-child) {
+				&:focus,
+				&:hover {
+					background: $secondary-color;
+					color: $primary-color;
+				}
+				&:active,
+				&.active {
+					background: $secondary-color;
+					color: $primary-color;
+				}
+				&:active {
+					@include control-shadow();
+				}
 			}
 		}
 		:global(.divider) {
