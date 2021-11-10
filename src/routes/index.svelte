@@ -1,29 +1,40 @@
 <h1>Welcome to Svelte{name}</h1>
+
 <p>
 	Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
 </p>
+
+<Hero offset="my-2" size="sm">
+	<h2>Autocomplete</h2>
+	<Autocomplete bind:selected={autocompleted} predefined={positions} />
+	{autocompleted}
+</Hero>
+
 <Hero offset="my-2" size="sm">
 	<h2>Avatars</h2>
 	<Avatar name="AV" size="sm" badge />
 	<Avatar name="AV" status="online" badge />
 	<Avatar name="AV" status="busy" size="lg" badge="0">
-		<img src="/sveltekit/img/avatar-1.png" alt="Thor Odinson" />
+		<img src="img/avatar-1.png" alt="Thor Odinson" />
 	</Avatar>
 	<Avatar name="AV" size="xl" badge="0">
-		<img src="/sveltekit/img/avatar-1.png" alt="Thor Odinson" />
-		<img slot="sub" src="/sveltekit/img/avatar-1.png" alt="Thor Odinson" />
+		<img src="img/avatar-1.png" alt="Thor Odinson" />
+		<img slot="sub" src="img/avatar-1.png" alt="Thor Odinson" />
 	</Avatar>
 </Hero>
+
 <Hero offset="my-2" size="sm">
 	<h2>Chips</h2>
 	<Chip>Chip</Chip>
-	<Chip initial="CP">Chip</Chip>
-	<Chip initial="CP" status="online">Chip</Chip>
-	<Chip initial="CP" status="busy" closable>Chip</Chip>
+	<Chip active>Active</Chip>
+	<Chip initial="CP">Avatar</Chip>
+	<Chip initial="CP" status="online">Online</Chip>
+	<Chip initial="CP" status="busy">Busy</Chip>
 	<Chip initial="CP" status="busy" closable>
-		<img slot="avatar" src="/sveltekit/img/avatar-1.png" alt="Thor Odinson" />Chip
+		<img slot="avatar" src="img/avatar-1.png" alt="Thor Odinson" />Closable
 	</Chip>
 </Hero>
+
 <Hero offset="my-2" size="sm">
 	<h2>Badges</h2>
 	<Badge offset="mr-1">default Badge</Badge>
@@ -38,19 +49,16 @@
 	<Button variant="success" badge="1">success</Button>
 	<Button variant="error" {badge} on:click={(e) => (badge = 'e.target')}>error</Button>
 </Hero>
+
 <Hero offset="my-2" size="sm">
 	<h2>Figure</h2>
 	<Grid stack>
 		<Col col="4" sm="12">
-			<Figure
-				src="/sveltekit/img/osx-el-capitan-2.jpg"
-				alt="macOS Yosemite Wallpaper"
-				contain
-			/>
+			<Figure src="img/osx-el-capitan-2.jpg" alt="macOS Yosemite Wallpaper" contain />
 		</Col>
 		<Col col="4" sm="12">
 			<Figure
-				src="/sveltekit/img/osx-yosemite.jpg"
+				src="img/osx-yosemite.jpg"
 				alt="macOS Yosemite Wallpaper"
 				contain
 				caption="img-fit-contain"
@@ -58,7 +66,7 @@
 		</Col>
 		<Col col="4" sm="12">
 			<Figure
-				src="/sveltekit/img/osx-yosemite-2.jpg"
+				src="img/osx-yosemite-2.jpg"
 				alt="macOS Yosemite Wallpaper"
 				cover
 				caption="img-fit-cover"
@@ -66,6 +74,7 @@
 		</Col>
 	</Grid>
 </Hero>
+
 <Hero offset="my-2" size="sm">
 	<h2>Pagination</h2>
 	<h5>Default</h5>
@@ -78,6 +87,7 @@
 	<h5>Rest = 7</h5>
 	<Pagination total={250} limit={30} page={13} rest={7} perpage={false} />
 </Hero>
+
 <Hero offset="my-2" size="sm">
 	<h2>Modal</h2>
 	<Button on:click={() => (modalVis = !modalVis)}>Open Modal</Button>
@@ -119,10 +129,11 @@
 		<p slot="footer"><Button variant="primary">Modal footer</Button></p>
 	</Modal>
 </Hero>
+
 <Hero offset="my-2" size="sm">
 	<h2>Toast</h2>
 	<Grid>
-		<Col sm="12">
+		<Col>
 			<h5>Single</h5>
 			<Grid>
 				<Col col="auto">
@@ -139,7 +150,7 @@
 			</Grid>
 		</Col>
 		<Divider align="vertical" />
-		<Col sm="12">
+		<Col>
 			<h5>Toaster</h5>
 			<div class="toaster-grid">
 				<ButtonGroup>
@@ -155,6 +166,7 @@
 		</Col>
 	</Grid>
 </Hero>
+
 <Hero offset="my-2" size="sm">
 	<h2>Buttons & Icons</h2>
 	<Button
@@ -222,6 +234,7 @@
 		</svg>
 	</Icon>
 </Hero>
+
 <Hero offset="my-2" size="sm">
 	<h2>Accordion</h2>
 	<Accordion opened
@@ -230,6 +243,7 @@
 	<Accordion><b slot="title">Accordion2</b>Accordion1<br />Accordion1<br />Accordion1</Accordion>
 	<Accordion><b slot="title">Accordion2</b>Accordion2<br />Accordion2<br />Accordion2</Accordion>
 </Hero>
+
 <Hero offset="my-2" size="sm">
 	<h2>Form</h2>
 	<Form horizontal>
@@ -300,6 +314,7 @@
 		</FormGroup>
 	</Form>
 </Hero>
+
 <Hero offset="my-2" size="sm">
 	<h2>Grid</h2>
 	<Grid stack>
@@ -310,7 +325,9 @@
 		<Col><div class="bg-secondary p-1">col</div></Col>
 	</Grid>
 </Hero>
+
 <Divider text="&&" />
+
 <Hero size="sm">
 	<h2>Cards</h2>
 	<Grid offset="my-2" oneline align="">
@@ -333,19 +350,22 @@
 	</Grid>
 </Hero>
 
-<Empty offset="">
-	<Icon slot="icon" icon="home" size="3x" color="primary" />
-	<h1 slot="title">Title</h1>
-	<p slot="subtitle">Subtitle</p>
-	<Button slot="action" variant="primary">Action</Button>
-</Empty>
-<!-- <Empty icon="home" titleSize="h1" buttonVariant="primary" buttonHref="#_" /> -->
+<Hero size="sm">
+	<Empty offset="">
+		<Icon slot="icon" icon="home" size="3x" color="primary" />
+		<h1 slot="title">Title</h1>
+		<p slot="subtitle">Subtitle</p>
+		<Button slot="action" variant="primary">Action</Button>
+	</Empty>
+</Hero>
+
 <Hero offset="my-2" bg="dark" />
 
 <script context="module" lang="ts">
 	import {
 		Accordion,
 		Avatar,
+		Autocomplete,
 		Badge,
 		Button,
 		ButtonGroup,
@@ -438,7 +458,8 @@
 		},
 	];
 
-	let page;
+	let page,
+		autocompleted = [];
 
 	export let name: string = 'Spectre';
 </script>
