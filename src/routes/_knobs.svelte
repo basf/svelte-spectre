@@ -20,6 +20,12 @@
 							class="form-input"
 							id={autoId(key)}
 						/>
+					{:else if config[key].type === 'checkbox'}
+						<label class="form-checkbox">
+							<input bind:checked={state[key]} type="checkbox" />
+							<i class="form-icon" />
+						</label>
+						<!-- <input bind:checked={state[key]} type="checkbox" id={autoId(key)} /> -->
 					{:else}
 						<input
 							bind:value={state[key]}

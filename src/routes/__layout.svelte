@@ -102,6 +102,13 @@
 		.off-canvas .off-canvas-sidebar {
 			min-width: 12rem !important;
 		}
+		.docs-demo {
+			padding-bottom: 1rem;
+			padding-top: 1rem;
+			.column {
+				padding: 0.4rem;
+			}
+		}
 	}
 	@import 'spectre.css/src/menus';
 	@import 'spectre.css/src/icons';

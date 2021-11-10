@@ -288,7 +288,7 @@
 		</FormGroup>
 		<FormGroup>
 			<h4>Checkbox</h4>
-			<Checkbox label="Checkbox" indeterminate />
+			<Checkbox indeterminate>Checkbox</Checkbox>
 		</FormGroup>
 		<FormGroup>
 			<h4>Switch</h4>

@@ -85,7 +85,7 @@
 			transform: scale(1.5);
 		}
 		&:active::-webkit-slider-thumb {
-			transform: scale(1.75);
+			transform: scale(1.25);
 			box-shadow: 0 0 0 3pt rgba($primary-color, 0.27);
 		}
 
@@ -107,7 +107,7 @@
 			transform: scale(1.5);
 		}
 		&:active::-moz-range-thumb {
-			transform: scale(1.75);
+			transform: scale(1.25);
 			box-shadow: 0 0 0 3pt rgba($primary-color, 0.27);
 		}
 	}
