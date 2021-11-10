@@ -6,7 +6,7 @@
 	<Hero offset="my-2" size="sm">
 		<h2>Menu</h2>
 		<Grid>
-			<Col>
+			<Col col="5" mr="auto" sm="12">
 				<Menu items={menu} bind:radiogroup>
 					<Tile slot="header">
 						<Avatar slot="icon">
@@ -17,7 +17,7 @@
 					<Button slot="footer" block variant="primary">Footer</Button>
 				</Menu>
 			</Col>
-			<Col>
+			<!-- <Col>
 				<Menu>
 					<li class="menu-item">
 						<label class="form-checkbox">
@@ -44,7 +44,7 @@
 						</div>
 					</li>
 				</Menu>
-			</Col>
+			</Col> -->
 		</Grid>
 	</Hero>
 	<Hero offset="my-2" size="sm">
