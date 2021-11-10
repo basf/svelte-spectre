@@ -4,6 +4,42 @@
 		Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
 	</p>
 	<Hero offset="my-2" size="sm">
+		<h2>Menu</h2>
+		<Grid>
+			<Col>
+				<Menu items={menu} bind:radiogroup />
+			</Col>
+			<Col>
+				<Menu>
+					<li class="menu-item">
+						<label class="form-checkbox">
+							<input type="checkbox" checked="" /><i class="form-icon" /> form-checkbox
+						</label>
+					</li>
+					<li class="menu-item">
+						<label class="form-radio">
+							<input type="radio" checked="" /><i class="form-icon" /> form-radio
+						</label>
+					</li>
+					<li class="menu-item">
+						<label class="form-switch">
+							<input type="checkbox" checked="" /><i class="form-icon" /> form-switch
+						</label>
+					</li>
+					<li class="menu-item">
+						<a href="#">My profile</a>
+						<div class="menu-badge">
+							<label class="form-checkbox">
+								<input type="checkbox" />
+								<i class="form-icon" /> Public
+							</label>
+						</div>
+					</li>
+				</Menu>
+			</Col>
+		</Grid>
+	</Hero>
+	<Hero offset="my-2" size="sm">
 		<h2>Autocomplete</h2>
 		<Autocomplete bind:selected={autocompleted} predefined={positions} />
 		{autocompleted}
@@ -377,6 +413,7 @@
 		Input,
 		InputGroup,
 		Figure,
+		Menu,
 		Modal,
 		Pagination,
 		Radio,
@@ -416,7 +453,23 @@
 		tostVis: boolean = true,
 		modalVis: boolean,
 		arrows: string[] = ['↖', '↑', '↗', '←', '☩', '→', '↙', '↓', '↘'],
-		badge = 'badge';
+		badge = 'badge',
+		radiogroup = '',
+		menu = [
+			{ divider: `top` },
+			{ text: `top_left`, active: true },
+			{ text: `top_center`, checkbox: true },
+			{ text: `top_right`, badge: 2 },
+			{ divider: `center` },
+			{ text: `center_left`, icon: 'link' },
+			{ text: `center_center`, switch: true },
+			{ text: `center_right`, badge: 'badge', checkbox: true },
+			{ divider: `bottom` },
+			{ text: `bottom_left`, radio: true },
+			{ text: `bottom_center`, radio: true },
+			{ text: `bottom_right`, radio: true },
+		];
+	$: console.log(radiogroup);
 
 	const CARDS = [
 		{
