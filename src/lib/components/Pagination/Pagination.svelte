@@ -81,8 +81,8 @@
 </div>
 
 <script lang="ts" context="module">
-	import Icon from '../Icon/';
-	import Select from '../Select/';
+	import Icon from '../Icon/Icon.svelte';
+	import Select from '../Select/Select.svelte';
 </script>
 
 <script lang="ts">
