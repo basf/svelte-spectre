@@ -10,10 +10,11 @@
 	{/each}
 </ul>
 
-<script lang="ts">
-	import { Icon, Icons } from '../Icon/';
-	import { Button } from '../Button/';
+<script lang="ts" context="module">
+	import Icon from '../Icon/Icon.svelte';
+	import Button from '../Button/Button.svelte';
 
+	import type Icons from '../Icon/Icon.svelte';
 	type ItemProp = {
 		title: string;
 		path?: string;
@@ -23,6 +24,10 @@
 		clear?: boolean;
 	};
 
+	export type { ItemProp };
+</script>
+
+<script lang="ts">
 	export let items: ItemProp[] = [];
 	export let active: string = '';
 	export let block: boolean = false;

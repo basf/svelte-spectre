@@ -1,7 +1,7 @@
 <label id="checkbox-{fid}" class="form-checkbox is-{validity}" class:form-inline={inline}>
 	<input bind:checked={value} type="checkbox" {indeterminate} />
 	<i class="form-icon" />
-	{#if label}{label}{/if}
+	<slot />
 </label>
 
 <script lang="ts" context="module">
@@ -13,7 +13,6 @@
 </script>
 
 <script lang="ts">
-	export let label: string = '';
 	export let value: boolean = false;
 	export let indeterminate: boolean = false;
 	export let inline: boolean = false;
