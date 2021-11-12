@@ -246,7 +246,6 @@
 				<Input validity="error">Error <IconButton slot="iconRight" icon="emoji" /></Input>
 			</FormGroup>
 		</Form>
-		<!--
 		<Form>
 			<h4>InputGroup</h4>
 			<FormGroup>
@@ -308,7 +307,6 @@
 				<Range label="" />
 			</FormGroup>
 		</Form>
--->
 	</Hero>
 	<Hero offset="my-2" size="sm">
 		<h2>Grid</h2>
