@@ -5,22 +5,22 @@ import { getSvelteConfig } from './svelteconfig';
 
 const processSync =
 	(options = {}) =>
-		(source, filename) => {
-			const { debug, preprocess, rootMode } = options;
-			let processed = source;
-			if (preprocess) {
-				const svelteConfig = getSvelteConfig(rootMode, filename);
-				const preprocessor = require.resolve('./preprocess.js');
-				processed = execSync(
-					`node --unhandled-rejections=strict --abort-on-uncaught-exception "${preprocessor}"`,
-					{ env: { PATH: process.env.PATH, source, filename, svelteConfig } }
-				).toString();
-				if (debug) console.log(processed);
-				return processed;
-			} else {
-				return source;
-			}
-		};
+	(source, filename) => {
+		const { debug, preprocess, rootMode } = options;
+		let processed = source;
+		if (preprocess) {
+			const svelteConfig = getSvelteConfig(rootMode, filename);
+			const preprocessor = require.resolve('./preprocess.js');
+			processed = execSync(
+				`node --unhandled-rejections=strict --abort-on-uncaught-exception "${preprocessor}"`,
+				{ env: { PATH: process.env.PATH, source, filename, svelteConfig } }
+			).toString();
+			if (debug) console.log(processed);
+			return processed;
+		} else {
+			return source;
+		}
+	};
 
 const transform = (source, filename) => {
 	const { name } = parse(filename);

@@ -4,7 +4,11 @@ import * as ENV from '../../setup/testenv';
 
 import Steps from '../../../src/lib/components/Steps';
 
-const steps = [{ href: '1', label: '#' }, { href: '2', label: '#' }, { href: '3', label: '#' }];
+const steps = [
+    { href: '1', label: '#' },
+    { href: '2', label: '#' },
+    { href: '3', label: '#' },
+];
 
 test.before(ENV.setup);
 test.before.each(ENV.reset);

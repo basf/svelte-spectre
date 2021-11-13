@@ -4,7 +4,11 @@ import * as ENV from '../../setup/testenv';
 
 import Select from '../../../src/lib/components/Select';
 
-const options = [{ value: '1', label: '#' }, { value: '2', label: '#' }, { value: '3', label: '#' }];
+const options = [
+    { value: '1', label: '#' },
+    { value: '2', label: '#' },
+    { value: '3', label: '#' },
+];
 
 test.before(ENV.setup);
 test.before.each(ENV.reset);

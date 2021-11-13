@@ -1,11 +1,7 @@
-<details
-	class="accordion {offset}"
-	bind:open={opened}
-	on:click|preventDefault={toggled ? toggle : open}
->
-	<summary class="accordion-header">
-		<i class="icon icon-arrow-right mr-1" />
-		{title}
+<details class="accordion {offset}" bind:open={opened}>
+	<summary class="accordion-header" on:click|preventDefault={toggled ? toggle : open}>
+		{#if icon}<i class="icon icon-{icon} mr-1" />{/if}
+		<slot name="title" />
 	</summary>
 	{#if opened}
 		<div class="accordion-body" transition:slide>
@@ -29,7 +25,7 @@
 <script lang="ts">
 	export let opened: boolean = false;
 	export let toggled: boolean = false;
-	export let title: string = 'Accordion';
+	export let icon: string = '';
 	export let offset: Offset = '';
 
 	onMount(() => init());
@@ -55,6 +51,9 @@
 	@import 'spectre.css/src/accordions';
 	@import 'spectre.css/src/icons';
 	.accordion {
-		cursor: pointer;
+		.accordion-header {
+			cursor: pointer;
+			padding: $unit-2 0;
+		}
 	}
 </style>

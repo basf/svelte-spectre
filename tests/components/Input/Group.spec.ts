@@ -8,7 +8,10 @@ test.before(ENV.setup);
 test.before.each(ENV.reset);
 
 test('check Group', async () => {
-    const { container, component } = ENV.render(InputGroup, { value: 'input', color: 'primary' });
+    const { container, component } = ENV.render(InputGroup, {
+        value: 'input',
+        color: 'primary',
+    });
     const group: HTMLElement = container.querySelector('.input-group');
 
     // assert.is(group.classList.contains(`input-group`), true);

@@ -19,7 +19,7 @@
 <script lang="ts">
 	export let label: string;
 	export let radios: any[] = [];
-	export let group: number[] = [];
+	export let group: number = 0;
 	export let inline: boolean = false;
 	export let validity: Validity = false;
 

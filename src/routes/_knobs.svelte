@@ -1,0 +1,80 @@
+<section>
+	<Grid>
+		{#each Object.keys(config) as key}
+			<Col col="auto">
+				<div class="form-group">
+					<label class="form-label" for={autoId(key)}>{config[key].label || key}</label>
+
+					{#if config[key].options}
+						<select bind:value={state[key]} class="form-select" id={autoId(key)}>
+							{#each config[key].options as value}
+								<option {value} selected={value === state[key]}>{value}</option>
+							{/each}
+						</select>
+					{:else if config[key].type === 'number'}
+						<input
+							bind:value={state[key]}
+							type="number"
+							min={config[key].min ?? state.min}
+							max={config[key].max ?? state.max}
+							class="form-input"
+							id={autoId(key)}
+						/>
+					{:else if config[key].type === 'checkbox'}
+						<label class="form-checkbox">
+							<input bind:checked={state[key]} type="checkbox" />
+							<i class="form-icon" />
+						</label>
+						<!-- <input bind:checked={state[key]} type="checkbox" id={autoId(key)} /> -->
+					{:else}
+						<input
+							bind:value={state[key]}
+							size={config[key].size}
+							class="form-input"
+							id={autoId(key)}
+						/>
+					{/if}
+				</div>
+			</Col>
+		{/each}
+	</Grid>
+</section>
+
+<script lang="ts">
+	import { Grid, Col } from '$lib';
+
+	export let state: Record<string, unknown> = {};
+	export let config: Record<
+		string,
+		{ label: string; options?: unknown[]; size?: number; type?: string }
+	> = {};
+
+	const generateUid = (): string => Math.random().toString(36).slice(2);
+
+	const safe = (chars: string): string => chars.replace(/\s+/g, '_');
+
+	function useAutoId(base = ''): (name: string, ...args: unknown[]) => string {
+		const uid = generateUid();
+		const prefix = base && `~${safe(base)}`;
+		const used = new Map<string, string>();
+
+		return (...args: unknown[]) => {
+			const key = args.join('~');
+			let id = used.get(key);
+			if (!id) {
+				used.set(key, (id = `${prefix}~${safe(key)}~${uid}`));
+			}
+			return id;
+		};
+	}
+	const autoId = useAutoId('knobs');
+</script>
+
+<style lang="scss">
+	@import 'spectre.css/src/forms';
+	section {
+		border-top: 1px solid #c0c0d8;
+		margin: 8px -8px;
+		padding: 0 8px;
+	}
+</style>
