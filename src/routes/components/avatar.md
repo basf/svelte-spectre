@@ -21,7 +21,7 @@ config: {
 
 # {title}
 
-Avatars are user profile pictures.
+Avatars are user profile pictures or similar elements presenting their status (e.g. online or offline).
 
 <p>
     <Avatar name="AV" size="sm" badge />
