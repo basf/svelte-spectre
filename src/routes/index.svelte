@@ -5,6 +5,10 @@
 </p>
 
 <Hero offset="my-2" size="sm">
+	<h2>Table</h2>
+	<Table cols={table.cols} rows={table.rows} />
+</Hero>
+<Hero offset="my-2" size="sm">
 	<h2>Autocomplete</h2>
 	<Autocomplete bind:selected={autocompleted} predefined={positions} />
 	{autocompleted}
