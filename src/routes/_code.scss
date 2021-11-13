@@ -2,14 +2,14 @@
 
 code {
     font-size: 85% !important;
-    &[class*="language-"] {
+    &[class*='language-'] {
         padding: 1rem;
         display: block;
         overflow-x: auto;
     }
 }
-code[class*="language-"],
-pre[class*="language-"] {
+code[class*='language-'],
+pre[class*='language-'] {
     color: lighten($body-font-color, 10%);
     background: $bg-color;
     font-family: $mono-font-family;
@@ -17,25 +17,25 @@ pre[class*="language-"] {
     line-height: 1.5;
 }
 
-pre[class*="language-"]::-moz-selection,
-pre[class*="language-"] ::-moz-selection,
-code[class*="language-"]::-moz-selection,
-code[class*="language-"] ::-moz-selection {
+pre[class*='language-']::-moz-selection,
+pre[class*='language-'] ::-moz-selection,
+code[class*='language-']::-moz-selection,
+code[class*='language-'] ::-moz-selection {
     text-shadow: none;
     background: $highlight-color;
 }
 
-pre[class*="language-"]::selection,
-pre[class*="language-"] ::selection,
-code[class*="language-"]::selection,
-code[class*="language-"] ::selection {
+pre[class*='language-']::selection,
+pre[class*='language-'] ::selection,
+code[class*='language-']::selection,
+code[class*='language-'] ::selection {
     text-shadow: none;
     background: $highlight-color;
 }
 
 @media print {
-    code[class*="language-"],
-    pre[class*="language-"] {
+    code[class*='language-'],
+    pre[class*='language-'] {
         text-shadow: none;
     }
 }

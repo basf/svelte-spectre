@@ -8,7 +8,11 @@ test.before(ENV.setup);
 test.before.each(ENV.reset);
 
 test('check Progress', async () => {
-    const { container, component } = ENV.render(Progress, { color: 'primary', value: 10, max: 100 });
+    const { container, component } = ENV.render(Progress, {
+        color: 'primary',
+        value: 10,
+        max: 100,
+    });
     const progress: HTMLElement = container.querySelector('.progress');
 
     assert.is(progress.classList.contains(`text-primary`), true);

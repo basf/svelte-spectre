@@ -8,7 +8,10 @@ test.before(ENV.setup);
 test.before.each(ENV.reset);
 
 test('check Icon', async () => {
-    const { container, component } = ENV.render(Icon, { icon: 'emoji', color: 'primary' });
+    const { container, component } = ENV.render(Icon, {
+        icon: 'emoji',
+        color: 'primary',
+    });
     const icon: HTMLElement = container.querySelector('.icon');
 
     assert.is(icon.classList.contains(`icon-emoji`), true);

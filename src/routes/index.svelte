@@ -351,6 +351,17 @@
 </Hero>
 
 <Hero size="sm">
+	<h2>Tile</h2>
+	<Tile>
+		<Icon slot="icon" icon="emoji" />
+		<h3 slot="title">Title</h3>
+		<p slot="subtitle">Subtitle</p>
+		Tile
+		<Button slot="action">Button</Button>
+	</Tile>
+</Hero>
+<Hero size="sm">
+	<h2>Empty</h2>
 	<Empty offset="">
 		<Icon slot="icon" icon="home" size="3x" color="primary" />
 		<h1 slot="title">Title</h1>
@@ -390,6 +401,7 @@
 		Range,
 		Select,
 		Switch,
+		Tile,
 		Toast,
 		toast,
 	} from '../lib';

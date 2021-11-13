@@ -1,14 +1,26 @@
 ---
 file: avatar.md
 title: Avatar
-config: { 
-    size: { options: ['xs', 'sm', 'md', 'lg', 'xl'] }, 
-    status: { options: [undefined, 'online', 'busy', 'away'] }, 
-    badged: { type: 'checkbox' },
-    badge: { size: 5 },
-    name: { size: 12 }, 
-    image: { options: [null, 'avatar-1.png', 'avatar-2.png', 'avatar-3.png', 'avatar-4.png', 'avatar-5.png'] } 
-}
+config:
+    {
+        size: { options: ['xs', 'sm', 'md', 'lg', 'xl'] },
+        status: { options: [undefined, 'online', 'busy', 'away'] },
+        badged: { type: 'checkbox' },
+        badge: { size: 5 },
+        name: { size: 12 },
+        image:
+            {
+                options:
+                    [
+                        null,
+                        'avatar-1.png',
+                        'avatar-2.png',
+                        'avatar-3.png',
+                        'avatar-4.png',
+                        'avatar-5.png',
+                    ],
+            },
+    }
 ---
 
 <script>

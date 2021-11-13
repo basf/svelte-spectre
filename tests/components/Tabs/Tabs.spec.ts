@@ -4,7 +4,11 @@ import * as ENV from '../../setup/testenv';
 
 import Tabs from '../../../src/lib/components/Tabs';
 
-const items = [{ href: '1', label: '#' }, { href: '2', label: '#' }, { href: '3', label: '#' }];
+const items = [
+    { href: '1', label: '#' },
+    { href: '2', label: '#' },
+    { href: '3', label: '#' },
+];
 
 test.before(ENV.setup);
 test.before.each(ENV.reset);

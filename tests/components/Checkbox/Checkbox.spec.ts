@@ -4,15 +4,25 @@ import * as ENV from '../../setup/testenv';
 
 import Checkbox from '../../../src/lib/components/Checkbox';
 
-const links = [{ title: '1', href: '#' }, { title: '2', href: '#' }, { title: '3', href: '#' }];
+const links = [
+    { title: '1', href: '#' },
+    { title: '2', href: '#' },
+    { title: '3', href: '#' },
+];
 
 test.before(ENV.setup);
 test.before.each(ENV.reset);
 
 test('check Checkbox', async () => {
-    const { container, component } = ENV.render(Checkbox, { validity: 'success', inline: true, value: true });
+    const { container, component } = ENV.render(Checkbox, {
+        validity: 'success',
+        inline: true,
+        value: true,
+    });
     const checkbox: HTMLElement = container.querySelector('.form-checkbox');
-    const input: HTMLElement = container.querySelector('input[type="checkbox"]');
+    const input: HTMLElement = container.querySelector(
+        'input[type="checkbox"]'
+    );
     checkbox.append('Checkbox');
     await ENV.fire(checkbox, 'click');
     // console.log(component);

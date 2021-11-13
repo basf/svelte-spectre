@@ -16,7 +16,7 @@
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --ignore-path .gitignore  --check . && eslint --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .gitignore --write .",
-		"uvu:tests": "uvu tests '.spec.ts' -r tsm -r tests/setup/register -i setup"
+		"test": "uvu tests '.spec.ts' -r tsm -r tests/setup/register -i setup"
 	},
 	"engines": {
 		"node": ">= 14"
@@ -38,7 +38,7 @@
 		"@ctrl/tinycolor": "^3.4.0",
 		"@poppanator/sveltekit-svg": "^0.1.7",
 		"@sveltejs/adapter-static": "1.0.0-next.20",
-		"@sveltejs/kit": "^1.0.0-next.195",
+		"@sveltejs/kit": "^1.0.0-next.196",
 		"@types/jsdom": "^16.2.13",
 		"@typescript-eslint/eslint-plugin": "^5.3.1",
 		"@typescript-eslint/parser": "^5.3.1",
@@ -47,7 +47,7 @@
 		"eslint": "^8.2.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-svelte3": "^3.2.1",
-		"jsdom": "^18.0.1",
+		"jsdom": "^18.1.0",
 		"mdsvex": "^0.9.8",
 		"micromatch": "^4.0.4",
 		"pirates": "^4.0.1",

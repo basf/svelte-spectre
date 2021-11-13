@@ -8,7 +8,10 @@ test.before(ENV.setup);
 test.before.each(ENV.reset);
 
 test('check Pagination', async () => {
-    const { container, component } = ENV.render(Pagination, { total: 100, limit: 10 });
+    const { container, component } = ENV.render(Pagination, {
+        total: 100,
+        limit: 10,
+    });
     const pagination: HTMLElement = container.querySelector('.pagination');
 
     assert.is(pagination.querySelectorAll(`.page-item`).length, 12);

@@ -8,7 +8,10 @@ test.before(ENV.setup);
 test.before.each(ENV.reset);
 
 test('check Transition', async () => {
-    const { container, component } = ENV.render(Transition, { in: 'slide', out: 'fade' });
+    const { container, component } = ENV.render(Transition, {
+        in: 'slide',
+        out: 'fade',
+    });
     // const tabs: HTMLElement = container.querySelector('.tab');
 
     // assert.is(tabs.querySelectorAll('.tab-item').length, 3);

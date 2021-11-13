@@ -8,7 +8,9 @@ test.before(ENV.setup);
 test.before.each(ENV.reset);
 
 test('check Accordion', async () => {
-    const { container, component } = ENV.render(Accordion, { title: 'Accordion' });
+    const { container, component } = ENV.render(Accordion, {
+        title: 'Accordion',
+    });
     const accordion: HTMLElement = container.querySelector('.accordion');
     await ENV.fire(accordion, 'click');
     accordion.querySelector('.accordion-body').innerHTML = 'accordion-body';
