@@ -8,7 +8,10 @@ test.before(ENV.setup);
 test.before.each(ENV.reset);
 
 test('check Input', async () => {
-    const { container, component } = ENV.render(Input, { value: 'input', color: 'primary' });
+    const { container, component } = ENV.render(Input, {
+        value: 'input',
+        color: 'primary',
+    });
     const input: HTMLInputElement = container.querySelector('.form-input');
 
     // assert.is(icon.classList.contains(`icon-emoji`), true);

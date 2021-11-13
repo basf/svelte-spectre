@@ -8,7 +8,10 @@ test.before(ENV.setup);
 test.before.each(ENV.reset);
 
 test('check Chip', async () => {
-    const { container, component } = ENV.render(Chip, { name: 'chip chip', closable: true });
+    const { container, component } = ENV.render(Chip, {
+        name: 'chip chip',
+        closable: true,
+    });
     const chip: HTMLElement = container.querySelector('.chip');
     const avatar: HTMLElement = container.querySelector('.avatar');
     const button: HTMLElement = container.querySelector('.btn');

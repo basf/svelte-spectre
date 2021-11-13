@@ -4,7 +4,11 @@ import * as ENV from '../../setup/testenv';
 
 import Breadcrumbs from '../../../src/lib/components/Breadcrumbs';
 
-const links = [{ title: '1', href: '#' }, { title: '2', href: '#' }, { title: '3', href: '#' }];
+const links = [
+    { title: '1', href: '#' },
+    { title: '2', href: '#' },
+    { title: '3', href: '#' },
+];
 
 test.before(ENV.setup);
 test.before.each(ENV.reset);

@@ -8,7 +8,10 @@ test.before(ENV.setup);
 test.before.each(ENV.reset);
 
 test('check Badge', async () => {
-    const { container, component } = ENV.render(Badge, { color: 'primary', rounded: true });
+    const { container, component } = ENV.render(Badge, {
+        color: 'primary',
+        rounded: true,
+    });
     const badge: HTMLElement = container.querySelector('.label');
     badge.innerHTML = 'badge';
 

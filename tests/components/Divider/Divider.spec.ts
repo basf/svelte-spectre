@@ -8,7 +8,10 @@ test.before(ENV.setup);
 test.before.each(ENV.reset);
 
 test('check Divider', async () => {
-    const { container, component } = ENV.render(Divider, { align: 'horizontal', text: 'divider' });
+    const { container, component } = ENV.render(Divider, {
+        align: 'horizontal',
+        text: 'divider',
+    });
     const divider: HTMLElement = container.querySelector('.divider');
 
     assert.is(divider.classList.contains(`text-center`), true);
