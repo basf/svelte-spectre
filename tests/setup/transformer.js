@@ -34,9 +34,9 @@ const transform = (source, filename) => {
 	});
 
 	warnings.forEach((warning) => {
-		console.warn(`\n${warning.filename}:`);
-		console.warn(warning.message);
-		console.warn(warning.frame);
+		console.warn('\x1b[37m%s\x1b[0m', `\n${warning.filename}:`);
+		console.warn('\x1b[33m%s\x1b[0m', warning.message);
+		console.warn('\x1b[90m%s\x1b[0m', warning.frame);
 	});
 
 	return js.code;

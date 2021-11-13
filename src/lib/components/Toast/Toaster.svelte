@@ -45,6 +45,7 @@
 			max-width: 100vw;
 			list-style: none;
 			margin: 0;
+			z-index: 10000;
 			& > li {
 				margin: $layout-spacing;
 			}
