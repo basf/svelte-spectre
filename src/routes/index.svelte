@@ -292,7 +292,7 @@
 			<Select options={questions} bind:value={selected} />
 		</FormGroup>
 		<FormGroup>
-			<!-- <Select options={questions} bind:value={multi} multiple /> -->
+			<Select options={questions} bind:value={multi} multiple />
 		</FormGroup>
 		<FormGroup>
 			<h4>Radio</h4>
