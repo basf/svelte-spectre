@@ -8,6 +8,24 @@
 	<h2>Table</h2>
 	<Table cols={table.cols} rows={table.rows} />
 </Hero>
+
+<Hero offset="my-2" size="sm">
+	<h2>Menu</h2>
+	<Grid>
+		<Col col="5" mr="auto" sm="12">
+			<Menu items={menu} bind:radiogroup>
+				<Tile slot="header">
+					<Avatar slot="icon">
+						<img class="avatar" src="../img/avatar-4.png" alt="Avatar" />
+					</Avatar>
+					<div slot="title" class="tile-content">Steve Rogers</div>
+				</Tile>
+				<Button slot="footer" block variant="primary">Footer</Button>
+			</Menu>
+		</Col>
+	</Grid>
+</Hero>
+
 <Hero offset="my-2" size="sm">
 	<h2>Autocomplete</h2>
 	<Autocomplete bind:selected={autocompleted} predefined={positions} />
@@ -400,6 +418,7 @@
 		Input,
 		InputGroup,
 		Figure,
+		Menu,
 		Modal,
 		Pagination,
 		Radio,
@@ -464,7 +483,23 @@
 				{ name: 'Se7en', genre: 'Crime, Mystery', release: '22 September 1995' },
 			],
 		},
-		badge = 'badge';
+		badge = 'badge',
+		radiogroup = '',
+		menu = [
+			{ divider: `TOP` },
+			{ text: `top_left`, active: true },
+			{ text: `top_center`, checkbox: true },
+			{ text: `top_right`, badge: 2 },
+			{ divider: `CENTER` },
+			{ text: `center_left`, icon: 'link' },
+			{ text: `center_center`, switch: true },
+			{ text: `center_right`, badge: 'badge', checkbox: true },
+			{ divider: `BOTTOM` },
+			{ text: `bottom_left`, radio: true },
+			{ text: `bottom_center`, radio: true },
+			{ text: `bottom_right`, radio: true },
+		];
+	$: console.log(radiogroup);
 
 	const CARDS = [
 		{

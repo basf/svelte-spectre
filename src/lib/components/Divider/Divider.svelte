@@ -1,12 +1,12 @@
 <div
 	class:divider={align === 'horizontal'}
-	class:text-center={align === 'horizontal'}
+	class:text-center={align === 'center'}
 	class:divider-vert={align === 'vertical'}
 	data-content={text || undefined}
 />
 
 <script lang="ts" context="module">
-	type Align = 'vertical' | 'horizontal';
+	type Align = 'vertical' | 'horizontal' | 'center';
 	export type { Align };
 </script>
 
