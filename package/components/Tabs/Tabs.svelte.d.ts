@@ -1,15 +1,17 @@
 import { SvelteComponentTyped } from 'svelte';
-import { Icons } from '../Icon/';
+import type Icons from '../Icon/Icon.svelte';
+declare type ItemProp = {
+    title: string;
+    path?: string;
+    pos?: number;
+    icon?: Icons;
+    badge?: string;
+    clear?: boolean;
+};
+export type { ItemProp };
 declare const __propDef: {
     props: {
-        items?: {
-            title: string;
-            path?: string;
-            pos?: number;
-            icon?: Icons;
-            badge?: string;
-            clear?: boolean;
-        }[];
+        items?: ItemProp[];
         active?: string;
         block?: boolean;
     };
@@ -26,4 +28,3 @@ export default class Tabs extends SvelteComponentTyped<
     TabsEvents,
     TabsSlots
 > {}
-export {};

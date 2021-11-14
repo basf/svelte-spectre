@@ -5,15 +5,14 @@
 	style="--range: {range}%;"
 	data-range={range}
 >
-	{label}
+	<slot />
 	<input class="slider" type="range" bind:value={range} {min} {max} on:input on:change />
 </label>
 
 <script  context="module">import uuid from '../../helpers/uuid';
 </script>
 
-<script >export let label;
-export let range = 50;
+<script >export let range = 50;
 export let min = 0;
 export let max = 100;
 export let inline = false;
@@ -152,7 +151,7 @@ input[type=range]:hover::-webkit-slider-thumb {
   transform: scale(1.5);
 }
 input[type=range]:active::-webkit-slider-thumb {
-  transform: scale(1.75);
+  transform: scale(1.25);
   box-shadow: 0 0 0 3pt rgba(87, 85, 217, 0.27);
 }
 input[type=range]::-moz-range-track {
@@ -169,6 +168,6 @@ input[type=range]:hover::-moz-range-thumb {
   transform: scale(1.5);
 }
 input[type=range]:active::-moz-range-thumb {
-  transform: scale(1.75);
+  transform: scale(1.25);
   box-shadow: 0 0 0 3pt rgba(87, 85, 217, 0.27);
 }</style>

@@ -13,7 +13,7 @@
 
 <script >export let label;
 export let radios = [];
-export let group = [];
+export let group = 0;
 export let inline = false;
 export let validity = false;
 const fid = uuid();

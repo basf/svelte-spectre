@@ -1,4 +1,5 @@
 export * from './Accordion/';
+export * from './Autocomplete/';
 export * from './Avatar/';
 export * from './Badge/';
 export * from './Breadcrumbs/';
@@ -8,6 +9,7 @@ export * from './Chip/';
 export * from './Divider/';
 export * from './Icon/';
 export * from './Input/';
+export * from './Menu/';
 export * from './Pagination/';
 export * from './Progress/';
 export * from './Radio';

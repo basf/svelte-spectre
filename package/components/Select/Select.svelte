@@ -1,13 +1,11 @@
 {#if multiple}
 	<select
-		{...$$restProps}
 		multiple
 		size={options.length}
 		id="select-{fid}"
 		class="form-select is-{validity} select-{size}"
 		class:form-inline={inline}
 		bind:value
-		on:change={() => dispatch('select', value)}
 	>
 		{#if unselected}
 			<option />
@@ -25,7 +23,6 @@
 		class="form-select is-{validity} select-{size}"
 		class:form-inline={inline}
 		bind:value
-		on:change={() => dispatch('select', value)}
 	>
 		{#if unselected}
 			<option />
@@ -41,9 +38,7 @@
 <script  context="module">import uuid from '../../helpers/uuid';
 </script>
 
-<script >import { createEventDispatcher } from 'svelte';
-const dispatch = createEventDispatcher();
-export let options = [];
+<script >export let options = [];
 export let value;
 export let selected;
 export let inline = false;

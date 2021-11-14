@@ -29,7 +29,6 @@ config:
     import Knobs from '../_knobs.svelte'
 
     let state = { size: 'md', status: 'online', name: 'Albert Einstein', image: null, badge: '0', badged: true }
-    // $: state.badged = state.badged ? true : false
 </script>
 
 # {title}
@@ -39,12 +38,11 @@ Avatars are user profile pictures or similar elements presenting their status
 
 <p>
     <Avatar name="AV" size="sm" badge />
-    <Avatar name={state.name} status={state.status} size={state.size} badge={state.badged}>
+    <Avatar name={state.name} status={state.status} size={state.size} badge={state.badge}>
         {#if state.image !== null}
             <img src="{base}/img/{state.image}" alt="Thor Odinson" />
         {/if}
     </Avatar>
-    {console.log(state.badge, state.badged)}
     <Avatar name="AV" status="busy" size="lg" badge="0">
         <img src="{base}/img/avatar-1.png" alt="Thor Odinson" />
     </Avatar>

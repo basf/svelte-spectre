@@ -80,8 +80,8 @@
 	{/if}
 </div>
 
-<script  context="module">import Icon from '../Icon/';
-import Select from '../Select/';
+<script  context="module">import Icon from '../Icon/Icon.svelte';
+import Select from '../Select/Select.svelte';
 </script>
 
 <script >import { createEventDispatcher } from 'svelte';

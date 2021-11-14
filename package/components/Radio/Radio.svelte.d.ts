@@ -5,7 +5,7 @@ declare const __propDef: {
     props: {
         label: string;
         radios?: any[];
-        group?: number[];
+        group?: number;
         inline?: boolean;
         validity?: Validity;
     };

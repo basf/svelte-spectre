@@ -1,11 +1,229 @@
-<form {...$$restProps} class:form-horizontal={horizontal} on:submit|preventDefault>
-	<slot />
-</form>
+<div {...$$restProps} class="form-autocomplete">
+	<div class="form-autocomplete-input form-input" class:is-focused={focused}>
+		{#each selected as chip, i}
+			<Chip closable on:close={() => removeSelected(i)}>{chip}</Chip>
+		{/each}
 
-<script >export let horizontal;
+		<div
+			class="form-input-icon-wrap"
+			class:has-icon-right={value.length > 0 || selected.length}
+			data-active={value.length ? prompt : ''}
+		>
+			<input
+				class="form-input"
+				type="text"
+				{placeholder}
+				bind:value
+				on:focus={() => (focused = true)}
+				on:blur={() => (focused = false)}
+				on:keydown={selectSuggestion}
+			/>
+			{#if value.length > 0}
+				<i class="form-icon loading" />
+			{:else if selected.length}
+				<button
+					href="#"
+					class="btn btn-clear mr--1"
+					aria-label="Close"
+					role="button"
+					on:click={() => (selected = [])}
+				/>
+			{/if}
+		</div>
+	</div>
+
+	{#if value.length > 0 && suggested.length > 0}
+		<ul class="menu">
+			{#each suggested as item, i}
+				<li class="menu-item">
+					<a
+						href="#"
+						class:active={active === i}
+						on:click|preventDefault={() => confirmSuggestion(item)}
+						on:mouseover|preventDefault={() => (active = i)}
+						>{@html markSuggestion(item, value)}
+					</a>
+				</li>
+			{/each}
+		</ul>
+	{/if}
+</div>
+
+<script  context="module">import Chip from '../Chip/Chip.svelte';
 </script>
 
-<style >.form-group:not(:last-child) {
+<script >export let value = '';
+export let placeholder = 'typing here';
+export let predefined = [];
+export let suggested = [];
+export let selected = [];
+let focused = false, active = 0, prompt = '';
+$: if (focused && value.length > 0) {
+    suggested = calcSuggestion(predefined, selected, value);
+    prompt = calcPrompt(suggested, value, active);
+}
+function calcSuggestion(predefined, selected, value) {
+    return predefined
+        .filter((p) => stringIndex(p, value) >= 0 && !selected.some((s) => s === p))
+        .sort((f, s) => (stringIndex(f, value) === 0 ? -1 : 1));
+}
+function calcPrompt(suggested, value, active) {
+    return stringIndex(suggested[active], value) === 0 ? suggested[active] : '';
+}
+function stringIndex(item, value) {
+    const regex = new RegExp(value, 'i');
+    return item === null || item === void 0 ? void 0 : item.search(regex);
+}
+function stringMatch(item, value) {
+    const regex = new RegExp(value, 'i');
+    return item === null || item === void 0 ? void 0 : item.match(regex).join('');
+}
+function markSuggestion(item, value) {
+    const match = stringMatch(item, value);
+    return item.replace(match, `<mark>${match}</mark>`);
+}
+function selectSuggestion(e) {
+    switch (e.key) {
+        case 'Backspace':
+            if (!value)
+                e.metaKey || e.ctrlKey ? (selected = []) : removeSelected(selected.length - 1);
+            break;
+        case 'Tab':
+        case 'Enter':
+            e.preventDefault();
+            suggested.length && confirmSuggestion(suggested[active]);
+            break;
+        case 'ArrowDown':
+            e.preventDefault();
+            active < suggested.length - 1 ? active++ : (active = 0);
+            break;
+        case 'ArrowUp':
+            e.preventDefault();
+            active > 0 ? active-- : (active = suggested.length - 1);
+            break;
+        case 'ArrowRight':
+            e.preventDefault();
+            suggested.length && confirmSuggestion(suggested[active]);
+            break;
+        case 'Escape':
+            e.preventDefault();
+            value = '';
+            active = 0;
+            break;
+        default:
+            null;
+            break;
+    }
+}
+function confirmSuggestion(item) {
+    selected = [...selected, item];
+    suggested = [];
+    value = '';
+    active = 0;
+}
+function removeSelected(index) {
+    selected = selected.filter((s, i) => i !== index);
+}
+</script>
+
+<style >@charset "UTF-8";
+.form-autocomplete {
+  position: relative;
+}
+.form-autocomplete .form-autocomplete-input {
+  align-content: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  min-height: 1.6rem;
+  padding: 0.1rem;
+}
+.form-autocomplete .form-autocomplete-input.is-focused {
+  box-shadow: 0 0 0 0.1rem rgba(87, 85, 217, 0.2);
+  border-color: #5755d9;
+}
+.form-autocomplete .form-autocomplete-input .form-input {
+  border-color: transparent;
+  box-shadow: none;
+  display: inline-block;
+  flex: 1 0 auto;
+  height: 1.2rem;
+  line-height: 0.8rem;
+  margin: 0.1rem;
+  width: auto;
+}
+.form-autocomplete .menu {
+  left: 0;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}
+.form-autocomplete.autocomplete-oneline .form-autocomplete-input {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.form-autocomplete.autocomplete-oneline .chip {
+  flex: 1 0 auto;
+}
+
+.menu {
+  box-shadow: 0 0.05rem 0.2rem rgba(48, 55, 66, 0.3);
+  background: #fff;
+  border-radius: 0.1rem;
+  list-style: none;
+  margin: 0;
+  min-width: 180px;
+  padding: 0.4rem;
+  transform: translateY(0.2rem);
+  z-index: 300;
+}
+.menu.menu-nav {
+  background: transparent;
+  box-shadow: none;
+}
+.menu .menu-item {
+  margin-top: 0;
+  padding: 0 0.4rem;
+  position: relative;
+  text-decoration: none;
+}
+.menu .menu-item > a {
+  border-radius: 0.1rem;
+  color: inherit;
+  display: block;
+  margin: 0 -0.4rem;
+  padding: 0.2rem 0.4rem;
+  text-decoration: none;
+}
+.menu .menu-item > a:focus, .menu .menu-item > a:hover {
+  background: #f1f1fc;
+  color: #5755d9;
+}
+.menu .menu-item > a:active, .menu .menu-item > a.active {
+  background: #f1f1fc;
+  color: #5755d9;
+}
+.menu .menu-item .form-checkbox,
+.menu .menu-item .form-radio,
+.menu .menu-item .form-switch {
+  margin: 0.1rem 0;
+}
+.menu .menu-item + .menu-item {
+  margin-top: 0.2rem;
+}
+.menu .menu-badge {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.menu .menu-badge .label {
+  margin-right: 0.4rem;
+}
+
+.form-group:not(:last-child) {
   margin-bottom: 0.4rem;
 }
 
@@ -503,14 +721,55 @@ input:disabled + .form-icon, input.disabled + .form-icon {
   display: inline-block;
 }
 
-form {
-  padding: 0.4rem 0;
+:global(.spectre) .form-autocomplete .form-autocomplete-input {
+  align-items: center;
+  padding: 0 0.1rem;
 }
-
-:global(.spectre) .form-horizontal :global(.form-group) {
-  display: flex;
-  flex-wrap: wrap;
+:global(.spectre) .form-autocomplete .form-autocomplete-input .form-input-icon-wrap {
+  flex: auto;
 }
-:global(.spectre) .form-horizontal :global(.form-group):not(:last-child) {
-  margin-bottom: 0.4rem;
+:global(.spectre) .form-autocomplete .form-autocomplete-input .form-input-icon-wrap .form-input {
+  height: auto;
+  line-height: 1.2rem;
+  margin: 0;
+  width: 100%;
+  background: transparent;
+}
+:global(.spectre) .form-autocomplete .form-autocomplete-input .form-input-icon-wrap:is([data-active])::before {
+  content: attr(data-active);
+  position: absolute;
+  padding: 0.25rem 0.4rem;
+  color: #bcc3ce;
+  border: 0.05rem solid transparent;
+}
+:global(.spectre) .form-autocomplete .menu .menu-item > a:not(.active):hover {
+  background: inherit;
+  color: inherit;
+}
+:global(.spectre) .form-autocomplete .menu .menu-item :global(mark) {
+  padding: 0;
+}
+:global(.spectre) .btn-clear {
+  background: transparent;
+  border: 0;
+  color: currentColor;
+  height: 1rem;
+  line-height: 0.8rem;
+  margin: 0 0.25rem;
+  opacity: 1;
+  padding: 0.1rem;
+  text-decoration: none;
+  width: 1rem;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0.1rem;
+  transform: translateY(-50%);
+}
+:global(.spectre) .btn-clear:focus, :global(.spectre) .btn-clear:hover {
+  background: rgba(247, 248, 249, 0.5);
+  opacity: 0.95;
+}
+:global(.spectre) .btn-clear::before {
+  content: "✕";
 }</style>

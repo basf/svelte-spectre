@@ -38,6 +38,7 @@ $: toasted = (p) => $toast.filter((t) => t.pos === p);
   max-width: 100vw;
   list-style: none;
   margin: 0;
+  z-index: 10000;
 }
 .toaster .toast-list > li {
   margin: 0.4rem;

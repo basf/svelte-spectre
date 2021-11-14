@@ -4,6 +4,9 @@ declare const __propDef: {
     props: {
         [x: string]: any;
         pos?: Position;
+        clear?: boolean;
+        flat?: boolean;
+        outlined?: boolean;
     };
     events: {
         [evt: string]: CustomEvent<any>;

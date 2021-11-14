@@ -61,20 +61,16 @@
 	}
 	.card {
 		margin: 0;
-
 		.card-title,
 		.card-subtitle {
 			word-break: break-all;
 		}
-
 		&.card-clear {
 			background: 0 0;
 			border: 0;
-			// color: #5b687d;
 		}
 		&.card-flat {
 			border: 0;
-			// color: #5b687d;
 		}
 		&.card-outlined {
 			background: 0 0;

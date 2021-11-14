@@ -3,7 +3,6 @@ declare type Validity = 'success' | 'error' | false;
 export type { Validity };
 declare const __propDef: {
     props: {
-        label: string;
         range?: number;
         min?: number;
         max?: number;
@@ -16,7 +15,9 @@ declare const __propDef: {
     } & {
         [evt: string]: CustomEvent<any>;
     };
-    slots: {};
+    slots: {
+        default: {};
+    };
 };
 export declare type RangeProps = typeof __propDef.props;
 export declare type RangeEvents = typeof __propDef.events;

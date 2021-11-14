@@ -3,7 +3,6 @@ declare type Validity = 'success' | 'error' | false;
 export type { Validity };
 declare const __propDef: {
     props: {
-        label?: string;
         value?: boolean;
         inline?: boolean;
         validity?: Validity;
@@ -11,7 +10,9 @@ declare const __propDef: {
     events: {
         [evt: string]: CustomEvent<any>;
     };
-    slots: {};
+    slots: {
+        default: {};
+    };
 };
 export declare type SwitchProps = typeof __propDef.props;
 export declare type SwitchEvents = typeof __propDef.events;

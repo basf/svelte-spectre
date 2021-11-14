@@ -1,5 +1,5 @@
 import { SvelteComponentTyped } from 'svelte';
-declare type Align = 'vertical' | 'horizontal';
+declare type Align = 'vertical' | 'horizontal' | 'center';
 export type { Align };
 declare const __propDef: {
     props: {

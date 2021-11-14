@@ -1,6 +1,6 @@
 <div
 	class:divider={align === 'horizontal'}
-	class:text-center={align === 'horizontal'}
+	class:text-center={align === 'center'}
 	class:divider-vert={align === 'vertical'}
 	data-content={text || undefined}
 />

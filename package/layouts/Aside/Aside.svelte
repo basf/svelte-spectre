@@ -1,66 +1,329 @@
-<details class="accordion {offset}" bind:open={opened}>
-	<summary class="accordion-header" on:click|preventDefault={toggled ? toggle : open}>
-		{#if icon}<i class="icon icon-{icon} mr-1" />{/if}
-		<slot name="title" />
-	</summary>
-	{#if opened}
-		<div class="accordion-body" transition:slide>
-			<slot />
+<svelte:window bind:innerWidth={ww} />
+
+<div
+	class="off-canvas"
+	class:off-canvas-sidebar-show={show}
+	style="--sidebar: {sidebar?.offsetWidth}px;"
+>
+	{#if !extclose}
+		<a
+			class="off-canvas-toggle btn btn-primary btn-action"
+			href="#"
+			on:click|preventDefault={close}
+		>
+			<i class="icon icon-menu" />
+		</a>
+	{/if}
+
+	{#if !right}
+		<div class="off-canvas-sidebar p-2" class:active={open} bind:this={sidebar}>
+			<slot name="sidebar"><small>off-screen sidebar</small></slot>
 		</div>
 	{/if}
-</details>
 
-<script  context="module">import { onMount } from 'svelte';
-import { slide } from 'svelte/transition';
-const list = new Set();
-function closeAll() {
-    list.forEach((fn) => fn());
-}
+	{#if open && !show}
+		<a
+			class="off-canvas-overlay"
+			href="#"
+			class:z-300={open}
+			on:click|preventDefault={close}
+			transition:fade
+		/>
+	{/if}
+
+	<div class="off-canvas-content">
+		<slot>off-screen content</slot>
+	</div>
+
+	{#if right}
+		<div
+			class="off-canvas-sidebar p-2"
+			class:active={open}
+			class:off-canvas-sidebar-right={right}
+			bind:this={sidebar}
+		>
+			<slot name="sidebar"><small>off-screen sidebar</small></slot>
+		</div>
+	{/if}
+</div>
+
+<script context="module" >import { fade } from 'svelte/transition';
 </script>
 
-<script >export let opened = false;
-export let toggled = false;
-export let icon = '';
+<script >export let open = false;
+export let show = false;
+export let extclose = false;
+export let right = false;
+export let breakpoint = 960;
+export let size = 'md';
 export let offset = '';
-onMount(() => init());
-function init() {
-    const fn = () => (opened = false);
-    list.add(fn);
-    return () => list.delete(fn);
-}
-function toggle() {
-    if (opened)
-        return (opened = false);
-    closeAll();
-    opened = true;
-}
-function open() {
-    opened = !opened;
-}
+const close = () => (open = !open);
+let ww = 0, sidebar = null;
+$: show = ww >= breakpoint;
+$: open = show ? false : open;
+$: console.log(open, show);
 </script>
 
-<style >.accordion input:checked ~ .accordion-header > .icon:first-child, .accordion[open] .accordion-header > .icon:first-child {
-  transform: rotate(90deg);
+<style >@charset "UTF-8";
+.off-canvas {
+  display: flex;
+  flex-flow: nowrap;
+  height: 100%;
+  position: relative;
+  width: 100%;
 }
-.accordion input:checked ~ .accordion-body, .accordion[open] .accordion-body {
-  max-height: 50rem;
-}
-.accordion .accordion-header {
+.off-canvas .off-canvas-toggle {
   display: block;
-  padding: 0.2rem 0.4rem;
+  position: absolute;
+  top: 0.4rem;
+  transition: none;
+  z-index: 1;
+  left: 0.4rem;
 }
-.accordion .accordion-header .icon {
+.off-canvas .off-canvas-sidebar {
+  background: #f7f8f9;
+  bottom: 0;
+  min-width: 10rem;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
   transition: transform 0.25s;
+  z-index: 200;
+  left: 0;
+  transform: translateX(-100%);
 }
-.accordion .accordion-body {
-  margin-bottom: 0.4rem;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.25s;
+.off-canvas .off-canvas-content {
+  flex: 1 1 auto;
+  height: 100%;
+  padding: 0.4rem 0.4rem 0.4rem 4rem;
+}
+.off-canvas .off-canvas-overlay {
+  background: rgba(48, 55, 66, 0.1);
+  border-color: transparent;
+  border-radius: 0;
+  bottom: 0;
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.off-canvas .off-canvas-sidebar:target, .off-canvas .off-canvas-sidebar.active {
+  transform: translateX(0);
+}
+.off-canvas .off-canvas-sidebar:target ~ .off-canvas-overlay, .off-canvas .off-canvas-sidebar.active ~ .off-canvas-overlay {
+  display: block;
+  z-index: 100;
 }
 
-summary.accordion-header::-webkit-details-marker {
-  display: none;
+@media (min-width: 960px) {
+  .off-canvas.off-canvas-sidebar-show .off-canvas-toggle {
+    display: none;
+  }
+  .off-canvas.off-canvas-sidebar-show .off-canvas-sidebar {
+    flex: 0 0 auto;
+    position: relative;
+    transform: none;
+  }
+  .off-canvas.off-canvas-sidebar-show .off-canvas-overlay {
+    display: none !important;
+  }
+}
+.btn {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: #fff;
+  border: 0.05rem solid #5755d9;
+  border-radius: 0.1rem;
+  color: #5755d9;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.8rem;
+  height: 1.8rem;
+  line-height: 1.2rem;
+  outline: none;
+  padding: 0.25rem 0.4rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s, border 0.2s, box-shadow 0.2s, color 0.2s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.btn:focus {
+  box-shadow: 0 0 0 0.1rem rgba(87, 85, 217, 0.2);
+}
+.btn:focus, .btn:hover {
+  background: #f1f1fc;
+  border-color: #4b48d6;
+  text-decoration: none;
+}
+.btn:active, .btn.active {
+  background: #4b48d6;
+  border-color: #3634d2;
+  color: #fff;
+  text-decoration: none;
+}
+.btn:active.loading::after, .btn.active.loading::after {
+  border-bottom-color: #fff;
+  border-left-color: #fff;
+}
+.btn[disabled], .btn:disabled, .btn.disabled {
+  cursor: default;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.btn.btn-primary {
+  background: #5755d9;
+  border-color: #4b48d6;
+  color: #fff;
+}
+.btn.btn-primary:focus, .btn.btn-primary:hover {
+  background: #4240d4;
+  border-color: #3634d2;
+  color: #fff;
+}
+.btn.btn-primary:active, .btn.btn-primary.active {
+  background: #3a38d2;
+  border-color: #302ecd;
+  color: #fff;
+}
+.btn.btn-primary.loading::after {
+  border-bottom-color: #fff;
+  border-left-color: #fff;
+}
+.btn.btn-success {
+  background: #32b643;
+  border-color: #2faa3f;
+  color: #fff;
+}
+.btn.btn-success:focus {
+  box-shadow: 0 0 0 0.1rem rgba(50, 182, 67, 0.2);
+}
+.btn.btn-success:focus, .btn.btn-success:hover {
+  background: #30ae40;
+  border-color: #2da23c;
+  color: #fff;
+}
+.btn.btn-success:active, .btn.btn-success.active {
+  background: #2a9a39;
+  border-color: #278e34;
+  color: #fff;
+}
+.btn.btn-success.loading::after {
+  border-bottom-color: #fff;
+  border-left-color: #fff;
+}
+.btn.btn-error {
+  background: #e85600;
+  border-color: #d95000;
+  color: #fff;
+}
+.btn.btn-error:focus {
+  box-shadow: 0 0 0 0.1rem rgba(232, 86, 0, 0.2);
+}
+.btn.btn-error:focus, .btn.btn-error:hover {
+  background: #de5200;
+  border-color: #cf4d00;
+  color: #fff;
+}
+.btn.btn-error:active, .btn.btn-error.active {
+  background: #c44900;
+  border-color: #b54300;
+  color: #fff;
+}
+.btn.btn-error.loading::after {
+  border-bottom-color: #fff;
+  border-left-color: #fff;
+}
+.btn.btn-link {
+  background: transparent;
+  border-color: transparent;
+  color: #5755d9;
+}
+.btn.btn-link:focus, .btn.btn-link:hover, .btn.btn-link:active, .btn.btn-link.active {
+  color: #302ecd;
+}
+.btn.btn-sm {
+  font-size: 0.7rem;
+  height: 1.4rem;
+  padding: 0.05rem 0.3rem;
+}
+.btn.btn-lg {
+  font-size: 0.9rem;
+  height: 2rem;
+  padding: 0.35rem 0.6rem;
+}
+.btn.btn-block {
+  display: block;
+  width: 100%;
+}
+.btn.btn-action {
+  width: 1.8rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+.btn.btn-action.btn-sm {
+  width: 1.4rem;
+}
+.btn.btn-action.btn-lg {
+  width: 2rem;
+}
+.btn.btn-clear {
+  background: transparent;
+  border: 0;
+  color: currentColor;
+  height: 1rem;
+  line-height: 0.8rem;
+  margin-left: 0.2rem;
+  margin-right: -2px;
+  opacity: 1;
+  padding: 0.1rem;
+  text-decoration: none;
+  width: 1rem;
+}
+.btn.btn-clear:focus, .btn.btn-clear:hover {
+  background: rgba(247, 248, 249, 0.5);
+  opacity: 0.95;
+}
+.btn.btn-clear::before {
+  content: "✕";
+}
+
+.btn-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+.btn-group .btn {
+  flex: 1 0 auto;
+}
+.btn-group .btn:first-child:not(:last-child) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.btn-group .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+  margin-left: -0.05rem;
+}
+.btn-group .btn:last-child:not(:first-child) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  margin-left: -0.05rem;
+}
+.btn-group .btn:focus, .btn-group .btn:hover, .btn-group .btn:active, .btn-group .btn.active {
+  z-index: 1;
+}
+.btn-group.btn-group-block {
+  display: flex;
+}
+.btn-group.btn-group-block .btn {
+  flex: 1 0 0;
 }
 
 .icon {
@@ -616,7 +879,40 @@ summary.accordion-header::-webkit-details-marker {
   width: 0.5em;
 }
 
-.accordion .accordion-header {
-  cursor: pointer;
-  padding: 0.4rem 0;
+:global(.spectre) .z-300 {
+  z-index: 300;
+}
+:global(.spectre) .off-canvas .off-canvas-content {
+  padding: 0;
+  width: calc(100% - var(--sidebar, 0));
+}
+:global(.spectre) .off-canvas .off-canvas-sidebar {
+  height: 100vh;
+  z-index: 400;
+}
+:global(.spectre) .off-canvas .off-canvas-sidebar.off-canvas-sidebar-right {
+  left: auto;
+  right: 0;
+  transform: translateX(100%);
+}
+:global(.spectre) .off-canvas .off-canvas-sidebar.off-canvas-sidebar-right.active {
+  transform: translateX(0);
+}
+:global(.spectre) .off-canvas .off-canvas-sidebar.active + .off-canvas-overlay {
+  z-index: 300;
+}
+:global(.spectre) .off-canvas .off-canvas-overlay {
+  display: block;
+}
+:global(.spectre) .off-canvas.off-canvas-sidebar-show .off-canvas-toggle {
+  display: none;
+}
+:global(.spectre) .off-canvas.off-canvas-sidebar-show .off-canvas-sidebar {
+  flex: 0 0 auto;
+  position: -webkit-sticky;
+  position: sticky;
+  transform: none;
+}
+:global(.spectre) .off-canvas.off-canvas-sidebar-show .off-canvas-overlay {
+  display: none !important;
 }</style>

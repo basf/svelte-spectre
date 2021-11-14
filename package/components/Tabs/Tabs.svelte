@@ -10,9 +10,11 @@
 	{/each}
 </ul>
 
-<script >import { Icon } from '../Icon/';
-import { Button } from '../Button/';
-export let items = [];
+<script  context="module">import Icon from '../Icon/Icon.svelte';
+import Button from '../Button/Button.svelte';
+</script>
+
+<script >export let items = [];
 export let active = '';
 export let block = false;
 </script>

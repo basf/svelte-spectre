@@ -7,6 +7,7 @@ declare const __propDef: {
     props: {
         size?: Size;
         bg?: Color;
+        center?: boolean;
         offset?: Offset;
     };
     events: {

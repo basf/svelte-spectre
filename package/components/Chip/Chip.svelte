@@ -1,26 +1,35 @@
-<div {...$$restProps} class="chip {offset}">
-	{#if initial || $$slots.avatar}
-		<Avatar size="sm" {initial} {status} offset="ml--2 mr-2">
+<div {...$$restProps} class="chip {offset}" class:active>
+	{#if name || $$slots.avatar}
+		<Avatar size="sm" {name} {status} offset="ml--2 mr-2">
 			<slot name="avatar" />
 		</Avatar>
 	{/if}
 	<slot />
 	{#if closable}
-		<IconButton icon="cross" size="xs" shape="circle" />
+		<button
+			href="#"
+			class="btn btn-clear mr--1"
+			aria-label="Close"
+			role="button"
+			on:click={() => dispatch('close', 'chip close')}
+		/>
 	{/if}
 </div>
 
 <script  context="module">import Avatar from '../Avatar/Avatar.svelte';
-import IconButton from '../Button/IconButton.svelte';
 </script>
 
-<script >export let offset = '';
-export let initial = '';
+<script >import { createEventDispatcher } from 'svelte';
+const dispatch = createEventDispatcher();
+export let offset = '';
+export let name = '';
 export let status = false;
+export let active = false;
 export let closable = false;
 </script>
 
-<style >.chip {
+<style >@charset "UTF-8";
+.chip {
   align-items: center;
   background: #eef0f3;
   border-radius: 5rem;
@@ -50,8 +59,24 @@ export let closable = false;
   transform: scale(0.75);
 }
 
-:global(.spectre .chip .btn-link) {
-  color: #303742 !important;
+:global(.spectre) .chip .btn-clear {
+  background: transparent;
+  border: 0;
+  color: currentColor;
+  height: 1rem;
+  line-height: 0.8rem;
   margin-left: 0.2rem;
-  margin-right: -0.2rem;
+  margin-right: -2px;
+  opacity: 1;
+  padding: 0.1rem;
+  text-decoration: none;
+  width: 1rem;
+  cursor: pointer;
+}
+:global(.spectre) .chip .btn-clear:focus, :global(.spectre) .chip .btn-clear:hover {
+  background: rgba(247, 248, 249, 0.5);
+  opacity: 0.95;
+}
+:global(.spectre) .chip .btn-clear::before {
+  content: "✕";
 }</style>

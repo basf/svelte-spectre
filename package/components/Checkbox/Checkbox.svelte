@@ -1,14 +1,13 @@
 <label id="checkbox-{fid}" class="form-checkbox is-{validity}" class:form-inline={inline}>
 	<input bind:checked={value} type="checkbox" {indeterminate} />
 	<i class="form-icon" />
-	{#if label}{label}{/if}
+	<slot />
 </label>
 
 <script  context="module">import uuid from '../../helpers/uuid';
 </script>
 
-<script >export let label = '';
-export let value = false;
+<script >export let value = false;
 export let indeterminate = false;
 export let inline = false;
 export let validity = false;

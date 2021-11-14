@@ -1,66 +1,126 @@
-<details class="accordion {offset}" bind:open={opened}>
-	<summary class="accordion-header" on:click|preventDefault={toggled ? toggle : open}>
-		{#if icon}<i class="icon icon-{icon} mr-1" />{/if}
-		<slot name="title" />
-	</summary>
-	{#if opened}
-		<div class="accordion-body" transition:slide>
-			<slot />
-		</div>
+<ul class="menu" class:menu-nav={nav}>
+	{#if $$slots.header}
+		<li class="menu-item">
+			<slot name="header" />
+		</li>
 	{/if}
-</details>
+	{#if items}
+		{#each items as item, i}
+			{#if item.divider}
+				<Divider text={item.divider} />
+			{:else}
+				<li class="menu-item">
+					{#if Object.keys(item).includes('checkbox') && !item.badge}
+						<Checkbox bind:value={item.checkbox}>{item.text}</Checkbox>
+					{:else if Object.keys(item).includes('switch')}
+						<Switch bind:value={item.switch}>{item.text}</Switch>
+					{:else if Object.keys(item).includes('radio')}
+						<label class="form-radio">
+							<input type="radio" value={item.text} bind:group={radiogroup} />
+							<i class="form-icon" />
+							{item.text}
+						</label>
+					{:else}
+						<a
+							href={item.link || '#'}
+							class:active={item.active}
+							on:click|preventDefault
+						>
+							{#if item.icon}<Icon icon={item.icon} />{/if}
+							{item.text}
+						</a>
+						{#if item.badge}
+							<div class="menu-badge">
+								{#if Object.keys(item).includes('checkbox')}
+									<Checkbox bind:value={item.checkbox}>{item.badge}</Checkbox>
+								{:else}
+									<Badge color="primary">{item.badge}</Badge>
+								{/if}
+							</div>
+						{/if}
+					{/if}
+				</li>
+			{/if}
+		{/each}
+	{:else}
+		<slot />
+	{/if}
+	{#if $$slots.footer}
+		<li class="menu-item">
+			<slot name="footer" />
+		</li>
+	{/if}
+</ul>
 
-<script  context="module">import { onMount } from 'svelte';
-import { slide } from 'svelte/transition';
-const list = new Set();
-function closeAll() {
-    list.forEach((fn) => fn());
-}
+<script  context="module"></script>
+
+<script >import Checkbox from '../Checkbox/Checkbox.svelte';
+import Switch from '../Switch/Switch.svelte';
+import '../Radio/Radio.svelte';
+import Divider from '../Divider/Divider.svelte';
+import Badge from '../Badge/Badge.svelte';
+import Icon from '../Icon/Icon.svelte';
+export let items;
+export let active;
+export let nav;
+export let radiogroup;
 </script>
 
-<script >export let opened = false;
-export let toggled = false;
-export let icon = '';
-export let offset = '';
-onMount(() => init());
-function init() {
-    const fn = () => (opened = false);
-    list.add(fn);
-    return () => list.delete(fn);
+<style >.menu {
+  box-shadow: 0 0.05rem 0.2rem rgba(48, 55, 66, 0.3);
+  background: #fff;
+  border-radius: 0.1rem;
+  list-style: none;
+  margin: 0;
+  min-width: 180px;
+  padding: 0.4rem;
+  transform: translateY(0.2rem);
+  z-index: 300;
 }
-function toggle() {
-    if (opened)
-        return (opened = false);
-    closeAll();
-    opened = true;
+.menu.menu-nav {
+  background: transparent;
+  box-shadow: none;
 }
-function open() {
-    opened = !opened;
+.menu .menu-item {
+  margin-top: 0;
+  padding: 0 0.4rem;
+  position: relative;
+  text-decoration: none;
 }
-</script>
-
-<style >.accordion input:checked ~ .accordion-header > .icon:first-child, .accordion[open] .accordion-header > .icon:first-child {
-  transform: rotate(90deg);
-}
-.accordion input:checked ~ .accordion-body, .accordion[open] .accordion-body {
-  max-height: 50rem;
-}
-.accordion .accordion-header {
+.menu .menu-item > a {
+  border-radius: 0.1rem;
+  color: inherit;
   display: block;
+  margin: 0 -0.4rem;
   padding: 0.2rem 0.4rem;
+  text-decoration: none;
 }
-.accordion .accordion-header .icon {
-  transition: transform 0.25s;
+.menu .menu-item > a:focus, .menu .menu-item > a:hover {
+  background: #f1f1fc;
+  color: #5755d9;
 }
-.accordion .accordion-body {
-  margin-bottom: 0.4rem;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.25s;
+.menu .menu-item > a:active, .menu .menu-item > a.active {
+  background: #f1f1fc;
+  color: #5755d9;
 }
-
-summary.accordion-header::-webkit-details-marker {
-  display: none;
+.menu .menu-item .form-checkbox,
+.menu .menu-item .form-radio,
+.menu .menu-item .form-switch {
+  margin: 0.1rem 0;
+}
+.menu .menu-item + .menu-item {
+  margin-top: 0.2rem;
+}
+.menu .menu-badge {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.menu .menu-badge .label {
+  margin-right: 0.4rem;
 }
 
 .icon {
@@ -616,7 +676,63 @@ summary.accordion-header::-webkit-details-marker {
   width: 0.5em;
 }
 
-.accordion .accordion-header {
-  cursor: pointer;
-  padding: 0.4rem 0;
+.label {
+  border-radius: 0.1rem;
+  line-height: 1.25;
+  padding: 0.1rem 0.2rem;
+  background: #eef0f3;
+  color: #455060;
+  display: inline-block;
+}
+.label.label-rounded {
+  border-radius: 5rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+}
+.label.label-primary {
+  background: #5755d9;
+  color: #fff;
+}
+.label.label-secondary {
+  background: #f1f1fc;
+  color: #5755d9;
+}
+.label.label-success {
+  background: #32b643;
+  color: #fff;
+}
+.label.label-warning {
+  background: #ffb700;
+  color: #fff;
+}
+.label.label-error {
+  background: #e85600;
+  color: #fff;
+}
+
+.menu .menu-item {
+  border-radius: 0.1rem;
+}
+.menu .menu-item:first-child {
+  margin-bottom: 0.8rem;
+}
+.menu .menu-item:last-child {
+  margin-top: 0.8rem;
+}
+.menu .menu-item:not(:first-child, :last-child):focus, .menu .menu-item:not(:first-child, :last-child):hover {
+  background: #f1f1fc;
+  color: #5755d9;
+}
+.menu .menu-item:not(:first-child, :last-child):active, .menu .menu-item:not(:first-child, :last-child).active {
+  background: #f1f1fc;
+  color: #5755d9;
+}
+.menu .menu-item:not(:first-child, :last-child):active {
+  box-shadow: 0 0 0 0.1rem rgba(87, 85, 217, 0.2);
+}
+.menu :global(.divider) {
+  text-transform: uppercase;
+}
+.menu :global(.divider):not(:first-child) {
+  margin-top: 1.5em !important;
 }</style>

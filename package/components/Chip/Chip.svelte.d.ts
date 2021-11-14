@@ -5,11 +5,14 @@ declare const __propDef: {
     props: {
         [x: string]: any;
         offset?: Offset;
-        initial?: string;
+        name?: string;
         status?: Status;
+        active?: boolean;
         closable?: boolean;
     };
     events: {
+        close: CustomEvent<any>;
+    } & {
         [evt: string]: CustomEvent<any>;
     };
     slots: {

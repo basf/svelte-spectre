@@ -1,4 +1,10 @@
-<figure {...$$restProps} class="card">
+<figure
+	{...$$restProps}
+	class="card"
+	class:card-clear={clear}
+	class:card-outlined={outlined}
+	class:card-flat={flat}
+>
 	{#if $$slots.img && pos === 'top'}
 		<div class="card-image">
 			<slot name="img" />
@@ -41,6 +47,9 @@
 <script  context="module"></script>
 
 <script >export let pos = 'top';
+export let clear = false;
+export let flat = false;
+export let outlined = false;
 </script>
 
 <style >:global(.spectre) .card {
@@ -82,8 +91,17 @@
 .card {
   margin: 0;
 }
-
-.card-title,
-.card-subtitle {
+.card .card-title,
+.card .card-subtitle {
   word-break: break-all;
+}
+.card.card-clear {
+  background: 0 0;
+  border: 0;
+}
+.card.card-flat {
+  border: 0;
+}
+.card.card-outlined {
+  background: 0 0;
 }</style>

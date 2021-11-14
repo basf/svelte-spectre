@@ -37,8 +37,9 @@
 						{#each value as { path, metadata: { title } }, i}
 							<li class="menu-item">
 								<a
+									sveltekit:prefetch
 									href={base + path.replace(/\.|md/g, '')}
-									class:active={$page.path === path.replace(/\.|md/g, '') + '/'}
+									class:active={$page.path === path.replace(/\.|md/g, '')}
 									on:click={() => (open = false)}>{title}</a
 								>
 							</li>
@@ -128,7 +129,6 @@
 		background: white;
 	}
 	main {
-		// padding: 0 0.5rem 2rem;
 		overflow-x: hidden;
 	}
 	h1 {
