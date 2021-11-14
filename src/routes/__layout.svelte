@@ -98,7 +98,7 @@
 <style lang="scss">
 	:global {
 		@import 'spectre.css/src/codes';
-		@import 'code';
+		// @import 'code';
 		.off-canvas .off-canvas-sidebar {
 			min-width: 12rem !important;
 		}

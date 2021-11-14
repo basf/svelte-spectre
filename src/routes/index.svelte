@@ -1,14 +1,27 @@
 <h1>Welcome to Svelte{name}</h1>
 
 <p>
-	Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
+	Visit <a href="/sveltekit/docs/">kit.svelte.dev</a> to read the documentation
 </p>
 
 <Hero offset="my-2" size="sm">
 	<h2>Menu</h2>
 	<Grid>
-		<Col col="5" mr="auto" sm="12">
+		<Col col="6" mr="auto" sm="12">
+			<h5>Default</h5>
 			<Menu items={menu} bind:radiogroup>
+				<Tile slot="header">
+					<Avatar slot="icon">
+						<img class="avatar" src="../img/avatar-4.png" alt="Avatar" />
+					</Avatar>
+					<div slot="title" class="tile-content">Steve Rogers</div>
+				</Tile>
+				<Button slot="footer" block variant="primary">Footer</Button>
+			</Menu>
+		</Col>
+		<Col col="6" mr="auto" sm="12">
+			<h5>Nav</h5>
+			<Menu items={menu} bind:radiogroup nav>
 				<Tile slot="header">
 					<Avatar slot="icon">
 						<img class="avatar" src="../img/avatar-4.png" alt="Avatar" />
