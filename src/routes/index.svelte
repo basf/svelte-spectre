@@ -267,7 +267,7 @@
 		<FormGroup>
 			<InputGroup let:button>
 				<Switch />
-				<Input expand="" />
+				<Input expand />
 				<Button slot="button" variant="primary" let:button input class={button}
 					>{button}</Button
 				>
@@ -285,7 +285,7 @@
 		<FormGroup>
 			<InputGroup let:button>
 				<Checkbox />
-				<Input width="7" />
+				<Input expand />
 				<Select options={questions} bind:value={selected} />
 			</InputGroup>
 		</FormGroup>
@@ -458,42 +458,40 @@
 				{ name: 'Se7en', genre: 'Crime, Mystery', release: '22 September 1995' },
 			],
 		},
-		badge = 'badge';
-
-	const CARDS = [
-		{
-			pos: 'top',
-			col: '4',
-			img: 'macos-sierra.jpg',
-			text: 'Lightweight (~10KB gzipped) starting point for your projects',
-		},
-		{
-			pos: 'middle',
-			col: '6',
-			img: 'macos-sierra-2.jpg',
-			text: 'Flexbox-based, responsive and mobile-friendly layout',
-		},
-		{
-			pos: 'bottom',
-			col: '8',
-			img: 'osx-el-capitan.jpg',
-			text: 'Elegantly designed and developed elements and components',
-		},
-		{
-			pos: 'middle',
-			col: '10',
-			img: 'osx-yosemite.jpg',
-			text: 'Lightweight (~10KB gzipped) starting point for your projects',
-		},
-		{
-			pos: 'top',
-			col: '12',
-			img: 'osx-yosemite-2.jpg',
-			text: 'Flexbox-based, responsive and mobile-friendly layout',
-		},
-	];
-
-	let page,
+		page,
+		badge = 'badge',
+		CARDS = [
+			{
+				pos: 'top',
+				col: '4',
+				img: 'macos-sierra.jpg',
+				text: 'Lightweight (~10KB gzipped) starting point for your projects',
+			},
+			{
+				pos: 'middle',
+				col: '6',
+				img: 'macos-sierra-2.jpg',
+				text: 'Flexbox-based, responsive and mobile-friendly layout',
+			},
+			{
+				pos: 'bottom',
+				col: '8',
+				img: 'osx-el-capitan.jpg',
+				text: 'Elegantly designed and developed elements and components',
+			},
+			{
+				pos: 'middle',
+				col: '10',
+				img: 'osx-yosemite.jpg',
+				text: 'Lightweight (~10KB gzipped) starting point for your projects',
+			},
+			{
+				pos: 'top',
+				col: '12',
+				img: 'osx-yosemite-2.jpg',
+				text: 'Flexbox-based, responsive and mobile-friendly layout',
+			},
+		],
 		autocompleted = [];
 
 	export let name: string = 'Spectre';
