@@ -1,6 +1,6 @@
 <Spectre>
-	<Aside extclose bind:open bind:show>
-		<header>
+	<Aside extclose bind:open bind:show breakpoint={$page.path.includes('docs') ? 960 : Infinity}>
+		<header class:bg-gray={!$page.path.includes('docs')}>
 			<Navbar>
 				<nav slot="left">
 					{#if !show}
@@ -10,7 +10,7 @@
 					{/if}
 				</nav>
 
-				<IconButton slot="center" size="xxl" iconSize="4x" color="dark" href={base}>
+				<IconButton slot="center" size="xxl" iconSize="4x" color="dark" href={`${base}/`}>
 					<Xray />
 				</IconButton>
 
@@ -29,9 +29,9 @@
 		</header>
 
 		<nav slot="sidebar" class="m-2">
-			<h3><a href={base}>SvelteSpectre</a></h3>
+			<h3><a href={`${base}/`}>SvelteSpectre</a></h3>
 			{#each Object.entries(links) as [key, value], i}
-				<Accordion opened={$page.path.includes(key.replace(' ', '_'))}>
+				<Accordion opened={$page.path.includes(key.replace(' ', '_')) || i === 0}>
 					<strong slot="title">{key.replace(/_|-|[0-9]/g, ' ')}</strong>
 					<ul class="menu menu-nav">
 						{#each value as { path, metadata: { title } }, i}
@@ -48,9 +48,10 @@
 			{/each}
 		</nav>
 
-		<main>
-			<Container><slot /></Container>
+		<main class:p-2={$page.path.includes('docs')}>
+			<slot />
 		</main>
+		<footer class="text-center p-2">© {new Date().getFullYear()}</footer>
 	</Aside>
 
 	<Toaster />
@@ -72,7 +73,7 @@
 	export async function load() {
 		const mds = await Promise.all(body);
 		const links = mds.reduce((a, c) => {
-			const key = c.path.split('/')[1];
+			const key = c.path.split('/')[2];
 			return { ...a, [key]: a[key] ? [...a[key], c] : [c] };
 		}, {});
 		return {
@@ -97,8 +98,8 @@
 
 <style lang="scss">
 	:global {
+		@import 'docs/_code';
 		@import 'spectre.css/src/codes';
-		// @import 'code';
 		.off-canvas .off-canvas-sidebar {
 			min-width: 12rem !important;
 		}
@@ -127,7 +128,7 @@
 		background: white;
 	}
 	main {
-		padding: 0 0.5rem 2rem;
+		// padding: 0 0.5rem 2rem;
 		overflow-x: hidden;
 	}
 	h1 {
@@ -135,5 +136,19 @@
 	}
 	strong {
 		text-transform: capitalize;
+	}
+	:global(body),
+	:global(html) {
+		height: 100%;
+		:global(.off-canvas) {
+			height: auto !important;
+			min-height: 100%;
+		}
+		:global(.off-canvas-content) {
+			height: auto !important;
+			min-height: 100%;
+			display: grid !important;
+			grid-template-rows: auto 1fr auto;
+		}
 	}
 </style>

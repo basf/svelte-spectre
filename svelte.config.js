@@ -82,7 +82,7 @@ export default {
 		},
 		paths: {
 			assets: '',
-			base: '/sveltekit',
+			base: '/sveltespectre',
 		},
 		prerender: {
 			crawl: true,

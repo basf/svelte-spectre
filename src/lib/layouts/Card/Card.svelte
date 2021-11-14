@@ -1,4 +1,10 @@
-<figure {...$$restProps} class="card">
+<figure
+	{...$$restProps}
+	class="card"
+	class:card-clear={clear}
+	class:card-outlined={outlined}
+	class:card-flat={flat}
+>
 	{#if $$slots.img && pos === 'top'}
 		<div class="card-image">
 			<slot name="img" />
@@ -44,6 +50,9 @@
 
 <script lang="ts">
 	export let pos: Position = 'top';
+	export let clear: boolean = false;
+	export let flat: boolean = false;
+	export let outlined: boolean = false;
 </script>
 
 <style lang="scss">
@@ -52,9 +61,23 @@
 	}
 	.card {
 		margin: 0;
-	}
-	.card-title,
-	.card-subtitle {
-		word-break: break-all;
+
+		.card-title,
+		.card-subtitle {
+			word-break: break-all;
+		}
+
+		&.card-clear {
+			background: 0 0;
+			border: 0;
+			// color: #5b687d;
+		}
+		&.card-flat {
+			border: 0;
+			// color: #5b687d;
+		}
+		&.card-outlined {
+			background: 0 0;
+		}
 	}
 </style>

@@ -25,6 +25,7 @@ config:
 
 <script>
     import { Avatar } from '$lib'
+    import { base } from '$app/paths';
     import Knobs from '../_knobs.svelte'
 
     let state = { size: 'md', status: 'online', name: 'Albert Einstein', image: null, badge: '0', badged: true }
@@ -33,22 +34,23 @@ config:
 
 # {title}
 
-Avatars are user profile pictures or similar elements presenting their status (e.g. online or offline).
+Avatars are user profile pictures or similar elements presenting their status
+(e.g. online or offline).
 
 <p>
     <Avatar name="AV" size="sm" badge />
     <Avatar name={state.name} status={state.status} size={state.size} badge={state.badged}>
         {#if state.image !== null}
-            <img src="/sveltekit/img/{state.image}" alt="Thor Odinson" />
+            <img src="{base}/img/{state.image}" alt="Thor Odinson" />
         {/if}
     </Avatar>
     {console.log(state.badge, state.badged)}
     <Avatar name="AV" status="busy" size="lg" badge="0">
-        <img src="/sveltekit/img/avatar-1.png" alt="Thor Odinson" />
+        <img src="{base}/img/avatar-1.png" alt="Thor Odinson" />
     </Avatar>
     <Avatar name="AV" size="xl" badge="0">
-        <img src="/sveltekit/img/avatar-2.png" alt="Thor Odinson" />
-        <img slot="sub" src="/sveltekit/img/avatar-3.png" alt="Thor Odinson" />
+        <img src="{base}/img/avatar-2.png" alt="Thor Odinson" />
+        <img slot="sub" src="{base}/img/avatar-3.png" alt="Thor Odinson" />
     </Avatar>
 </p>
 
