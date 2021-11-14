@@ -128,6 +128,7 @@
 	}
 	main {
 		padding: 0 0.5rem 2rem;
+		overflow-x: hidden;
 	}
 	h1 {
 		text-transform: capitalize;
