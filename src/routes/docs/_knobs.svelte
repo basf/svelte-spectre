@@ -1,39 +1,40 @@
-<section>
+<section class="bg-secondary px-2">
 	<Grid>
 		{#each Object.keys(config) as key}
 			<Col col="auto">
 				<div class="form-group">
-					<label class="form-label" for={autoId(key)}>{config[key].label || key}</label>
+					<label class="form-label" for={autoId(key)}
+						>{config[key].label || key}
 
-					{#if config[key].options}
-						<select bind:value={state[key]} class="form-select" id={autoId(key)}>
-							{#each config[key].options as value}
-								<option {value} selected={value === state[key]}>{value}</option>
-							{/each}
-						</select>
-					{:else if config[key].type === 'number'}
-						<input
-							bind:value={state[key]}
-							type="number"
-							min={config[key].min ?? state.min}
-							max={config[key].max ?? state.max}
-							class="form-input"
-							id={autoId(key)}
-						/>
-					{:else if config[key].type === 'checkbox'}
-						<label class="form-checkbox">
-							<input bind:checked={state[key]} type="checkbox" />
-							<i class="form-icon" />
-						</label>
-						<!-- <input bind:checked={state[key]} type="checkbox" id={autoId(key)} /> -->
-					{:else}
-						<input
-							bind:value={state[key]}
-							size={config[key].size}
-							class="form-input"
-							id={autoId(key)}
-						/>
-					{/if}
+						{#if config[key].options}
+							<select bind:value={state[key]} class="form-select" id={autoId(key)}>
+								{#each config[key].options as value}
+									<option {value} selected={value === state[key]}>{value}</option>
+								{/each}
+							</select>
+						{:else if config[key].type === 'number'}
+							<input
+								bind:value={state[key]}
+								type="number"
+								min={config[key].min ?? state.min}
+								max={config[key].max ?? state.max}
+								class="form-input"
+								id={autoId(key)}
+							/>
+						{:else if config[key].type === 'checkbox'}
+							<label class="form-checkbox">
+								<input bind:checked={state[key]} type="checkbox" id={autoId(key)} />
+								<i class="form-icon" />
+							</label>
+						{:else}
+							<input
+								bind:value={state[key]}
+								size={config[key].size}
+								class="form-input"
+								id={autoId(key)}
+							/>
+						{/if}
+					</label>
 				</div>
 			</Col>
 		{/each}
@@ -73,8 +74,8 @@
 <style lang="scss">
 	@import 'spectre.css/src/forms';
 	section {
-		border-top: 1px solid #c0c0d8;
-		margin: 8px -8px;
-		padding: 0 8px;
+		// border: 1px dashed $gray-color;
+		// margin: 8px -8px;
+		// padding: $unit-4;
 	}
 </style>

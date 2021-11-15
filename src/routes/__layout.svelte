@@ -31,15 +31,15 @@
 		<nav slot="sidebar" class="m-2">
 			<h3><a href={`${base}/`}>SvelteSpectre</a></h3>
 			{#each Object.entries(links) as [key, value], i}
-				<Accordion opened={$page.path.includes(key.replace(' ', '_')) || i === 0}>
+				<Accordion opened={openedAccordion($page, key, i)}>
 					<strong slot="title">{key.replace(/_|-|[0-9]/g, ' ')}</strong>
 					<ul class="menu menu-nav">
 						{#each value as { path, metadata: { title } }, i}
 							<li class="menu-item">
 								<a
 									sveltekit:prefetch
-									href={base + path.replace(/\.|md/g, '')}
-									class:active={$page.path === path.replace(/\.|md/g, '')}
+									href={setLink(base, path)}
+									class:active={activePath($page, path)}
 									on:click={() => (open = false)}>{title}</a
 								>
 							</li>
@@ -95,6 +95,10 @@
 		show = false;
 
 	export let links;
+
+	const openedAccordion = (page, key, i) => page.path.includes(key.replace(' ', '_')) || i === 0;
+	const activePath = (page, path) => page.path.replace(/\/$/, '') === path.replace(/\.|md/g, '');
+	const setLink = (base, path) => base + path.replace(/\.|md/g, '');
 </script>
 
 <style lang="scss">
