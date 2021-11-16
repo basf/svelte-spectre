@@ -26,6 +26,8 @@ config: {
     }
 </script>
 
+<Hero size="xs">
+
 # {title}
 
 Buttons include simple button styles for actions in different types and sizes.
@@ -49,6 +51,8 @@ and link buttons.
 <Button variant="primary">primary button</Button>
 <Button variant="link">link button</Button>
 ```
+
+</Hero>
 
 <Hero size="xs">
 
@@ -83,16 +87,12 @@ Add the `btn-sm` or `btn-lg` class for small or large button size. Also, you can
 add the `btn-block` class for a full-width button.
 
 <p>
-    <Grid stack>
-        <Col col=12>
-            <Button size={state.Sizes.size}>{state.Sizes.size.toUpperCase()} button</Button> &nbsp;
-            <Button size="xl">XL button</Button> &nbsp;
-            <Button size="lg">LG button</Button> &nbsp;
-            <Button size="md">MD button</Button> &nbsp;
-            <Button size="sm">SM button</Button> &nbsp;
-            <Button size="xs">XS button</Button> &nbsp;
-        </Col>
-    </Grid>
+    <Button size={state.Sizes.size}>{state.Sizes.size.toUpperCase()} button</Button> &nbsp;
+    <Button size="xl">XL button</Button> &nbsp;
+    <Button size="lg">LG button</Button> &nbsp;
+    <Button size="md">MD button</Button> &nbsp;
+    <Button size="sm">SM button</Button> &nbsp;
+    <Button size="xs">XS button</Button> &nbsp;
 </p>
 
 <p>
@@ -119,16 +119,12 @@ add another `s-circle` class for a round button, which is often used as a Float
 Action Button (FAB).
 
 <p>
-    <Grid stack>
-        <Col col=6>
-            <IconButton icon={state.Icons.icon} shape={state.Icons.shape} variant="primary" size="lg"/>
-            <IconButton icon="emoji" variant="primary"/>
-            <IconButton icon="home" variant="primary" size="sm"/> &nbsp;
-            <IconButton icon="flag" variant="primary" shape="circle" size="lg"/>
-            <IconButton icon="location" variant="primary" shape="circle" />
-            <IconButton icon="shutdown" variant="primary" shape="circle" size="sm"/>
-        </Col>
-    </Grid>
+    <IconButton icon={state.Icons.icon} shape={state.Icons.shape} variant="primary" size="lg"/>
+    <IconButton icon="emoji" variant="primary"/>
+    <IconButton icon="home" variant="primary" size="sm"/> &nbsp;
+    <IconButton icon="flag" variant="primary" shape="circle" size="lg"/>
+    <IconButton icon="location" variant="primary" shape="circle" />
+    <IconButton icon="shutdown" variant="primary" shape="circle" size="sm"/>
 </p>
 
 <p>
@@ -141,13 +137,9 @@ Action Button (FAB).
 ```
 
 <p>
-    <Grid stack>
-        <Col col=6>
-            <Button variant="primary">Button &nbsp;<Icon icon="arrow-down" /></Button>
-            <Button variant="primary" size="sm"><Icon icon="arrow-down" />&nbsp; Button</Button>
-            <Button variant="primary" size="xs">Button &nbsp;<Icon icon="arrow-down" /></Button>
-        </Col>
-    </Grid>
+    <Button variant="primary">Button &nbsp;<Icon icon="arrow-down" /></Button>
+    <Button variant="primary" size="sm"><Icon icon="arrow-down" />&nbsp; Button</Button>
+    <Button variant="primary" size="xs">Button &nbsp;<Icon icon="arrow-down" /></Button>
 </p>
 
 ```sv
