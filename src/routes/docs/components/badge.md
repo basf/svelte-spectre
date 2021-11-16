@@ -61,29 +61,30 @@ appear as a dot.
 
 Badges support `button` and `avatars` elements as well.
 
-<Button variant="primary" badge>primary</Button>
-<Button variant="secondary" badge="0">secondary</Button>
-<Button variant="success" badge="1">success</Button> <Button variant="error"
-badge={bdg} on:click={(e) => (bdg = 'e.target')}>error</Button>
-
+<p>
+    <Button variant="primary" badge>primary</Button>
+    <Button variant="secondary" badge="0">secondary</Button>
+    <Button variant="success" badge="1">success</Button> <Button variant="error"
+    badge={bdg} on:click={(e) => (bdg = 'e.target')}>error</Button>
+</p>
 <p>
     <Knobs bind:state={state} {config}/>
 </p>
 
 ```sv
 <span class="badge">
-  Notifications
+    Notifications
 </span>
 
 <span class="badge" data-badge="8">
-  Notifications
+    Notifications
 </span>
 
 <button class="btn badge" data-badge="8">
-  Button
+    Button
 </button>
 
 <figure class="avatar badge" data-badge="8" data-initial="YZ">
-  <img src="img/avatar-3.png" alt="YZ">
+    <img src="img/avatar-3.png" alt="YZ">
 </figure>
 ```
