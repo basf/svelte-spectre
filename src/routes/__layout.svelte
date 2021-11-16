@@ -28,10 +28,10 @@
 			</Navbar>
 		</header>
 
-		<nav slot="sidebar" class="m-2">
+		<nav id="sidebar" slot="sidebar" class="m-2">
 			<h3><a href={`${base}/`}>SvelteSpectre</a></h3>
 			{#each Object.entries(links) as [key, value], i}
-				<Accordion opened={openedAccordion($page, key, i)}>
+				<Accordion toggled opened={openedAccordion($page, key, i)}>
 					<strong slot="title">{key.replace(/_|-|[0-9]/g, ' ')}</strong>
 					<ul class="menu menu-nav">
 						{#each value as { path, metadata: { title } }, i}
@@ -140,6 +140,13 @@
 	}
 	strong {
 		text-transform: capitalize;
+	}
+	nav#sidebar {
+		:global(.menu.menu-nav) {
+			padding-top: 0;
+			padding-left: 0;
+			// padding-bottom: 0;
+		}
 	}
 	:global(body),
 	:global(html) {

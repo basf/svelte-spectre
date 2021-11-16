@@ -67,6 +67,7 @@ Badges support `button` and `avatars` elements as well.
     <Button variant="success" badge="1">success</Button> <Button variant="error"
     badge={bdg} on:click={(e) => (bdg = 'e.target')}>error</Button>
 </p>
+
 <p>
     <Knobs bind:state={state} {config}/>
 </p>

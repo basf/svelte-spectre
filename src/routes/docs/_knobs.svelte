@@ -1,4 +1,4 @@
-<section class="bg-secondary px-2">
+<section class="bg-secondary px-2 s-rounded">
 	<Grid>
 		{#each Object.keys(config) as key}
 			<Col col="auto">

@@ -5,7 +5,7 @@
 		class="btn btn-{variant} btn-{size}"
 		class:btn-block={block}
 		class:btn-action={!!shape}
-		class:circle={shape === 'circle'}
+		class:s-circle={shape === 'circle'}
 		class:input-group-btn={input}
 		class:loading
 		class:active
@@ -21,7 +21,7 @@
 		class="btn btn-{variant} btn-{size}"
 		class:btn-block={block}
 		class:btn-action={!!shape}
-		class:circle={shape === 'circle'}
+		class:s-circle={shape === 'circle'}
 		class:input-group-btn={input}
 		class:loading
 		class:active
@@ -58,9 +58,6 @@
 <style lang="scss">
 	:global(.spectre) {
 		@import 'spectre.css/src/buttons';
-	}
-	.circle {
-		border-radius: 50%;
 	}
 	.btn {
 		position: relative !important;

@@ -7,13 +7,12 @@
 	export let inline: boolean = false;
 </script>
 
-<style lang="scss">
+<style lang="scss" global>
 	:global(.spectre) {
 		@import 'spectre.css/src/buttons';
-
 		.btn-group {
-			display: flex;
-			justify-content: space-between;
+			// display: flex;
+			// justify-content: space-between;
 
 			&.inline {
 				display: inline-flex;

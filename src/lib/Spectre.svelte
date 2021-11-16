@@ -9,6 +9,7 @@
 		overflow-x: hidden;
 		font-size: $font-size;
 		font-family: $body-font-family;
+		line-height: 1.5;
 		text-rendering: optimizeLegibility;
 		-ms-text-size-adjust: 100%;
 		-webkit-text-size-adjust: 100%;
@@ -25,6 +26,7 @@
 			@import 'spectre.css/src/utilities';
 			@import 'spectre.css/src/media';
 			@import 'spectre.css/src/badges';
+			@import 'spectre.css/src/tooltips';
 
 			.mx-auto {
 				margin-left: auto;
