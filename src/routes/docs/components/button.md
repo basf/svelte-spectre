@@ -64,6 +64,9 @@ your own button color variants.
 
 <p>
     <Button variant={state.Variants.variant}>{state.Variants.variant} button</Button> &nbsp;
+    <Button variant="link">link button</Button> &nbsp;
+    <Button variant="primary">primary button</Button> &nbsp;
+    <Button variant="secondary">secondary button</Button> &nbsp;
     <Button variant="success">success button</Button> &nbsp;
     <Button variant="error">error button</Button> &nbsp;
 </p>
@@ -119,12 +122,12 @@ add another `s-circle` class for a round button, which is often used as a Float
 Action Button (FAB).
 
 <p>
-    <IconButton icon={state.Icons.icon} shape={state.Icons.shape} variant="primary" size="lg"/>
-    <IconButton icon="emoji" variant="primary"/>
+    <IconButton icon={state.Icons.icon} shape={state.Icons.shape} variant="primary" size="lg"/> &nbsp;
+    <IconButton icon="emoji" variant="primary"/> &nbsp;
     <IconButton icon="home" variant="primary" size="sm"/> &nbsp;
-    <IconButton icon="flag" variant="primary" shape="circle" size="lg"/>
-    <IconButton icon="location" variant="primary" shape="circle" />
-    <IconButton icon="shutdown" variant="primary" shape="circle" size="sm"/>
+    <IconButton icon="flag" variant="primary" shape="circle" size="lg"/> &nbsp;
+    <IconButton icon="location" variant="primary" shape="circle" /> &nbsp;
+    <IconButton icon="shutdown" variant="primary" shape="circle" size="sm"/> &nbsp;
 </p>
 
 <p>
@@ -137,9 +140,9 @@ Action Button (FAB).
 ```
 
 <p>
-    <Button variant="primary">Button &nbsp;<Icon icon="arrow-down" /></Button>
-    <Button variant="primary" size="sm"><Icon icon="arrow-down" />&nbsp; Button</Button>
-    <Button variant="primary" size="xs">Button &nbsp;<Icon icon="arrow-down" /></Button>
+    <Button variant="primary">Button &nbsp;<Icon icon="arrow-down" /></Button> &nbsp;
+    <Button variant="primary" size="sm"><Icon icon="arrow-down" />&nbsp; Button</Button> &nbsp;
+    <Button variant="primary" size="xs">Button &nbsp;<Icon icon="arrow-down" /></Button> &nbsp;
 </p>
 
 ```sv

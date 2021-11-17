@@ -1,7 +1,9 @@
 <div {...$$restProps} class="chip {offset}" class:active>
-	{#if name || $$slots.avatar}
+	{#if avatar}
 		<Avatar size="sm" {name} {status} offset="ml--2 mr-2">
-			<slot name="avatar" />
+			{#if $$slots.avatar}
+				<slot name="avatar" />
+			{/if}
 		</Avatar>
 	{/if}
 	<slot />
@@ -28,6 +30,7 @@
 	const dispatch = createEventDispatcher();
 
 	export let offset: Offset = '';
+	export let avatar: boolean = false;
 	export let name: string = '';
 	export let status: Status = false;
 	export let active: boolean = false;

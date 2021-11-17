@@ -3,11 +3,9 @@ file: avatar.md
 title: Avatar
 config:
     {
-        size: { options: ['xs', 'sm', 'md', 'lg', 'xl'] },
-        status: { options: [undefined, 'online', 'busy', 'away'] },
-        badged: { type: 'checkbox' },
-        badge: { size: 5 },
         name: { size: 12 },
+        size: { options: ['xs', 'sm', 'md', 'lg', 'xl'] },
+        status: { options: [null, 'online', 'busy', 'away', 'offline'] },
         image:
             {
                 options:
@@ -20,6 +18,20 @@ config:
                         'avatar-5.png',
                     ],
             },
+        sub:
+            {
+                options:
+                    [
+                        null,
+                        'avatar-1.png',
+                        'avatar-2.png',
+                        'avatar-3.png',
+                        'avatar-4.png',
+                        'avatar-5.png',
+                    ],
+            },
+        # badged: { type: 'checkbox' },
+        badge: { size: 5 },
     }
 ---
 
@@ -28,7 +40,18 @@ config:
     import { base } from '$app/paths';
     import Knobs from '../_knobs.svelte'
 
-    let state = { size: 'md', status: 'online', name: 'Albert Einstein', image: null, badge: '0', badged: true }
+    let state = { size: 'xl', status: 'online', name: 'Albert Einstein', image: null, sub: null, badge: '0', badged: true }, subImg = null, img
+
+    function createSubImg(state) {
+        subImg = new Image(1,1)
+        subImg.title = 'Thor Odinson'
+        subImg.slot = 'sub'
+        subImg.src = `${base}/img/${state.sub}`
+    }
+
+    $: state.sub && (img?.setAttribute('slot', 'sub'), createSubImg(state))
+
+    $: console.log(subImg)
 </script>
 
 # {title}
@@ -37,19 +60,24 @@ Avatars are user profile pictures or similar elements presenting their status
 (e.g. online or offline).
 
 <p>
-    <Avatar name="AV" size="sm" badge />
     <Avatar name={state.name} status={state.status} size={state.size} badge={state.badge}>
-        {#if state.image !== null}
+        {#if state.image}
             <img src="{base}/img/{state.image}" alt="Thor Odinson" />
         {/if}
-    </Avatar>
+        <svelte:fragment slot="sub" let:subclass>
+            {#if state.sub}
+                <img class={subclass} src="{state.sub && `${base}/img/${state.sub}`}" alt="Thor Odinson" />
+            {/if}
+        </svelte:fragment>
+    </Avatar> &nbsp;
     <Avatar name="AV" status="busy" size="lg" badge="0">
         <img src="{base}/img/avatar-1.png" alt="Thor Odinson" />
-    </Avatar>
-    <Avatar name="AV" size="xl" badge="0">
+    </Avatar> &nbsp;
+    <Avatar name="AV" size="md" badge="0">
         <img src="{base}/img/avatar-2.png" alt="Thor Odinson" />
-        <img slot="sub" src="{base}/img/avatar-3.png" alt="Thor Odinson" />
-    </Avatar>
+        <img slot="sub" let:subclass class={subclass} src="{base}/img/avatar-3.png" alt="Thor Odinson" />
+    </Avatar> &nbsp;
+    <Avatar name="AV" size="xs" badge /> &nbsp;
 </p>
 
 <p>

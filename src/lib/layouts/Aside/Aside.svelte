@@ -70,8 +70,6 @@
 		sidebar = null;
 	$: show = ww >= breakpoint;
 	$: open = show ? false : open;
-
-	$: console.log(open, show);
 </script>
 
 <style lang="scss">

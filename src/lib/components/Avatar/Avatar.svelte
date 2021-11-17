@@ -9,10 +9,8 @@
 	use:addBadge={badge}
 >
 	<slot />
-	{#if $$slots.sub}
-		<span class="avatar-icon">
-			<slot name="sub" />
-		</span>
+	{#if $$slots.sub && !status}
+		<slot name="sub" subclass="avatar-icon" />
 	{/if}
 	{#if status}<i class="avatar-presence {status}" />{/if}
 	{#if caption || $$slots.caption}
@@ -52,12 +50,12 @@
 	$: words = name.length && name.replace('.', '/').match(/\b(\w)|([A-Z])|(\/)/g);
 	$: clip = len || words.length;
 	$: fontSize = SIZE[size] * (1 / clip);
-	$: initials = words && words.slice(0, clip).join('').toUpperCase();
+	$: initials = words && words.slice(0, clip).join('').toUpperCase() || '';
 </script>
 
 <style lang="scss">
-	@import 'spectre.css/src/avatars';
 	@import 'spectre.css/src/utilities';
+	@import 'spectre.css/src/avatars';
 
 	:global(.spectre) {
 		.avatar {
@@ -68,9 +66,18 @@
 				width: 100%;
 				z-index: 1;
 			}
-			.avatar-icon {
+			:global(.avatar-icon) {
 				border-radius: 50%;
 				display: flex;
+				background: $bg-color-light;
+				bottom: 14.64%;
+				height: 50%;
+				padding: $border-width-lg;
+				position: absolute;
+				right: 14.64%;
+				transform: translate(50%, 50%);
+				width: 50%;
+				z-index: $zindex-0 + 1;
 			}
 		}
 		figcaption {
