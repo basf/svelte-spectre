@@ -66,7 +66,7 @@ your own button color variants.
     <Button variant={state.Variants.variant}>{state.Variants.variant} button</Button> &nbsp;
     <Button variant="link">link button</Button> &nbsp;
     <Button variant="primary">primary button</Button> &nbsp;
-    <Button variant="secondary">secondary button</Button> &nbsp;
+    <!-- <Button variant="secondary">secondary button</Button> &nbsp; -->
     <Button variant="success">success button</Button> &nbsp;
     <Button variant="error">error button</Button> &nbsp;
 </p>

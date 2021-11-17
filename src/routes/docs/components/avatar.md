@@ -84,8 +84,6 @@ Avatars are user profile pictures or similar elements presenting their status
     <Knobs bind:state={state} {config}/>
 </p>
 
-## Code
-
 ```sv
 <script>
     import { Avatar } from 'svelte-spectre'

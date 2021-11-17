@@ -60,10 +60,10 @@ class.
         {state.text}
     </Chip>
     <Chip active>Active</Chip>
-    <Chip name="CP">Avatar</Chip>
-    <Chip name="CP" status="online">Online</Chip>
-    <Chip name="CP" status="busy">Busy</Chip>
-    <Chip name="CP" status="busy" closable>
+    <Chip name="CP" avatar>Avatar</Chip>
+    <Chip name="CP" status="online" avatar>Online</Chip>
+    <Chip name="CP" status="busy" avatar>Busy</Chip>
+    <Chip name="CP" status="busy" closable avatar>
     	<img slot="avatar" src="{base}/img/avatar-1.png" alt="Thor Odinson" />Closable
     </Chip>
 <p>

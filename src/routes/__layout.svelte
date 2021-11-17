@@ -49,7 +49,7 @@
 			{/each}
 		</nav>
 
-		<main class:p-2={$page.path.includes('docs')}>
+		<main class:px-2={$page.path.includes('docs')} class:mx-2={$page.path.includes('docs')}>
 			<slot />
 		</main>
 		<footer class="text-center p-2">© {new Date().getFullYear()}</footer>
@@ -144,7 +144,7 @@
 	nav#sidebar {
 		:global(.menu.menu-nav) {
 			padding-top: 0;
-			padding-left: 0;
+			// padding-left: 0;
 			// padding-bottom: 0;
 		}
 	}

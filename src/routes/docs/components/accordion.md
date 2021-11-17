@@ -8,11 +8,13 @@ config:
 ---
 
 <script>
-    import {Accordion, Grid, Col} from '$lib'
+    import {Accordion, Col, Grid, Hero} from '$lib'
     import Knobs from '../_knobs.svelte'
 
     let state = { toggled: true }
 </script>
+
+<Hero size="xs">
 
 # {title}
 
@@ -37,8 +39,6 @@ Accordions are used to toggle sections of content.
     <Knobs bind:state={state} {config}/>
 </p>
 
-## Code
-
 ```sv
 <script>
     import { Accordion } from 'svelte-spectre'
@@ -57,3 +57,5 @@ Accordions are used to toggle sections of content.
     Accordion2<br />Accordion2<br />Accordion2
 </Accordion>
 ```
+
+</Hero>

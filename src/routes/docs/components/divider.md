@@ -4,7 +4,9 @@ title: Divider
 ---
 
 <script>
-    import {Button} from '$lib'
+    import {Divider} from '$lib'
 </script>
 
 # {title}
+
+<Divider/>
