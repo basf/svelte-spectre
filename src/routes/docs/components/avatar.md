@@ -36,7 +36,7 @@ config: {
 
 <script>
     import { base } from '$app/paths';
-    import { Avatar } from '$lib'
+    import { Avatar, Divider } from '$lib'
     import Knobs from '../_knobs.svelte'
 
     let state = {
@@ -48,10 +48,6 @@ config: {
         badge: '0',
         badged: false
         }
-
-    // $: badge = state.badged ? state.badge.length ? state.badge : true : false
-    // $: state.status = state.sub ? null : state.status
-    // $: state.sub = state.status ? null : state.sub
 </script>
 
 # {title}
@@ -81,7 +77,8 @@ Avatars are user profile pictures or similar elements presenting their status
         <img src="{base}/img/avatar-2.png" alt="Thor Odinson" />
         <img slot="sub" let:subclass class={subclass} src="{base}/img/avatar-3.png" alt="Thor Odinson" />
     </Avatar> &nbsp;
-    <Avatar name="AV" size="xs" badge /> &nbsp;
+    <Avatar name="AV" size="sm" badge /> &nbsp;
+    <Avatar name="AV" size="xs" /> &nbsp;
 </p>
 
 <p>

@@ -79,7 +79,7 @@ config:
 ---
 
 <script>
-    import {Button, ButtonGroup, Col, Grid, Hero, Icon, IconButton} from '$lib'
+    import {Button, ButtonGroup, Col, Divider, Grid, Icon, IconButton} from '$lib'
     import Knobs from '../_knobs.svelte'
 
     let state = {
@@ -90,8 +90,6 @@ config:
         Groups: { block: false },
     }
 </script>
-
-<Hero size="xs">
 
 # {title}
 
@@ -117,10 +115,6 @@ and link buttons.
 <Button variant="link">link button</Button>
 ```
 
-</Hero>
-
-<Hero size="xs">
-
 ## Button variants
 
 Add the `btn-success` or `btn-error` class for success (green) or error (red)
@@ -144,10 +138,6 @@ your own button color variants.
 <Button variant="success">default button</Button>
 <Button variant="error">link button</Button>
 ```
-
-</Hero>
-
-<Hero size="xs">
 
 ## Button sizes
 
@@ -175,10 +165,6 @@ add the `btn-block` class for a full-width button.
 <Button size="sm">SM button</Button>
 <Button size="xs">XS button</Button>
 ```
-
-</Hero>
-
-<Hero size="xs">
 
 ## Button icon
 
@@ -214,10 +200,6 @@ Action Button (FAB).
 <Button variant="primary" size="sm"><Icon icon="arrow-down" />&nbsp; Button</Button>
 <Button variant="primary" size="xs">Button &nbsp;<Icon icon="arrow-down" /></Button>
 ```
-
-</Hero>
-
-<Hero size="xs">
 
 ## Button states
 
@@ -269,10 +251,6 @@ A button with the `loading` class can show loading indicator.
 <Button loading>default loading</Button>
 ```
 
-</Hero>
-
-<Hero size="xs">
-
 ## Button groups
 
 If you want to use buttons as a group, add the `btn-group` class to the
@@ -298,5 +276,3 @@ group.
     <Button variant="link">link button</Button>
 </ButtonGroup>
 ```
-
-</Hero>

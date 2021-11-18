@@ -26,7 +26,7 @@ config:
 
 <script>
     import { base } from '$app/paths';
-    import {Chip, Hero} from '$lib'
+    import {Chip} from '$lib'
     import Knobs from '../_knobs.svelte'
 
     let state = {
@@ -41,8 +41,6 @@ config:
 
         $: console.log(state.name, $$slots.avatar)
 </script>
-
-<Hero size="xs">
 
 # {title}
 
@@ -91,5 +89,3 @@ class.
     <img slot="avatar" src="{base}/img/avatar-1.png" alt="Thor Odinson" />Closable
 </Chip>
 ```
-
-</Hero>

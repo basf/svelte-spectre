@@ -12,4 +12,9 @@
 
 <style lang="scss" global>
 	@import '_code';
+	.off-canvas-content {
+		h2 {
+			margin-top: $unit-9 !important;
+		}
+	}
 </style>

@@ -28,5 +28,8 @@
 <style lang="scss">
 	:global(.spectre) {
 		@import 'spectre.css/src/media';
+		.figure {
+			margin: 0;
+		}
 	}
 </style>

@@ -5,13 +5,11 @@ config: { toggled: { type: 'checkbox' } }
 ---
 
 <script>
-    import {Accordion, Col, Grid, Hero} from '$lib'
+    import {Accordion, Col, Grid, Divider} from '$lib'
     import Knobs from '../_knobs.svelte'
 
     let state = { toggled: true }
 </script>
-
-<Hero size="xs">
 
 # {title}
 
@@ -54,5 +52,3 @@ Accordions are used to toggle sections of content.
     Accordion2<br />Accordion2<br />Accordion2
 </Accordion>
 ```
-
-</Hero>

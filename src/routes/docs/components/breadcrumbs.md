@@ -9,7 +9,7 @@ title: Breadcrumbs
     let links = [
         {title:'Home', href: '#', tooltip: 'Home'},
         {title:'Settings', href: '#', tooltip: 'Settings'},
-        {title:'Search result: SvelteSpectre', href: '#', tooltip: 'SvelteSpectre'}
+        {title:'SvelteSpectre', href: '#', tooltip: 'SvelteSpectre'}
         ]
 </script>
 
