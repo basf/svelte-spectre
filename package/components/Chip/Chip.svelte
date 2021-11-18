@@ -1,7 +1,9 @@
 <div {...$$restProps} class="chip {offset}" class:active>
-	{#if name || $$slots.avatar}
+	{#if avatar}
 		<Avatar size="sm" {name} {status} offset="ml--2 mr-2">
-			<slot name="avatar" />
+			{#if $$slots.avatar}
+				<slot name="avatar" />
+			{/if}
 		</Avatar>
 	{/if}
 	<slot />
@@ -22,6 +24,7 @@
 <script >import { createEventDispatcher } from 'svelte';
 const dispatch = createEventDispatcher();
 export let offset = '';
+export let avatar = false;
 export let name = '';
 export let status = false;
 export let active = false;

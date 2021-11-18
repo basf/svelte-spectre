@@ -9,10 +9,8 @@
 	use:addBadge={badge}
 >
 	<slot />
-	{#if $$slots.sub}
-		<span class="avatar-icon">
-			<slot name="sub" />
-		</span>
+	{#if $$slots.sub && !status}
+		<slot name="sub" subclass="avatar-icon" />
 	{/if}
 	{#if status}<i class="avatar-presence {status}" />{/if}
 	{#if caption || $$slots.caption}
@@ -44,89 +42,10 @@ $: color = bg ? new TinyColor(bg) : random();
 $: words = name.length && name.replace('.', '/').match(/\b(\w)|([A-Z])|(\/)/g);
 $: clip = len || words.length;
 $: fontSize = SIZE[size] * (1 / clip);
-$: initials = words && words.slice(0, clip).join('').toUpperCase();
+$: initials = words && words.slice(0, clip).join('').toUpperCase() || '';
 </script>
 
-<style >.avatar {
-  font-size: 0.8rem;
-  height: 1.6rem;
-  width: 1.6rem;
-  background: #5755d9;
-  border-radius: 50%;
-  color: rgba(255, 255, 255, 0.85);
-  display: inline-block;
-  font-weight: 300;
-  line-height: 1.25;
-  margin: 0;
-  position: relative;
-  vertical-align: middle;
-}
-.avatar.avatar-xs {
-  font-size: 0.4rem;
-  height: 0.8rem;
-  width: 0.8rem;
-}
-.avatar.avatar-sm {
-  font-size: 0.6rem;
-  height: 1.2rem;
-  width: 1.2rem;
-}
-.avatar.avatar-lg {
-  font-size: 1.2rem;
-  height: 2.4rem;
-  width: 2.4rem;
-}
-.avatar.avatar-xl {
-  font-size: 1.6rem;
-  height: 3.2rem;
-  width: 3.2rem;
-}
-.avatar img {
-  border-radius: 50%;
-  height: 100%;
-  position: relative;
-  width: 100%;
-  z-index: 1;
-}
-.avatar .avatar-icon,
-.avatar .avatar-presence {
-  background: #fff;
-  bottom: 14.64%;
-  height: 50%;
-  padding: 0.1rem;
-  position: absolute;
-  right: 14.64%;
-  transform: translate(50%, 50%);
-  width: 50%;
-  z-index: 2;
-}
-.avatar .avatar-presence {
-  background: #bcc3ce;
-  box-shadow: 0 0 0 0.1rem #fff;
-  border-radius: 50%;
-  height: 0.5em;
-  width: 0.5em;
-}
-.avatar .avatar-presence.online {
-  background: #32b643;
-}
-.avatar .avatar-presence.busy {
-  background: #e85600;
-}
-.avatar .avatar-presence.away {
-  background: #ffb700;
-}
-.avatar[data-initial]::before {
-  color: currentColor;
-  content: attr(data-initial);
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-}
-
-.text-primary {
+<style >.text-primary {
   color: #5755d9 !important;
 }
 
@@ -716,6 +635,85 @@ a.text-error:visited {
   word-wrap: break-word;
 }
 
+.avatar {
+  font-size: 0.8rem;
+  height: 1.6rem;
+  width: 1.6rem;
+  background: #5755d9;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.85);
+  display: inline-block;
+  font-weight: 300;
+  line-height: 1.25;
+  margin: 0;
+  position: relative;
+  vertical-align: middle;
+}
+.avatar.avatar-xs {
+  font-size: 0.4rem;
+  height: 0.8rem;
+  width: 0.8rem;
+}
+.avatar.avatar-sm {
+  font-size: 0.6rem;
+  height: 1.2rem;
+  width: 1.2rem;
+}
+.avatar.avatar-lg {
+  font-size: 1.2rem;
+  height: 2.4rem;
+  width: 2.4rem;
+}
+.avatar.avatar-xl {
+  font-size: 1.6rem;
+  height: 3.2rem;
+  width: 3.2rem;
+}
+.avatar img {
+  border-radius: 50%;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+.avatar .avatar-icon,
+.avatar .avatar-presence {
+  background: #fff;
+  bottom: 14.64%;
+  height: 50%;
+  padding: 0.1rem;
+  position: absolute;
+  right: 14.64%;
+  transform: translate(50%, 50%);
+  width: 50%;
+  z-index: 2;
+}
+.avatar .avatar-presence {
+  background: #bcc3ce;
+  box-shadow: 0 0 0 0.1rem #fff;
+  border-radius: 50%;
+  height: 0.5em;
+  width: 0.5em;
+}
+.avatar .avatar-presence.online {
+  background: #32b643;
+}
+.avatar .avatar-presence.busy {
+  background: #e85600;
+}
+.avatar .avatar-presence.away {
+  background: #ffb700;
+}
+.avatar[data-initial]::before {
+  color: currentColor;
+  content: attr(data-initial);
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
 :global(.spectre) .avatar :global(img) {
   border-radius: 50%;
   height: 100%;
@@ -723,9 +721,18 @@ a.text-error:visited {
   width: 100%;
   z-index: 1;
 }
-:global(.spectre) .avatar .avatar-icon {
+:global(.spectre) .avatar :global(.avatar-icon) {
   border-radius: 50%;
   display: flex;
+  background: #fff;
+  bottom: 14.64%;
+  height: 50%;
+  padding: 0.1rem;
+  position: absolute;
+  right: 14.64%;
+  transform: translate(50%, 50%);
+  width: 50%;
+  z-index: 2;
 }
 :global(.spectre) figcaption {
   position: absolute;

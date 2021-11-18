@@ -8,6 +8,7 @@
   overflow-x: hidden;
   font-size: 0.8rem;
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  line-height: 1.5;
   text-rendering: optimizeLegibility;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -1584,6 +1585,62 @@
   right: 14.64%;
   transform: translate(50%, -50%);
   z-index: 100;
+}
+.spectre :global(.tooltip) {
+  position: relative;
+}
+.spectre :global(.tooltip::after) {
+  background: rgba(48, 55, 66, 0.95);
+  border-radius: 0.1rem;
+  bottom: 100%;
+  color: #fff;
+  content: attr(data-tooltip);
+  display: block;
+  font-size: 0.7rem;
+  left: 50%;
+  max-width: 320px;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0.2rem 0.4rem;
+  pointer-events: none;
+  position: absolute;
+  text-overflow: ellipsis;
+  transform: translate(-50%, 0.4rem);
+  transition: opacity 0.2s, transform 0.2s;
+  white-space: pre;
+  z-index: 300;
+}
+.spectre :global(.tooltip:focus::after), .spectre :global(.tooltip:hover::after) {
+  opacity: 1;
+  transform: translate(-50%, -0.2rem);
+}
+.spectre :global(.tooltip[disabled]), .spectre :global(.tooltip.disabled) {
+  pointer-events: auto;
+}
+.spectre :global(.tooltip.tooltip-right::after) {
+  bottom: 50%;
+  left: 100%;
+  transform: translate(-0.2rem, 50%);
+}
+.spectre :global(.tooltip.tooltip-right:focus::after), .spectre :global(.tooltip.tooltip-right:hover::after) {
+  transform: translate(0.2rem, 50%);
+}
+.spectre :global(.tooltip.tooltip-bottom::after) {
+  bottom: auto;
+  top: 100%;
+  transform: translate(-50%, -0.4rem);
+}
+.spectre :global(.tooltip.tooltip-bottom:focus::after), .spectre :global(.tooltip.tooltip-bottom:hover::after) {
+  transform: translate(-50%, 0.2rem);
+}
+.spectre :global(.tooltip.tooltip-left::after) {
+  bottom: 50%;
+  left: auto;
+  right: 100%;
+  transform: translate(0.4rem, 50%);
+}
+.spectre :global(.tooltip.tooltip-left:focus::after), .spectre :global(.tooltip.tooltip-left:hover::after) {
+  transform: translate(-0.2rem, 50%);
 }
 .spectre :global(.mx-auto) {
   margin-left: auto;

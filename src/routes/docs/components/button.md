@@ -1,16 +1,81 @@
 ---
 file: button.md
 title: Button
-config: {
-    Variants: { variant: { options: ['default', 'link', 'primary', 'secondary', 'success', 'error'] } },
-    Sizes: { size: { options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] } }, 
-    Icons: { 
-        icon: { options: ['arrow-up', 'arrow-right', 'arrow-down', 'arrow-left', 'upward', 'forward', 'downward', 'back', 'caret', 'menu', 'apps', 'more-horiz', 'more-vert', 'resize-horiz', 'resize-vert', 'plus', 'minus', 'cross', 'check', 'stop', 'shutdown', 'refresh', 'search', 'flag', 'bookmark', 'edit', 'delete', 'share', 'download', 'upload', 'copy', 'mail', 'people', 'message', 'photo', 'time', 'location', 'link', 'emoji', 'xray', 'home', 'circle-check', 'wifi', 'audio'] },
-        shape: { options: ['square', 'circle'] }
-     },
-     States: { state: { options: ['active', 'disabled', 'loading'] } },
-     Groups: { block: { type: 'checkbox' } }
-}
+config:
+    {
+        Variants:
+            {
+                variant:
+                    {
+                        options:
+                            [
+                                'default',
+                                'link',
+                                'primary',
+                                'secondary',
+                                'success',
+                                'error',
+                            ],
+                    },
+            },
+        Sizes: { size: { options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] } },
+        Icons:
+            {
+                icon:
+                    {
+                        options:
+                            [
+                                'arrow-up',
+                                'arrow-right',
+                                'arrow-down',
+                                'arrow-left',
+                                'upward',
+                                'forward',
+                                'downward',
+                                'back',
+                                'caret',
+                                'menu',
+                                'apps',
+                                'more-horiz',
+                                'more-vert',
+                                'resize-horiz',
+                                'resize-vert',
+                                'plus',
+                                'minus',
+                                'cross',
+                                'check',
+                                'stop',
+                                'shutdown',
+                                'refresh',
+                                'search',
+                                'flag',
+                                'bookmark',
+                                'edit',
+                                'delete',
+                                'share',
+                                'download',
+                                'upload',
+                                'copy',
+                                'mail',
+                                'people',
+                                'message',
+                                'photo',
+                                'time',
+                                'location',
+                                'link',
+                                'emoji',
+                                'xray',
+                                'home',
+                                'circle-check',
+                                'wifi',
+                                'audio',
+                            ],
+                    },
+                shape: { options: ['square', 'circle'] },
+            },
+        States: { state: { options: ['active', 'disabled', 'loading'] } },
+        Groups: { block: { type: 'checkbox' } },
+    }
 ---
 
 <script>

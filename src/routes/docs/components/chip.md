@@ -20,7 +20,7 @@ config:
                         'avatar-4.png',
                         'avatar-5.png',
                     ],
-            }
+            },
     }
 ---
 

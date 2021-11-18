@@ -21,7 +21,9 @@ declare const __propDef: {
     };
     slots: {
         default: {};
-        sub: {};
+        sub: {
+            subclass: string;
+        };
         caption: {};
     };
 };

@@ -1,10 +1,7 @@
 ---
 file: accordion.md
 title: Accordion
-config:
-    {
-        toggled: { type: 'checkbox' },
-    }
+config: { toggled: { type: 'checkbox' } }
 ---
 
 <script>

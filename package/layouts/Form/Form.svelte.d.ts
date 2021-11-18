@@ -5,7 +5,7 @@ declare const __propDef: {
         horizontal: boolean;
     };
     events: {
-        submit: Event;
+        submit: SubmitEvent;
     } & {
         [evt: string]: CustomEvent<any>;
     };

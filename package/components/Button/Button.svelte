@@ -5,7 +5,7 @@
 		class="btn btn-{variant} btn-{size}"
 		class:btn-block={block}
 		class:btn-action={!!shape}
-		class:circle={shape === 'circle'}
+		class:s-circle={shape === 'circle'}
 		class:input-group-btn={input}
 		class:loading
 		class:active
@@ -21,7 +21,7 @@
 		class="btn btn-{variant} btn-{size}"
 		class:btn-block={block}
 		class:btn-action={!!shape}
-		class:circle={shape === 'circle'}
+		class:s-circle={shape === 'circle'}
 		class:input-group-btn={input}
 		class:loading
 		class:active
@@ -240,10 +240,6 @@ export let badge;
 }
 :global(.spectre) .btn-group.btn-group-block .btn {
   flex: 1 0 0;
-}
-
-.circle {
-  border-radius: 50%;
 }
 
 .btn, .btn.btn-xs, .btn.btn-xxl, .btn.btn-xl {

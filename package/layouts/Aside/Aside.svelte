@@ -61,7 +61,6 @@ const close = () => (open = !open);
 let ww = 0, sidebar = null;
 $: show = ww >= breakpoint;
 $: open = show ? false : open;
-$: console.log(open, show);
 </script>
 
 <style >@charset "UTF-8";

@@ -3,6 +3,7 @@ declare const __propDef: {
     props: {
         block?: boolean;
         inline?: boolean;
+        spaced?: boolean;
     };
     events: {
         [evt: string]: CustomEvent<any>;

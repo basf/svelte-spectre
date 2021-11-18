@@ -3,6 +3,7 @@ import type { Offset } from '../../types/position';
 interface Link {
     href: string;
     title: string;
+    tooltip: string;
 }
 export type { Link };
 declare const __propDef: {

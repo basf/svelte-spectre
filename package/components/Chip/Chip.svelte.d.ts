@@ -5,6 +5,7 @@ declare const __propDef: {
     props: {
         [x: string]: any;
         offset?: Offset;
+        avatar?: boolean;
         name?: string;
         status?: Status;
         active?: boolean;

@@ -32,4 +32,8 @@ export let offset = '';
 }
 :global(.spectre) .hero .hero-body {
   padding: 0.4rem;
+}
+:global(.spectre) .hero-xs {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
 }</style>

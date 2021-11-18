@@ -1,7 +1,9 @@
 <ul {...$$restProps} class="breadcrumb {offset}">
 	{#each links as link}
 		<li class="breadcrumb-item">
-			<a href={link.href}>{link.title}</a>
+			<a href={link.href} class:tooltip={link.tooltip} data-tooltip={link.tooltip}>
+				{link.title}
+			</a>
 		</li>
 	{/each}
 </ul>
