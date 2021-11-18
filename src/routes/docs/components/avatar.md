@@ -29,28 +29,29 @@ config: {
                         'avatar-5.png',
                     ],
             },
-        # badged: { type: 'checkbox' },
+        badged: { type: 'checkbox' },
         badge: { size: 5 },
     }
 ---
 
 <script>
-    import { Avatar } from '$lib'
     import { base } from '$app/paths';
+    import { Avatar } from '$lib'
     import Knobs from '../_knobs.svelte'
 
-    let state = { size: 'xl', status: 'online', name: 'Albert Einstein', image: null, sub: null, badge: '0', badged: true }, subImg = null, img
+    let state = {
+        size: 'xl',
+        status: 'online',
+        name: 'Albert Einstein',
+        image: null,
+        sub: null,
+        badge: '0',
+        badged: false
+        }
 
-    function createSubImg(state) {
-        subImg = new Image(1,1)
-        subImg.title = 'Thor Odinson'
-        subImg.slot = 'sub'
-        subImg.src = `${base}/img/${state.sub}`
-    }
-
-    $: state.sub && (img?.setAttribute('slot', 'sub'), createSubImg(state))
-
-    $: console.log(subImg)
+    // $: badge = state.badged ? state.badge.length ? state.badge : true : false
+    // $: state.status = state.sub ? null : state.status
+    // $: state.sub = state.status ? null : state.sub
 </script>
 
 # {title}
@@ -59,13 +60,17 @@ Avatars are user profile pictures or similar elements presenting their status
 (e.g. online or offline).
 
 <p>
-    <Avatar name={state.name} status={state.status} size={state.size} badge={state.badge}>
+    <Avatar
+        name={state.name}
+        status={state.status}
+        size={state.size}
+        badge={state.badged ? state.badge.length ? state.badge : true : false}>
         {#if state.image}
             <img src="{base}/img/{state.image}" alt="Thor Odinson" />
         {/if}
         <svelte:fragment slot="sub">
             {#if state.sub}
-                <img src="{state.sub && `${base}/img/${state.sub}`}" alt="Thor Odinson" />
+                <img src="{`${base}/img/${state.sub}`}" alt="Thor Odinson" />
             {/if}
         </svelte:fragment>
     </Avatar> &nbsp;
@@ -80,7 +85,7 @@ Avatars are user profile pictures or similar elements presenting their status
 </p>
 
 <p>
-    <Knobs bind:state={state} {config}/>
+    <Knobs bind:state {config}/>
 </p>
 
 ```sv

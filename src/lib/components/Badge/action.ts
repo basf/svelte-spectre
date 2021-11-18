@@ -1,8 +1,10 @@
 export default function addBadge(node: HTMLElement, badge: string) {
-    if (!badge && badge !== '0') return destroy();
     function update(badge: string) {
+        if (!badge && !badge?.length) return destroy();
         node.classList.add('badge');
-        badge.length && node.setAttribute('data-badge', badge);
+        badge.length > 0
+            ? node.setAttribute('data-badge', badge)
+            : node.removeAttribute('data-badge');
     }
     function destroy() {
         node.classList.remove('badge');

@@ -9,6 +9,7 @@
 	use:addBadge={badge}
 >
 	<slot />
+
 	{#if status}
 		<i class="avatar-presence {status}" />
 	{:else if $$slots.sub}
@@ -44,7 +45,7 @@
 	export let weight: Weight = 'normal';
 	export let status: Status = false;
 	export let offset: Offset = '';
-	export let badge: any;
+	export let badge: string = '';
 	let words: RegExpMatchArray;
 	let clip: number;
 	let fontSize: number;
