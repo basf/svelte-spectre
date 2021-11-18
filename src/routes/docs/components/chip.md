@@ -51,7 +51,12 @@ chip class. And add child text element, buttons or avatars with the avatar
 class.
 
 <p>
-    <Chip active={state.active} closable={state.closable} avatar={state.avatar} name={state.name} status={state.status}>
+    <Chip
+        active={state.active}
+        closable={state.closable}
+        avatar={state.avatar}
+        name={state.name}
+        status={state.status}>
         <svelte:fragment slot="avatar">
             {#if state.image}
                 <img src="{base}/img/{state.image}" alt="Thor Odinson" />

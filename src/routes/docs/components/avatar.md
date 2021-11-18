@@ -63,9 +63,9 @@ Avatars are user profile pictures or similar elements presenting their status
         {#if state.image}
             <img src="{base}/img/{state.image}" alt="Thor Odinson" />
         {/if}
-        <svelte:fragment slot="sub" let:subclass>
+        <svelte:fragment slot="sub">
             {#if state.sub}
-                <img class={subclass} src="{state.sub && `${base}/img/${state.sub}`}" alt="Thor Odinson" />
+                <img src="{state.sub && `${base}/img/${state.sub}`}" alt="Thor Odinson" />
             {/if}
         </svelte:fragment>
     </Avatar> &nbsp;

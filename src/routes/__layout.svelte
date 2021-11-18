@@ -96,7 +96,7 @@
 
 	export let links;
 
-	const openedAccordion = (page, key, i) => page.path.includes(key.replace(' ', '_')) || i === 0;
+	const openedAccordion = (page, key, i) => page.path.includes(key.replace(' ', '_'));
 	const activePath = (page, path) => page.path.replace(/\/$/, '') === path.replace(/\.|md/g, '');
 	const setLink = (base, path) => base + path.replace(/\.|md/g, '');
 </script>

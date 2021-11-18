@@ -1,9 +1,7 @@
 <div {...$$restProps} class="chip {offset}" class:active>
 	{#if avatar}
 		<Avatar size="sm" {name} {status} offset="ml--2 mr-2">
-			{#if $$slots.avatar}
-				<slot name="avatar" />
-			{/if}
+			<slot name="avatar" />
 		</Avatar>
 	{/if}
 	<slot />

@@ -9,10 +9,13 @@
 	use:addBadge={badge}
 >
 	<slot />
-	{#if $$slots.sub && !status}
-		<slot name="sub" subclass="avatar-icon" />
+	{#if status}
+		<i class="avatar-presence {status}" />
+	{:else if $$slots.sub}
+		<span class="avatar-icon">
+			<slot name="sub" />
+		</span>
 	{/if}
-	{#if status}<i class="avatar-presence {status}" />{/if}
 	{#if caption || $$slots.caption}
 		<figcaption class="text-dark">
 			<slot name="caption">{name}</slot>
@@ -50,7 +53,7 @@
 	$: words = name.length && name.replace('.', '/').match(/\b(\w)|([A-Z])|(\/)/g);
 	$: clip = len || words.length;
 	$: fontSize = SIZE[size] * (1 / clip);
-	$: initials = words && words.slice(0, clip).join('').toUpperCase() || '';
+	$: initials = (words && words.slice(0, clip).join('').toUpperCase()) || '';
 </script>
 
 <style lang="scss">
@@ -78,6 +81,9 @@
 				transform: translate(50%, 50%);
 				width: 50%;
 				z-index: $zindex-0 + 1;
+				&:empty {
+					display: none;
+				}
 			}
 		}
 		figcaption {
