@@ -21,7 +21,7 @@
 		</div>
 	{/if}
 
-	{#if openLeft || (openRight && !show)}
+	{#if (openLeft || openRight) && !show}
 		<a
 			class="off-canvas-overlay"
 			href="#"
@@ -35,14 +35,14 @@
 		<slot>off-screen content</slot>
 	</div>
 
-	{#if right || both}
+	{#if (right || both) && $$slots.sidebarRight}
 		<div
 			class="off-canvas-sidebar p-2"
 			class:active={openRight}
 			class:off-canvas-sidebar-right={right || both}
 			bind:this={sidebar}
 		>
-			<slot name="sidebarRight"><small>off-screen sidebarRight</small></slot>
+			<slot name="sidebarRight" />
 		</div>
 
 		{#if !extclose}
@@ -99,7 +99,6 @@
 			default:
 				break;
 		}
-		// side === 'left' ? (openLeft = !openLeft) : (openRight = !openRight);
 	};
 	let ww = 0,
 		sidebar = null;
