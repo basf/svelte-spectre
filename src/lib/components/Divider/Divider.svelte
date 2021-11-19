@@ -21,8 +21,11 @@
 <style lang="scss">
 	:global(.spectre) {
 		@import 'spectre.css/src/utilities/divider';
-		.divider.divider-empty {
-			border: 0;
+		.divider {
+			width: 100%;
+			&.divider-empty {
+				border: 0;
+			}
 		}
 	}
 </style>

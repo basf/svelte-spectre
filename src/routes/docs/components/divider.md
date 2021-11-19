@@ -5,9 +5,11 @@ config: { align: { options: ['left', 'center', 'right'] } }
 ---
 
 <script>
+    import { amp, browser, dev, mode, prerendering } from '$app/env';
     import { base } from '$app/paths';
     import {Divider, Col, Figure, Grid} from '$lib'
     import Knobs from '../_knobs.svelte'
+    import {media} from '../_media'
 
     let state = { align: 'center' }
 </script>
@@ -36,7 +38,7 @@ dictum in vehicula sit amet, feugiat tempus tellus.
     <Col xs="12">
         <Figure src="{base}/img/osx-el-capitan-2.jpg" alt="macOS Yosemite Wallpaper" cover></Figure>
     </Col>
-    <Divider text="OR" align="vertical"/>
+    <Divider text="OR" align={$media.xs ? 'horizontal center' : 'vertical'} />
     <Col xs="12">
         <Figure src="{base}/img/osx-el-capitan.jpg" alt="macOS Yosemite Wallpaper" cover></Figure>
     </Col>
