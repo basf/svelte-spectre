@@ -10,7 +10,7 @@
 					{/if}
 				</nav>
 
-				<IconButton slot="center" size="xxl" iconSize="4x" color="dark" href={`${base}/`}>
+				<IconButton slot="center" size="xl" iconSize="3x" color="dark" href={`${base}/`}>
 					<Xray />
 				</IconButton>
 
