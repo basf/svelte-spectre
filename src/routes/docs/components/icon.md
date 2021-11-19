@@ -176,10 +176,8 @@ CSS icons.
 </p>
 
 ```sv
-<Icon
-    size={icon === state.icon && state.size}
-    color={icon === state.icon && state.color}>
-    <svelte:component this={component}/>
+<Icon size="4x" color="primary">
+    <svelte:component this={Basf}/>
 </Icon>
 ```
 
