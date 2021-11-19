@@ -76,6 +76,6 @@
 	section {
 		// border: 1px dashed $gray-color;
 		// margin: 8px -8px;
-		// padding: $unit-4;
+		padding: $unit-1 $unit-4 $unit-2 !important;
 	}
 </style>

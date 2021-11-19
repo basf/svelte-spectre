@@ -4,7 +4,7 @@ title: Avatar
 config: {
         name: { size: 12 },
         size: { options: ['xs', 'sm', 'md', 'lg', 'xl'] },
-        status: { options: [null, 'online', 'busy', 'away', 'offline'] },
+        status: { options: [null, 'online', 'away', 'busy', 'offline'] },
         image:
             {
                 options:
@@ -41,12 +41,12 @@ config: {
 
     let state = {
         size: 'xl',
-        status: 'online',
+        status: null,
         name: 'Albert Einstein',
-        image: null,
-        sub: null,
+        image: 'avatar-1.png',
+        sub: 'avatar-2.png',
         badge: '0',
-        badged: false
+        badged: true
         }
 </script>
 
@@ -70,15 +70,16 @@ Avatars are user profile pictures or similar elements presenting their status
             {/if}
         </svelte:fragment>
     </Avatar> &nbsp;
-    <Avatar name="AV" status="busy" size="lg" badge="0">
-        <img src="{base}/img/avatar-1.png" alt="Thor Odinson" />
+    <Avatar name="AV" status="online" size="lg" badge="1">
+        <img src="{base}/img/avatar-3.png" alt="Thor Odinson" />
     </Avatar> &nbsp;
-    <Avatar name="AV" size="md" badge="0">
-        <img src="{base}/img/avatar-2.png" alt="Thor Odinson" />
-        <img slot="sub" let:subclass class={subclass} src="{base}/img/avatar-3.png" alt="Thor Odinson" />
+    <Avatar name="AV" status="away" size="md" badge="2">
+        <img src="{base}/img/avatar-4.png" alt="Thor Odinson" />
     </Avatar> &nbsp;
-    <Avatar name="AV" size="sm" badge /> &nbsp;
-    <Avatar name="AV" size="xs" /> &nbsp;
+    <Avatar name="AV" status="busy" size="sm" badge>
+        <img src="{base}/img/avatar-5.png" alt="Thor Odinson" />
+    </Avatar> &nbsp;
+    <Avatar name="AV" status="offline" size="xs" /> &nbsp;
 </p>
 
 <p>
@@ -90,13 +91,18 @@ Avatars are user profile pictures or similar elements presenting their status
     import { Avatar } from 'svelte-spectre'
 </script>
 
-<Avatar name="AV" size="sm" badge />
-<Avatar name="AV" status="online" badge />
-<Avatar name="AV" status="busy" size="lg" badge="0">
-    <img src="/img/avatar-1.png" alt="Thor Odinson" />
-</Avatar>
 <Avatar name="AV" size="xl" badge="0">
-    <img src="/img/avatar-2.png" alt="Thor Odinson" />
-    <img slot="sub" src="/img/avatar-4.png" alt="Thor Odinson" />
+    <img src="/img/avatar-1.png" alt="Thor Odinson" />
+    <img slot="sub" src="/img/avatar-2.png" alt="Thor Odinson" />
 </Avatar>
+<Avatar name="AV" size="lg" status="online" badge="1">
+    <img src="/img/avatar-3.png" alt="Thor Odinson" />
+</Avatar>
+<Avatar name="AV" size="md" status="away" badge="2">
+    <img src="/img/avatar-4.png" alt="Thor Odinson" />
+</Avatar>
+<Avatar name="AV" size="sm" status="busy" badge>
+    <img src="/img/avatar-5.png" alt="Thor Odinson" />
+</Avatar>
+<Avatar name="AV" size="xs" status="offline" />
 ```

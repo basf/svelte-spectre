@@ -29,6 +29,7 @@
 
 	.icon {
 		text-indent: 0;
+		line-height: normal;
 		& > :global(svg) {
 			fill: currentColor;
 			width: 100%;

@@ -1,7 +1,10 @@
 ---
 file: divider.md
 title: Divider
-config: { align: { options: ['left', 'center', 'right'] } }
+config: { 
+    align: { options: ['left', 'center', 'right'] },
+    text: { size: auto }
+}
 ---
 
 <script>
@@ -11,7 +14,7 @@ config: { align: { options: ['left', 'center', 'right'] } }
     import Knobs from '../_knobs.svelte'
     import {media} from '../_media'
 
-    let state = { align: 'center' }
+    let state = { align: 'center', text: 'CENTER' }
 </script>
 
 # {title}
@@ -22,10 +25,22 @@ The Divider is used for separating elements.
     <Divider/>
 </p>
 
+```sv
+<script>
+    import { Divider } from 'svelte-spectre'
+</script>
+
+<Divider />
+```
+
+## Texted
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent risus leo,
 dictum in vehicula sit amet, feugiat tempus tellus.
 
-<Divider text="OR" align={`horizontal ${state.align}`} />
+<p>
+    <Divider text={state.text} align={`horizontal ${state.align}`} />
+</p>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent risus leo,
 dictum in vehicula sit amet, feugiat tempus tellus.
@@ -33,6 +48,12 @@ dictum in vehicula sit amet, feugiat tempus tellus.
 <p>
     <Knobs bind:state={state} {config}/>
 </p>
+
+```sv
+<Divider text="CENTER" align="horizontal center" />
+```
+
+## Vertical
 
 <Grid>
     <Col xs="12">
@@ -46,21 +67,16 @@ dictum in vehicula sit amet, feugiat tempus tellus.
 
 ```sv
 <script>
-    import { base } from '$app/paths';
-    import {Divider, Col, Figure, Grid} from '$lib'
+    import { Col, Divider, Figure, Grid } from 'svelte-spectre'
 </script>
 
-<Divider/>
-<Divider text="OR" align="horizontal left"/>
-<Divider text="OR" align="horizontal center"/>
-<Divider text="OR" align="horizontal right"/>
 <Grid>
     <Col xs="12">
-        <Figure src="{base}/img/osx-el-capitan-2.jpg" alt="macOS Yosemite Wallpaper" cover></Figure>
+        <Figure src="/img/osx-el-capitan-2.jpg" alt="macOS Yosemite Wallpaper"/>
     </Col>
     <Divider text="OR" align="vertical"/>
     <Col xs="12">
-        <Figure src="{base}/img/osx-el-capitan.jpg" alt="macOS Yosemite Wallpaper" cover></Figure>
+        <Figure src="/img/osx-el-capitan.jpg" alt="macOS Yosemite Wallpaper"/>
     </Col>
 </Grid>
 ```
