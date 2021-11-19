@@ -57,7 +57,7 @@
 		"prettier-plugin-svelte": "^2.5.0",
 		"sass": "^1.43.4",
 		"spectre.css": "^0.5.9",
-		"svelte": "^3.44.1",
+		"svelte": "^3.44.2",
 		"svelte-check": "^2.2.10",
 		"svelte-loader": "^3.1.2",
 		"svelte-media": "^0.1.5",

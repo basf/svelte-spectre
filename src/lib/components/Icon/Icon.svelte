@@ -17,8 +17,8 @@
 <script lang="ts">
 	export let icon: Icons = '';
 	export let size: Zoom = '1x';
-	export let offset: Offset = '';
 	export let color: Color = '';
+	export let offset: Offset = '';
 </script>
 
 <style lang="scss">

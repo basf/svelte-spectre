@@ -1,11 +1,18 @@
 <Spectre>
-	<Aside extclose bind:open bind:show breakpoint={$page.path.includes('docs') ? 960 : Infinity}>
+	<Aside
+		extclose
+		both
+		bind:openLeft
+		bind:openRight
+		bind:show
+		breakpoint={$page.path.includes('docs') ? 'xl' : Infinity}
+	>
 		<header class:bg-gray={!$page.path.includes('docs')}>
 			<Navbar>
 				<nav slot="left">
 					{#if !show}
 						<div class="ml-2">
-							<IconButton icon="menu" on:click={() => (open = !open)} />
+							<IconButton icon="menu" on:click={() => (openLeft = !openLeft)} />
 						</div>
 					{/if}
 				</nav>
@@ -15,7 +22,12 @@
 				</IconButton>
 
 				<nav slot="right">
-					<div class="mr-2">
+					{#if !show && metadata?.api}
+						<div class="mr-2">
+							<Button on:click={() => (openRight = !openRight)}>Api</Button>
+						</div>
+					{/if}
+					<!-- <div class="mr-2">
 						<IconButton
 							size="sm"
 							iconSize="2x"
@@ -23,12 +35,12 @@
 								toast.success({ msg: 'msg', timeout: 0, pos: 'bottom_right' })}
 							><GitHub /></IconButton
 						>
-					</div>
+					</div> -->
 				</nav>
 			</Navbar>
 		</header>
 
-		<nav id="sidebar" slot="sidebar" class="m-2">
+		<nav id="sidebar" slot="sidebarLeft" class="m-2">
 			<h3><a href={`${base}/`}>SvelteSpectre</a></h3>
 			{#each Object.entries(links) as [key, value], i}
 				<Accordion toggled opened={openedAccordion($page, key, i)}>
@@ -40,7 +52,7 @@
 									sveltekit:prefetch
 									href={setLink(base, path)}
 									class:active={activePath($page, path)}
-									on:click={() => (open = false)}>{title}</a
+									on:click={() => (openLeft = false)}>{title}</a
 								>
 							</li>
 						{/each}
@@ -52,6 +64,25 @@
 		<main class:px-2={$page.path.includes('docs')}>
 			<slot />
 		</main>
+
+		<svelte:fragment slot="sidebarRight">
+			{#if metadata?.api}
+				<article class="p-2 mx-2">
+					<h4>API {metadata.title}</h4>
+					<dl>
+						{#each metadata.api as api}
+							<dt><code>{api.title}</code></dt>
+							<dd>
+								<pre class="code"><code class="code">{api.description}</code></pre>
+							</dd>
+						{:else}
+							<dt>API in progress</dt>
+						{/each}
+					</dl>
+				</article>
+			{/if}
+		</svelte:fragment>
+
 		<footer class="text-center p-2">© {new Date().getFullYear()}</footer>
 	</Aside>
 
@@ -60,7 +91,6 @@
 
 <script lang="ts" context="module">
 	const allMd = import.meta.glob('./**/*.md');
-
 	let body = [];
 
 	for (let path in allMd) {
@@ -86,19 +116,33 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
-	import { Accordion, Aside, Container, IconButton, Navbar, Spectre, Toaster, toast } from '$lib';
+	import {
+		Accordion,
+		Aside,
+		Button,
+		Container,
+		IconButton,
+		Navbar,
+		Spectre,
+		Toaster,
+		toast,
+	} from '$lib';
 	import Xray from '$assets/b-science.svg';
 	import GitHub from '$assets/github.svg';
 	import '../app.scss';
 
-	let open = false,
+	let openLeft = false,
+		openRight = false,
 		show = false;
 
-	export let links;
+	export let links, api;
 
 	const openedAccordion = (page, key, i) => page.path.includes(key.replace(' ', '_'));
 	const activePath = (page, path) => page.path.replace(/\/$/, '') === path.replace(/\.|md/g, '');
 	const setLink = (base, path) => base + path.replace(/\.|md/g, '');
+	$: metadata = links[$page.path.split('/')[2]]?.find((l) =>
+		l.path.includes($page.path.split('/')[3])
+	)?.metadata;
 </script>
 
 <style lang="scss">
@@ -107,6 +151,10 @@
 		@import 'spectre.css/src/codes';
 		.off-canvas .off-canvas-sidebar {
 			min-width: 12rem !important;
+			max-width: 18rem !important;
+			@media screen and (max-width: 450px) {
+				max-width: 80vw !important;
+			}
 		}
 		.docs-demo {
 			padding-bottom: 1rem;
@@ -160,6 +208,10 @@
 			min-height: 100%;
 			display: grid !important;
 			grid-template-rows: auto 1fr auto;
+		}
+		:global(.off-canvas-sidebar-right) {
+			background: $light-color !important;
+			border-left: 1px dashed $gray-color;
 		}
 	}
 </style>

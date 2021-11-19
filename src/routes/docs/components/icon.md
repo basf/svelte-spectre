@@ -1,6 +1,11 @@
 ---
 file: icon.md
 title: Icon
+api: [
+    {title: 'icon: Icons', description: 'arrow-up | arrow-right | arrow-down | arrow-left | upward | forward | downward | back | caret | menu | apps | more-horiz | more-vert | resize-horiz | resize-vert | plus | minus | cross | check | stop | shutdown | refresh | search | flag | bookmark | edit | delete | share | download | upload | copy | mail | people | message | photo | time | location | link | emoji | xray | home | circle-check | wifi | audio'},
+    {title: 'size: Size', description: '1x | 2x | 3x | 4x'},
+    {title: 'color: Color', description: 'initial | primary | secondary | dark | gray | light | success | warning | error '},
+]
 config: {
     icons: {
         icon: { options: [
@@ -129,8 +134,6 @@ config: {
             component = null
             break
 	}
-
-    $: console.log(state.svg)
 </script>
 
 # {title}
