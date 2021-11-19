@@ -55,6 +55,8 @@ dictum in vehicula sit amet, feugiat tempus tellus.
 
 ## Vertical
 
+(media wider then 320px)
+
 <Grid>
     <Col xs="12">
         <Figure src="{base}/img/osx-el-capitan-2.jpg" alt="macOS Yosemite Wallpaper" cover></Figure>
