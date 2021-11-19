@@ -141,7 +141,10 @@ CSS icons.
 
 <p>
     {#each Object.values(icons).flat() as icon}
-        <span class="p-2 m-2 d-inline-block" on:click={() => state.icons.icon = icon}>
+        <span
+            class="p-2 m-2 d-inline-block c-hand tooltip"
+            data-tooltip={icon}
+            on:click={() => state.icons.icon = icon}>
             <Icon
                 icon={icon}
                 size={icon === state.icons.icon && state.icons.size}
