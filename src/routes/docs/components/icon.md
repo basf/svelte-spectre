@@ -183,8 +183,18 @@ CSS icons.
 </p>
 
 ```sv
+<script>
+    import Basf from 'basf.svg'
+</script>
+
 <Icon size="4x" color="primary">
+    <Basf />
+    <!-- or -->
     <svelte:component this={Basf}/>
+    <!-- or -->
+    <svg name="basf"/>
+    <!-- or -->
+    <img src="basf.svg" />
 </Icon>
 ```
 
