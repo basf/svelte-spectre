@@ -124,6 +124,9 @@
 			.off-canvas-sidebar {
 				height: 100vh;
 				z-index: $zindex-4;
+				&:empty {
+					display: none;
+				}
 				&.off-canvas-sidebar-right {
 					left: auto;
 					right: 0;
