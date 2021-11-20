@@ -28,14 +28,7 @@
 						</div>
 					{/if}
 					<div class="mr-2">
-						<IconButton
-							size="md"
-							iconSize="2x"
-							shape="square"
-							on:click={(e) =>
-								toast.success({ msg: 'msg', timeout: 0, pos: 'bottom_right' })}
-							><GitHub /></IconButton
-						>
+						<IconButton size="sm" iconSize="2x" on:click><GitHub /></IconButton>
 					</div>
 				</nav>
 			</Navbar>
@@ -73,8 +66,10 @@
 					<dl>
 						{#each metadata.api as api}
 							<dt class="text-normal">
-								<code class="text-bold">{api.title}</code
-								>{` — ${api.description}` || ''}
+								<code class="text-bold">
+									{api.title}
+								</code>
+								{`— ${api.description}` || ''}
 							</dt>
 							<!-- {#if api.description}
 								<dd class="text-gray m-0">
@@ -168,10 +163,15 @@
 	const activeLink = (page, path) => page.path.replace(/\/$/, '') === path.replace(/\.|md/g, '');
 	const setLink = (base, path) => base + path.replace(/\.|md/g, '');
 
-	$: $page.path &&
-		import(`.${$page.path.replace(/\/$/, '')}.md`).then((i) => (metadata = i.metadata));
+	$: metadata = getMeta($page.path) || null;
 
-	$: console.log(metadata, $page);
+	function getMeta(path: string) {
+		const parts = path.split('/').filter(Boolean);
+		const category = parts[1];
+		const page = parts[2];
+
+		return links[category]?.find((l) => l.path.includes(page)).metadata;
+	}
 </script>
 
 <style lang="scss">

@@ -17,7 +17,7 @@
 
 	{#if !right}
 		<div class="off-canvas-sidebar p-2" class:active={openLeft} bind:this={sidebar}>
-			{#if !show}
+			<!-- {#if !show}
 				<button
 					href="#"
 					class="btn btn-clear p-absolute mr--1"
@@ -25,7 +25,7 @@
 					role="button"
 					on:click={() => close('Both')}
 				/>
-			{/if}
+			{/if} -->
 			<slot name="sidebarLeft"><small>off-screen sidebarLeft</small></slot>
 		</div>
 	{/if}
@@ -51,7 +51,7 @@
 			class:off-canvas-sidebar-right={right || both}
 			bind:this={sidebar}
 		>
-			{#if !show}
+			<!-- {#if !show}
 				<button
 					href="#"
 					class="btn btn-clear p-absolute mr--1"
@@ -59,7 +59,7 @@
 					role="button"
 					on:click={() => close('Both')}
 				/>
-			{/if}
+			{/if} -->
 			<slot name="sidebarRight" />
 		</div>
 
