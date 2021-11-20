@@ -2,9 +2,9 @@
 file: icon.md
 title: Icon
 api: [
-    {title: 'icon: Icons', description: 'arrow-up | arrow-right | arrow-down | arrow-left | upward | forward | downward | back | caret | menu | apps | more-horiz | more-vert | resize-horiz | resize-vert | plus | minus | cross | check | stop | shutdown | refresh | search | flag | bookmark | edit | delete | share | download | upload | copy | mail | people | message | photo | time | location | link | emoji | xray | home | circle-check | wifi | audio'},
-    {title: 'size: Size', description: '1x | 2x | 3x | 4x'},
-    {title: 'color: Color', description: 'initial | primary | secondary | dark | gray | light | success | warning | error '},
+    {title: 'icon: Icons', description: 'Icon icons', variables: 'arrow-up | arrow-right | arrow-down | arrow-left | upward | forward | downward | back | caret | menu | apps | more-horiz | more-vert | resize-horiz | resize-vert | plus | minus | cross | check | stop | shutdown | refresh | search | flag | bookmark | edit | delete | share | download | upload | copy | mail | people | message | photo | time | location | link | emoji | xray | home | circle-check | wifi | audio'},
+    {title: 'size: Size', description: 'Icon size', variables: '1x | 2x | 3x | 4x'},
+    {title: 'color: Color', description: 'Icon color', variables: 'initial | primary | secondary | dark | gray | light | success | warning | error '},
 ]
 config: {
     icons: {

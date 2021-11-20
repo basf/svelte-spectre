@@ -17,6 +17,15 @@
 
 	{#if !right}
 		<div class="off-canvas-sidebar p-2" class:active={openLeft} bind:this={sidebar}>
+			{#if !show}
+				<button
+					href="#"
+					class="btn btn-clear p-absolute mr--1"
+					aria-label="Close"
+					role="button"
+					on:click={() => close('Both')}
+				/>
+			{/if}
 			<slot name="sidebarLeft"><small>off-screen sidebarLeft</small></slot>
 		</div>
 	{/if}
@@ -42,6 +51,15 @@
 			class:off-canvas-sidebar-right={right || both}
 			bind:this={sidebar}
 		>
+			{#if !show}
+				<button
+					href="#"
+					class="btn btn-clear p-absolute mr--1"
+					aria-label="Close"
+					role="button"
+					on:click={() => close('Both')}
+				/>
+			{/if}
 			<slot name="sidebarRight" />
 		</div>
 
@@ -127,6 +145,10 @@
 				&:empty {
 					display: none;
 				}
+				.btn-clear {
+					top: 1rem;
+					right: 1rem;
+				}
 				&.off-canvas-sidebar-right {
 					left: auto;
 					right: 0;
@@ -151,7 +173,6 @@
 					flex: 0 0 auto;
 					position: sticky;
 					transform: none;
-					// transition: none;
 				}
 
 				.off-canvas-overlay {

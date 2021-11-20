@@ -1,9 +1,18 @@
 ---
 file: chip.md
 title: Chip
+api: [
+    {title: '<slot>: string', description: 'Chip content', variables: 'any string'},
+    {title: 'active: boolean', description: 'Chip active state', variables: 'true | false'},
+    {title: 'closable: boolean', description: 'Chip closable', variables: 'true | false'},
+    {title: 'avatar: boolean', description: 'Chip avatar', variables: 'true | false'},
+    {title: 'name: boolean', description: 'Chip avatar name', variables: 'any string'},
+    {title: 'status: boolean', description: 'Chip avatar status', variables: 'null | online | away | busy | offline'},
+    {title: 'image: boolean', description: 'Chip avatar image', variables: 'any string url'},
+]
 config:
     {
-        text: { size: 10 },
+        slot: { size: 10 },
         active: { type: 'checkbox' },
         closable: { type: 'checkbox' },
         avatar: { type: 'checkbox' },
@@ -30,7 +39,7 @@ config:
     import Knobs from '../_knobs.svelte'
 
     let state = {
-        text: 'Chip',
+        slot: 'Chip',
         active: false,
         closable: false,
         avatar: false,
@@ -60,7 +69,7 @@ class.
                 <img src="{base}/img/{state.image}" alt="Thor Odinson" />
             {/if}
         </svelte:fragment>
-        {state.text}
+        {state.slot}
     </Chip>
     <Chip active>Active</Chip>
     <Chip name="CP" avatar>Avatar</Chip>
@@ -82,10 +91,10 @@ class.
 
 <Chip>Chip</Chip>
 <Chip active>Active</Chip>
-<Chip initial="CP">Avatar</Chip>
-<Chip initial="CP" status="online">Online</Chip>
-<Chip initial="CP" status="busy">Busy</Chip>
-<Chip initial="CP" status="busy" closable>
+<Chip name="CP">Avatar</Chip>
+<Chip name="CP" status="online">Online</Chip>
+<Chip name="CP" status="busy">Busy</Chip>
+<Chip name="CP" status="busy" closable>
     <img slot="avatar" src="{base}/img/avatar-1.png" alt="Thor Odinson" />Closable
 </Chip>
 ```

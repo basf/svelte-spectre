@@ -21,21 +21,22 @@
 					<Xray />
 				</IconButton>
 
-				<nav slot="right">
+				<nav class="d-flex mr-2" slot="right">
 					{#if !show && metadata?.api}
 						<div class="mr-2">
 							<Button on:click={() => (openRight = !openRight)}>Api</Button>
 						</div>
 					{/if}
-					<!-- <div class="mr-2">
+					<div class="mr-2">
 						<IconButton
-							size="sm"
+							size="md"
 							iconSize="2x"
+							shape="square"
 							on:click={(e) =>
 								toast.success({ msg: 'msg', timeout: 0, pos: 'bottom_right' })}
 							><GitHub /></IconButton
 						>
-					</div> -->
+					</div>
 				</nav>
 			</Navbar>
 		</header>
@@ -51,7 +52,7 @@
 								<a
 									sveltekit:prefetch
 									href={setLink(base, path)}
-									class:active={activePath($page, path)}
+									class:active={activeLink($page, path)}
 									on:click={() => (openLeft = false)}>{title}</a
 								>
 							</li>
@@ -71,16 +72,26 @@
 					<h4>API {metadata.title}</h4>
 					<dl>
 						{#each metadata.api as api}
-							<dt><code>{api.title}</code></dt>
-							<dd>
-								<pre class="code"><code class="code">{api.description}</code></pre>
-							</dd>
+							<dt class="text-normal">
+								<code class="text-bold">{api.title}</code
+								>{` — ${api.description}` || ''}
+							</dt>
+							<!-- {#if api.description}
+								<dd class="text-gray m-0">
+									{api.description}
+								</dd>
+							{/if} -->
+							{#if api.variables}
+								<dd class="">
+									<pre
+										class="code mt-0"><code class="code">{api.variables}</code></pre>
+								</dd>
+							{/if}
 						{:else}
 							<dt>API in progress</dt>
 						{/each}
 					</dl>
 				</article>
-				<!-- {:else}<h4 class="text-gray">API in progress</h4> -->
 			{/if}
 		</svelte:fragment>
 
@@ -112,11 +123,25 @@
 			props: { links },
 		};
 	}
+
+	interface Meta {
+		file: string;
+		title: string;
+		config: any;
+		api: Api[];
+	}
+
+	interface Api {
+		title: string;
+		variables: string;
+		description: string;
+	}
 </script>
 
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
+	import { goto, invalidate, prefetch, prefetchRoutes } from '$app/navigation';
 	import {
 		Accordion,
 		Aside,
@@ -134,16 +159,19 @@
 
 	let openLeft = false,
 		openRight = false,
-		show = false;
+		show = false,
+		metadata: Meta;
 
-	export let links, api;
+	export let links;
 
 	const openedAccordion = (page, key, i) => page.path.includes(key.replace(' ', '_'));
-	const activePath = (page, path) => page.path.replace(/\/$/, '') === path.replace(/\.|md/g, '');
+	const activeLink = (page, path) => page.path.replace(/\/$/, '') === path.replace(/\.|md/g, '');
 	const setLink = (base, path) => base + path.replace(/\.|md/g, '');
-	$: metadata = links[$page.path.split('/')[2]]?.find((l) =>
-		l.path.includes($page.path.split('/')[3])
-	)?.metadata;
+
+	$: $page.path &&
+		import(`.${$page.path.replace(/\/$/, '')}.md`).then((i) => (metadata = i.metadata));
+
+	$: console.log(metadata, $page);
 </script>
 
 <style lang="scss">
