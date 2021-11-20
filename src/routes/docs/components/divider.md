@@ -1,9 +1,15 @@
 ---
 file: divider.md
 title: Divider
+api: [
+    {title: 'align: string', description: 'Divider align', variables: 'left | center | right'},
+    {title: 'text: string', description: 'Divider text', variables: 'any string'},
+    {title: 'empty: boolean', description: 'Divider without separate line', variables: 'true | false'}
+]
 config: { 
     align: { options: ['left', 'center', 'right'] },
-    text: { size: auto }
+    text: { size: auto },
+    empty: { type: checkbox },
 }
 ---
 
@@ -39,7 +45,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent risus leo,
 dictum in vehicula sit amet, feugiat tempus tellus.
 
 <p>
-    <Divider text={state.text} align={`horizontal ${state.align}`} />
+    <Divider text={state.text} align={`horizontal ${state.align}`} empty={state.empty} />
 </p>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent risus leo,

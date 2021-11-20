@@ -1,4 +1,4 @@
-<div
+<hr
 	class:divider={align.includes('horizontal')}
 	class:text-center={align.includes('center')}
 	class:text-right={align.includes('right')}
@@ -21,8 +21,15 @@
 <style lang="scss">
 	:global(.spectre) {
 		@import 'spectre.css/src/utilities/divider';
-		.divider {
-			width: 100%;
+		hr {
+			border: 0;
+			color: transparent;
+			&.divider {
+				width: 100%;
+			}
+			&.divider-vert {
+				height: auto !important;
+			}
 			&.divider-empty {
 				border: 0;
 			}
