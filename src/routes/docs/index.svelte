@@ -243,6 +243,9 @@
 		</svg>
 	</IconButton>
 	<Icon size="2x" icon="emoji" color="secondary" />
+	<Icon size="2x" color="secondary">
+		<img class="img-responsive" src="{base}/b-science.svg" alt="img" />
+	</Icon>
 	<Icon size="2x" color="success">
 		<svg viewBox="0 0 900 900" xmlns="http://www.w3.org/2000/svg">
 			<path

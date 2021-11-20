@@ -30,7 +30,8 @@
 	.icon {
 		text-indent: 0;
 		line-height: normal;
-		& > :global(svg) {
+		& > :global(svg),
+		& > :global(img) {
 			fill: currentColor;
 			width: 100%;
 			height: 100%;
