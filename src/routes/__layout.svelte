@@ -18,8 +18,8 @@
 				</nav>
 
 				<IconButton slot="center" size="xl" iconSize="3x" color="dark" href={`${base}/`}>
-					<!-- <Xray /> -->
-					<SvelteLogo width="auto" height="auto" style="padding: 0.2rem" />
+					<Xray />
+					<!-- <SvelteLogo width="auto" height="auto" style="padding: 0.2rem" /> -->
 				</IconButton>
 
 				<nav class="d-flex mr-2" slot="right">

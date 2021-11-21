@@ -1,6 +1,5 @@
 {#if multiple}
 	<select
-		{...$$restProps}
 		multiple
 		size={options.length}
 		id="select-{fid}"
