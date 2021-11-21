@@ -1,4 +1,4 @@
-<ul {...$$restProps} class="breadcrumb {offset}">
+<ul {...$$restProps} class="breadcrumb">
 	{#each links as link}
 		<li class="breadcrumb-item">
 			<a href={link.href} class:tooltip={link.tooltip} data-tooltip={link.tooltip}>
@@ -11,7 +11,6 @@
 <script  context="module"></script>
 
 <script >export let links;
-export let offset = '';
 </script>
 
 <style >.breadcrumb {

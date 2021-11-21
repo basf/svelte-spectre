@@ -1,4 +1,4 @@
-<div class="empty {offset}">
+<div class="empty">
 	{#if $$slots.icon}
 		<div class="empty-icon">
 			<slot name="icon" />
@@ -20,15 +20,6 @@
 		</div>
 	{/if}
 </div>
-
-<script lang="ts" context="module">
-	import type { Offset } from '../../types/position';
-	export type { Offset };
-</script>
-
-<script lang="ts">
-	export let offset: Offset = '';
-</script>
 
 <style lang="scss">
 	:global(.spectre) {

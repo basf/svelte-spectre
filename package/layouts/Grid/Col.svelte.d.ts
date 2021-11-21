@@ -1,13 +1,10 @@
 import { SvelteComponentTyped } from 'svelte';
 declare type Mq = 'col' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-import type { Offset, Inset } from '../../types/position';
-export type { Mq, Offset };
+export type { Mq };
 declare const __propDef: {
     props: {
         [x: string]: any;
         mq?: Mq[];
-        offset?: Offset;
-        inset?: Inset;
     };
     events: {
         [evt: string]: CustomEvent<any>;

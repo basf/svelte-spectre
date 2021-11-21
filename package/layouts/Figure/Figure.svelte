@@ -1,4 +1,4 @@
-<figure class="figure {offset}">
+<figure class="figure">
 	<slot name="img">
 		<img
 			class="img-responsive"
@@ -14,8 +14,7 @@
 
 <script  context="module"></script>
 
-<script >export let offset = '';
-export let contain = false;
+<script >export let contain = false;
 export let cover = false;
 export let align = 'center';
 </script>

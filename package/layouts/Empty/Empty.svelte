@@ -1,4 +1,4 @@
-<div class="empty {offset}">
+<div class="empty">
 	{#if $$slots.icon}
 		<div class="empty-icon">
 			<slot name="icon" />
@@ -20,11 +20,6 @@
 		</div>
 	{/if}
 </div>
-
-<script  context="module"></script>
-
-<script >export let offset = '';
-</script>
 
 <style >:global(.spectre) .empty {
   background: #f7f8f9;

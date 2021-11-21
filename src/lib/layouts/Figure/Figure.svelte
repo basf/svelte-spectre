@@ -1,4 +1,4 @@
-<figure class="figure {offset}">
+<figure class="figure">
 	<slot name="img">
 		<img
 			class="img-responsive"
@@ -13,13 +13,11 @@
 </figure>
 
 <script lang="ts" context="module">
-	import type { Offset } from '../../types/position';
 	type Align = '' | 'left' | 'center' | 'right';
-	export type { Offset, Align };
+	export type { Align };
 </script>
 
 <script lang="ts">
-	export let offset: Offset = '';
 	export let contain: boolean = false;
 	export let cover: boolean = false;
 	export let align: Align = 'center';

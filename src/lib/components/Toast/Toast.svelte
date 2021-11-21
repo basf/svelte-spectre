@@ -1,9 +1,9 @@
 {#if visible}
-	<div class="toast {type && `toast-${type}`} {offset}" use:pausable={timeout > 0}>
+	<div class="toast {type && `toast-${type}`}" use:pausable={timeout > 0}>
 		{#if icon}
-			<Icon {icon} offset="mr-2" />
+			<Icon {icon} />
 		{/if}
-		<div class="toast-content">
+		<div class="toast-content ml-2">
 			<slot />
 		</div>
 		{#if closable}
@@ -28,7 +28,6 @@
 	import type { ToastItem } from './toast';
 	import type { Color } from '../../types/bg';
 	import type { Icons } from '../../types/icons';
-	import type { Offset } from '../../types/position';
 
 	interface Options {
 		delay?: number;
@@ -53,7 +52,6 @@
 	export let invert: boolean = toastItem.invert || false;
 	export let reverse: boolean = toastItem.reverse || false;
 	export let visible: boolean = true;
-	export let offset: Offset = '';
 
 	let init: number = reverse ? 1 : 0,
 		next: number = reverse ? 0 : 1,

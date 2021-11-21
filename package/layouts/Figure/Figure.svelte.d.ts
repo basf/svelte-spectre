@@ -1,11 +1,9 @@
 import { SvelteComponentTyped } from 'svelte';
-import type { Offset } from '../../types/position';
 declare type Align = '' | 'left' | 'center' | 'right';
-export type { Offset, Align };
+export type { Align };
 declare const __propDef: {
     props: {
         [x: string]: any;
-        offset?: Offset;
         contain?: boolean;
         cover?: boolean;
         align?: Align;

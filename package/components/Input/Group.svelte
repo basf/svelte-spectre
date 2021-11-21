@@ -1,4 +1,4 @@
-<div class="input-group {offset} {inset}">
+<div class="input-group">
 	{#if $$slots.addon}
 		<span class="input-group-addon addon-{size}"><slot name="addon" /></span>
 	{/if}
@@ -14,8 +14,6 @@
 
 <script >export let button = 'input-group-btn';
 export let size = 'md';
-export let offset;
-export let inset;
 </script>
 
 <style >.form-group:not(:last-child) {

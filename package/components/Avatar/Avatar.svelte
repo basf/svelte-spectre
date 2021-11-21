@@ -1,5 +1,5 @@
 <figure
-	class="avatar avatar-{size} text-{weight} {offset}"
+	class="avatar avatar-{size} text-{weight}"
 	data-initial={initials}
 	style="
         background-color: {color.toHexString()};
@@ -36,7 +36,6 @@ export let caption = false;
 export let size = 'md';
 export let weight = 'normal';
 export let status = false;
-export let offset = '';
 export let badge = '';
 let words;
 let clip;

@@ -1,12 +1,10 @@
-<div class="column {cols} {offset} {inset}">
+<div class="column {cols}">
 	<slot />
 </div>
 
 <script  context="module"></script>
 
 <script >export let mq = ['col', 'xs', 'sm', 'md', 'lg', 'xl'];
-export let offset = '';
-export let inset = '';
 $: cols =
     $$restProps &&
         Object.entries($$restProps)

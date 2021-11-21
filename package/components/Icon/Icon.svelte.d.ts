@@ -1,7 +1,6 @@
 import { SvelteComponentTyped } from 'svelte';
 import type { Zoom } from '../../types/size';
 import type { Icons } from '../../types/icons';
-import type { Offset } from '../../types/position';
 import type { Color } from '../../types/text';
 export type { Zoom, Icons };
 declare const __propDef: {
@@ -10,7 +9,6 @@ declare const __propDef: {
         icon?: Icons;
         size?: Zoom;
         color?: Color;
-        offset?: Offset;
     };
     events: {
         [evt: string]: CustomEvent<any>;

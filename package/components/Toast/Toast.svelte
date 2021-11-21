@@ -1,9 +1,9 @@
 {#if visible}
-	<div class="toast {type && `toast-${type}`} {offset}" use:pausable={timeout > 0}>
+	<div class="toast {type && `toast-${type}`}" use:pausable={timeout > 0}>
 		{#if icon}
-			<Icon {icon} offset="mr-2" />
+			<Icon {icon} />
 		{/if}
-		<div class="toast-content">
+		<div class="toast-content ml-2">
 			<slot />
 		</div>
 		{#if closable}
@@ -34,7 +34,6 @@ export let closable = toastItem.closable || true;
 export let invert = toastItem.invert || false;
 export let reverse = toastItem.reverse || false;
 export let visible = true;
-export let offset = '';
 let init = reverse ? 1 : 0, next = reverse ? 0 : 1, start = Date.now(), remaining = toastItem.timeout, options = { duration: remaining };
 const defaults = { delay: 0, duration: 0, easing: linear };
 const progress = tweened(init, { ...defaults });

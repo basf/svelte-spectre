@@ -1,5 +1,5 @@
 <figure
-	class="avatar avatar-{size} text-{weight} {offset}"
+	class="avatar avatar-{size} text-{weight}"
 	data-initial={initials}
 	style="
         background-color: {color.toHexString()};
@@ -31,9 +31,8 @@
 
 	import type { Size } from '../../types/size';
 	import type { Weight } from '../../types/text';
-	import type { Offset } from '../../types/position';
 	export type Status = 'online' | 'busy' | 'away' | 'offline' | false;
-	export type { Offset, Size, Weight };
+	export type { Size, Weight };
 </script>
 
 <script lang="ts">
@@ -44,7 +43,6 @@
 	export let size: Size = 'md';
 	export let weight: Weight = 'normal';
 	export let status: Status = false;
-	export let offset: Offset = '';
 	export let badge: string = '';
 	let words: RegExpMatchArray;
 	let clip: number;

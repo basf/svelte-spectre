@@ -1,10 +1,24 @@
+/** @typedef {typeof __propDef.props}  EmptyProps */
+/** @typedef {typeof __propDef.events}  EmptyEvents */
+/** @typedef {typeof __propDef.slots}  EmptySlots */
+export default class Empty extends SvelteComponentTyped<
+    {},
+    {
+        [evt: string]: CustomEvent<any>;
+    },
+    {
+        icon: {};
+        title: {};
+        subtitle: {};
+        action: {};
+    }
+> {}
+export type EmptyProps = typeof __propDef.props;
+export type EmptyEvents = typeof __propDef.events;
+export type EmptySlots = typeof __propDef.slots;
 import { SvelteComponentTyped } from 'svelte';
-import type { Offset } from '../../types/position';
-export type { Offset };
 declare const __propDef: {
-    props: {
-        offset?: Offset;
-    };
+    props: {};
     events: {
         [evt: string]: CustomEvent<any>;
     };
@@ -15,11 +29,4 @@ declare const __propDef: {
         action: {};
     };
 };
-export declare type EmptyProps = typeof __propDef.props;
-export declare type EmptyEvents = typeof __propDef.events;
-export declare type EmptySlots = typeof __propDef.slots;
-export default class Empty extends SvelteComponentTyped<
-    EmptyProps,
-    EmptyEvents,
-    EmptySlots
-> {}
+export {};

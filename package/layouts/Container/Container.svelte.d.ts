@@ -1,11 +1,9 @@
 import { SvelteComponentTyped } from 'svelte';
 import type { Size } from '../../types/size';
-import type { Offset } from '../../types/position';
-export type { Size, Offset };
+export type { Size };
 declare const __propDef: {
     props: {
         size?: Size;
-        offset?: Offset;
     };
     events: {
         [evt: string]: CustomEvent<any>;

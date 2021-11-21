@@ -1,5 +1,4 @@
 import { SvelteComponentTyped } from 'svelte';
-import type { Offset } from '../../types/position';
 interface Link {
     href: string;
     title: string;
@@ -10,7 +9,6 @@ declare const __propDef: {
     props: {
         [x: string]: any;
         links: Link[];
-        offset?: Offset;
     };
     events: {
         [evt: string]: CustomEvent<any>;

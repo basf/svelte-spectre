@@ -1,7 +1,4 @@
-<i
-	{...$$restProps}
-	class="icon icon-{size} {icon && `icon-${icon}`} {color && `text-${color}`} {offset}"
->
+<i {...$$restProps} class="icon icon-{size} {icon && `icon-${icon}`} {color && `text-${color}`}">
 	<slot />
 </i>
 
@@ -10,7 +7,6 @@
 <script >export let icon = '';
 export let size = '1x';
 export let color = '';
-export let offset = '';
 </script>
 
 <style >.icon {

@@ -1,4 +1,4 @@
-<div class="hero {size && `hero-${size}`} {bg && `bg-${bg}`} {offset}">
+<div class="hero {size && `hero-${size}`} {bg && `bg-${bg}`}">
 	<div class="hero-body" class:text-center={center}>
 		<slot>
 			<h1>Hero title</h1>
@@ -10,7 +10,6 @@
 <script lang="ts" context="module">
 	import type { Size } from '../../types/size';
 	import type { Color } from '../../types/bg';
-	import type { Offset } from '../../types/position';
 
 	export type { Size, Color };
 </script>
@@ -19,7 +18,6 @@
 	export let size: Size = 'xs';
 	export let bg: Color = '';
 	export let center: boolean = false;
-	export let offset: Offset = '';
 </script>
 
 <style lang="scss">

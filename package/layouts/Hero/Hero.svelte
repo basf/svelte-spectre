@@ -1,4 +1,4 @@
-<div class="hero {size && `hero-${size}`} {bg && `bg-${bg}`} {offset}">
+<div class="hero {size && `hero-${size}`} {bg && `bg-${bg}`}">
 	<div class="hero-body" class:text-center={center}>
 		<slot>
 			<h1>Hero title</h1>
@@ -12,7 +12,6 @@
 <script >export let size = 'xs';
 export let bg = '';
 export let center = false;
-export let offset = '';
 </script>
 
 <style >:global(.spectre) .hero {

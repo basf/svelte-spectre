@@ -1,11 +1,10 @@
-<div class="container grid-{size} {offset}">
+<div class="container grid-{size}">
 	<slot />
 </div>
 
 <script context="module" ></script>
 
 <script >export let size = 'md';
-export let offset = '';
 </script>
 
 <style >:global(.spectre) .container {

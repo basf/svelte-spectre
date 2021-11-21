@@ -1,11 +1,8 @@
 import { SvelteComponentTyped } from 'svelte';
-import type { Offset } from '../../types/position';
 import type { Color } from '../../types/text';
-export type { Offset, Color };
 declare const __propDef: {
     props: {
         [x: string]: any;
-        offset?: Offset;
         color?: Color;
         rounded?: boolean;
     };
@@ -24,3 +21,4 @@ export default class Badge extends SvelteComponentTyped<
     BadgeEvents,
     BadgeSlots
 > {}
+export {};

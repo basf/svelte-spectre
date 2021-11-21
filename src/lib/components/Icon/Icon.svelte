@@ -1,14 +1,10 @@
-<i
-	{...$$restProps}
-	class="icon icon-{size} {icon && `icon-${icon}`} {color && `text-${color}`} {offset}"
->
+<i {...$$restProps} class="icon icon-{size} {icon && `icon-${icon}`} {color && `text-${color}`}">
 	<slot />
 </i>
 
 <script lang="ts" context="module">
 	import type { Zoom } from '../../types/size';
 	import type { Icons } from '../../types/icons';
-	import type { Offset } from '../../types/position';
 	import type { Color } from '../../types/text';
 
 	export type { Zoom, Icons };
@@ -18,7 +14,6 @@
 	export let icon: Icons = '';
 	export let size: Zoom = '1x';
 	export let color: Color = '';
-	export let offset: Offset = '';
 </script>
 
 <style lang="scss">

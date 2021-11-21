@@ -1,6 +1,6 @@
-<div {...$$restProps} class="chip {offset}" class:active>
+<div {...$$restProps} class="chip" class:active>
 	{#if avatar}
-		<Avatar size="sm" {name} {status} offset="ml--2 mr-2">
+		<Avatar size="sm" {name} {status}>
 			<slot name="avatar" />
 		</Avatar>
 	{/if}
@@ -21,7 +21,6 @@
 
 <script >import { createEventDispatcher } from 'svelte';
 const dispatch = createEventDispatcher();
-export let offset = '';
 export let avatar = false;
 export let name = '';
 export let status = false;
@@ -60,6 +59,10 @@ export let closable = false;
   transform: scale(0.75);
 }
 
+:global(.spectre) .chip :global(.avatar) {
+  margin-left: -0.4rem;
+  margin-right: 0.4rem;
+}
 :global(.spectre) .chip .btn-clear {
   background: transparent;
   border: 0;

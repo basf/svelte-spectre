@@ -1,9 +1,8 @@
 import { SvelteComponentTyped } from 'svelte';
 import type { Size } from '../../types/size';
 import type { Weight } from '../../types/text';
-import type { Offset } from '../../types/position';
 export declare type Status = 'online' | 'busy' | 'away' | 'offline' | false;
-export type { Offset, Size, Weight };
+export type { Size, Weight };
 declare const __propDef: {
     props: {
         name?: string;
@@ -13,7 +12,6 @@ declare const __propDef: {
         size?: Size;
         weight?: Weight;
         status?: Status;
-        offset?: Offset;
         badge?: string;
     };
     events: {

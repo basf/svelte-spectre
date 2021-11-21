@@ -1,16 +1,12 @@
-<span {...$$restProps} class="label label-{color} {offset}" class:label-rounded={rounded}>
+<span {...$$restProps} class="label label-{color}" class:label-rounded={rounded}>
 	<slot />
 </span>
 
 <script lang="ts" context="module">
-	import type { Offset } from '../../types/position';
 	import type { Color } from '../../types/text';
-
-	export type { Offset, Color };
 </script>
 
 <script lang="ts">
-	export let offset: Offset = '';
 	export let color: Color = 'initial';
 	export let rounded: boolean = false;
 </script>

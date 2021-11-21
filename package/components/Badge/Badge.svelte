@@ -1,11 +1,10 @@
-<span {...$$restProps} class="label label-{color} {offset}" class:label-rounded={rounded}>
+<span {...$$restProps} class="label label-{color}" class:label-rounded={rounded}>
 	<slot />
 </span>
 
 <script  context="module"></script>
 
-<script >export let offset = '';
-export let color = 'initial';
+<script >export let color = 'initial';
 export let rounded = false;
 </script>
 
