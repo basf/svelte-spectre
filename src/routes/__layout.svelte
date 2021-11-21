@@ -65,19 +65,14 @@
 					<h4>API {metadata.title}</h4>
 					<dl>
 						{#each metadata.api as api}
-							<dt class="text-normal">
+							<dt class="text-normal pt-2">
 								<code class="text-bold">
 									{api.title}
 								</code>
 								{`— ${api.description}` || ''}
 							</dt>
-							<!-- {#if api.description}
-								<dd class="text-gray m-0">
-									{api.description}
-								</dd>
-							{/if} -->
 							{#if api.variables}
-								<dd class="">
+								<dd>
 									<pre
 										class="code mt-0"><code class="code">{api.variables}</code></pre>
 								</dd>
