@@ -1,15 +1,44 @@
 ---
 file: chip.md
 title: Chip
-api: [
-    {title: '<slot>: string', description: 'Chip content', variables: 'any string'},
-    {title: 'active: boolean', description: 'Chip active state', variables: 'true | false'},
-    {title: 'closable: boolean', description: 'Chip closable', variables: 'true | false'},
-    {title: 'avatar: boolean', description: 'Chip avatar', variables: 'true | false'},
-    {title: 'name: boolean', description: 'Chip avatar name', variables: 'any string'},
-    {title: 'status: boolean', description: 'Chip avatar status', variables: 'null | online | away | busy | offline'},
-    {title: 'image: boolean', description: 'Chip avatar image', variables: 'any string url'},
-]
+api:
+    [
+        {
+            title: '<slot>: string',
+            description: 'Chip content',
+            variables: 'any string',
+        },
+        {
+            title: 'active: boolean',
+            description: 'Chip active state',
+            variables: 'true | false',
+        },
+        {
+            title: 'closable: boolean',
+            description: 'Chip closable',
+            variables: 'true | false',
+        },
+        {
+            title: 'avatar: boolean',
+            description: 'Chip avatar',
+            variables: 'true | false',
+        },
+        {
+            title: 'name: boolean',
+            description: 'Chip avatar name',
+            variables: 'any string',
+        },
+        {
+            title: 'status: boolean',
+            description: 'Chip avatar status',
+            variables: 'null | online | away | busy | offline',
+        },
+        {
+            title: 'image: boolean',
+            description: 'Chip avatar image',
+            variables: 'any string url',
+        },
+    ]
 config:
     {
         slot: { size: 10 },

@@ -1,7 +1,8 @@
 ---
 file: avatar.md
 title: Avatar
-config: {
+config:
+    {
         name: { size: 12 },
         size: { options: ['xs', 'sm', 'md', 'lg', 'xl'] },
         status: { options: [null, 'online', 'away', 'busy', 'offline'] },

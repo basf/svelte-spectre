@@ -1,4 +1,4 @@
-import watchMedia from "svelte-media";
+import watchMedia from 'svelte-media';
 
 const mediaqueries = {
     xs: '(max-width: 480px)',

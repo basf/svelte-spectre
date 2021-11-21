@@ -9,10 +9,14 @@
 	use:addBadge={badge}
 >
 	<slot />
-	{#if $$slots.sub && !status}
-		<slot name="sub" subclass="avatar-icon" />
+
+	{#if status}
+		<i class="avatar-presence {status}" />
+	{:else if $$slots.sub}
+		<span class="avatar-icon">
+			<slot name="sub" />
+		</span>
 	{/if}
-	{#if status}<i class="avatar-presence {status}" />{/if}
 	{#if caption || $$slots.caption}
 		<figcaption class="text-dark">
 			<slot name="caption">{name}</slot>
@@ -33,7 +37,7 @@ export let size = 'md';
 export let weight = 'normal';
 export let status = false;
 export let offset = '';
-export let badge;
+export let badge = '';
 let words;
 let clip;
 let fontSize;
@@ -42,7 +46,7 @@ $: color = bg ? new TinyColor(bg) : random();
 $: words = name.length && name.replace('.', '/').match(/\b(\w)|([A-Z])|(\/)/g);
 $: clip = len || words.length;
 $: fontSize = SIZE[size] * (1 / clip);
-$: initials = words && words.slice(0, clip).join('').toUpperCase() || '';
+$: initials = (words && words.slice(0, clip).join('').toUpperCase()) || '';
 </script>
 
 <style >.text-primary {
@@ -733,6 +737,9 @@ a.text-error:visited {
   transform: translate(50%, 50%);
   width: 50%;
   z-index: 2;
+}
+:global(.spectre) .avatar :global(.avatar-icon):empty {
+  display: none;
 }
 :global(.spectre) figcaption {
   position: absolute;

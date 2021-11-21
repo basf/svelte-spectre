@@ -9,24 +9,33 @@
 		<a
 			class="off-canvas-toggle btn btn-primary btn-action"
 			href="#"
-			on:click|preventDefault={close}
+			on:click|preventDefault={() => close('Left')}
 		>
 			<i class="icon icon-menu" />
 		</a>
 	{/if}
 
 	{#if !right}
-		<div class="off-canvas-sidebar p-2" class:active={open} bind:this={sidebar}>
-			<slot name="sidebar"><small>off-screen sidebar</small></slot>
+		<div class="off-canvas-sidebar p-2" class:active={openLeft} bind:this={sidebar}>
+			<!-- {#if !show}
+				<button
+					href="#"
+					class="btn btn-clear p-absolute mr--1"
+					aria-label="Close"
+					role="button"
+					on:click={() => close('Both')}
+				/>
+			{/if} -->
+			<slot name="sidebarLeft"><small>off-screen sidebarLeft</small></slot>
 		</div>
 	{/if}
 
-	{#if open && !show}
+	{#if (openLeft || openRight) && !show}
 		<a
 			class="off-canvas-overlay"
 			href="#"
-			class:z-300={open}
-			on:click|preventDefault={close}
+			class:z-300={openLeft || openRight}
+			on:click|preventDefault={() => close('Both')}
 			transition:fade
 		/>
 	{/if}
@@ -35,32 +44,77 @@
 		<slot>off-screen content</slot>
 	</div>
 
-	{#if right}
+	{#if (right || both) && $$slots.sidebarRight}
 		<div
 			class="off-canvas-sidebar p-2"
-			class:active={open}
-			class:off-canvas-sidebar-right={right}
+			class:active={openRight}
+			class:off-canvas-sidebar-right={right || both}
 			bind:this={sidebar}
 		>
-			<slot name="sidebar"><small>off-screen sidebar</small></slot>
+			<!-- {#if !show}
+				<button
+					href="#"
+					class="btn btn-clear p-absolute mr--1"
+					aria-label="Close"
+					role="button"
+					on:click={() => close('Both')}
+				/>
+			{/if} -->
+			<slot name="sidebarRight" />
 		</div>
+
+		{#if !extclose}
+			<a
+				class="off-canvas-toggle btn btn-primary btn-action"
+				href="#"
+				on:click|preventDefault={() => close('Right')}
+			>
+				<i class="icon icon-menu" />
+			</a>
+		{/if}
 	{/if}
 </div>
 
 <script context="module" >import { fade } from 'svelte/transition';
 </script>
 
-<script >export let open = false;
+<script >export let openLeft = false;
+export let openRight = false;
 export let show = false;
 export let extclose = false;
 export let right = false;
+export let both = false;
 export let breakpoint = 960;
 export let size = 'md';
 export let offset = '';
-const close = () => (open = !open);
+const media = {
+    xs: 480,
+    sm: 600,
+    md: 840,
+    lg: 960,
+    xl: 1280,
+    xxl: 1281,
+};
+const close = (side) => {
+    switch (side) {
+        case 'Left':
+            openLeft = !openLeft;
+            break;
+        case 'Right':
+            openRight = !openRight;
+            break;
+        case 'Both':
+            openRight = openRight && !openRight;
+            openLeft = openLeft && !openLeft;
+            break;
+        default:
+            break;
+    }
+};
 let ww = 0, sidebar = null;
-$: show = ww >= breakpoint;
-$: open = show ? false : open;
+$: show = ww >= media[breakpoint];
+$: openLeft = show ? false : openLeft;
+$: openRight = show ? false : openRight;
 </script>
 
 <style >@charset "UTF-8";
@@ -888,6 +942,13 @@ $: open = show ? false : open;
 :global(.spectre) .off-canvas .off-canvas-sidebar {
   height: 100vh;
   z-index: 400;
+}
+:global(.spectre) .off-canvas .off-canvas-sidebar:empty {
+  display: none;
+}
+:global(.spectre) .off-canvas .off-canvas-sidebar .btn-clear {
+  top: 1rem;
+  right: 1rem;
 }
 :global(.spectre) .off-canvas .off-canvas-sidebar.off-canvas-sidebar-right {
   left: auto;

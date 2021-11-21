@@ -1,7 +1,7 @@
 /* class should be prefixed with `text-{type}` */
 
 export type Color =
-    'initial'
+    | 'initial'
     | 'primary'
     | 'secondary'
     | 'dark'
@@ -14,7 +14,7 @@ export type Color =
 export type Position = 'inherit' | 'left' | 'center' | 'right' | 'justify';
 export type Case = 'none' | 'lowercase' | 'uppercase' | 'capitalize';
 export type Weight =
-    'normal'
+    | 'normal'
     | 'bold'
     | 'italic'
     | 'muted'

@@ -21,6 +21,8 @@
 	import type { Status } from '../Avatar/Avatar.svelte';
 
 	import Avatar from '../Avatar/Avatar.svelte';
+
+	export type { Status };
 </script>
 
 <script lang="ts">

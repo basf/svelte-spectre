@@ -76,4 +76,7 @@ export let align = 'center';
 :global(.spectre) .figure .figure-caption {
   color: #66758c;
   margin-top: 0.4rem;
+}
+:global(.spectre) .figure {
+  margin: 0;
 }</style>

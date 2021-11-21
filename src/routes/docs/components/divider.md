@@ -1,16 +1,30 @@
 ---
 file: divider.md
 title: Divider
-api: [
-    {title: 'align: string', description: 'Divider align', variables: 'left | center | right'},
-    {title: 'text: string', description: 'Divider text', variables: 'any string'},
-    {title: 'empty: boolean', description: 'Divider without separate line', variables: 'true | false'}
-]
-config: { 
-    align: { options: ['left', 'center', 'right'] },
-    text: { size: auto },
-    empty: { type: checkbox },
-}
+api:
+    [
+        {
+            title: 'align: string',
+            description: 'Divider align',
+            variables: 'left | center | right',
+        },
+        {
+            title: 'text: string',
+            description: 'Divider text',
+            variables: 'any string',
+        },
+        {
+            title: 'empty: boolean',
+            description: 'Divider without separate line',
+            variables: 'true | false',
+        },
+    ]
+config:
+    {
+        align: { options: ['left', 'center', 'right'] },
+        text: { size: auto },
+        empty: { type: checkbox },
+    }
 ---
 
 <script>

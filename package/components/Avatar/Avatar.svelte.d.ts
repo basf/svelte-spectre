@@ -14,16 +14,14 @@ declare const __propDef: {
         weight?: Weight;
         status?: Status;
         offset?: Offset;
-        badge: any;
+        badge?: string;
     };
     events: {
         [evt: string]: CustomEvent<any>;
     };
     slots: {
         default: {};
-        sub: {
-            subclass: string;
-        };
+        sub: {};
         caption: {};
     };
 };

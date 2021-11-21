@@ -9,8 +9,8 @@ declare const __propDef: {
         [x: string]: any;
         icon?: Icons;
         size?: Zoom;
-        offset?: Offset;
         color?: Color;
+        offset?: Offset;
     };
     events: {
         [evt: string]: CustomEvent<any>;

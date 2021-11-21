@@ -4,10 +4,12 @@ import type { Offset } from '../../types/position';
 export type { Size, Offset };
 declare const __propDef: {
     props: {
-        open?: boolean;
+        openLeft?: boolean;
+        openRight?: boolean;
         show?: boolean;
         extclose?: boolean;
         right?: boolean;
+        both?: boolean;
         breakpoint?: string | number;
         size?: Size;
         offset?: Offset;
@@ -16,8 +18,9 @@ declare const __propDef: {
         [evt: string]: CustomEvent<any>;
     };
     slots: {
-        sidebar: {};
+        sidebarLeft: {};
         default: {};
+        sidebarRight: {};
     };
 };
 export declare type AsideProps = typeof __propDef.props;

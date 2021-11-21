@@ -1,10 +1,11 @@
 import { SvelteComponentTyped } from 'svelte';
-declare type Align = 'vertical' | 'horizontal' | 'center';
+declare type Align = 'vertical' | 'horizontal' | 'center' | 'left' | 'right';
 export type { Align };
 declare const __propDef: {
     props: {
         align?: Align;
         text?: string;
+        empty?: boolean;
     };
     events: {
         [evt: string]: CustomEvent<any>;

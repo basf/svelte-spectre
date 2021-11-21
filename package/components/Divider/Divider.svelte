@@ -1,7 +1,9 @@
-<div
-	class:divider={align === 'horizontal'}
-	class:text-center={align === 'center'}
+<hr
+	class:divider={align.includes('horizontal')}
+	class:text-center={align.includes('center')}
+	class:text-right={align.includes('right')}
 	class:divider-vert={align === 'vertical'}
+	class:divider-empty={empty}
 	data-content={text || undefined}
 />
 
@@ -9,6 +11,7 @@
 
 <script >export let align = 'horizontal';
 export let text = '';
+export let empty = false;
 </script>
 
 <style >:global(.spectre) .divider,
@@ -54,4 +57,17 @@ export let text = '';
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+:global(.spectre) hr {
+  border: 0;
+  color: transparent;
+}
+:global(.spectre) hr.divider {
+  width: 100%;
+}
+:global(.spectre) hr.divider-vert {
+  height: auto !important;
+}
+:global(.spectre) hr.divider-empty {
+  border: 0;
 }</style>

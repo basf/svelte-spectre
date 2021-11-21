@@ -9,8 +9,8 @@
 
 <script >export let icon = '';
 export let size = '1x';
-export let offset = '';
 export let color = '';
+export let offset = '';
 </script>
 
 <style >.icon {
@@ -606,8 +606,9 @@ export let color = '';
 
 .icon {
   text-indent: 0;
+  line-height: normal;
 }
-.icon > :global(svg) {
+.icon > :global(svg), .icon > :global(img) {
   fill: currentColor;
   width: 100%;
   height: 100%;

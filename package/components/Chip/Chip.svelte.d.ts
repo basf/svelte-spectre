@@ -1,6 +1,7 @@
 import { SvelteComponentTyped } from 'svelte';
 import type { Offset } from '../../types/position';
 import type { Status } from '../Avatar/Avatar.svelte';
+export type { Status };
 declare const __propDef: {
     props: {
         [x: string]: any;
@@ -29,4 +30,3 @@ export default class Chip extends SvelteComponentTyped<
     ChipEvents,
     ChipSlots
 > {}
-export {};
