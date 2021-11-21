@@ -159,19 +159,18 @@
 
 <style lang="scss" global>
 	@import '../app';
-	:global(.spectre) {
-		@import 'spectre.css/src/menus';
-		nav#sidebar {
-			.accordion .menu {
-				&.menu-nav {
-					padding-top: 0;
-				}
-				.menu-item > a {
-					color: $gray-color-dark;
-					font-size: 0.75rem;
-					&.active {
-						color: $primary-color;
-					}
+	@import 'spectre.css/src/menus';
+	nav#sidebar {
+		.accordion .menu {
+			&.menu-nav {
+				padding-top: 0;
+			}
+			.menu-item > a {
+				color: $gray-color-dark;
+				font-size: 0.75rem;
+				text-decoration: none;
+				&.active {
+					color: $primary-color;
 				}
 			}
 		}
