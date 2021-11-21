@@ -192,7 +192,7 @@ config:
 # {title}
 
 Icons.css are single-element, responsive and pure CSS icons. You can include
-spectre-icons.css located in the dist folder to your web <head> to have these
+spectre-icons.css located in the dist folder to your web `<head>` to have these
 CSS icons.
 
 <p>

@@ -39,7 +39,7 @@
 			{#each Object.entries(links) as [key, value], i}
 				<Accordion toggled opened={openedAccordion($page, key, i)}>
 					<strong slot="title">{key.replace(/_|-|[0-9]/g, ' ')}</strong>
-					<ul class="menu menu-nav">
+					<Menu nav>
 						{#each value as { path, metadata: { title } }, i}
 							<li class="menu-item">
 								<a
@@ -50,7 +50,7 @@
 								>
 							</li>
 						{/each}
-					</ul>
+					</Menu>
 				</Accordion>
 			{/each}
 		</nav>
@@ -131,21 +131,9 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
-	import { goto, invalidate, prefetch, prefetchRoutes } from '$app/navigation';
-	import {
-		Accordion,
-		Aside,
-		Button,
-		Container,
-		IconButton,
-		Navbar,
-		Spectre,
-		Toaster,
-		toast,
-	} from '$lib';
+	import { Accordion, Aside, Button, IconButton, Menu, Navbar, Spectre, Toaster } from '$lib';
 	import Xray from '$assets/b-science.svg';
 	import GitHub from '$assets/github.svg';
-	import '../app.scss';
 
 	let openLeft = false,
 		openRight = false,
@@ -169,33 +157,45 @@
 	}
 </script>
 
-<style lang="scss">
-	:global {
-		@import 'docs/_code';
-		@import 'spectre.css/src/codes';
-		.off-canvas .off-canvas-sidebar {
+<style lang="scss" global>
+	@import '../app';
+	:global(.spectre) {
+		@import 'spectre.css/src/menus';
+		nav#sidebar {
+			.accordion .menu {
+				&.menu-nav {
+					padding-top: 0;
+				}
+				.menu-item > a {
+					color: $gray-color-dark;
+					font-size: 0.75rem;
+					&.active {
+						color: $primary-color;
+					}
+				}
+			}
+		}
+	}
+
+	.off-canvas {
+		height: auto !important;
+		min-height: 100%;
+		.off-canvas-sidebar {
 			min-width: 12rem !important;
 			max-width: 18rem !important;
 			@media screen and (max-width: 450px) {
 				max-width: 80vw !important;
 			}
 		}
-		.docs-demo {
-			padding-bottom: 1rem;
-			padding-top: 1rem;
-			.column {
-				padding: 0.4rem;
-			}
+		.off-canvas-content {
+			height: auto !important;
+			min-height: 100%;
+			display: grid !important;
+			grid-template-rows: auto 1fr auto;
 		}
-	}
-	@import 'spectre.css/src/menus';
-	@import 'spectre.css/src/icons';
-
-	.accordion .menu .menu-item > a {
-		color: $gray-color-dark;
-		font-size: 0.75rem;
-		&.active {
-			color: $primary-color;
+		.off-canvas-sidebar-right {
+			background: $light-color !important;
+			border-left: 1px dashed $gray-color;
 		}
 	}
 	header {
@@ -212,30 +212,5 @@
 	}
 	strong {
 		text-transform: capitalize;
-	}
-	nav#sidebar {
-		:global(.menu.menu-nav) {
-			padding-top: 0;
-			// padding-left: 0;
-			// padding-bottom: 0;
-		}
-	}
-	:global(body),
-	:global(html) {
-		height: 100%;
-		:global(.off-canvas) {
-			height: auto !important;
-			min-height: 100%;
-		}
-		:global(.off-canvas-content) {
-			height: auto !important;
-			min-height: 100%;
-			display: grid !important;
-			grid-template-rows: auto 1fr auto;
-		}
-		:global(.off-canvas-sidebar-right) {
-			background: $light-color !important;
-			border-left: 1px dashed $gray-color;
-		}
 	}
 </style>
