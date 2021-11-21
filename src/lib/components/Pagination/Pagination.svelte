@@ -1,4 +1,4 @@
-<div class="columns">
+<div {...$$restProps} class="columns">
 	<ul class="pagination column col-{perpage ? 10 : 12} col-xs-12">
 		<li class="page-item" class:disabled={page === 1}>
 			<a href="#" on:click|preventDefault={() => page--}>

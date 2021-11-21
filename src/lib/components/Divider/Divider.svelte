@@ -1,4 +1,5 @@
 <hr
+	{...$$restProps}
 	class:divider={align.includes('horizontal')}
 	class:text-center={align.includes('center')}
 	class:text-right={align.includes('right')}

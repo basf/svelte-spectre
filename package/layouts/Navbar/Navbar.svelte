@@ -1,4 +1,4 @@
-<div class="navbar {classes}">
+<div {...$$restProps} class="navbar">
 	<div class="navbar-section">
 		<slot name="left" />
 	</div>
@@ -9,9 +9,6 @@
 		<slot name="right" />
 	</div>
 </div>
-
-<script >export let classes;
-</script>
 
 <style >:global(.spectre) .navbar {
   align-items: stretch;

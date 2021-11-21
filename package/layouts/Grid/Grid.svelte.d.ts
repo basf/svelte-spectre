@@ -3,6 +3,7 @@ declare type Align = 'start' | 'center' | 'end' | 'stretch' | '';
 export type { Align };
 declare const __propDef: {
     props: {
+        [x: string]: any;
         gapless?: boolean;
         oneline?: boolean;
         stack?: boolean;

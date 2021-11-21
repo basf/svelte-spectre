@@ -1,4 +1,4 @@
-<ul class="menu" class:menu-nav={nav}>
+<ul {...$$restProps} class="menu" class:menu-nav={nav}>
 	{#if $$slots.header}
 		<li class="menu-item">
 			<slot name="header" />

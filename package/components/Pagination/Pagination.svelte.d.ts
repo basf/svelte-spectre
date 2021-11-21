@@ -1,6 +1,7 @@
 import { SvelteComponentTyped } from 'svelte';
 declare const __propDef: {
     props: {
+        [x: string]: any;
         page?: number;
         total?: number;
         limit?: number;

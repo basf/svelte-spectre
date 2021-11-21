@@ -5,6 +5,7 @@ import type { Icons } from '../../types/icons';
 export type { Color, Icons, ToastItem };
 declare const __propDef: {
     props: {
+        [x: string]: any;
         toastItem?: ToastItem;
         id?: number;
         type?:

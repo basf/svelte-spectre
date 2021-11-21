@@ -1,4 +1,4 @@
-<div class="tile " class:tile-centered={centered}>
+<div {...$$restProps} class="tile " class:tile-centered={centered}>
 	{#if $$slots.icon}
 		<div class="tile-icon">
 			<slot name="icon" />

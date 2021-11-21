@@ -4,6 +4,7 @@ import type { Color } from '../../types/bg';
 export type { Size, Color };
 declare const __propDef: {
     props: {
+        [x: string]: any;
         size?: Size;
         bg?: Color;
         center?: boolean;

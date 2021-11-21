@@ -5,6 +5,7 @@ export declare type Step = {
 };
 declare const __propDef: {
     props: {
+        [x: string]: any;
         steps?: Step[];
     };
     events: {

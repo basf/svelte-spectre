@@ -8,6 +8,7 @@ export declare const SIZE: {
 export declare type Size = keyof typeof SIZE;
 declare const __propDef: {
     props: {
+        [x: string]: any;
         custom?: boolean;
         open?: boolean;
         size?: Size;

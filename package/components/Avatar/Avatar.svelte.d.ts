@@ -5,6 +5,7 @@ export declare type Status = 'online' | 'busy' | 'away' | 'offline' | false;
 export type { Size, Weight };
 declare const __propDef: {
     props: {
+        [x: string]: any;
         name?: string;
         bg?: string;
         len?: number;

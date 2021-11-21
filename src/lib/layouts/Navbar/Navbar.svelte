@@ -1,4 +1,4 @@
-<div class="navbar {classes}">
+<div {...$$restProps} class="navbar">
 	<div class="navbar-section">
 		<slot name="left" />
 	</div>
@@ -9,10 +9,6 @@
 		<slot name="right" />
 	</div>
 </div>
-
-<script lang="ts">
-	export let classes: string;
-</script>
 
 <style lang="scss">
 	:global(.spectre) {

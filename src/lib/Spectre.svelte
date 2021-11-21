@@ -1,4 +1,4 @@
-<div class="spectre">
+<div {...$$restProps} class="spectre">
 	<slot />
 </div>
 

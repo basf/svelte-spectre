@@ -1,4 +1,4 @@
-<ul class="tab" class:tab-block={block}>
+<ul {...$$restProps} class="tab" class:tab-block={block}>
 	{#each items as item, i (item.pos)}
 		<li class:active={item.path === active} class="tab-item">
 			<a class:badge={item.badge} data-badge={item.badge} href={item.path}>

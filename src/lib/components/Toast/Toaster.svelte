@@ -1,5 +1,5 @@
 {#if $toast.length}
-	<section class="toaster">
+	<section {...$$restProps} class="toaster">
 		{#each positions as pos}
 			<ul class="toast-list pos-{pos}">
 				{#each toasted(pos) as toastItem, i (toastItem.id)}

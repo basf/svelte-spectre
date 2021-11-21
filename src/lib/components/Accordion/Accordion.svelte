@@ -1,4 +1,4 @@
-<details class="accordion" bind:open={opened}>
+<details {...$$restProps} class="accordion" bind:open={opened}>
 	<summary class="accordion-header" on:click|preventDefault={toggled ? toggle : open}>
 		{#if icon}<i class="icon icon-{icon} mr-1" />{/if}
 		<slot name="title" />

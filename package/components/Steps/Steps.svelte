@@ -1,4 +1,4 @@
-<ul class="step">
+<ul {...$$restProps} class="step">
 	{#each steps as { href, label }}
 		<li class="step-item">
 			<a {href} class="tooltip" data-tooltip={label}>{label}</a>

@@ -1,4 +1,4 @@
-<label id="switch-{fid}" class="form-switch" class:form-inline={inline}>
+<label {...$$restProps} id="switch-{fid}" class="form-switch" class:form-inline={inline}>
 	<input bind:checked={value} type="checkbox" />
 	<i class="form-icon" />
 	<slot />

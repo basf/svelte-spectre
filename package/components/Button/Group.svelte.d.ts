@@ -1,6 +1,7 @@
 import { SvelteComponentTyped } from 'svelte';
 declare const __propDef: {
     props: {
+        [x: string]: any;
         block?: boolean;
         inline?: boolean;
         spaced?: boolean;

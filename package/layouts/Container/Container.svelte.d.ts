@@ -3,6 +3,7 @@ import type { Size } from '../../types/size';
 export type { Size };
 declare const __propDef: {
     props: {
+        [x: string]: any;
         size?: Size;
     };
     events: {

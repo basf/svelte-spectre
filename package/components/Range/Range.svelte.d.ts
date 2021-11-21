@@ -3,6 +3,7 @@ declare type Validity = 'success' | 'error' | false;
 export type { Validity };
 declare const __propDef: {
     props: {
+        [x: string]: any;
         range?: number;
         min?: number;
         max?: number;

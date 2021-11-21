@@ -1,4 +1,4 @@
-<figure class="figure">
+<figure {...$$restProps} class="figure">
 	<slot name="img">
 		<img
 			class="img-responsive"

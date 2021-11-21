@@ -1,4 +1,4 @@
-<div class="hero {size && `hero-${size}`} {bg && `bg-${bg}`}">
+<div {...$$restProps} class="hero {size && `hero-${size}`} {bg && `bg-${bg}`}">
 	<div class="hero-body" class:text-center={center}>
 		<slot>
 			<h1>Hero title</h1>

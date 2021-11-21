@@ -2,7 +2,12 @@
 	<label class="form-label">{label}</label>
 {/if}
 {#each radios as radio, i}
-	<label id="radio-{fid}" class="form-radio is-{validity}" class:form-inline={inline}>
+	<label
+		{...$$restProps}
+		id="radio-{fid}"
+		class="form-radio is-{validity}"
+		class:form-inline={inline}
+	>
 		<input type="radio" name={radio.name} value={i} bind:group />
 		<i class="form-icon" /><slot {radio}>{radio.label}</slot>
 	</label>

@@ -1,6 +1,7 @@
 <svelte:window bind:innerWidth={ww} />
 
 <div
+	{...$$restProps}
 	class="off-canvas"
 	class:off-canvas-sidebar-show={show}
 	style="--sidebar: {sidebar?.offsetWidth}px;"

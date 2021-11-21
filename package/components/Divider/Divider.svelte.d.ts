@@ -3,6 +3,7 @@ declare type Align = 'vertical' | 'horizontal' | 'center' | 'left' | 'right';
 export type { Align };
 declare const __propDef: {
     props: {
+        [x: string]: any;
         align?: Align;
         text?: string;
         empty?: boolean;

@@ -1,4 +1,5 @@
 <progress
+	{...$$restProps}
 	class="progress {color && `text-${color}`}"
 	class:progress-invert={invert}
 	{value}

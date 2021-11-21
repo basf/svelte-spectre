@@ -1,4 +1,4 @@
-<div class="column {cols}">
+<div {...$$restProps} class="column {cols}">
 	<slot />
 </div>
 

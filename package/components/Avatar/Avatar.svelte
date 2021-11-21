@@ -1,4 +1,5 @@
 <figure
+	{...$$restProps}
 	class="avatar avatar-{size} text-{weight}"
 	data-initial={initials}
 	style="

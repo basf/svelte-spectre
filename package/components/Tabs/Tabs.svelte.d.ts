@@ -11,6 +11,7 @@ declare type ItemProp = {
 export type { ItemProp };
 declare const __propDef: {
     props: {
+        [x: string]: any;
         items?: ItemProp[];
         active?: string;
         block?: boolean;

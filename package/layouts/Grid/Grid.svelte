@@ -1,4 +1,5 @@
 <div
+	{...$$restProps}
 	class="columns {align && `col-align-${align}`}"
 	class:col-gapless={gapless}
 	class:col-oneline={oneline}

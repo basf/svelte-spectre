@@ -1,4 +1,5 @@
 <label
+	{...$$restProps}
 	id="range-{fid}"
 	class="is-{validity}"
 	class:form-inline={inline}

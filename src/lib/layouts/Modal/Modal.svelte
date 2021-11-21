@@ -1,4 +1,10 @@
-<div class:modal={!custom} class:active={custom || open} class="modal-{size}" id="modal-{mid}">
+<div
+	{...$$restProps}
+	class:modal={!custom}
+	class:active={custom || open}
+	class="modal-{size}"
+	id="modal-{mid}"
+>
 	{#if !custom}
 		<a href="#" on:click={close} class="modal-overlay" aria-label="Close" />
 	{/if}

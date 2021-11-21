@@ -1,4 +1,4 @@
-<div class="input-group">
+<div {...$$restProps} class="input-group">
 	{#if $$slots.addon}
 		<span class="input-group-addon addon-{size}"><slot name="addon" /></span>
 	{/if}

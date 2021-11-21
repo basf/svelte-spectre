@@ -3,6 +3,7 @@ import type { Color } from '../../types/bg';
 export type { Color };
 declare const __propDef: {
     props: {
+        [x: string]: any;
         color?: Color;
         invert?: boolean;
         value: number;

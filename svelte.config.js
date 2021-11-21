@@ -1,5 +1,6 @@
 import { mdsvex } from 'mdsvex';
 import mdsvexConfig from './mdsvex.config.js';
+import Icons from 'unplugin-icons/vite';
 import preprocess from 'svelte-preprocess';
 // import mm from 'micromatch';
 import path from 'path';
@@ -117,7 +118,15 @@ export default {
 					},
 				},
 			},
-			plugins: [svg(options)],
+			plugins: [
+				svg(options),
+				Icons({
+					scale: 1.2,
+					defaultStyle: '',
+					defaultClass: '',
+					compiler: 'svelte',
+				})
+			],
 		}),
 	},
 };

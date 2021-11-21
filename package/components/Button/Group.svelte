@@ -1,4 +1,4 @@
-<div class:btn-group-block={block} class="btn-group">
+<div {...$$restProps} class:btn-group-block={block} class="btn-group">
 	<slot />
 </div>
 

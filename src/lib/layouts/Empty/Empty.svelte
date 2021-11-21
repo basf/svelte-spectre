@@ -1,4 +1,4 @@
-<div class="empty">
+<div {...$$restProps} class="empty">
 	{#if $$slots.icon}
 		<div class="empty-icon">
 			<slot name="icon" />

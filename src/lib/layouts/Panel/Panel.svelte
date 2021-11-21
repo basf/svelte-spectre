@@ -1,4 +1,4 @@
-<div class="panel">
+<div {...$$restProps} class="panel">
 	<div class="panel-header">
 		<slot name="header" />
 	</div>

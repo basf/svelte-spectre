@@ -1,5 +1,5 @@
 {#if visible}
-	<div class="toast {type && `toast-${type}`}" use:pausable={timeout > 0}>
+	<div {...$$restProps} class="toast {type && `toast-${type}`}" use:pausable={timeout > 0}>
 		{#if icon}
 			<Icon {icon} />
 		{/if}

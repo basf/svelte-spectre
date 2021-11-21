@@ -3,6 +3,7 @@ declare type Validity = 'success' | 'error' | false;
 export type { Validity };
 declare const __propDef: {
     props: {
+        [x: string]: any;
         label: string;
         radios?: any[];
         group?: number;

@@ -1,6 +1,7 @@
 import { SvelteComponentTyped } from 'svelte';
 declare const __propDef: {
     props: {
+        [x: string]: any;
         opened?: boolean;
         toggled?: boolean;
         icon?: string;

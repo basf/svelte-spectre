@@ -4,6 +4,7 @@ import type { Offset } from '../../types/position';
 export type { Size, Offset };
 declare const __propDef: {
     props: {
+        [x: string]: any;
         openLeft?: boolean;
         openRight?: boolean;
         show?: boolean;

@@ -1,4 +1,9 @@
-<label id="checkbox-{fid}" class="form-checkbox is-{validity}" class:form-inline={inline}>
+<label
+	{...$$restProps}
+	id="checkbox-{fid}"
+	class="form-checkbox is-{validity}"
+	class:form-inline={inline}
+>
 	<input bind:checked={value} type="checkbox" {indeterminate} />
 	<i class="form-icon" />
 	<slot />

@@ -3,6 +3,7 @@ declare type Validity = 'success' | 'error' | false;
 export type { Validity };
 declare const __propDef: {
     props: {
+        [x: string]: any;
         value?: boolean;
         indeterminate?: boolean;
         inline?: boolean;

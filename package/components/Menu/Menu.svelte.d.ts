@@ -15,6 +15,7 @@ interface MenuItem {
 export type { MenuItem, Icons };
 declare const __propDef: {
     props: {
+        [x: string]: any;
         items: MenuItem[];
         active: boolean;
         nav: boolean;

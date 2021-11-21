@@ -1,4 +1,4 @@
-<div class="container grid-{size}">
+<div {...$$restProps} class="container grid-{size}">
 	<slot />
 </div>
 
