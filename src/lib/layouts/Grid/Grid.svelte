@@ -1,18 +1,17 @@
 <div
-	class="columns {align && `col-align-${align}`} {offset}"
+	class="columns {align && `col-align-${align}`}"
 	class:col-gapless={gapless}
 	class:col-oneline={oneline}
 	class:col-stack={stack}
+	class:mb-2={stack}
 >
 	<slot />
 </div>
 
 <script lang="ts" context="module">
-	import type { Offset } from '../../types/position';
-
 	type Align = 'start' | 'center' | 'end' | 'stretch' | '';
 
-	export type { Align, Offset };
+	export type { Align };
 </script>
 
 <script lang="ts">
@@ -20,7 +19,6 @@
 	export let oneline: boolean = false;
 	export let stack: boolean = false;
 	export let align: Align = '';
-	export let offset: Offset = '';
 </script>
 
 <style lang="scss">

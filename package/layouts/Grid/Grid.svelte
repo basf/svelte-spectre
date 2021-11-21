@@ -1,8 +1,9 @@
 <div
-	class="columns {align && `col-align-${align}`} {offset}"
+	class="columns {align && `col-align-${align}`}"
 	class:col-gapless={gapless}
 	class:col-oneline={oneline}
 	class:col-stack={stack}
+	class:mb-2={stack}
 >
 	<slot />
 </div>
@@ -13,7 +14,6 @@
 export let oneline = false;
 export let stack = false;
 export let align = '';
-export let offset = '';
 </script>
 
 <style >:global(.spectre) .container {

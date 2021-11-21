@@ -1,14 +1,12 @@
 import { SvelteComponentTyped } from 'svelte';
-import type { Offset } from '../../types/position';
 declare type Align = 'start' | 'center' | 'end' | 'stretch' | '';
-export type { Align, Offset };
+export type { Align };
 declare const __propDef: {
     props: {
         gapless?: boolean;
         oneline?: boolean;
         stack?: boolean;
         align?: Align;
-        offset?: Offset;
     };
     events: {
         [evt: string]: CustomEvent<any>;
