@@ -1,4 +1,4 @@
-<details class="accordion {offset}" bind:open={opened}>
+<details class="accordion" bind:open={opened}>
 	<summary class="accordion-header" on:click|preventDefault={toggled ? toggle : open}>
 		{#if icon}<i class="icon icon-{icon} mr-1" />{/if}
 		<slot name="title" />
@@ -13,8 +13,6 @@
 <script lang="ts" context="module">
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
-	import type { Offset } from '../../types/position';
-	export type { Offset };
 
 	const list = new Set();
 	function closeAll() {
@@ -26,7 +24,6 @@
 	export let opened: boolean = false;
 	export let toggled: boolean = false;
 	export let icon: string = '';
-	export let offset: Offset = '';
 
 	onMount(() => init());
 

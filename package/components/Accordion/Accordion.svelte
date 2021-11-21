@@ -1,4 +1,4 @@
-<details class="accordion {offset}" bind:open={opened}>
+<details class="accordion" bind:open={opened}>
 	<summary class="accordion-header" on:click|preventDefault={toggled ? toggle : open}>
 		{#if icon}<i class="icon icon-{icon} mr-1" />{/if}
 		<slot name="title" />
@@ -21,7 +21,6 @@ function closeAll() {
 <script >export let opened = false;
 export let toggled = false;
 export let icon = '';
-export let offset = '';
 onMount(() => init());
 function init() {
     const fn = () => (opened = false);

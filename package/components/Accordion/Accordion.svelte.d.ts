@@ -1,12 +1,9 @@
 import { SvelteComponentTyped } from 'svelte';
-import type { Offset } from '../../types/position';
-export type { Offset };
 declare const __propDef: {
     props: {
         opened?: boolean;
         toggled?: boolean;
         icon?: string;
-        offset?: Offset;
     };
     events: {
         [evt: string]: CustomEvent<any>;
@@ -24,3 +21,4 @@ export default class Accordion extends SvelteComponentTyped<
     AccordionEvents,
     AccordionSlots
 > {}
+export {};
