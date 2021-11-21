@@ -189,9 +189,6 @@
 		}
 		.off-canvas-content {
 			height: auto !important;
-			min-height: 100%;
-			display: grid !important;
-			grid-template-rows: auto 1fr auto;
 		}
 		.off-canvas-sidebar-right {
 			background: $light-color !important;
@@ -203,6 +200,10 @@
 		top: 0;
 		z-index: $zindex-2;
 		background: white;
+	}
+	footer {
+		position: sticky;
+		top: 100vh;
 	}
 	main {
 		overflow-x: hidden;
