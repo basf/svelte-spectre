@@ -19,7 +19,6 @@
 
 				<IconButton slot="center" size="xl" iconSize="3x" color="dark" href={`${base}/`}>
 					<Xray />
-					<!-- <SvelteLogo width="auto" height="auto" style="padding: 0.2rem" /> -->
 				</IconButton>
 
 				<nav class="d-flex mr-2" slot="right">
@@ -147,7 +146,6 @@
 	import Xray from '$assets/b-science.svg';
 	import GitHub from '$assets/github.svg';
 	import '../app.scss';
-	import SvelteLogo from '~icons/logos/svelte-icon';
 
 	let openLeft = false,
 		openRight = false,
