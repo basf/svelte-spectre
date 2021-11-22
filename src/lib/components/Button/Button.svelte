@@ -13,7 +13,7 @@
 		on:dblclick
 		use:addBadge={badge}
 	>
-		<slot>Text</slot>
+		<slot />
 	</a>
 {:else}
 	<button
@@ -25,11 +25,11 @@
 		class:input-group-btn={input}
 		class:loading
 		class:active
-		on:click
+		on:click|stopPropagation
 		on:dblclick
 		use:addBadge={badge}
 	>
-		<slot>Text</slot>
+		<slot />
 	</button>
 {/if}
 

@@ -5,6 +5,14 @@
 </p>
 
 <Hero offset="my-2" size="sm">
+	<h2>Tabs</h2>
+
+	<Tabs items={tabs} let:item>
+		<button>{item.title}</button>
+	</Tabs>
+	<Tabs items={tabs} />
+</Hero>
+<Hero offset="my-2" size="sm">
 	<h2>Menu</h2>
 	<Grid>
 		<Col col="6" mr="auto" sm="12">
@@ -412,6 +420,7 @@
 		Avatar,
 		Autocomplete,
 		Badge,
+		badge,
 		Button,
 		ButtonGroup,
 		Card,
@@ -436,6 +445,7 @@
 		Range,
 		Select,
 		Switch,
+		Tabs,
 		Tile,
 		Toast,
 		toast,
@@ -519,7 +529,12 @@
 			},
 		],
 		page,
-		autocompleted = [];
+		autocompleted = [],
+		tabs = [
+			{ title: 'Tab1', path: '#', clear: true },
+			{ title: 'Tab2', path: '#1', badge: '0' },
+			{ title: 'Tab3', path: '#2' },
+		];
 
 	export let name: string = 'Spectre';
 </script>
