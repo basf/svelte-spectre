@@ -30,9 +30,9 @@ config:
 <script>
     import { amp, browser, dev, mode, prerendering } from '$app/env';
     import { base } from '$app/paths';
-    import {Divider, Col, Figure, Grid} from '$lib'
+    import { Divider, Col, Figure, Grid } from '$lib'
     import Knobs from '../_knobs.svelte'
-    import {media} from '../_media'
+    import { media } from '../_media'
 
     let state = { align: 'center', text: 'CENTER' }
 </script>

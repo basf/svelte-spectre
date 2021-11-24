@@ -5,14 +5,6 @@
 </p>
 
 <Hero offset="my-2" size="sm">
-	<h2>Tabs</h2>
-
-	<Tabs items={tabs} let:item>
-		<button>{item.title}</button>
-	</Tabs>
-	<Tabs items={tabs} />
-</Hero>
-<Hero offset="my-2" size="sm">
 	<h2>Menu</h2>
 	<Grid>
 		<Col col="6" mr="auto" sm="12">
