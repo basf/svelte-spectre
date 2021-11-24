@@ -47,7 +47,6 @@ export default {
 
 	kit: {
 		adapter: adapterStatic({
-			// default options are shown
 			pages: 'build',
 			assets: 'build',
 			fallback: null,
@@ -82,7 +81,7 @@ export default {
 		},
 		paths: {
 			assets: '',
-			base: '/sveltespectre',
+			base: '/svelte-spectre',
 		},
 		prerender: {
 			crawl: true,
@@ -117,9 +116,7 @@ export default {
 					},
 				},
 			},
-			plugins: [
-				svg(options)
-			],
+			plugins: [svg(options)],
 		}),
 	},
 };
