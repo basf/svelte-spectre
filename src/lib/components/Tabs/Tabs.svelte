@@ -7,15 +7,19 @@
 			use:select={i}
 			bind:this={nodes[i]}
 		>
-			<slot {item}>
-				<a href={item.path} use:addBadge={item.badge}>
-					{#if item.icon}<Icon icon={item.icon} />{/if}
-					{#if item.title}{item.title}{/if}
-					{#if item.clear}<IconButton variant="clear" />{/if}
-				</a>
-			</slot>
+			<a href={item.path} use:addBadge={item.badge}>
+				{#if item.icon}<Icon icon={item.icon} />{/if}
+				{#if item.title}{item.title}{/if}
+				{#if item.clear}<IconButton variant="clear" />{/if}
+			</a>
 		</li>
 	{/each}
+
+	{#if $$slots.action}
+		<li class="tab-item tab-action">
+			<slot name="action" />
+		</li>
+	{/if}
 </ul>
 
 <script lang="ts" context="module">
@@ -64,11 +68,9 @@
 				default:
 					break;
 			}
-			console.log(e);
 		};
 		node.onclick = (e) => (active = i);
 	}
-	$: console.log(active);
 </script>
 
 <style lang="scss">

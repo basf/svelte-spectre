@@ -69,12 +69,16 @@
 								<code class="text-bold">
 									{api.title}
 								</code>
-								{`— ${api.description}` || ''}
+								{api.description ? `— ${api.description}` : ''}
 							</dt>
 							{#if api.variables}
 								<dd>
 									<pre
-										class="code mt-0"><code class="code">{api.variables}</code></pre>
+										class="code mt-0">
+										<code class="code">
+											{api.variables}
+										</code>
+									</pre>
 								</dd>
 							{/if}
 						{:else}
