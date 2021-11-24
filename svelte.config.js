@@ -117,9 +117,7 @@ export default {
 					},
 				},
 			},
-			plugins: [
-				svg(options)
-			],
+			plugins: [svg(options)],
 		}),
 	},
 };
