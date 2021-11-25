@@ -1,4 +1,4 @@
-<h1>Welcome to Svelte{name}</h1>
+<h1>Getting started</h1>
 
 <p>
 	Visit <a href="{base}/docs/">kit.svelte.dev</a> to read the documentation

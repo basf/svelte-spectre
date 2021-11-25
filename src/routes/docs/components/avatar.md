@@ -1,6 +1,15 @@
 ---
 file: avatar.md
 title: Avatar
+api: [
+	{title: 'name: string', description: 'Avatar name for initials', variables: 'Name Surname'},
+	{title: 'size: Size', description: 'Avatar size', variables: 'xs | sm | md | lg | xl'},
+	{title: 'status: Status', description: 'Avatar status', variables: 'null | online | away | busy | offline'},
+	{title: '<slot>: HTMLelement', description: 'Avatar image', variables: '<img> | <svg>'},
+	{title: '<slot name="sub">: HTMLelement', description: 'Avatar subimage', variables: '<img> | <svg>'},
+	{title: 'badged: boolean', description: 'Avatar badged', variables: 'true | false'},
+	{title: 'badge: string', description: 'Avatar badge value', variables: 'any string'},
+]
 config:
     {
         name: { size: 12 },

@@ -28,14 +28,21 @@
 						</div>
 					{/if}
 					<div class="mr-2">
-						<IconButton size="sm" iconSize="2x" on:click><GitHub /></IconButton>
+						<IconButton
+							size="sm"
+							iconSize="2x"
+							href="https://github.com/tilde-lab/svelte-spectre"
+							target="_blank"
+						>
+							<GitHub />
+						</IconButton>
 					</div>
 				</nav>
 			</Navbar>
 		</header>
 
 		<nav id="sidebar" slot="sidebarLeft" class="m-2">
-			<h3><a href={`${base}/`}>SvelteSpectre</a></h3>
+			<h3><a href={`${base}/`} on:click={() => (openLeft = false)}>Svelte-Spectre</a></h3>
 			{#each Object.entries(links) as [key, value], i}
 				<Accordion toggled opened={openedAccordion($page, key, i)}>
 					<strong slot="title">{key.replace(/_|-|[0-9]/g, ' ')}</strong>
@@ -66,10 +73,12 @@
 					<dl>
 						{#each metadata.api as api}
 							<dt class="text-normal pt-2">
-								<code class="text-bold">
-									{api.title}
-								</code>
-								{`— ${api.description}` || ''}
+								{#if api.title}
+									<code class="text-bold">
+										{api.title}
+									</code>
+								{/if}
+								{api.description ? `— ${api.description}` : ''}
 							</dt>
 							{#if api.variables}
 								<dd>
@@ -90,6 +99,12 @@
 
 	<Toaster />
 </Spectre>
+
+<svelte:head>
+	{#if metadata}
+		<title>{metadata.title}</title>
+	{/if}
+</svelte:head>
 
 <script lang="ts" context="module">
 	const allMd = import.meta.glob('./**/*.md');
@@ -155,6 +170,8 @@
 
 		return links[category]?.find((l) => l.path.includes(page)).metadata;
 	}
+
+	// $: console.log($page);
 </script>
 
 <style lang="scss" global>

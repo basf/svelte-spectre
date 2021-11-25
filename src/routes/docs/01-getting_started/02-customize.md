@@ -1,6 +1,6 @@
 ---
-file: custom_version.md
-title: Custom version
+file: customize.md
+title: Customize
 ---
 
 <script>
@@ -8,3 +8,5 @@ title: Custom version
 </script>
 
 # {title}
+
+> 🚧 Under construction

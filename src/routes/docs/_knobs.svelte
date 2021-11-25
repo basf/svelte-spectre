@@ -15,6 +15,8 @@
 						{:else if config[key].type === 'number'}
 							<input
 								bind:value={state[key]}
+								size={config[key].size}
+								step={config[key].step}
 								type="number"
 								min={config[key].min ?? state.min}
 								max={config[key].max ?? state.max}

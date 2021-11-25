@@ -1,6 +1,33 @@
 ---
 file: breadcrumbs.md
 title: Breadcrumbs
+api:
+    [
+        {
+            title: 'interface Link',
+            description: 'interface Link',
+            variables: 'interface Link {
+                href: string;
+                title: string;
+                tooltip: string;
+                }',
+        },
+        {
+            title: 'href: string',
+            description: 'Item link',
+            variables: 'any URL string',
+        },
+        {
+            title: 'title: string',
+            description: 'Item title',
+            variables: 'any string',
+        },
+        {
+            title: 'title: tooltip',
+            description: 'Item tooltip',
+            variables: 'any string',
+        },
+    ]
 ---
 
 <script>
@@ -31,7 +58,7 @@ the `breadcrumb-item` class.
     let links = [
         {title:'Home', href: '#', tooltip: 'Home'},
         {title:'Settings', href: '#', tooltip: 'Settings'},
-        {title:'Search result: SvelteSpectre', href: '#', tooltip: 'SvelteSpectre'}
+        {title:'SvelteSpectre', href: '#', tooltip: 'SvelteSpectre'}
         ]
 </script>
 
