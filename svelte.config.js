@@ -81,7 +81,7 @@ export default {
 		},
 		paths: {
 			assets: '',
-			base: '/svelte-spectre',
+			base: '',
 		},
 		prerender: {
 			crawl: true,
