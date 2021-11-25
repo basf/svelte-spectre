@@ -9,46 +9,42 @@ title: Installation
 
 # {title}
 
-There are 5 ways to get started with Spectre CSS framework in your projects. You
-can either install manually, from CDN or use package managers.
+> ##### Requirements
+>
+> - `node -v >= 15`
+> - `npm -v >= 7`
 
-## Install manually
+## Installation
 
-Download the compiled and minified Spectre CSS file (core ~10KB min+gzip):
-
-<p><Button variant="primary">Download</Button></p>
-
-Include `spectre.css` located in **/dist** in your website or Web app . Also,
-you can add `spectre-icons.css` and `spectre-exp.css` accordingly.
-
-```html
-<!-- comment -->
-<link rel="stylesheet" href="spectre.min.css" />
-<link rel="stylesheet" href="spectre-exp.min.css" />
-<link rel="stylesheet" href="spectre-icons.min.css" />
+```bash
+npm install
 ```
 
-## Install from CDN
+## Building package
 
-Alternatively, you can use the unpkg or cdnjs CDN to load compiled Spectre.css.
-
-```html
-<link
-    rel="stylesheet"
-    href="https://unpkg.com/spectre.css/dist/spectre.min.css"
-/>
-<link
-    rel="stylesheet"
-    href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css"
-/>
-<link
-    rel="stylesheet"
-    href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"
-/>
+```bash
+# build components for GUI in package folder
+npm run package
 ```
 
-## Install with NPM
+## Developing
 
-```sh
-npm install spectre.css --save
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
 ```
+
+## Building
+
+Before creating a production version of your app, install an
+[adapter](https://kit.svelte.dev/docs#adapters) for your target environment.
+Then:
+
+```bash
+npm run build
+```
+
+You can preview the built app with `npm run preview`, regardless of whether you
+installed an adapter. This should _not_ be used to serve your app in production.
