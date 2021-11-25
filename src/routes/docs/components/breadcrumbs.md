@@ -1,16 +1,33 @@
 ---
 file: breadcrumbs.md
 title: Breadcrumbs
-api: [
-    {title: 'interface Link', description: 'interface Link', variables: 'interface Link {
-		href: string;
-		title: string;
-		tooltip: string;
-	}'},
-    {title: 'href: string', description: 'Item link', variables: 'any URL string'},
-    {title: 'title: string', description: 'Item title', variables: 'any string'},
-    {title: 'title: tooltip', description: 'Item tooltip', variables: 'any string'}
-]
+api:
+    [
+        {
+            title: 'interface Link',
+            description: 'interface Link',
+            variables: 'interface Link {
+                href: string;
+                title: string;
+                tooltip: string;
+                }',
+        },
+        {
+            title: 'href: string',
+            description: 'Item link',
+            variables: 'any URL string',
+        },
+        {
+            title: 'title: string',
+            description: 'Item title',
+            variables: 'any string',
+        },
+        {
+            title: 'title: tooltip',
+            description: 'Item tooltip',
+            variables: 'any string',
+        },
+    ]
 ---
 
 <script>

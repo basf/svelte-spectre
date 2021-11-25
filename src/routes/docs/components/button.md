@@ -1,14 +1,39 @@
 ---
 file: button.md
 title: Button
-api: [
-    {title: 'variant: Variant', description: 'Button variant', variables: 'default | link | primary | secondary | success | error'},
-    {title: 'size: Sizes', description: 'Button size', variables: 'xs | sm | md | lg | xl | xxl'},
-    {title: 'icon: Icons', description: 'Button icon', variables: 'arrow-up | arrow-right | arrow-down | arrow-left | upward | forward | downward | back | caret | menu | apps | more-horiz | more-vert | resize-horiz | resize-vert | plus | minus | cross | check | stop | shutdown | refresh | search | flag | bookmark | edit | delete | share | download | upload | copy | mail | people | message | photo | time | location | link | emoji | xray | home | circle-check | wifi | audio'},
-    {title: 'shape: Shape', description: 'Button shape', variables: 'square | circle'},
-    {title: 'state: State', description: 'Button state', variables: 'active | disabled | loading'},
-    {title: 'block: boolean', description: 'Button block', variables: 'true | false'},
-]
+api:
+    [
+        {
+            title: 'variant: Variant',
+            description: 'Button variant',
+            variables: 'default | link | primary | secondary | success | error',
+        },
+        {
+            title: 'size: Sizes',
+            description: 'Button size',
+            variables: 'xs | sm | md | lg | xl | xxl',
+        },
+        {
+            title: 'icon: Icons',
+            description: 'Button icon',
+            variables: 'arrow-up | arrow-right | arrow-down | arrow-left | upward | forward | downward | back | caret | menu | apps | more-horiz | more-vert | resize-horiz | resize-vert | plus | minus | cross | check | stop | shutdown | refresh | search | flag | bookmark | edit | delete | share | download | upload | copy | mail | people | message | photo | time | location | link | emoji | xray | home | circle-check | wifi | audio',
+        },
+        {
+            title: 'shape: Shape',
+            description: 'Button shape',
+            variables: 'square | circle',
+        },
+        {
+            title: 'state: State',
+            description: 'Button state',
+            variables: 'active | disabled | loading',
+        },
+        {
+            title: 'block: boolean',
+            description: 'Button block',
+            variables: 'true | false',
+        },
+    ]
 config:
     {
         Variants:
