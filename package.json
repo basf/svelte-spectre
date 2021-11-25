@@ -1,7 +1,6 @@
 {
 	"name": "svelte-spectre",
 	"version": "0.1.0",
-	"private": true,
 	"main": "./package/index.js",
 	"files": [
 		"package/"

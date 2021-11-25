@@ -1,10 +1,22 @@
-<Hero size="sm" bg="gray" center>
+<svelte:head>
+	<title>Svelte-Spectre</title>
+</svelte:head>
+
+<Hero size="md" bg="gray" center>
 	<Container>
-		<h1>SvelteSpectre</h1>
-		<p>A Lightweight, Responsive and Modern CSS Framework</p>
+		<h1>Svelte-Spectre</h1>
 		<p>
-			<Button href="{base}/docs" variant="primary" size="lg" sveltekit:prefetch>Docs</Button>
-			<Button href="{base}/docs" variant="primary" size="lg">GitHub</Button>
+			A Lightweight, Responsive and Modern UI-kit based on spectre.css & powered by SvelteJS
+		</p>
+		<p>
+			<Button href="{base}/docs" variant="primary" size="lg" sveltekit:prefetch>Docs</Button
+			>&nbsp;
+			<Button
+				href="https://github.com/tilde-lab/svelte-spectre"
+				target="_blank"
+				variant="primary"
+				size="lg">GitHub</Button
+			>
 		</p>
 		<p class="text-gray">Latest version: 0.1.0</p>
 		<Grid stack>

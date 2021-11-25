@@ -26,7 +26,9 @@ title: Menu
 
 # {title}
 
-<Grid>
+> 🚧 Under construction
+
+<!-- <Grid>
     <Col col="6" mr="auto" sm="12">
         <h5>Default</h5>
         <Menu items={menu} bind:radiogroup>
@@ -51,4 +53,4 @@ title: Menu
             <Button slot="footer" block variant="primary">Footer</Button>
         </Menu>
     </Col>
-</Grid>
+</Grid> -->

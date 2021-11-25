@@ -4,6 +4,8 @@
 	class:card-clear={clear}
 	class:card-outlined={outlined}
 	class:card-flat={flat}
+	calss:card-expand={expand}
+	class:card-shadowed={shadowed}
 >
 	{#if $$slots.img && pos === 'top'}
 		<div class="card-image">
@@ -53,6 +55,8 @@
 	export let clear: boolean = false;
 	export let flat: boolean = false;
 	export let outlined: boolean = false;
+	export let expand: boolean = false;
+	export let shadowed: boolean = false;
 </script>
 
 <style lang="scss">
@@ -74,6 +78,12 @@
 		}
 		&.card-outlined {
 			background: 0 0;
+		}
+		&.card-shadowed {
+			box-shadow: 0 0.25rem 1rem rgba($dark-color, 0.15);
+		}
+		&.card-expand {
+			height: 100%;
 		}
 	}
 </style>

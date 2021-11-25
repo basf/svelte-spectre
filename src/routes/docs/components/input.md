@@ -19,7 +19,9 @@ title: Input
 
 # {title}
 
-<Form horizontal>
+> 🚧 Under construction
+
+<!-- <Form horizontal>
     <h4>Form horizontal</h4>
     <FormGroup>
         <Input validity="success">Success</Input>
@@ -58,4 +60,4 @@ title: Input
             <Select options={questions} bind:value={selected} />
         </InputGroup>
     </FormGroup>
-</Form>
+</Form> -->
