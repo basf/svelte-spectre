@@ -11,11 +11,11 @@
 
 		
 
-		<link rel="modulepreload" href="/_app/start-bd1eb3b0.js">
+		<link rel="modulepreload" href="/_app/start-8af1ea84.js">
 		<link rel="modulepreload" href="/_app/chunks/vendor-6e47c272.js">
 		<link rel="modulepreload" href="/_app/chunks/preload-helper-ec9aa979.js">
 		<link rel="modulepreload" href="/_app/chunks/paths-28a87002.js">
-		<link rel="modulepreload" href="/_app/pages/__layout.svelte-be1abeef.js">
+		<link rel="modulepreload" href="/_app/pages/__layout.svelte-abbd6c30.js">
 		<link rel="modulepreload" href="/_app/chunks/Accordion-1a83a9bf.js">
 		<link rel="modulepreload" href="/_app/chunks/Button-e903e7d7.js">
 		<link rel="modulepreload" href="/_app/chunks/action-63149ef0.js">
@@ -27,14 +27,16 @@
 		<link rel="modulepreload" href="/_app/chunks/github-5852b63f.js">
 		<link rel="modulepreload" href="/_app/pages/docs/__layout.svelte-07134d69.js">
 		<link rel="modulepreload" href="/_app/chunks/Container-0c0701f6.js">
-		<link rel="modulepreload" href="/_app/pages/docs/layouts/card.md-e3c5c8e1.js">
+		<link rel="modulepreload" href="/_app/pages/docs/layouts/card.md-268acc17.js">
+		<link rel="modulepreload" href="/_app/chunks/Card-d5670178.js">
+		<link rel="modulepreload" href="/_app/chunks/Col-247d4cad.js">
 		<link rel="stylesheet" href="/_app/assets/start-464e9d0a.css">
 		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-1ce5ff24.css">
 		<link rel="stylesheet" href="/_app/assets/Spectre.svelte_svelte_type_style_lang-ee05cfe1.css">
 		<link rel="stylesheet" href="/_app/assets/pages/docs/__layout.svelte-bd38e485.css">
 
 		<script type="module">
-			import { start } from "/_app/start-bd1eb3b0.js";
+			import { start } from "/_app/start-8af1ea84.js";
 			start({
 				target: document.body,
 				paths: {"base":"","assets":""},
@@ -47,9 +49,9 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/_app/pages/__layout.svelte-be1abeef.js"),
+						import("/_app/pages/__layout.svelte-abbd6c30.js"),
 						import("/_app/pages/docs/__layout.svelte-07134d69.js"),
-						import("/_app/pages/docs/layouts/card.md-e3c5c8e1.js")
+						import("/_app/pages/docs/layouts/card.md-268acc17.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -114,6 +116,76 @@
 		
 
 		<main class="px-2"><div class="container grid-md svelte-mvojc4"><h1>Card</h1>
+<p>Cards are flexible content containers.</p>
+<div offset="my-2" class="columns   col-oneline   svelte-1kx741x"><hr data-content="LEFT" class="   divider-vert  svelte-ugzhbc">
+    <div col="4" class="column col-4 svelte-mvojc4"><figure class="card     svelte-cutrbp" calss:card-expand="false"><div class="card-image svelte-cutrbp"><img class="img-responsive" src="/img/macos-sierra.jpg" alt="img" slot="img"></div>
+	<figcaption class="card-header svelte-cutrbp"><div class="card-title svelte-cutrbp"><div slot="title" class="h5">Title</div></div>
+		<div class="card-subtitle svelte-cutrbp"><div slot="subtitle" class="text-gray">SubTitle</div></div></figcaption>
+	
+	<div class="card-body svelte-cutrbp"><p>Lightweight (~10KB gzipped) starting point for your projects</p>
+                
+            </div>
+	
+	<div class="card-footer svelte-cutrbp"><a href="#cards" class="btn btn-primary btn-md       svelte-fwx07m">Primary</a>
+                    <a href="#cards" class="btn btn-link btn-md       svelte-fwx07m">Link</a>
+                </div>
+</figure>
+        
+</div><div col="6" class="column col-6 svelte-mvojc4"><figure class="card     svelte-cutrbp" calss:card-expand="false">
+	<figcaption class="card-header svelte-cutrbp"><div class="card-title svelte-cutrbp"><div slot="title" class="h5">Title</div></div>
+		<div class="card-subtitle svelte-cutrbp"><div slot="subtitle" class="text-gray">SubTitle</div></div></figcaption>
+	<div class="card-image svelte-cutrbp"><img class="img-responsive" src="/img/macos-sierra-2.jpg" alt="img" slot="img"></div>
+	<div class="card-body svelte-cutrbp"><p>Flexbox-based, responsive and mobile-friendly layout</p>
+                
+            </div>
+	
+	<div class="card-footer svelte-cutrbp"><a href="#cards" class="btn btn-primary btn-md       svelte-fwx07m">Primary</a>
+                    <a href="#cards" class="btn btn-link btn-md       svelte-fwx07m">Link</a>
+                </div>
+</figure>
+        
+</div><div col="8" class="column col-8 svelte-mvojc4"><figure class="card     svelte-cutrbp" calss:card-expand="false">
+	<figcaption class="card-header svelte-cutrbp"><div class="card-title svelte-cutrbp"><div slot="title" class="h5">Title</div></div>
+		<div class="card-subtitle svelte-cutrbp"><div slot="subtitle" class="text-gray">SubTitle</div></div></figcaption>
+	
+	<div class="card-body svelte-cutrbp"><p>Elegantly designed and developed elements and components</p>
+                
+            </div>
+	<div class="card-image svelte-cutrbp"><img class="img-responsive" src="/img/osx-el-capitan.jpg" alt="img" slot="img"></div>
+	<div class="card-footer svelte-cutrbp"><a href="#cards" class="btn btn-primary btn-md       svelte-fwx07m">Primary</a>
+                    <a href="#cards" class="btn btn-link btn-md       svelte-fwx07m">Link</a>
+                </div>
+</figure>
+        
+</div><div col="10" class="column col-10 svelte-mvojc4"><figure class="card     svelte-cutrbp" calss:card-expand="false">
+	<figcaption class="card-header svelte-cutrbp"><div class="card-title svelte-cutrbp"><div slot="title" class="h5">Title</div></div>
+		<div class="card-subtitle svelte-cutrbp"><div slot="subtitle" class="text-gray">SubTitle</div></div></figcaption>
+	<div class="card-image svelte-cutrbp"><img class="img-responsive" src="/img/osx-yosemite.jpg" alt="img" slot="img"></div>
+	<div class="card-body svelte-cutrbp"><p>Lightweight (~10KB gzipped) starting point for your projects</p>
+                
+            </div>
+	
+	<div class="card-footer svelte-cutrbp"><a href="#cards" class="btn btn-primary btn-md       svelte-fwx07m">Primary</a>
+                    <a href="#cards" class="btn btn-link btn-md       svelte-fwx07m">Link</a>
+                </div>
+</figure>
+        
+</div><div col="12" class="column col-12 svelte-mvojc4"><figure class="card     svelte-cutrbp" calss:card-expand="false"><div class="card-image svelte-cutrbp"><img class="img-responsive" src="/img/osx-yosemite-2.jpg" alt="img" slot="img"></div>
+	<figcaption class="card-header svelte-cutrbp"><div class="card-title svelte-cutrbp"><div slot="title" class="h5">Title</div></div>
+		<div class="card-subtitle svelte-cutrbp"><div slot="subtitle" class="text-gray">SubTitle</div></div></figcaption>
+	
+	<div class="card-body svelte-cutrbp"><p>Flexbox-based, responsive and mobile-friendly layout</p>
+                
+            </div>
+	
+	<div class="card-footer svelte-cutrbp"><a href="#cards" class="btn btn-primary btn-md       svelte-fwx07m">Primary</a>
+                    <a href="#cards" class="btn btn-link btn-md       svelte-fwx07m">Link</a>
+                </div>
+</figure>
+        
+</div>
+    <hr data-content="RIGHT" class="   divider-vert  svelte-ugzhbc">
+</div>
 <blockquote><p>🚧 Under construction</p></blockquote>
 </div></main>
 
