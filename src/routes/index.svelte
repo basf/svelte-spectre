@@ -57,37 +57,7 @@
 	</Container>
 </Hero>
 
-<Hero size="sm" bg="gray" center>
-	<h2>Features</h2>
-	<Container>
-		<Grid stack>
-			<Col col="4" mr="auto" sm="12">
-				<Card flat>
-					<h5 slot="title">Spectre Twitter</h5>
-					<p>For the latest announcements and updates, follow on Twitter: @spectrecss.</p>
-					<Button slot="footer" variant="primary">Follow</Button>
-				</Card>
-			</Col>
-			<Col col="4" mr="auto" sm="12">
-				<Card flat>
-					<h5 slot="title">PayPal Donate</h5>
-					<p>
-						Spectre.css is completely free to use. If you enjoy it, please consider
-						donating for the further development.
-					</p>
-					<Button slot="footer" variant="primary">Donate</Button>
-				</Card>
-			</Col>
-			<Col col="4" mr="auto" sm="12">
-				<Card flat>
-					<h5 slot="title">Sponsor via Patreon</h5>
-					<p>Your name or company logo will be put on Spectre Docs homepage.</p>
-					<Button slot="footer" variant="primary">Sponsor</Button>
-				</Card>
-			</Col>
-		</Grid>
-	</Container>
-</Hero>
+<Hero size="sm" bg="gray" center></Hero>
 
 <script context="module" lang="ts">
 	import { base } from '$app/paths';
