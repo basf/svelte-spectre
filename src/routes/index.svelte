@@ -100,6 +100,7 @@
 		ButtonGroup,
 		Card,
 		Col,
+		Container,
 		Checkbox,
 		Chip,
 		Divider,
@@ -127,8 +128,6 @@
 </script>
 
 <script lang="ts">
-	import Container from '$lib/layouts/Container';
-
 	export let name: string = 'SvelteSpectre';
 </script>
 
