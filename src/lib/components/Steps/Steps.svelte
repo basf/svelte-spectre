@@ -1,7 +1,7 @@
 <ul {...$$restProps} class="step">
-	{#each steps as { href, label }}
-		<li class="step-item">
-			<a {href} class="tooltip" data-tooltip={label}>{label}</a>
+	{#each steps as { href, label, tooltip, active }}
+		<li class="step-item" class:active>
+			<a {href} class="tooltip" data-tooltip={tooltip}>{label}</a>
 		</li>
 	{/each}
 </ul>
@@ -10,6 +10,8 @@
 	export type Step = {
 		label: string;
 		href?: string;
+		tooltip?: string;
+		active?: boolean;
 	};
 </script>
 

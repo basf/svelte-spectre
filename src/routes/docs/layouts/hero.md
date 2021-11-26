@@ -4,9 +4,11 @@ title: Hero
 ---
 
 <script>
-    import {Button} from '$lib'
+    import {Hero} from '$lib'
 </script>
 
 # {title}
 
 > 🚧 Under construction
+
+<Hero bg="gray" center/>
