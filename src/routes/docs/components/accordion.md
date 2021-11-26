@@ -2,18 +2,18 @@
 file: accordion.md
 title: Accordion
 api: [
+	{title: 'group: string', description: 'Accordion group', variables: 'any string'},
 	{title: 'toggled: boolean', description: 'Accordion toggled', variables: 'true | false'},
-	{title: 'opened: boolean', description: 'Accordion opened', variables: 'true | false'},
-	{title: 'icon: string', description: 'Accordion icon', variables: 'arrow-up | arrow-right | arrow-down | arrow-left | upward | forward | downward | back | caret | menu | apps | more-horiz | more-vert | resize-horiz | resize-vert | plus | minus | cross | check | stop | shutdown | refresh | search | flag | bookmark | edit | delete | share | download | upload | copy | mail | people | message | photo | time | location | link | emoji | xray | home | circle-check | wifi | audio'},
+	{title: 'opened: boolean', description: 'Accordion opened', variables: 'true | false'}
 ]
-config: { toggled: { type: 'checkbox' }, icon: { size: 10 } }
+config: { toggled: { type: 'checkbox' }, group: { size: 10, placeholder: 'global scope' } }
 ---
 
 <script>
-    import {Accordion, Col, Grid, Divider} from '$lib'
+    import {Accordion, Accordioner, Col, Grid, Divider} from '$lib'
     import Knobs from '../_knobs.svelte'
 
-    let state = { toggled: true, icon: 'arrow-right' }
+    let state = { toggled: true, group: 'demo' }
 </script>
 
 # {title}
@@ -23,30 +23,30 @@ Accordions are used to toggle sections of content.
 <p>
     <Grid>
         <Col>
-            <Accordion opened bind:toggled={state.toggled} icon={state.icon}>
-                <strong slot="title">Accordion1</strong>
+            <Accordion bind:group={state.group} opened bind:toggled={state.toggled}>
+                <h5 slot="header"><i class="icon icon-arrow-right mr-2" />Accordion1</h5>
                 Accordion content<br />Accordion content<br />Accordion content
             </Accordion>
-            <Accordion bind:toggled={state.toggled} icon="arrow-right">
-                <strong slot="title">Accordion2</strong>
+            <Accordion bind:group={state.group} bind:toggled={state.toggled}>
+                <h5 slot="header"><i class="icon icon-arrow-right mr-2" />Accordion2</h5>
                 Accordion1<br />Accordion1<br />Accordion1
             </Accordion>
-            <Accordion bind:toggled={state.toggled} icon="arrow-right">
-                <strong slot="title">Accordion2</strong>
+            <Accordion bind:group={state.group} bind:toggled={state.toggled}>
+                <h5 slot="header"><i class="icon icon-arrow-right mr-2" />Accordion2</h5>
                 Accordion2<br />Accordion2<br />Accordion2
             </Accordion>
         </Col>
         <Col>
-            <Accordion>
-                <strong slot="title">Accordion1</strong>
+            <Accordion toggled>
+                <h5 slot="header">Accordion1</h5>
                 Accordion content<br />Accordion content<br />Accordion content
             </Accordion>
-            <Accordion opened>
-                <strong slot="title">Accordion2</strong>
+            <Accordion toggled opened>
+                <h5 slot="header">Accordion2</h5>
                 Accordion1<br />Accordion1<br />Accordion1
             </Accordion>
-            <Accordion>
-                <strong slot="title">Accordion2</strong>
+            <Accordion toggled>
+                <h5 slot="header">Accordion2</h5>
                 Accordion2<br />Accordion2<br />Accordion2
             </Accordion>
         </Col>
@@ -57,21 +57,30 @@ Accordions are used to toggle sections of content.
     <Knobs bind:state={state} {config}/>
 </p>
 
+If you remove ☝🏻 `group` name `demo` in input above, all Accordions will be in
+global toggle scope.
+
 ```sv
 <script>
     import { Accordion } from 'svelte-spectre'
 </script>
 
-<Accordion opened icon="arrow-right">
-    <strong slot="title">Accordion1</strong>
+<Accordion group="demo" opened toggled>
+    <h5 slot="header">
+        <i class="icon icon-{icon} mr-1" />Accordion1
+    </h5>
     Accordion<br />Accordion<br />Accordion
 </Accordion>
-<Accordion icon="arrow-right">
-    <strong slot="title">Accordion2</strong>
+<Accordion group="demo" toggled>
+    <h5 slot="header">
+        <i class="icon icon-{icon} mr-1" />Accordion2
+    </h5>
     Accordion1<br />Accordion1<br />Accordion1
 </Accordion>
-<Accordion icon="arrow-right">
-    <strong slot="title">Accordion2</strong>
+<Accordion group="demo" toggled>
+    <h5 slot="header">
+        <i class="icon icon-{icon} mr-1" />Accordion2
+    </h5>
     Accordion2<br />Accordion2<br />Accordion2
 </Accordion>
 ```

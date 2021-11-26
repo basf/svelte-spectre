@@ -32,6 +32,7 @@
 							<input
 								bind:value={state[key]}
 								size={config[key].size}
+								placeholder={config[key].placeholder}
 								class="form-input"
 								id={autoId(key)}
 							/>

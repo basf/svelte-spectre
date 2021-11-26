@@ -1,35 +1,34 @@
 <details {...$$restProps} class="accordion" bind:open={opened}>
 	<summary class="accordion-header" on:click|preventDefault={toggled ? toggle : open}>
-		{#if icon}<i class="icon icon-{icon} mr-1" />{/if}
-		<slot name="title" />
+		<slot name="header"><i class="icon icon-arrow-right mr-1" /></slot>
 	</summary>
 	{#if opened}
-		<div class="accordion-body" transition:slide>
+		<div class="accordion-body" in:slide>
 			<slot />
 		</div>
 	{/if}
 </details>
 
 <script lang="ts" context="module">
-	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 
 	const list = new Set();
-	function closeAll() {
-		list.forEach((fn: Function) => fn());
-	}
 </script>
 
 <script lang="ts">
 	export let opened: boolean = false;
 	export let toggled: boolean = false;
-	export let icon: string = '';
+	export let group: string = '';
 
-	onMount(() => init());
+	$: init(group);
 
-	function init() {
-		const fn = () => (opened = false);
-		list.add(fn);
+	function closeAll() {
+		list.forEach((fn: Function) => fn.name === group && fn());
+	}
+
+	function init(group: string) {
+		const fn = { [group]: () => (opened = false) }[group];
+		list?.add(fn);
 		return () => list.delete(fn);
 	}
 
@@ -46,11 +45,27 @@
 
 <style lang="scss">
 	@import 'spectre.css/src/accordions';
-	@import 'spectre.css/src/icons';
 	.accordion {
+		&[open] {
+			& .accordion-header {
+				position: relative;
+				:global(.icon) {
+					transform: rotate(90deg);
+				}
+				:global(.icon[pos='right']) {
+					transform: rotate(-90deg);
+				}
+				:global(.icon[pos='plus']) {
+					transform: rotate(-45deg);
+				}
+			}
+		}
 		.accordion-header {
 			cursor: pointer;
 			padding: $unit-2 0;
+			:global(.icon) {
+				transition: transform 0.25s;
+			}
 		}
 	}
 </style>

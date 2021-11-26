@@ -43,23 +43,25 @@
 
 		<nav id="sidebar" slot="sidebarLeft" class="m-2">
 			<h3><a href={`${base}/`} on:click={() => (openLeft = false)}>Svelte-spectre</a></h3>
-			{#each Object.entries(links) as [key, value], i}
-				<Accordion toggled opened={openedAccordion($page.path, key, i)}>
-					<strong slot="title">{key.replace(/_|-|[0-9]/g, ' ')}</strong>
-					<Menu nav>
-						{#each value as { path, metadata: { title } }, i}
-							<li class="menu-item">
-								<a
-									sveltekit:prefetch
-									href={setLink(base, path)}
-									class:active={activeLink($page.path, path)}
-									on:click={() => (openLeft = false)}>{title}</a
-								>
-							</li>
-						{/each}
-					</Menu>
-				</Accordion>
-			{/each}
+			<Accordioner>
+				{#each Object.entries(links) as [key, value], i}
+					<Accordion group="nav" toggled opened={openedAccordion($page.path, key, i)}>
+						<strong slot="header">{key.replace(/_|-|[0-9]/g, ' ')}</strong>
+						<Menu nav>
+							{#each value as { path, metadata: { title } }, i}
+								<li class="menu-item">
+									<a
+										sveltekit:prefetch
+										href={setLink(base, path)}
+										class:active={activeLink($page.path, path)}
+										on:click={() => (openLeft = false)}>{title}</a
+									>
+								</li>
+							{/each}
+						</Menu>
+					</Accordion>
+				{/each}
+			</Accordioner>
 		</nav>
 
 		<main class:px-2={$page.path.includes('docs')}>
@@ -162,7 +164,17 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
-	import { Accordion, Aside, Button, IconButton, Menu, Navbar, Spectre, Toaster } from '$lib';
+	import {
+		Accordion,
+		Accordioner,
+		Aside,
+		Button,
+		IconButton,
+		Menu,
+		Navbar,
+		Spectre,
+		Toaster,
+	} from '$lib';
 	import Xray from '$assets/b-science.svg';
 	import GitHub from '$assets/github.svg';
 
