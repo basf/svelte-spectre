@@ -44,7 +44,7 @@
 		<nav id="sidebar" slot="sidebarLeft" class="m-2">
 			<h3><a href={`${base}/`} on:click={() => (openLeft = false)}>Svelte-Spectre</a></h3>
 			{#each Object.entries(links) as [key, value], i}
-				<Accordion toggled opened={openedAccordion($page, key, i)}>
+				<Accordion toggled opened={openedAccordion($page.path, key, i)}>
 					<strong slot="title">{key.replace(/_|-|[0-9]/g, ' ')}</strong>
 					<Menu nav>
 						{#each value as { path, metadata: { title } }, i}
@@ -52,7 +52,7 @@
 								<a
 									sveltekit:prefetch
 									href={setLink(base, path)}
-									class:active={activeLink($page, path)}
+									class:active={activeLink($page.path, path)}
 									on:click={() => (openLeft = false)}>{title}</a
 								>
 							</li>
@@ -101,9 +101,7 @@
 </Spectre>
 
 <svelte:head>
-	{#if metadata}
-		<title>{metadata.title}</title>
-	{/if}
+	<title>Svelte-Spectre: {title}</title>
 </svelte:head>
 
 <script lang="ts" context="module">
@@ -118,28 +116,46 @@
 		);
 	}
 
-	export async function load() {
+	export async function load({ page }) {
 		const mds = await Promise.all(body);
 		const links = mds.reduce((a, c) => {
 			const key = c.path.split('/')[2];
 			return { ...a, [key]: a[key] ? [...a[key], c] : [c] };
 		}, {});
+		const metadata = getMeta(page.path) || null;
+		const title = metadata?.title;
+
+		function getMeta(path: string) {
+			const parts = path.split('/').filter(Boolean);
+			const category = parts[1];
+			const page = parts[2];
+
+			return links[category]?.find((l) => l.path.includes(page)).metadata;
+		}
 		return {
-			props: { links },
+			props: { links, metadata, title },
 		};
 	}
 
 	interface Meta {
 		file: string;
 		title: string;
-		config: any;
-		api: Api[];
+		config?: any;
+		api?: Api[];
 	}
 
 	interface Api {
-		title: string;
-		variables: string;
-		description: string;
+		title?: string;
+		variables?: string;
+		description?: string;
+	}
+
+	interface Link {
+		metadata: Meta;
+		path: string;
+	}
+	interface Links {
+		[key: string]: Link[];
 	}
 </script>
 
@@ -152,26 +168,17 @@
 
 	let openLeft = false,
 		openRight = false,
-		show = false,
-		metadata: Meta;
+		show = false;
 
-	export let links;
+	export let links: Links,
+		metadata: Meta,
+		title: string = 'Svelte-Spectre';
 
-	const openedAccordion = (page, key, i) => page.path.includes(key.replace(' ', '_'));
-	const activeLink = (page, path) => page.path.replace(/\/$/, '') === path.replace(/\.|md/g, '');
-	const setLink = (base, path) => base + path.replace(/\.|md/g, '');
-
-	$: metadata = getMeta($page.path) || null;
-
-	function getMeta(path: string) {
-		const parts = path.split('/').filter(Boolean);
-		const category = parts[1];
-		const page = parts[2];
-
-		return links[category]?.find((l) => l.path.includes(page)).metadata;
-	}
-
-	// $: console.log($page);
+	const openedAccordion = (path: string, key: string, i: number) =>
+		path.includes(key.replace(' ', '_'));
+	const activeLink = (page: string, path: string) =>
+		page.replace(/\/$/, '') === path.replace(/\.|md/g, '');
+	const setLink = (base: string, path: string) => base + path.replace(/\.|md/g, '');
 </script>
 
 <style lang="scss" global>

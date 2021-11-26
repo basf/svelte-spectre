@@ -11,10 +11,10 @@ title: Checkbox
 
 > 🚧 Under construction
 
-<!-- <Form>
+<Form>
     <FormGroup>
         <h4>Checkbox</h4>
         <Checkbox indeterminate>Checkbox</Checkbox>
         <Checkbox indeterminate>Checkbox</Checkbox>
     </FormGroup>
-</Form> -->
+</Form>

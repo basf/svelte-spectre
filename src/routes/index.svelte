@@ -46,13 +46,13 @@
 	<Container>
 		<h2>Introduction</h2>
 		<p>
-			Spectre.css is a lightweight, responsive and modern CSS framework for faster and
-			extensible development.
+			Svelte-Spectre is a lightweight, responsive and modern UI-kit based on spectre.css &
+			powered by SvelteJS for faster and extensible development.
 		</p>
 		<p>
-			Spectre provides basic styles for typography and elements, flexbox based responsive
-			layout system, pure CSS components and utilities with best practice coding and
-			consistent design language.
+			Svelte-Spectre provides basic styles for typography and elements, flexbox based
+			responsive layout system, pure CSS components and utilities with best practice coding
+			and consistent design language.
 		</p>
 	</Container>
 </Hero>
@@ -128,7 +128,7 @@
 </script>
 
 <script lang="ts">
-	export let name: string = 'SvelteSpectre';
+	export let name: string = 'Svelte-Spectre';
 </script>
 
 <style lang="scss">

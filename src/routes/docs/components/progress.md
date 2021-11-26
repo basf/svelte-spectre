@@ -4,9 +4,11 @@ title: Progress
 ---
 
 <script>
-    import {Button} from '$lib'
+    import {Progress} from '$lib'
 </script>
 
 # {title}
 
 > 🚧 Under construction
+
+<Progress/>
