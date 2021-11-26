@@ -42,7 +42,7 @@
 		</header>
 
 		<nav id="sidebar" slot="sidebarLeft" class="m-2">
-			<h3><a href={`${base}/`} on:click={() => (openLeft = false)}>Svelte-Spectre</a></h3>
+			<h3><a href={`${base}/`} on:click={() => (openLeft = false)}>Svelte-spectre</a></h3>
 			{#each Object.entries(links) as [key, value], i}
 				<Accordion toggled opened={openedAccordion($page, key, i)}>
 					<strong slot="title">{key.replace(/_|-|[0-9]/g, ' ')}</strong>
@@ -94,7 +94,7 @@
 			{/if}
 		</svelte:fragment>
 
-		<footer class="text-center p-2">© {new Date().getFullYear()}</footer>
+		<footer class="text-center p-2">&copy; {new Date().getFullYear()} BASF SE</footer>
 	</Aside>
 
 	<Toaster />

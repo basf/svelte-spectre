@@ -43,4 +43,5 @@ You can preview the built app with `npm run preview`, regardless of whether you 
 
 ## License
 
+Copyright 2021-2022 BASF SE
 BSD 3-Clause

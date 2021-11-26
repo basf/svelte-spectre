@@ -1,12 +1,12 @@
 <svelte:head>
-	<title>Svelte-Spectre</title>
+	<title>Svelte-spectre</title>
 </svelte:head>
 
 <Hero size="md" bg="gray" center>
 	<Container>
-		<h1>Svelte-Spectre</h1>
+		<h1>Svelte-spectre</h1>
 		<p>
-			A Lightweight, Responsive and Modern UI-kit based on spectre.css & powered by SvelteJS
+			A Lightweight, Responsive and Modern UI-kit based on spectre.css and powered by SvelteJS
 		</p>
 		<p>
 			<Button href="{base}/docs" variant="primary" size="lg" sveltekit:prefetch>Docs</Button
@@ -56,8 +56,6 @@
 		</p>
 	</Container>
 </Hero>
-
-<Hero size="sm" bg="gray" center></Hero>
 
 <script context="module" lang="ts">
 	import { base } from '$app/paths';
