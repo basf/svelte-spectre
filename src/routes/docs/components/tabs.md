@@ -34,6 +34,8 @@ config: {
 ---
 
 <script>
+    import {onMount} from 'svelte'
+    import { goto, invalidate, prefetch, prefetchRoutes } from '$app/navigation';
     import { page } from '$app/stores';
     import { base } from '$app/paths';
     import { Col, Grid, Tabs } from '$lib'
@@ -61,7 +63,7 @@ config: {
 
     $: items[0] = state
 
-    // $: console.log($page.query.toString(), $page.query.get('tab'))
+    onMount(() => goto(`${base + $page.path}?tab=1`))
 </script>
 
 # {title}
