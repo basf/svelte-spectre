@@ -6,7 +6,7 @@
 	<Container>
 		<h1>Svelte-Spectre</h1>
 		<p>
-			A Lightweight, Responsive and Modern UI-kit based on spectre.css & powered by SvelteJS
+			A Lightweight, Responsive and Modern UI-kit based on <a href="https://picturepan2.github.io/spectre">spectre.css</a> and powered by <a href="https://svelte.dev">SvelteJS</a> and <a href="https://kit.svelte.dev" target="_blank" alt="SvelteKit">SvelteKit</a>
 		</p>
 		<p>
 			<Button href="{base}/docs" variant="primary" size="lg" sveltekit:prefetch>Docs</Button
@@ -19,12 +19,7 @@
 			>
 		</p>
 		<p class="text-gray">
-			Latest version: 0.1.0<br />
-			<mark>
-				&nbsp; Made on <a href="https://kit.svelte.dev" target="_blank" alt="SvelteKit"
-					>SvelteKit</a
-				>&nbsp;
-			</mark>
+			Latest version: 0.1.0
 		</p>
 		<Grid stack>
 			<Col col="4" mr="auto" sm="12">
@@ -135,7 +130,7 @@
 </script>
 
 <script lang="ts">
-	export let name: string = 'Svelte-Spectre';
+	export let name: string = 'Svelte-spectre';
 </script>
 
 <style lang="scss">
