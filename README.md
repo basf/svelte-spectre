@@ -4,8 +4,8 @@ UI-kit based on [spectre.css](https://picturepan2.github.io/spectre/) powered by
 
 ### Requirements
 
--   `node -v >= 15`
--   `npm -v >= 7`
+- `node -v >= 15`
+- `npm -v >= 7`
 
 ## Installation
 
@@ -42,5 +42,7 @@ npm run build
 You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
 
 ## License
+
+Copyright 2021-2022 BASF SE
 
 BSD 3-Clause
