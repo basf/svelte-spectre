@@ -18,7 +18,14 @@
 				size="lg">GitHub</Button
 			>
 		</p>
-		<p class="text-gray">Latest version: 0.1.0</p>
+		<p class="text-gray">
+			Latest version: 0.1.0<br />
+			<mark>
+				&nbsp; Made on <a href="https://kit.svelte.dev" target="_blank" alt="SvelteKit"
+					>SvelteKit</a
+				>&nbsp;
+			</mark>
+		</p>
 		<Grid stack>
 			<Col col="4" mr="auto" sm="12">
 				<Card clear>
