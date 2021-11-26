@@ -63,7 +63,7 @@ config: {
 
     $: items[0] = state
 
-    onMount(() => goto(`${base + $page.path}?tab=1`))
+    onMount(() => goto(`${base + $page.path}?${$page.query.toString() || 'tab=1'}`))
 </script>
 
 # {title}
