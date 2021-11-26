@@ -50,7 +50,7 @@
 					e.preventDefault();
 					index = index < items.length - 1 ? index + 1 : 0;
 					nodes[index].focus();
-					console.log(nodes[index].firstChild.text);
+					//console.log(nodes[index].firstChild.text);
 					break;
 				case ' ':
 				case 'Enter':
@@ -70,7 +70,7 @@
 			}
 		};
 		node.onclick = (e) => {
-			console.log(active);
+			//console.log(active);
 			if (typeof active === 'number') {
 				e.preventDefault();
 				active = i;
