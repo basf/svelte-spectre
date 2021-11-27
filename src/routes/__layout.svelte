@@ -42,7 +42,7 @@
 		</header>
 
 		<nav id="sidebar" slot="sidebarLeft" class="m-2">
-			<h3><a href={`${base}/`} on:click={() => (openLeft = false)}>Svelte-spectre</a></h3>
+			<h5><a href={`${base}/`} on:click={() => (openLeft = false)}>Svelte-spectre</a></h5>
 			{#if links}
 				{#each Object.entries(links) as [key, value], i}
 					<Accordion group="nav" toggled opened={openedAccordion($page.path, key, i)}>
@@ -91,7 +91,9 @@
 								</dd>
 							{/if}
 						{:else}
-							<dt>API in progress</dt>
+							<dt class="text-normal">
+								<blockquote>👨🏻‍💻 in progress</blockquote>
+							</dt>
 						{/each}
 					</dl>
 				</article>

@@ -104,13 +104,13 @@ tab-item class. You can add the tab-block class for a full-width tab. The
 tab-item or its child with the active class will be highlighted.
 
 <p>
-    <Grid>
-        <Col>
+    <Grid stack>
+        <Col xs="12">
             <Tabs active={$page.query.toString()} {items} block={state.block}/>
             active: {$page.query.toString()}
         </Col>
-        <Col>
-            <Tabs items={items2}/>
+        <Col xs="12">
+            <Tabs items={items2} block/>
         </Col>
     </Grid>
 </p>
@@ -136,12 +136,12 @@ tab-item or its child with the active class will be highlighted.
 ## Badge
 
 <p>
-    <Grid>
-        <Col>
+    <Grid stack>
+        <Col xs="12">
             <Tabs items={items2}/>
         </Col>
-        <Col>
-            <Tabs items={items2}/>
+        <Col xs="12">
+            <Tabs items={items2} block/>
         </Col>
     </Grid>
 </p>
@@ -166,7 +166,7 @@ You could add a search box or buttons inside a tab. Add the `tab-action` class
 to the `tab-item`.
 
 <p>
-    <Tabs items={items2}>
+    <Tabs items={items2} block>
         <div slot="action" class="input-group input-inline">
             <input class="form-input input-sm" type="text">
             <button class="btn btn-primary btn-sm input-group-btn">Search</button>

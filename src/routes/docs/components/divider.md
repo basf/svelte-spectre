@@ -4,17 +4,17 @@ title: Divider
 api:
     [
         {
-            title: 'align: string',
+            title: 'align: string = "horizontal"',
             description: 'Divider align',
-            variables: 'left | center | right',
+            variables: 'vertical | horizontal | left | center | right',
         },
         {
-            title: 'text: string',
+            title: 'text: string = ""',
             description: 'Divider text',
             variables: 'any string',
         },
         {
-            title: 'empty: boolean',
+            title: 'empty: boolean = false',
             description: 'Divider without separate line',
             variables: 'true | false',
         },

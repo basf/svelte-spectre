@@ -11,6 +11,8 @@ title: Range
 
 > 🚧 Under construction
 
+The Range are for selecting values from ranges.
+
 <Form>
     <FormGroup>
         <h4>Range</h4>

@@ -7,7 +7,9 @@
 	{#if items}
 		{#each items as item, i}
 			{#if item.divider}
-				<Divider text={item.divider} />
+				<li class="menu-item menu-divider">
+					<Divider text={item.divider} />
+				</li>
 			{:else}
 				<li class="menu-item">
 					{#if Object.keys(item).includes('checkbox') && !item.badge}
@@ -46,7 +48,7 @@
 		<slot />
 	{/if}
 	{#if $$slots.footer}
-		<li class="menu-item">
+		<li class="menu-item menu-footer">
 			<slot name="footer" />
 		</li>
 	{/if}
@@ -95,8 +97,11 @@
 			&:first-child {
 				margin-bottom: $unit-4;
 			}
-			&:last-child {
+			&.menu-footer {
 				margin-top: $unit-4;
+			}
+			&.menu-divider {
+				padding: 0;
 			}
 			&:not(:first-child, :last-child) {
 				&:focus,

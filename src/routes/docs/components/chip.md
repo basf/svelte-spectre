@@ -9,35 +9,35 @@ api:
             variables: 'any string',
         },
         {
-            title: 'active: boolean',
-            description: 'Chip active state',
-            variables: 'true | false',
+            title: '<slot name="avatar">: HTMLelement',
+            description: '<svg>, <img>',
+            variables: '<svg> | <img>',
         },
         {
-            title: 'closable: boolean',
-            description: 'Chip closable',
-            variables: 'true | false',
-        },
-        {
-            title: 'avatar: boolean',
+            title: 'avatar: boolean = false',
             description: 'Chip avatar',
             variables: 'true | false',
         },
         {
-            title: 'name: boolean',
+            title: 'name: boolean = ""',
             description: 'Chip avatar name',
             variables: 'any string',
         },
         {
-            title: 'status: boolean',
+            title: 'status: Status = null',
             description: 'Chip avatar status',
             variables: 'null | online | away | busy | offline',
         },
         {
-            title: 'image: boolean',
-            description: 'Chip avatar image',
-            variables: 'any string url',
+            title: 'active: boolean = false',
+            description: 'Chip active state',
+            variables: 'true | false',
         },
+        {
+            title: 'closable: boolean = false',
+            description: 'Chip closable',
+            variables: 'true | false',
+        }
     ]
 config:
     {

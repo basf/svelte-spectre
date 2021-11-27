@@ -30,7 +30,7 @@
 
 	export let avatar: boolean = false;
 	export let name: string = '';
-	export let status: Status = false;
+	export let status: Status = null;
 	export let active: boolean = false;
 	export let closable: boolean = false;
 </script>
