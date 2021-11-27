@@ -26,6 +26,8 @@ title: Menu
 
 # {title}
 
+Menus are vertical list of links or buttons for actions and navigation.
+
 > 🚧 Under construction
 
 <Grid>
