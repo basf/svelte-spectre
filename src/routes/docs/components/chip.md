@@ -41,7 +41,7 @@ api:
     ]
 config:
     {
-        slot: { size: 10 },
+        slot: { size: 7 },
         active: { type: 'checkbox' },
         closable: { type: 'checkbox' },
         avatar: { type: 'checkbox' },

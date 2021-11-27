@@ -1,6 +1,6 @@
 <details {...$$restProps} class="accordion" bind:open={opened}>
 	<summary class="accordion-header" on:click|preventDefault={toggled ? toggle : open}>
-		<slot name="header"><i class="icon icon-arrow-right mr-1" /></slot>
+		<slot name="header" />
 	</summary>
 	{#if opened}
 		<div class="accordion-body" in:slide>
