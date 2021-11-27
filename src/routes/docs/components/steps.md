@@ -1,9 +1,20 @@
 ---
 file: steps.md
 title: Steps
-api: []
+api: [
+    {title: 'steps: Step', description: 'interface Step', variables: 'interface Step {
+		label: string;
+		href?: string;
+		tooltip?: string;
+    }'},
+    {title: 'Step.label: string = ""', description: 'Step label', variables: 'any string'},
+    {title: 'Step.gref: string = ""', description: 'Step href', variables: 'any url string'},
+    {title: 'Step.tooltip: string = ""', description: 'Step tooltip', variables: 'any string'},
+    {title: 'active: number = 1', description: 'Active step', variables: 'any number'}
+]
 config: {
-    active: { type: 'number', min: 1, max: 5, size: 5 }
+    active: { type: 'number', min: 1, max: 10, size: 5 },
+    length: { type: 'number', min: 2, max: 10, size: 5 }
 }
 ---
 
@@ -11,16 +22,9 @@ config: {
     import {Steps} from '$lib'
     import Knobs from '../_knobs.svelte'
 
-    let steps = [
-        {label: 'Step 1', href: '#', tooltip: 'tooltip'},
-        {label: 'Step 2', href: '#', tooltip: 'tooltip'},
-        {label: 'Step 3', href: '#', tooltip: 'tooltip', active: true},
-        {label: 'Step 4', href: '#', tooltip: 'tooltip'},
-        {label: 'Step 5', href: '#', tooltip: 'tooltip'},
-    ],
-    state = { active: 3 }
+    let state = { active: 3, length: 5 }
 
-    $: steps = steps.map((s, i) => {return {...s, active: i === state.active - 1 ? true : false }})
+    $: steps = Array.from({length: state.length}, (x, i) => x = {label: `Step ${i + 1}`, href: '#', tooltip: 'tooltip'})
 </script>
 
 # {title}
@@ -34,7 +38,7 @@ step-item class. The step-item with the active class will be highlighted and
 indicate the current state of progress.
 
 <p>
-    <Steps bind:steps />
+    <Steps {steps} bind:active={state.active} />
 </p>
 
 <p>
@@ -48,7 +52,7 @@ indicate the current state of progress.
     let steps = [
         {label: 'Step 1', href: '#', tooltip: 'tooltip'},
         {label: 'Step 2', href: '#', tooltip: 'tooltip'},
-        {label: 'Step 3', href: '#', tooltip: 'tooltip', active: true},
+        {label: 'Step 3', href: '#', tooltip: 'tooltip'},
         {label: 'Step 4', href: '#', tooltip: 'tooltip'},
         {label: 'Step 5', href: '#', tooltip: 'tooltip'},
     ]
