@@ -4,12 +4,12 @@ title: Button
 api:
     [
         {
-            title: 'variant: Variant',
+            title: 'variant: Variant = "default"',
             description: 'Button variant',
             variables: 'default | link | primary | secondary | success | error',
         },
         {
-            title: 'size: Sizes',
+            title: 'size: Size = "md"',
             description: 'Button size',
             variables: 'xs | sm | md | lg | xl | xxl',
         },
@@ -19,7 +19,7 @@ api:
             variables: 'arrow-up | arrow-right | arrow-down | arrow-left | upward | forward | downward | back | caret | menu | apps | more-horiz | more-vert | resize-horiz | resize-vert | plus | minus | cross | check | stop | shutdown | refresh | search | flag | bookmark | edit | delete | share | download | upload | copy | mail | people | message | photo | time | location | link | emoji | xray | home | circle-check | wifi | audio',
         },
         {
-            title: 'shape: Shape',
+            title: 'shape: Shape = false',
             description: 'Button shape',
             variables: 'square | circle',
         },
@@ -29,7 +29,7 @@ api:
             variables: 'active | disabled | loading',
         },
         {
-            title: 'block: boolean',
+            title: 'block: boolean = false',
             description: 'Button block',
             variables: 'true | false',
         },

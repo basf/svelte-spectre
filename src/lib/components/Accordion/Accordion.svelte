@@ -18,7 +18,7 @@
 <script lang="ts">
 	export let opened: boolean = false;
 	export let toggled: boolean = false;
-	export let group: string = '';
+	export let group: string;
 
 	$: init(group);
 

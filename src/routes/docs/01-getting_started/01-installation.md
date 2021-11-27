@@ -11,8 +11,8 @@ title: Installation
 
 > ##### Requirements
 >
-> - `node -v >= 15`
-> - `npm -v >= 7`
+> -   `node -v >= 15`
+> -   `npm -v >= 7`
 
 ## Installation
 

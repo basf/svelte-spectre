@@ -1,10 +1,11 @@
 ---
 file: tabs.md
 title: Tabs
-api: [
+api:
+    [
         {
-            title: 'badge.item: interface Item', 
-            description: '', 
+            title: 'badge.item: interface Item',
+            description: '',
             variables: 'interface Item {
                 title: string;
                 path?: string;
@@ -12,25 +13,53 @@ api: [
                 icon?: Icons;
                 badge?: string;
                 clear?: boolean;
-            }'
+                }',
         },
-        {title: 'Item.title: string', description: 'Tab item title', variables: 'any string'},
-        {title: 'Item.path: string', description: 'Tab item path', variables: 'URI string'},
-        {title: 'Item.icon: Icons', description: 'Tab item icon', variables: 'icons'},
-        {title: 'Item.badge: string', description: 'Tab item badge', variables: 'any string'},
-        {title: 'Item.clear: boolean', description: 'Tab item close button', variables: 'true | false'},
-        {title: 'block: boolean', description: 'Tabs block', variables: 'true | false'},
-        {title: '<slot name="action">', description: 'Tab item action', variables: 'true | false'},
+        {
+            title: 'Item.title: string',
+            description: 'Tab item title',
+            variables: 'any string',
+        },
+        {
+            title: 'Item.path: string',
+            description: 'Tab item path',
+            variables: 'URI string',
+        },
+        {
+            title: 'Item.icon: Icons',
+            description: 'Tab item icon',
+            variables: 'icons',
+        },
+        {
+            title: 'Item.badge: string',
+            description: 'Tab item badge',
+            variables: 'any string',
+        },
+        {
+            title: 'Item.clear: boolean',
+            description: 'Tab item close button',
+            variables: 'true | false',
+        },
+        {
+            title: 'block: boolean',
+            description: 'Tabs block',
+            variables: 'true | false',
+        },
+        {
+            title: '<slot name="action">',
+            description: 'Tab item action',
+            variables: 'true | false',
+        },
     ]
-config: {
+config:
+    {
         title: { size: 10 },
         path: { size: 10 },
         icon: { options: [null, 'emoji', 'home', 'location'] },
         badge: { size: 10 },
         clear: { type: checkbox },
-        block: { type: checkbox }
+        block: { type: checkbox },
     }
-
 ---
 
 <script>

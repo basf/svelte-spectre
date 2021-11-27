@@ -32,7 +32,7 @@
 
 	import type { Size } from '../../types/size';
 	import type { Weight } from '../../types/text';
-	export type Status = 'online' | 'busy' | 'away' | 'offline' | false;
+	export type Status = 'online' | 'busy' | 'away' | 'offline' | null;
 	export type { Size, Weight };
 </script>
 
@@ -43,7 +43,7 @@
 	export let caption: boolean = false;
 	export let size: Size = 'md';
 	export let weight: Weight = 'normal';
-	export let status: Status = false;
+	export let status: Status = null;
 	export let badge: string = '';
 	let words: RegExpMatchArray;
 	let clip: number;

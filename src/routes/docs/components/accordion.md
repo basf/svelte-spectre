@@ -3,8 +3,8 @@ file: accordion.md
 title: Accordion
 api: [
 	{title: 'group: string', description: 'Accordion group', variables: 'any string'},
-	{title: 'toggled: boolean', description: 'Accordion toggled', variables: 'true | false'},
-	{title: 'opened: boolean', description: 'Accordion opened', variables: 'true | false'}
+	{title: 'toggled: boolean = false', description: 'Accordion toggled', variables: 'true | false'},
+	{title: 'opened: boolean = false', description: 'Accordion opened', variables: 'true | false'}
 ]
 config: { toggled: { type: 'checkbox' }, group: { size: 10, placeholder: 'global scope' } }
 ---

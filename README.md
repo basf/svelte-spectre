@@ -4,8 +4,8 @@ UI-kit based on [spectre.css](https://picturepan2.github.io/spectre/) powered by
 
 ### Requirements
 
-- `node -v >= 15`
-- `npm -v >= 7`
+-   `node -v >= 15`
+-   `npm -v >= 7`
 
 ## Installation
 

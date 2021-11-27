@@ -39,6 +39,15 @@
 			&.progress-invert {
 				transform: scaleX(-1);
 			}
+			&:indeterminate {
+				background: $bg-color-dark
+					linear-gradient(
+						to right,
+						var(--progress-color, $primary-color) 30%,
+						$bg-color-dark 30%
+					)
+					top left / 150% 150% no-repeat;
+			}
 		}
 	}
 </style>

@@ -43,7 +43,7 @@
 
 		<nav id="sidebar" slot="sidebarLeft" class="m-2">
 			<h3><a href={`${base}/`} on:click={() => (openLeft = false)}>Svelte-spectre</a></h3>
-			<Accordioner>
+			{#if links}
 				{#each Object.entries(links) as [key, value], i}
 					<Accordion group="nav" toggled opened={openedAccordion($page.path, key, i)}>
 						<strong slot="header">{key.replace(/_|-|[0-9]/g, ' ')}</strong>
@@ -61,7 +61,7 @@
 						</Menu>
 					</Accordion>
 				{/each}
-			</Accordioner>
+			{/if}
 		</nav>
 
 		<main class:px-2={$page.path.includes('docs')}>
@@ -78,9 +78,11 @@
 								{#if api.title}
 									<code class="text-bold">
 										{api.title}
-									</code>
+									</code><br />
 								{/if}
-								{api.description ? `— ${api.description}` : ''}
+								{#if api.description}
+									<small>{api.description}</small>
+								{/if}
 							</dt>
 							{#if api.variables}
 								<dd>

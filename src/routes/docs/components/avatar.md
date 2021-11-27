@@ -2,13 +2,13 @@
 file: avatar.md
 title: Avatar
 api: [
-	{title: 'name: string', description: 'Avatar name for initials', variables: 'Name Surname'},
-	{title: 'size: Size', description: 'Avatar size', variables: 'xs | sm | md | lg | xl'},
-	{title: 'status: Status', description: 'Avatar status', variables: 'null | online | away | busy | offline'},
+	{title: 'name: string = ""', description: 'Avatar name for initials', variables: 'Name Surname'},
+	{title: 'size: Size = "md"', description: 'Avatar size', variables: 'xs | sm | md | lg | xl'},
+	{title: 'status: Status = null', description: 'Avatar status', variables: 'null | online | away | busy | offline'},
 	{title: '<slot>: HTMLelement', description: 'Avatar image', variables: '<img> | <svg>'},
 	{title: '<slot name="sub">: HTMLelement', description: 'Avatar subimage', variables: '<img> | <svg>'},
-	{title: 'badged: boolean', description: 'Avatar badged', variables: 'true | false'},
-	{title: 'badge: string', description: 'Avatar badge value', variables: 'any string'},
+	{title: 'caption: boolean = false', description: 'Avatar caption', variables: 'true | false'},
+	{title: 'badge: string = ""', description: 'Avatar badge value', variables: 'any string'},
 ]
 config:
     {
@@ -39,6 +39,7 @@ config:
                         'avatar-5.png',
                     ],
             },
+        caption: { type: 'checkbox' },
         badged: { type: 'checkbox' },
         badge: { size: 5 },
     }
@@ -56,6 +57,7 @@ config:
         image: 'avatar-1.png',
         sub: 'avatar-2.png',
         badge: '0',
+        caption: false,
         badged: true
         }
 </script>
@@ -70,7 +72,8 @@ Avatars are user profile pictures or similar elements presenting their status
         name={state.name}
         status={state.status}
         size={state.size}
-        badge={state.badged ? state.badge.length ? state.badge : true : false}>
+        badge={state.badged ? state.badge.length ? state.badge : true : false}
+        caption={state.caption}>
         {#if state.image}
             <img src="{base}/img/{state.image}" alt="Thor Odinson" />
         {/if}
