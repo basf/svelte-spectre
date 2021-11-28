@@ -72,10 +72,15 @@ The Range are for selecting values from ranges.
 
 ```sv
 <script>
-    import { Checkbox } from 'svelte-spectre'
+    import { Range } from 'svelte-spectre'
 
-    let value = false
+    let range
 </script>
 
-<Checkbox bind:value indeterminate inline validity={null}>Checkbox</Checkbox>
+<Range
+    bind:range
+    min={0}
+    max={100}
+    inline={false}
+    validity={null}/>
 ```
