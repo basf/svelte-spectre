@@ -12,33 +12,40 @@
 <script lang="ts" context="module">
 	import { slide } from 'svelte/transition';
 
-	const list = new Set();
+	const list: Set<Function> = new Set();
 </script>
 
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
+
+	const dispatch = createEventDispatcher();
+
 	export let opened: boolean = false;
 	export let toggled: boolean = false;
-	export let group: string;
+	export let group: string = 'group';
+
+	let fn: Function = { [group]: () => (opened = false) }[group];
 
 	$: init(group);
 
-	function closeAll() {
-		list.forEach((fn: Function) => fn.name === group && fn());
-	}
-
 	function init(group: string) {
-		const fn = { [group]: () => (opened = false) }[group];
-		list?.add(fn);
+		list.delete(fn);
+		fn = { [group]: () => (opened = false) }[group];
+		list.add(fn);
 		return () => list.delete(fn);
 	}
 
 	function toggle() {
-		if (opened) return (opened = false);
-		closeAll();
+		if (opened) {
+			dispatch('close', group);
+			return (opened = false);
+		} else dispatch('open', group);
+		list.forEach((fn: Function) => fn.name === group && fn());
 		opened = true;
 	}
 
 	function open() {
+		opened ? dispatch('close', group) : dispatch('open', group);
 		opened = !opened;
 	}
 </script>
