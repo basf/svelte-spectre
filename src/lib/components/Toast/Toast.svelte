@@ -1,19 +1,17 @@
-{#if visible}
-	<div {...$$restProps} class="toast {type && `toast-${type}`}" use:pausable={timeout > 0}>
-		{#if icon}
-			<Icon {icon} />
-		{/if}
-		<div class="toast-content ml-2">
-			<slot />
-		</div>
-		{#if closable}
-			<IconButton icon="cross" on:click={close} />
-		{/if}
-		{#if timeout}
-			<Progress value={$progress} {invert} />
-		{/if}
+<div {...$$restProps} class="toast {type && `toast-${type}`}" use:pausable={timeout > 0}>
+	{#if icon}
+		<Icon {icon} />
+	{/if}
+	<div class="toast-content mx-2 py-2">
+		<slot />
 	</div>
-{/if}
+	{#if closable}
+		<IconButton icon="cross" on:click={close} />
+	{/if}
+	{#if timeout}
+		<Progress value={$progress} {invert} />
+	{/if}
+</div>
 
 <script context="module" lang="ts">
 	import { tweened } from 'svelte/motion';
@@ -48,7 +46,7 @@
 	export let type = toastItem.type || 'initial';
 	export let icon = toastItem.icon;
 	export let timeout = toastItem.timeout || 0;
-	export let closable = toastItem.closable || true;
+	export let closable = toastItem.closable ?? true;
 	export let invert: boolean = toastItem.invert || false;
 	export let reverse: boolean = toastItem.reverse || false;
 	export let visible: boolean = true;
@@ -56,7 +54,7 @@
 	let init: number = reverse ? 1 : 0,
 		next: number = reverse ? 0 : 1,
 		start: number = Date.now(),
-		remaining: number = toastItem.timeout,
+		remaining: number = timeout,
 		options: Options = { duration: remaining };
 
 	const defaults: Options = { delay: 0, duration: 0, easing: linear };
@@ -110,8 +108,9 @@
 			align-items: center;
 			justify-content: space-between;
 			.toast-content {
+				flex: 1;
 				flex-direction: column;
-				padding: $unit-2 0;
+				// padding: $unit-2 0;
 			}
 			:global(.btn-link) {
 				color: currentColor;
