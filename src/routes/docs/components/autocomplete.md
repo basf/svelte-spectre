@@ -36,7 +36,7 @@ Autocomplete form component provides suggestions while you type. It is often
 used for tags and contacts input.
 
 <p>
-    <Autocomplete {predefined} bind:selected />
+    <Autocomplete {predefined} bind:selected bind:placeholder={state.placeholder} />
     <small>Selected: {selected}</small>
 </p>
 
