@@ -43,6 +43,8 @@ title: Card
 
 # {title}
 
+> 🚧 Under construction
+
 Cards are flexible content containers.
 
 <Grid offset="my-2" oneline align="">
@@ -63,5 +65,3 @@ Cards are flexible content containers.
     {/each}
     <Divider align="vertical" text="RIGHT" />
 </Grid>
-
-> 🚧 Under construction

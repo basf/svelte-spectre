@@ -1,39 +1,77 @@
 ---
 file: toast.md
 title: Toast
-api: [
-    {title: 'type: Colors = "initial"', description: 'Toast type', variables: 'initial | primary | success | warning | error'},
-    {title: 'icon: Icons = ""', description: 'Toast icon', variables: 'any icon'},
-    {title: 'closable: boolean = true', description: 'Toast closable', variables: 'true | false'},
-    {title: 'timeout: number = 0', description: 'Toast timeout in ms', variables: 'any number'},
-    {title: 'visible: boolean = true', description: 'Toast visible', variables: 'true | false'},
-    {title: 'invert: boolean = false', description: 'Toast invert', variables: 'true | false'},
-    {title: 'reverse: boolean = false', description: 'Toast reverse', variables: 'true | false'}
-]
-config: {
-    type: { options: ['initial', 'primary', 'success', 'warning', 'error'] },
-    icon: { options: ['', 'arrow-up',
-                                'arrow-right',
-                                'arrow-down',
-                                'arrow-left',
-                                'upward',
-                                'forward',
-                                'downward',
-                                'back',
-                                'caret'] },
-    closable: { type: 'checkbox' },
-    timeout: { type: 'number', min: 0, max: 10000, step: 1000 },
-    visible: { type: 'checkbox' },
-    invert: { type: 'checkbox' },
-    reverse: { type: 'checkbox' }
-}
+api:
+    [
+        {
+            title: 'type: Colors = "initial"',
+            description: 'Toast type',
+            variables: 'initial | primary | success | warning | error',
+        },
+        {
+            title: 'icon: Icons = ""',
+            description: 'Toast icon',
+            variables: 'any icon',
+        },
+        {
+            title: 'closable: boolean = true',
+            description: 'Toast closable',
+            variables: 'true | false',
+        },
+        {
+            title: 'timeout: number = 0',
+            description: 'Toast timeout in ms',
+            variables: 'any number',
+        },
+        {
+            title: 'visible: boolean = true',
+            description: 'Toast visible',
+            variables: 'true | false',
+        },
+        {
+            title: 'invert: boolean = false',
+            description: 'Toast invert',
+            variables: 'true | false',
+        },
+        {
+            title: 'reverse: boolean = false',
+            description: 'Toast reverse',
+            variables: 'true | false',
+        },
+    ]
+config:
+    {
+        type:
+            { options: ['initial', 'primary', 'success', 'warning', 'error'] },
+        icon:
+            {
+                options:
+                    [
+                        '',
+                        'arrow-up',
+                        'arrow-right',
+                        'arrow-down',
+                        'arrow-left',
+                        'upward',
+                        'forward',
+                        'downward',
+                        'back',
+                        'caret',
+                    ],
+            },
+        closable: { type: 'checkbox' },
+        timeout: { type: 'number', min: 0, max: 10000, step: 1000, size: 10 },
+        visible: { type: 'checkbox' },
+        invert: { type: 'checkbox' },
+        reverse: { type: 'checkbox' },
+    }
 ---
 
 <script>
     import {Button, ButtonGroup, Col, Divider, Grid,IconButton, Toast, toast} from '$lib'
     import Knobs from '../_knobs.svelte'
 
-    let state = { type: 'initial', icon: 'arrow-right', closable: true, timeout: 3000, visible: true, invert: false, reverse: false }
+    let state = { type: 'initial', icon: 'arrow-right', closable: true, timeout: 0, visible: true, invert: false, reverse: false }
 
     let positions = [
 			'top_left',
@@ -51,8 +89,6 @@ config: {
 
 # {title}
 
-> 🚧 Under construction
-
 Toasts are used to show alert or information to users.
 
 Add a container element with the toast class. You can add any text within the
@@ -65,7 +101,6 @@ class if you need.
             <h5>Single</h5>
             <Grid>
                 <Col>
-                <!-- <Button on:click={() => state.visible = !state.visible}>Toast</Button> -->
                 {#if state.visible}
                     <Toast
                         bind:visible={state.visible}
@@ -132,9 +167,9 @@ class if you need.
 </script>
 
 {#if visible}
-    <Toast 
-        bind:visible 
-        type="initial" 
+    <Toast
+        bind:visible
+        type="initial"
         icon="arrow-right"
         timeout={3000}
         closable={true} />

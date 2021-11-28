@@ -244,6 +244,11 @@
 		position: sticky;
 		top: 100vh;
 	}
+	html,
+	body,
+	.spectre {
+		min-height: 100vh;
+	}
 	main {
 		overflow-x: hidden;
 	}

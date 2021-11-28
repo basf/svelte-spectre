@@ -3,7 +3,7 @@
 	id="range-{fid}"
 	class="is-{validity}"
 	class:form-inline={inline}
-	style="--range: {range}%;"
+	style="--range: {range}; --min: {min}; --max: {max}"
 	data-range={range}
 >
 	<slot />
@@ -39,13 +39,13 @@
 			&::after {
 				content: attr(data-range);
 				position: absolute;
-				left: var(--range);
+				left: calc(100% / calc((var(--max) - var(--min)) / (var(--range) - var(--min))));
 				bottom: 150%;
 				color: $light-color;
 				background: rgba($dark-color, 0.95);
 				padding: $unit-1 $unit-2;
 				border-radius: $border-radius;
-				transform: translateX(calc(0% - var(--range)));
+				transform: translateX(-50%);
 				transition: opacity 250ms, transform 250ms, bottom 250ms;
 				opacity: 0;
 			}
@@ -66,14 +66,19 @@
 		--background: $primary-color;
 		--direction: to right;
 		width: 100%;
+		&.is-error {
+			--background: $error-color;
+		}
 
 		//webkit
 		&::-webkit-slider-runnable-track {
 			height: 3px;
 			background: linear-gradient(
 				var(--direction),
-				$primary-color var(--range, 0%),
-				$bg-color-dark var(--range, 0%)
+				$primary-color
+					calc(100% / calc((var(--max) - var(--min)) / (var(--range) - var(--min)))),
+				$bg-color-dark
+					calc(100% / calc((var(--max) - var(--min)) / (var(--range) - var(--min))))
 			);
 		}
 		&::-webkit-slider-thumb {
@@ -94,8 +99,10 @@
 			height: 3px;
 			background: linear-gradient(
 				var(--direction),
-				$primary-color var(--range, 0%),
-				$bg-color-dark var(--range, 0%)
+				$primary-color
+					calc(100% / calc((var(--max) - var(--min)) / (var(--range) - var(--min)))),
+				$bg-color-dark
+					calc(100% / calc((var(--max) - var(--min)) / (var(--range) - var(--min))))
 			);
 		}
 		&::-moz-range-thumb {

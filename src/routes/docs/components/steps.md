@@ -1,21 +1,43 @@
 ---
 file: steps.md
 title: Steps
-api: [
-    {title: 'steps: Step', description: 'interface Step', variables: 'interface Step {
-		label: string;
-		href?: string;
-		tooltip?: string;
-    }'},
-    {title: 'Step.label: string = ""', description: 'Step label', variables: 'any string'},
-    {title: 'Step.gref: string = ""', description: 'Step href', variables: 'any url string'},
-    {title: 'Step.tooltip: string = ""', description: 'Step tooltip', variables: 'any string'},
-    {title: 'active: number = 1', description: 'Active step', variables: 'any number'}
-]
-config: {
-    active: { type: 'number', min: 1, max: 10, size: 5 },
-    length: { type: 'number', min: 2, max: 10, size: 5 }
-}
+api:
+    [
+        {
+            title: 'steps: Step',
+            description: 'interface Step',
+            variables: 'interface Step {
+                label: string;
+                href?: string;
+                tooltip?: string;
+                }',
+        },
+        {
+            title: 'Step.label: string = ""',
+            description: 'Step label',
+            variables: 'any string',
+        },
+        {
+            title: 'Step.gref: string = ""',
+            description: 'Step href',
+            variables: 'any url string',
+        },
+        {
+            title: 'Step.tooltip: string = ""',
+            description: 'Step tooltip',
+            variables: 'any string',
+        },
+        {
+            title: 'active: number = 1',
+            description: 'Active step',
+            variables: 'any number',
+        },
+    ]
+config:
+    {
+        active: { type: 'number', min: 1, max: 10, size: 5 },
+        length: { type: 'number', min: 2, max: 10, size: 5 },
+    }
 ---
 
 <script>
@@ -28,8 +50,6 @@ config: {
 </script>
 
 # {title}
-
-> 🚧 Under construction
 
 Steps are progress indicators of a sequence of task steps.
 

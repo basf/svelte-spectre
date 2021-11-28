@@ -1,11 +1,8 @@
 ---
 file: menu.md
 title: Menu
-api: [
-]
-config: {
-    nav: { type: 'checkbox' }
-}
+api: []
+config: { nav: { type: 'checkbox' } }
 ---
 
 <script>

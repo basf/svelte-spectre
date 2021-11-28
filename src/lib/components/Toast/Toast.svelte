@@ -2,7 +2,7 @@
 	{#if icon}
 		<Icon {icon} />
 	{/if}
-	<div class="toast-content mx-2 py-2">
+	<div class="toast-content">
 		<slot />
 	</div>
 	{#if closable}
@@ -60,7 +60,7 @@
 	const defaults: Options = { delay: 0, duration: 0, easing: linear };
 	const progress: Tweened<number> = tweened(init, { ...defaults });
 
-	$: progress.set(next, options).then(autoclose);
+	$: timeout && progress.set(next, options).then(autoclose);
 
 	const autoclose = () => timeout && $progress % 1 === 0 && close();
 
@@ -110,7 +110,7 @@
 			.toast-content {
 				flex: 1;
 				flex-direction: column;
-				// padding: $unit-2 0;
+				padding: $unit-2 $unit-4;
 			}
 			:global(.btn-link) {
 				color: currentColor;

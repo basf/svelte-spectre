@@ -37,7 +37,7 @@ api:
             title: 'closable: boolean = false',
             description: 'Chip closable',
             variables: 'true | false',
-        }
+        },
     ]
 config:
     {
