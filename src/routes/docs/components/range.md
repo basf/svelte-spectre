@@ -6,28 +6,28 @@ api:
         {
             title: 'range: number = 50',
             description: 'Checkbox range',
-            variables: 'any number'
+            variables: 'any number',
         },
         {
             title: 'min: number = 0',
             description: 'Checkbox range',
-            variables: 'any number'
+            variables: 'any number',
         },
         {
             title: 'max: number = 100',
             description: 'Checkbox range',
-            variables: 'any number'
+            variables: 'any number',
         },
         {
             title: 'inline: boolean = false',
             description: 'Checkbox range',
-            variables: 'true | false'
+            variables: 'true | false',
         },
         {
             title: 'validity: Validity = null',
             description: 'Checkbox validity',
-            variables: 'null | success | error'
-        }
+            variables: 'null | success | error',
+        },
     ]
 config:
     {

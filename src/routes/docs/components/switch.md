@@ -6,23 +6,23 @@ api:
         {
             title: 'value: boolean = false',
             description: 'Checkbox value',
-            variables: 'true | false'
+            variables: 'true | false',
         },
         {
             title: 'inline: boolean = false',
             description: 'Checkbox inline',
-            variables: 'true | false'
+            variables: 'true | false',
         },
         {
             title: 'validity: Validity = null',
             description: 'Checkbox validity',
-            variables: 'null | success | error'
-        }
+            variables: 'null | success | error',
+        },
     ]
 config:
     {
         inline: { type: 'checkbox' },
-        validity: { options: [null, 'success', 'error'] }
+        validity: { options: [null, 'success', 'error'] },
     }
 ---
 
