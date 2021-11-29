@@ -168,17 +168,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
-	import {
-		Accordion,
-		Accordioner,
-		Aside,
-		Button,
-		IconButton,
-		Menu,
-		Navbar,
-		Spectre,
-		Toaster,
-	} from '$lib';
+	import { Accordion, Aside, Button, IconButton, Menu, Navbar, Spectre, Toaster } from '$lib';
 	import Xray from '$assets/b-science.svg';
 	import GitHub from '$assets/github.svg';
 
@@ -240,10 +230,14 @@
 		z-index: $zindex-2;
 		background: white;
 	}
-	.off-canvas-content {
-		min-height: 100%;
-		display: grid !important;
-		grid-template-rows: auto 1fr auto;
+	footer {
+		position: sticky;
+		top: 100vh;
+	}
+	html,
+	body,
+	.spectre {
+		min-height: 100vh;
 	}
 	main {
 		overflow-x: hidden;
