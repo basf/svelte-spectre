@@ -8,7 +8,6 @@
 <div
 	class:has-icon-left={$$slots.iconLeft}
 	class:has-icon-right={$$slots.iconRight}
-	class:col-8={$$slots.default}
 	class:flex-none={width}
 	class="{width && `col-${width}`} col-{expand}-12"
 >
@@ -48,12 +47,12 @@
 			<slot name="iconRight" />
 		</span>
 	{/if}
+	{#if $$slots.hint}
+		<div class="form-input-hint">
+			<slot name="hint" />
+		</div>
+	{/if}
 </div>
-{#if $$slots.hint}
-	<div class="form-input-hint">
-		<slot name="hint" />
-	</div>
-{/if}
 {#if options.length}
 	<datalist id="list-{fid}">
 		{#each options as value}
@@ -93,6 +92,12 @@
 		.form-group {
 			&.d-flex {
 				flex-wrap: wrap;
+			}
+		}
+		.has-icon-right,
+		.has-icon-left {
+			.form-icon {
+				top: 0.9rem;
 			}
 		}
 		.form-icon {
