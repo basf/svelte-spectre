@@ -81,4 +81,7 @@
 		// margin: 8px -8px;
 		padding: $unit-1 $unit-4 $unit-2 !important;
 	}
+	select {
+		display: flex;
+	}
 </style>
