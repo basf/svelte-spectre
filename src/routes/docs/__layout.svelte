@@ -16,7 +16,7 @@
 	@import 'spectre.css/src/icons';
 	.off-canvas-content {
 		h2 {
-			margin-top: $unit-9 !important;
+			padding-top: $unit-12 !important;
 		}
 	}
 </style>
