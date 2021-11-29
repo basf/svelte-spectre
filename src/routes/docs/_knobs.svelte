@@ -24,10 +24,18 @@
 								id={autoId(key)}
 							/>
 						{:else if config[key].type === 'checkbox'}
-							<label class="form-checkbox">
+							<div class="form-checkbox">
 								<input bind:checked={state[key]} type="checkbox" id={autoId(key)} />
 								<i class="form-icon" />
-							</label>
+							</div>
+						{:else if config[key].type === 'button'}
+							<input
+								class="btn btn-{config[key].variant || 'primary'}"
+								value={config[key].value}
+								on:click|preventDefault={state[key]}
+								type="button"
+								id={autoId(key)}
+							/>
 						{:else}
 							<input
 								bind:value={state[key]}
@@ -83,5 +91,17 @@
 	}
 	select {
 		display: flex;
+	}
+	.form-group {
+		min-height: 100%;
+		display: flex;
+		align-items: center;
+	}
+	label {
+		display: flex !important;
+		flex-direction: column;
+	}
+	input[type='button'] {
+		vertical-align: middle;
 	}
 </style>

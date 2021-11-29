@@ -64,6 +64,7 @@ config:
         visible: { type: 'checkbox' },
         invert: { type: 'checkbox' },
         reverse: { type: 'checkbox' },
+        clearall: { type: 'button', label: '', value: 'clearAll' },
     }
 ---
 
@@ -71,7 +72,7 @@ config:
     import {Button, ButtonGroup, Col, Divider, Grid,IconButton, Toast, toast} from '$lib'
     import Knobs from '../_knobs.svelte'
 
-    let state = { type: 'initial', icon: 'arrow-right', closable: true, timeout: 0, visible: true, invert: false, reverse: false }
+    let state = { type: 'initial', icon: 'arrow-right', closable: true, timeout: 0, visible: true, invert: false, reverse: false, clearall: toast.clear }
 
     let positions = [
 			'top_left',
@@ -96,11 +97,11 @@ container, and even icons. You may also add a close button with the btn-clear
 class if you need.
 
 <p>
-    <Grid>
+    <Grid stack>
         <Col>
             <h5>Single</h5>
             <Grid>
-                <Col>
+                <Col xs="12">
                 {#if state.visible}
                     <Toast
                         bind:visible={state.visible}
@@ -118,7 +119,7 @@ class if you need.
             </Grid>
         </Col>
         <Divider align="vertical" />
-        <Col>
+        <Col xs="12">
             <h5>Toaster</h5>
             <div class="toaster-grid">
                 <ButtonGroup>
