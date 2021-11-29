@@ -4,7 +4,7 @@ title: Steps
 api:
     [
         {
-            title: 'steps: Step',
+            title: 'steps: Step[] = []',
             description: 'interface Step',
             variables: 'interface Step {
                 label: string;
@@ -67,7 +67,7 @@ indicate the current state of progress.
 
 ```sv
 <script>
-    import {Steps} from '$lib'
+    import { Steps } from 'svelte-spectre'
 
     let steps = [
         {label: 'Step 1', href: '#', tooltip: 'tooltip'},
@@ -75,8 +75,9 @@ indicate the current state of progress.
         {label: 'Step 3', href: '#', tooltip: 'tooltip'},
         {label: 'Step 4', href: '#', tooltip: 'tooltip'},
         {label: 'Step 5', href: '#', tooltip: 'tooltip'},
-    ]
+    ], 
+    active = 3
 </script>
 
-<Steps {steps} />
+<Steps {steps} bind:active />
 ```

@@ -29,21 +29,21 @@ The Progress indicates the progress completion of a task.
 > If `value === null || undefined` it have indeterminate/loading state
 
 <p>
-    <Grid>
-        <Col>
+    <Grid stack>
+        <Col col="6" xs="12">
             <Progress
                 value={state.value}
                 max={state.max}
                 color={state.color}
                 invert={state.invert} />
         </Col>
-        <Col>
+        <Col col="6" xs="12">
             <Progress value="50" max="100" color="warning" />
         </Col>
-        <Col>
+        <Col col="6" xs="12">
             <Progress value="25" max="100" color="success" />
         </Col>
-        <Col>
+        <Col col="6" xs="12">
             <Progress color="error" />
         </Col>
     </Grid>

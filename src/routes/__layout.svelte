@@ -240,14 +240,10 @@
 		z-index: $zindex-2;
 		background: white;
 	}
-	footer {
-		position: sticky;
-		top: 100vh;
-	}
-	html,
-	body,
-	.spectre {
-		min-height: 100vh;
+	.off-canvas-content {
+		min-height: 100%;
+		display: grid !important;
+		grid-template-rows: auto 1fr auto;
 	}
 	main {
 		overflow-x: hidden;
