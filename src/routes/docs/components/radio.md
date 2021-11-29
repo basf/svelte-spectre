@@ -9,6 +9,11 @@ api:
             variables: '<Radio let:radio>{radio.some}</Radio>',
         },
         {
+            title: 'radios: any[] = []',
+            description: 'Radio items array',
+            variables: 'any array',
+        },
+        {
             title: 'label: string = ""',
             description: 'Radio label',
             variables: 'any string',
@@ -45,13 +50,13 @@ config:
     let state = { label: 'Label', group: 1, inline: false, validity: null }
 
     let radios = 1, questions = [
-			{ value: 1, label: `Where did you go to school?` },
-			{ value: 2, label: `What is your mother's name?` },
-			{
-				value: 3,
-				label: `What is another personal fact that an attacker could easily find with Google?`,
-			},
-		]
+            { value: 1, label: `Where did you go to school?` },
+            { value: 2, label: `What is your mother's name?` },
+            {
+                value: 3,
+                label: `What is another personal fact that an attacker could easily find with Google?`,
+            },
+        ]
 </script>
 
 # {title}
