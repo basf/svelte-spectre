@@ -15,6 +15,7 @@ title: Modal
 
 <Button on:click={() => (modalVis = !modalVis)}>Open Modal</Button>
 <Modal bind:open={modalVis} size="md">
+
 <h2 slot="header">Modal header</h2>
 <div slot="body" class="content">
 <p>This is the content inside the modal.</p>

@@ -2,8 +2,8 @@
 file: badge.md
 title: Badge
 api: [
-	{title: 'color: Color', description: 'Badge color', variables: 'default | primary | secondary | success | warning | error'},
-	{title: 'rounded: boolean', description: 'Badge rounded', variables: 'true | false'},
+	{title: 'color: Color = "initial"', description: 'Badge color', variables: 'default | primary | secondary | success | warning | error'},
+	{title: 'rounded: boolean = false', description: 'Badge rounded', variables: 'true | false'},
 ]
 config:
     {

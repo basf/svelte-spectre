@@ -42,24 +42,26 @@
 		</header>
 
 		<nav id="sidebar" slot="sidebarLeft" class="m-2">
-			<h3><a href={`${base}/`} on:click={() => (openLeft = false)}>Svelte-spectre</a></h3>
-			{#each Object.entries(links) as [key, value], i}
-				<Accordion toggled opened={openedAccordion($page.path, key, i)}>
-					<strong slot="title">{key.replace(/_|-|[0-9]/g, ' ')}</strong>
-					<Menu nav>
-						{#each value as { path, metadata: { title } }, i}
-							<li class="menu-item">
-								<a
-									sveltekit:prefetch
-									href={setLink(base, path)}
-									class:active={activeLink($page.path, path)}
-									on:click={() => (openLeft = false)}>{title}</a
-								>
-							</li>
-						{/each}
-					</Menu>
-				</Accordion>
-			{/each}
+			<h5><a href={`${base}/`} on:click={() => (openLeft = false)}>Svelte-spectre</a></h5>
+			{#if links}
+				{#each Object.entries(links) as [key, value], i}
+					<Accordion group="nav" toggled opened={openedAccordion($page.path, key, i)}>
+						<strong slot="header">{key.replace(/_|-|[0-9]/g, ' ')}</strong>
+						<Menu nav>
+							{#each value as { path, metadata: { title } }, i}
+								<li class="menu-item">
+									<a
+										sveltekit:prefetch
+										href={setLink(base, path)}
+										class:active={activeLink($page.path, path)}
+										on:click={() => (openLeft = false)}>{title}</a
+									>
+								</li>
+							{/each}
+						</Menu>
+					</Accordion>
+				{/each}
+			{/if}
 		</nav>
 
 		<main class:px-2={$page.path.includes('docs')}>
@@ -76,9 +78,11 @@
 								{#if api.title}
 									<code class="text-bold">
 										{api.title}
-									</code>
+									</code><br />
 								{/if}
-								{api.description ? `— ${api.description}` : ''}
+								{#if api.description}
+									<small>{api.description}</small>
+								{/if}
 							</dt>
 							{#if api.variables}
 								<dd>
@@ -87,7 +91,9 @@
 								</dd>
 							{/if}
 						{:else}
-							<dt>API in progress</dt>
+							<dt class="text-normal">
+								<blockquote>👨🏻‍💻 in progress</blockquote>
+							</dt>
 						{/each}
 					</dl>
 				</article>
@@ -227,6 +233,11 @@
 	footer {
 		position: sticky;
 		top: 100vh;
+	}
+	html,
+	body,
+	.spectre {
+		min-height: 100vh;
 	}
 	main {
 		overflow-x: hidden;
