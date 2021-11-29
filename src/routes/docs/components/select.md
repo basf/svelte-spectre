@@ -102,16 +102,18 @@ config:
 <script>
     import { Select } from 'svelte-spectre'
 
-    let group = 1, radios = [ 1, 2, 3 ]
+    let selected = 1, 
+        options = [ 1, 2, 3 ], 
+        multiple = false, 
+        validity = null, 
+        size = 'md'
 </script>
 
-<Radio 
-    let:radio 
-    bind:group 
-    label="" 
-    radios={radios} 
-    inline={false} 
-    validity={null}>
-    {radio.label}
-</Radio>
+<Select
+    options={options}
+    bind:value={selected}
+    bind:selected={selected}
+    bind:multiple={multiple}
+    validity={validity}
+    size={size} />
 ```
