@@ -31,21 +31,31 @@
 		<Card expand shadowed flat>
 			<h4 slot="title">Customize</h4>
 			<p>Customize your version of Spectre.css</p>
-			<Button slot="footer" variant="primary" href="">View</Button>
+			<Button
+				slot="footer"
+				variant="primary"
+				href="{base}/docs/01-getting_started/02-customize/">View</Button
+			>
 		</Card>
 	</Col>
 	<Col col="6" xs="12">
 		<Card expand shadowed flat>
 			<h4 slot="title">Browser support</h4>
 			<p>Browser compatibility and support</p>
-			<Button slot="footer" variant="primary" href="">View</Button>
+			<Button
+				slot="footer"
+				variant="primary"
+				href="{base}/docs/01-getting_started/browser-support/">View</Button
+			>
 		</Card>
 	</Col>
 	<Col col="6" xs="12">
 		<Card expand shadowed flat>
 			<h4 slot="title">Changelog</h4>
 			<p>Changelog and release notes</p>
-			<Button slot="footer" variant="primary" href="">View</Button>
+			<Button slot="footer" variant="primary" href="{base}/docs/01-getting_started/changelog/"
+				>View</Button
+			>
 		</Card>
 	</Col>
 </Grid>

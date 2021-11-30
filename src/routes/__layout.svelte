@@ -46,8 +46,7 @@
 			<br />
 			{#if links}
 				{#each Object.entries(links) as [key, value], i}
-					<Accordion group="nav" toggled opened={openedAccordion($page.path, key, i)}>
-						<h5 slot="header">{key.replace(/_|-|[0-9]/g, ' ')}</h5>
+					{#if key === 'root'}
 						<Menu nav>
 							{#each value as { path, metadata: { title } }, i}
 								<li class="menu-item">
@@ -60,7 +59,23 @@
 								</li>
 							{/each}
 						</Menu>
-					</Accordion>
+					{:else}
+						<Accordion group="nav" toggled opened={openedAccordion($page.path, key, i)}>
+							<h5 slot="header">{key.replace(/_|-|[0-9]/g, ' ')}</h5>
+							<Menu nav>
+								{#each value as { path, metadata: { title } }, i}
+									<li class="menu-item">
+										<a
+											sveltekit:prefetch
+											href={setLink(base, path)}
+											class:active={activeLink($page.path, path)}
+											on:click={() => (openLeft = false)}>{title}</a
+										>
+									</li>
+								{/each}
+							</Menu>
+						</Accordion>
+					{/if}
 				{/each}
 			{/if}
 		</nav>
@@ -127,6 +142,7 @@
 		const mds = await Promise.all(body);
 		const links = mds.reduce((a, c) => {
 			const key = c.path.split('/')[2];
+			if (key.includes('.md')) return { ...a, ['root']: [c] };
 			return { ...a, [key]: a[key] ? [...a[key], c] : [c] };
 		}, {});
 		const metadata = getMeta(page.path) || null;
@@ -186,19 +202,21 @@
 	const activeLink = (page: string, path: string) =>
 		page.replace(/\/$/, '') === path.replace(/\.|md/g, '');
 	const setLink = (base: string, path: string) => base + path.replace(/\.|md/g, '');
+
+	$: console.log(links);
 </script>
 
 <style lang="scss" global>
 	@import '../app';
 	@import 'spectre.css/src/menus';
 	nav#sidebar {
-		.accordion .menu {
+		.menu {
 			&.menu-nav {
 				padding-top: 0;
 			}
 			.menu-item > a {
 				color: $gray-color-dark;
-				font-size: 0.75rem;
+				// font-size: 0.75rem;
 				text-decoration: none;
 				&.active {
 					color: $primary-color;
