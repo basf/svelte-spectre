@@ -106,7 +106,7 @@ config:
                     },
                 shape: { options: ['square', 'circle'] },
             },
-        States: { state: { options: ['active', 'disabled', 'loading'] } },
+        States: { state: { options: [null, 'active', 'disabled', 'loading'] } },
         Groups: { block: { type: 'checkbox' } },
     }
 ---

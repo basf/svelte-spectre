@@ -43,10 +43,11 @@
 
 		<nav id="sidebar" slot="sidebarLeft" class="m-2">
 			<h5><a href={`${base}/`} on:click={() => (openLeft = false)}>Svelte-spectre</a></h5>
+			<br />
 			{#if links}
 				{#each Object.entries(links) as [key, value], i}
 					<Accordion group="nav" toggled opened={openedAccordion($page.path, key, i)}>
-						<strong slot="header">{key.replace(/_|-|[0-9]/g, ' ')}</strong>
+						<h5 slot="header">{key.replace(/_|-|[0-9]/g, ' ')}</h5>
 						<Menu nav>
 							{#each value as { path, metadata: { title } }, i}
 								<li class="menu-item">
@@ -210,8 +211,6 @@
 		height: auto !important;
 		min-height: 100%;
 		.off-canvas-sidebar {
-			min-width: 12rem !important;
-			max-width: 18rem !important;
 			@media screen and (max-width: 450px) {
 				max-width: 80vw !important;
 			}
@@ -245,7 +244,9 @@
 	h1 {
 		text-transform: capitalize;
 	}
-	strong {
+	h5 {
 		text-transform: capitalize;
+		padding: 0;
+		margin: 0 !important;
 	}
 </style>

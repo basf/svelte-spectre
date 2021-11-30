@@ -1,6 +1,6 @@
 ---
-file: browser_support.md
-title: Browser support
+file: support.md
+title: Support
 ---
 
 <script>
