@@ -37,7 +37,7 @@ config: {
 
 # {title}
 
-The Dropdown is a toggled layout for any toggler element & content.
+The Dropdown is a toggled by click layout for any toggler element & content.
 
 <p>
     <Grid>
