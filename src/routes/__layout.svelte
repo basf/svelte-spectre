@@ -43,7 +43,6 @@
 
 		<nav id="sidebar" slot="sidebarLeft" class="m-2">
 			<h5><a href={`${base}/`} on:click={() => (openLeft = false)}>Svelte-spectre</a></h5>
-			<br />
 			{#if links}
 				{#each Object.entries(links) as [key, value], i}
 					{#if key === 'root'}
@@ -61,7 +60,7 @@
 						</Menu>
 					{:else}
 						<Accordion group="nav" toggled opened={openedAccordion($page.path, key, i)}>
-							<h5 slot="header">{key.replace(/_|-|[0-9]/g, ' ')}</h5>
+							<h5 class="header" slot="header">{key.replace(/_|-|[0-9]/g, ' ')}</h5>
 							<Menu nav>
 								{#each value as { path, metadata: { title } }, i}
 									<li class="menu-item">
@@ -140,10 +139,13 @@
 
 	export async function load({ page }) {
 		const mds = await Promise.all(body);
-		const links = mds.reduce((a, c) => {
-			const key = c.path.split('/')[2];
-			if (key.includes('.md')) return { ...a, ['root']: [c] };
-			return { ...a, [key]: a[key] ? [...a[key], c] : [c] };
+		const links = mds.reduce((accumulator: Links, current: Link) => {
+			const key: string = current.path.split('/')[2];
+			if (key.includes('.md')) return { ...accumulator, ['root']: [current] };
+			return {
+				...accumulator,
+				[key]: accumulator[key] ? [...accumulator[key], current] : [current],
+			};
 		}, {});
 		const metadata = getMeta(page.path) || null;
 		const title = metadata?.title;
@@ -210,6 +212,13 @@
 	@import '../app';
 	// @import 'spectre.css/src/menus';
 	nav#sidebar {
+		h5 {
+			text-transform: capitalize;
+			&.header {
+				padding: 0;
+				margin: 0 !important;
+			}
+		}
 		.menu {
 			&.menu-nav {
 				padding-top: 0;
@@ -262,10 +271,5 @@
 	}
 	h1 {
 		text-transform: capitalize;
-	}
-	h5 {
-		text-transform: capitalize;
-		padding: 0;
-		margin: 0 !important;
 	}
 </style>

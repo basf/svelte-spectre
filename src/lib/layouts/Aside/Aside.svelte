@@ -1,4 +1,4 @@
-<svelte:window bind:innerWidth={ww} />
+<svelte:window bind:innerWidth={viewportWidth} />
 
 <div {...$$restProps} class="off-canvas" class:off-canvas-sidebar-show={show}>
 	{#if !extclose}
@@ -113,9 +113,9 @@
 				break;
 		}
 	};
-	let ww = 0;
+	let viewportWidth = 0;
 
-	$: show = ww >= media[breakpoint];
+	$: show = viewportWidth >= media[breakpoint];
 	$: openLeft = show ? false : openLeft;
 	$: openRight = show ? false : openRight;
 </script>
