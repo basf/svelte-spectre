@@ -45,8 +45,7 @@
 			<h5><a href={`${base}/`} on:click={() => (openLeft = false)}>Svelte-spectre</a></h5>
 			{#if links}
 				{#each Object.entries(links) as [key, value], i}
-					<Accordion group="nav" toggled opened={openedAccordion($page.path, key, i)}>
-						<strong slot="header">{key.replace(/_|-|[0-9]/g, ' ')}</strong>
+					{#if key === 'root'}
 						<Menu nav>
 							{#each value as { path, metadata: { title } }, i}
 								<li class="menu-item">
@@ -59,7 +58,23 @@
 								</li>
 							{/each}
 						</Menu>
-					</Accordion>
+					{:else}
+						<Accordion group="nav" toggled opened={openedAccordion($page.path, key, i)}>
+							<h5 class="header" slot="header">{key.replace(/_|-|[0-9]/g, ' ')}</h5>
+							<Menu nav>
+								{#each value as { path, metadata: { title } }, i}
+									<li class="menu-item">
+										<a
+											sveltekit:prefetch
+											href={setLink(base, path)}
+											class:active={activeLink($page.path, path)}
+											on:click={() => (openLeft = false)}>{title}</a
+										>
+									</li>
+								{/each}
+							</Menu>
+						</Accordion>
+					{/if}
 				{/each}
 			{/if}
 		</nav>
@@ -124,9 +139,13 @@
 
 	export async function load({ page }) {
 		const mds = await Promise.all(body);
-		const links = mds.reduce((a, c) => {
-			const key = c.path.split('/')[2];
-			return { ...a, [key]: a[key] ? [...a[key], c] : [c] };
+		const links = mds.reduce((accumulator: Links, current: Link) => {
+			const key: string = current.path.split('/')[2];
+			if (key.includes('.md')) return { ...accumulator, ['root']: [current] };
+			return {
+				...accumulator,
+				[key]: accumulator[key] ? [...accumulator[key], current] : [current],
+			};
 		}, {});
 		const metadata = getMeta(page.path) || null;
 		const title = metadata?.title;
@@ -185,19 +204,28 @@
 	const activeLink = (page: string, path: string) =>
 		page.replace(/\/$/, '') === path.replace(/\.|md/g, '');
 	const setLink = (base: string, path: string) => base + path.replace(/\.|md/g, '');
+
+	$: console.log(links);
 </script>
 
 <style lang="scss" global>
 	@import '../app';
-	@import 'spectre.css/src/menus';
 	nav#sidebar {
-		.accordion .menu {
+		@import 'spectre.css/src/menus';
+		h5 {
+			text-transform: capitalize;
+			&.header {
+				padding: 0;
+				margin: 0 !important;
+			}
+		}
+		.menu {
 			&.menu-nav {
 				padding-top: 0;
 			}
 			.menu-item > a {
 				color: $gray-color-dark;
-				font-size: 0.75rem;
+				// font-size: 0.75rem;
 				text-decoration: none;
 				&.active {
 					color: $primary-color;
@@ -210,8 +238,6 @@
 		height: auto !important;
 		min-height: 100%;
 		.off-canvas-sidebar {
-			min-width: 12rem !important;
-			max-width: 18rem !important;
 			@media screen and (max-width: 450px) {
 				max-width: 80vw !important;
 			}
@@ -236,6 +262,7 @@
 	}
 	html,
 	body,
+	main,
 	.spectre {
 		min-height: 100vh;
 	}
@@ -243,9 +270,6 @@
 		overflow-x: hidden;
 	}
 	h1 {
-		text-transform: capitalize;
-	}
-	strong {
 		text-transform: capitalize;
 	}
 </style>

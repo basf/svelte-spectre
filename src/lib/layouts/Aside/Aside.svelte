@@ -1,11 +1,6 @@
-<svelte:window bind:innerWidth={ww} />
+<svelte:window bind:innerWidth={viewportWidth} />
 
-<div
-	{...$$restProps}
-	class="off-canvas"
-	class:off-canvas-sidebar-show={show}
-	style="--sidebar: {sidebar?.offsetWidth}px;"
->
+<div {...$$restProps} class="off-canvas" class:off-canvas-sidebar-show={show}>
 	{#if !extclose}
 		<a
 			class="off-canvas-toggle btn btn-primary btn-action"
@@ -17,7 +12,7 @@
 	{/if}
 
 	{#if !right}
-		<div class="off-canvas-sidebar p-2" class:active={openLeft} bind:this={sidebar}>
+		<div class="off-canvas-sidebar p-2" class:active={openLeft}>
 			<!-- {#if !show}
 				<button
 					href="#"
@@ -50,7 +45,6 @@
 			class="off-canvas-sidebar p-2"
 			class:active={openRight}
 			class:off-canvas-sidebar-right={right || both}
-			bind:this={sidebar}
 		>
 			<!-- {#if !show}
 				<button
@@ -119,9 +113,9 @@
 				break;
 		}
 	};
-	let ww = 0,
-		sidebar = null;
-	$: show = ww >= media[breakpoint];
+	let viewportWidth = 0;
+
+	$: show = viewportWidth >= media[breakpoint];
 	$: openLeft = show ? false : openLeft;
 	$: openRight = show ? false : openRight;
 </script>
@@ -137,10 +131,13 @@
 		}
 		.off-canvas {
 			.off-canvas-content {
+				min-width: 12rem;
+				max-width: 100%;
 				padding: 0;
-				width: calc(100% - var(--sidebar, 0));
 			}
 			.off-canvas-sidebar {
+				min-width: 12rem;
+				max-width: 18rem;
 				height: 100vh;
 				z-index: $zindex-4;
 				&:empty {
@@ -171,7 +168,6 @@
 				}
 
 				.off-canvas-sidebar {
-					flex: 0 0 auto;
 					position: sticky;
 					transform: none;
 				}

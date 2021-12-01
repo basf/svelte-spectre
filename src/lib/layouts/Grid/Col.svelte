@@ -3,12 +3,12 @@
 </div>
 
 <script lang="ts" context="module">
-	type Mq = 'col' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+	type Mq = 'col' | 'ml' | 'mr' | 'mx' | 'mt' | 'mb' | 'my' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 	export type { Mq };
 </script>
 
 <script lang="ts">
-	export let mq: Mq[] = ['col', 'xs', 'sm', 'md', 'lg', 'xl'];
+	export let mq: Mq[] = ['col', 'ml', 'mr', 'mx', 'mt', 'mb', 'my', 'xs', 'sm', 'md', 'lg', 'xl'];
 
 	$: cols =
 		$$restProps &&
