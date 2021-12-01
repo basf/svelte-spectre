@@ -210,8 +210,8 @@
 
 <style lang="scss" global>
 	@import '../app';
-	// @import 'spectre.css/src/menus';
 	nav#sidebar {
+		@import 'spectre.css/src/menus';
 		h5 {
 			text-transform: capitalize;
 			&.header {
