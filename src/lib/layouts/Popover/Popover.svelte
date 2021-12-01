@@ -18,7 +18,6 @@
 	export let side: Side = 'top';
 	export let transparent: boolean = false;
 	export let shadowed: boolean = false;
-	export let inset: number = 0;
 </script>
 
 <style lang="scss">
