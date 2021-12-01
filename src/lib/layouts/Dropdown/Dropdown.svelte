@@ -1,5 +1,5 @@
 <div {...$$restProps} class="dropdown" class:active class:dropdown-right={right}>
-	<div class="dropdown-toggle">
+	<div class="dropdown-toggle" on:click|stopPropagation>
 		<slot />
 	</div>
 	<div class="menu">
@@ -7,7 +7,7 @@
 	</div>
 </div>
 
-<svelte:body on:click|capture={() => (active &&= !active)} />
+<svelte:body on:click={() => (active = false)} />
 
 <script lang="ts">
 	export let active: boolean = false;
