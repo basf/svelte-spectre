@@ -7,7 +7,7 @@
 	</div>
 </div>
 
-<svelte:body on:click|capture={() => (active &&= false)} />
+<svelte:body on:click|capture={() => (active &&= !active)} />
 
 <script lang="ts">
 	export let active: boolean = false;
@@ -16,11 +16,29 @@
 
 <style lang="scss">
 	:global(.spectre) {
-		@import 'spectre.css/src/menus';
 		@import 'spectre.css/src/dropdowns';
-		@import 'spectre.css/src/animations';
 	}
 	.dropdown-toggle {
 		display: contents;
+	}
+	.menu {
+		@include shadow-variant(0.05rem);
+		background: $bg-color-light;
+		border-radius: $border-radius;
+		margin: 0;
+		min-width: $control-width-xs;
+		padding: $unit-2;
+		transform: translateY($layout-spacing-sm);
+		z-index: $zindex-3;
+	}
+	@keyframes slide-down {
+		0% {
+			opacity: 0;
+			transform: translateY(-$unit-8);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 </style>

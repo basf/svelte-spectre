@@ -23,7 +23,6 @@
 <style lang="scss">
 	:global(.spectre) {
 		@import 'spectre.css/src/popovers';
-		@import 'spectre.css/src/animations';
 	}
 	.popover-container {
 		:not(.popover-transparent) & {
