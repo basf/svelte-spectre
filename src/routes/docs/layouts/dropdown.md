@@ -5,11 +5,11 @@ api: [
     {title: '<slot>: HTMLelement | SvelteComponent', description: 'Dropdown toggler. Add on:click event to element inside for handle active state.', variables: 'HTMLelement | SvelteComponent'},
     {title: '<slot name="content">: HTMLelement | SvelteComponent', description: 'Dropdown content', variables: 'HTMLelement | SvelteComponent'},
     {title: 'active: boolean = false', description: 'Dropdown active', variables: 'true | false'},
-    {title: 'right: boolean = false', description: 'Dropdown align right', variables: 'true | false'},
+    {title: 'align: Aling = "left"', description: 'Dropdown align', variables: 'left | center | right'},
 ]
 config: { 
-    active: { type: 'checkbox' },
-    right: { type: 'checkbox' },
+    align: { options: ['left', 'center', 'right'] },
+    open: { type: 'button' },
 }
 ---
 
@@ -32,7 +32,10 @@ config: {
             { text: `bottom_center`, radio: true },
             { text: `bottom_right`, radio: true },
         ],
-        state = {active: false, right: false}
+        active = false,
+        state = {open: () => active = !active, align: 'left'}
+
+        $: console.log(active)
 </script>
 
 # {title}
@@ -41,10 +44,10 @@ The Dropdown is a toggled by click layout for any toggler element & content.
 
 <p>
     <Grid>
-        <Col>
-            <Dropdown bind:active={state.active}>
-                <Button on:click={() => state.active = !state.active}>
-                    Dropdown &nbsp;<Icon icon="caret"/>
+        <Col col="auto">
+            <Dropdown bind:active={state.active0} align="left">
+                <Button on:click={() => state.active0 = !state.active0}>
+                    <Icon icon="caret"/>&nbsp; Dropdown left
                 </Button>
                 <Menu slot="content" items={menu} nav>
                     <Tile slot="header">
@@ -57,12 +60,31 @@ The Dropdown is a toggled by click layout for any toggler element & content.
                 </Menu>
             </Dropdown>
         </Col>
-        <Col>
-            <Dropdown active={state.active} right={state.right}>
-                <ButtonGroup>
-                    <Button variant="primary">Dropdown</Button>
-                    <IconButton on:click={() => state.active = !state.active} variant="primary" icon="caret"/>
+        <Col col="auto" mx="auto">
+            <Dropdown bind:active align={state.align}>
+               <ButtonGroup>
+                    <Button variant="primary" on:click={() => alert('toggler out click')}>Dropdown</Button>
+                    <IconButton on:click={() => active = !active} variant="primary" icon="caret"/>
                 </ButtonGroup>
+                <Avatar slot="icon">
+                    <img class="avatar" src="{base}/img/avatar-4.png" alt="Avatar" />
+                </Avatar>
+                <Menu slot="content" items={menu} nav>
+                    <Tile slot="header">
+                        <Avatar slot="icon">
+                            <img class="avatar" src="{base}/img/avatar-4.png" alt="Avatar" />
+                        </Avatar>
+                        <div slot="title" class="tile-content">Steve Rogers</div>
+                    </Tile>
+                    <Button slot="footer" block variant="primary">Footer</Button>
+                </Menu>
+            </Dropdown>
+        </Col>
+        <Col col="auto">
+            <Dropdown active={state.active2} align="right">
+                <Button variant="primary" on:click={() => state.active2 = !state.active2}>
+                    Dropdown right &nbsp;<Icon icon="caret"/>
+                </Button>
                 <Menu slot="content" items={menu} nav>
                     <Tile slot="header">
                         <Avatar slot="icon">
@@ -81,6 +103,9 @@ The Dropdown is a toggled by click layout for any toggler element & content.
     <Knobs bind:state={state} {config}/>
 </p>
 
+> If you are opening Dropdown outside component you need `|stopPropagation`
+> modifier
+
 ```sv
 <script>
     import { Button, Dropdown, Menu } from 'svelte-spectre'
@@ -94,4 +119,8 @@ The Dropdown is a toggled by click layout for any toggler element & content.
     </Button>
     <Menu slot="content" items={menu} nav /> // or any content
 </Dropdown>
+
+<Button on:click|stopPropagation={() => active = !active}>
+    Outside open Dropdown
+</Button>
 ```

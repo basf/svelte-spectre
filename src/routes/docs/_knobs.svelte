@@ -31,8 +31,8 @@
 						{:else if config[key].type === 'button'}
 							<input
 								class="btn btn-{config[key].variant || 'primary'}"
-								value={config[key].value}
-								on:click|preventDefault={state[key]}
+								value={config[key].value || key}
+								on:click|stopPropagation={state[key]}
 								type="button"
 								id={autoId(key)}
 							/>
