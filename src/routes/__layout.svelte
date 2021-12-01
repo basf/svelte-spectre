@@ -208,7 +208,7 @@
 
 <style lang="scss" global>
 	@import '../app';
-	@import 'spectre.css/src/menus';
+	// @import 'spectre.css/src/menus';
 	nav#sidebar {
 		.menu {
 			&.menu-nav {
@@ -253,6 +253,7 @@
 	}
 	html,
 	body,
+	main,
 	.spectre {
 		min-height: 100vh;
 	}
