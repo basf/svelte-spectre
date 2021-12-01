@@ -35,8 +35,8 @@ Also, you can add the popover-right, popover-bottom or popover-left class to
 define the position. By default, the popovers appear above the element.
 
 <p>
-    <Grid>
-        <Col col="auto" ml="auto">
+    <Grid stack>
+        <Col col="auto" ml="auto" xs="6">
             <Popover side={state.side} transparent={state.transparent} shadowed={state.shadowed}>
                 <Button variant="primary">{state.side} popover</Button>
                 <Card slot="content" clear>
@@ -49,7 +49,7 @@ define the position. By default, the popovers appear above the element.
                 </Card>
             </Popover>
         </Col>
-        <Col col="auto">
+        <Col col="auto" xs="6">
             <Popover side="right" transparent={state.transparent} shadowed={state.shadowed}>
                 <Button variant="primary">right popover</Button>
                 <Card slot="content" clear>
@@ -62,7 +62,7 @@ define the position. By default, the popovers appear above the element.
                 </Card>
             </Popover>
         </Col>
-        <Col col="auto">
+        <Col col="auto" xs="6">
             <Popover side="bottom" transparent={state.transparent} shadowed={state.shadowed}>
                 <Button variant="primary">bottom popover</Button>
                 <Card slot="content" clear>
@@ -75,7 +75,7 @@ define the position. By default, the popovers appear above the element.
                 </Card>
             </Popover>
         </Col>
-        <Col col="auto" mr="auto">
+        <Col col="auto" mr="auto" xs="6">
             <Popover side="left" transparent={state.transparent} shadowed={state.shadowed}>
                 <Button variant="primary">left popover</Button>
                 <Card slot="content" clear>

@@ -43,7 +43,7 @@ config: {
 The Dropdown is a toggled by click layout for any toggler element & content.
 
 <p>
-    <Grid>
+    <Grid stack>
         <Col col="auto">
             <Dropdown bind:active={state.active0} align="left">
                 <Button on:click={() => state.active0 = !state.active0}>
@@ -63,7 +63,7 @@ The Dropdown is a toggled by click layout for any toggler element & content.
         <Col col="auto" mx="auto">
             <Dropdown bind:active align={state.align}>
                <ButtonGroup>
-                    <Button variant="primary" on:click={() => alert('toggler out click')}>Dropdown</Button>
+                    <Button variant="primary" on:click={() => alert('toggler out click')}>Dropdown {state.align}</Button>
                     <IconButton on:click={() => active = !active} variant="primary" icon="caret"/>
                 </ButtonGroup>
                 <Avatar slot="icon">
