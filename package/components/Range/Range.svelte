@@ -132,14 +132,8 @@ label:hover:not([data-tooltip])::after, label:active:not([data-tooltip])::after 
 }
 
 input[type=range] {
-  --size: 60px;
-  --color: $bg-color-dark;
-  --background: $primary-color;
   --direction: to right;
   width: 100%;
-}
-input[type=range].is-error {
-  --background: $error-color;
 }
 input[type=range]::-webkit-slider-runnable-track {
   height: 3px;

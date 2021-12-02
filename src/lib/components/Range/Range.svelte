@@ -61,14 +61,14 @@
 		}
 	}
 	input[type='range'] {
-		--size: 60px;
-		--color: $bg-color-dark;
-		--background: $primary-color;
+		// --size: 60px;
+		// --color: $bg-color-dark;
+		// --background: $primary-color;
 		--direction: to right;
 		width: 100%;
-		&.is-error {
-			--background: $error-color;
-		}
+		// &.is-error {
+		// 	--background: $error-color;
+		// }
 
 		//webkit
 		&::-webkit-slider-runnable-track {
