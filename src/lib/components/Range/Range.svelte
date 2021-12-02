@@ -61,20 +61,13 @@
 		}
 	}
 	input[type='range'] {
-		--size: 60px;
-		--color: $bg-color-dark;
-		--background: $primary-color;
-		--direction: to right;
 		width: 100%;
-		&.is-error {
-			--background: $error-color;
-		}
 
-		//webkit
+		// webkit
 		&::-webkit-slider-runnable-track {
 			height: 3px;
 			background: linear-gradient(
-				var(--direction),
+				to right,
 				$primary-color
 					calc(100% / calc((var(--max) - var(--min)) / (var(--range) - var(--min)))),
 				$bg-color-dark
@@ -94,11 +87,11 @@
 			box-shadow: 0 0 0 3pt rgba($primary-color, 0.27);
 		}
 
-		//moz
+		// moz
 		&::-moz-range-track {
 			height: 3px;
 			background: linear-gradient(
-				var(--direction),
+				to right,
 				$primary-color
 					calc(100% / calc((var(--max) - var(--min)) / (var(--range) - var(--min)))),
 				$bg-color-dark

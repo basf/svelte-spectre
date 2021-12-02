@@ -20,7 +20,7 @@ declare const __propDef: {
             | 'error';
         icon?: Icons;
         timeout?: number;
-        closable?: true;
+        closable?: boolean;
         invert?: boolean;
         reverse?: boolean;
         visible?: boolean;

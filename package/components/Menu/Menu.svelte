@@ -7,7 +7,9 @@
 	{#if items}
 		{#each items as item, i}
 			{#if item.divider}
-				<Divider text={item.divider} />
+				<li class="menu-item menu-divider">
+					<Divider text={item.divider} />
+				</li>
 			{:else}
 				<li class="menu-item">
 					{#if Object.keys(item).includes('checkbox') && !item.badge}
@@ -46,7 +48,7 @@
 		<slot />
 	{/if}
 	{#if $$slots.footer}
-		<li class="menu-item">
+		<li class="menu-item menu-footer">
 			<slot name="footer" />
 		</li>
 	{/if}
@@ -716,8 +718,11 @@ export let radiogroup;
 .menu .menu-item:first-child {
   margin-bottom: 0.8rem;
 }
-.menu .menu-item:last-child {
+.menu .menu-item.menu-footer {
   margin-top: 0.8rem;
+}
+.menu .menu-item.menu-divider {
+  padding: 0;
 }
 .menu .menu-item:not(:first-child, :last-child):focus, .menu .menu-item:not(:first-child, :last-child):hover {
   background: #f1f1fc;

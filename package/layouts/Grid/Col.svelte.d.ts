@@ -1,5 +1,17 @@
 import { SvelteComponentTyped } from 'svelte';
-declare type Mq = 'col' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+declare type Mq =
+    | 'col'
+    | 'ml'
+    | 'mr'
+    | 'mx'
+    | 'mt'
+    | 'mb'
+    | 'my'
+    | 'xs'
+    | 'sm'
+    | 'md'
+    | 'lg'
+    | 'xl';
 export type { Mq };
 declare const __propDef: {
     props: {

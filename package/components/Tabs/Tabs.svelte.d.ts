@@ -1,25 +1,26 @@
 import { SvelteComponentTyped } from 'svelte';
 import type Icons from '../Icon/Icon.svelte';
-declare type ItemProp = {
+interface Item {
     title: string;
     path?: string;
-    pos?: number;
     icon?: Icons;
     badge?: string;
     clear?: boolean;
-};
-export type { ItemProp };
+}
+export type { Icons, Item };
 declare const __propDef: {
     props: {
         [x: string]: any;
-        items?: ItemProp[];
-        active?: string;
+        items?: Item[];
+        active?: number;
         block?: boolean;
     };
     events: {
         [evt: string]: CustomEvent<any>;
     };
-    slots: {};
+    slots: {
+        action: {};
+    };
 };
 export declare type TabsProps = typeof __propDef.props;
 export declare type TabsEvents = typeof __propDef.events;

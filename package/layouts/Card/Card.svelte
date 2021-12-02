@@ -4,6 +4,8 @@
 	class:card-clear={clear}
 	class:card-outlined={outlined}
 	class:card-flat={flat}
+	calss:card-expand={expand}
+	class:card-shadowed={shadowed}
 >
 	{#if $$slots.img && pos === 'top'}
 		<div class="card-image">
@@ -50,6 +52,8 @@
 export let clear = false;
 export let flat = false;
 export let outlined = false;
+export let expand = false;
+export let shadowed = false;
 </script>
 
 <style >:global(.spectre) .card {
@@ -104,4 +108,10 @@ export let outlined = false;
 }
 .card.card-outlined {
   background: 0 0;
+}
+.card.card-shadowed {
+  box-shadow: 0 0.25rem 1rem rgba(48, 55, 66, 0.15);
+}
+.card.card-expand {
+  height: 100%;
 }</style>

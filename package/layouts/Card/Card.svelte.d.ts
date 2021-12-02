@@ -7,6 +7,8 @@ declare const __propDef: {
         clear?: boolean;
         flat?: boolean;
         outlined?: boolean;
+        expand?: boolean;
+        shadowed?: boolean;
     };
     events: {
         [evt: string]: CustomEvent<any>;

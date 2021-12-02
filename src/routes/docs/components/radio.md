@@ -89,12 +89,12 @@ config:
     let group = 1, radios = [ 1, 2, 3 ]
 </script>
 
-<Radio 
-    let:radio 
-    bind:group 
-    label="" 
-    radios={radios} 
-    inline={false} 
+<Radio
+    let:radio
+    bind:group
+    label=""
+    radios={radios}
+    inline={false}
     validity={null}>
     {radio.label}
 </Radio>

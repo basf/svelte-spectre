@@ -1,18 +1,40 @@
 ---
 file: popover.md
 title: Popover
-api: [
-    {title: '<slot>: HTMLelement | SvelteComponent', description: 'Popover toggler', variables: 'HTMLelement | SvelteComponent'},
-    {title: '<slot name="content">: HTMLelement | SvelteComponent', description: 'Popover content', variables: 'HTMLelement | SvelteComponent'},
-    {title: 'side: Side = "top"', description: 'Popover side', variables: 'top | right | bottom | left'},
-    {title: 'transparent: boolean = false', description: 'Dropdown transparent', variables: 'true | false'},
-    {title: 'shadowed: boolean = true', description: 'Dropdown shadowed', variables: 'true | false'},
-]
-config: { 
-    side: { options: ['top', 'right', 'bottom', 'left'] },
-    transparent: { type: 'checkbox' },
-    shadowed: { type: 'checkbox' },
-}
+api:
+    [
+        {
+            title: '<slot>: HTMLelement | SvelteComponent',
+            description: 'Popover toggler',
+            variables: 'HTMLelement | SvelteComponent',
+        },
+        {
+            title: '<slot name="content">: HTMLelement | SvelteComponent',
+            description: 'Popover content',
+            variables: 'HTMLelement | SvelteComponent',
+        },
+        {
+            title: 'side: Side = "top"',
+            description: 'Popover side',
+            variables: 'top | right | bottom | left',
+        },
+        {
+            title: 'transparent: boolean = false',
+            description: 'Dropdown transparent',
+            variables: 'true | false',
+        },
+        {
+            title: 'shadowed: boolean = true',
+            description: 'Dropdown shadowed',
+            variables: 'true | false',
+        },
+    ]
+config:
+    {
+        side: { options: ['top', 'right', 'bottom', 'left'] },
+        transparent: { type: 'checkbox' },
+        shadowed: { type: 'checkbox' },
+    }
 ---
 
 <script>

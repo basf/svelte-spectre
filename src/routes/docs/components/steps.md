@@ -75,7 +75,7 @@ indicate the current state of progress.
         {label: 'Step 3', href: '#', tooltip: 'tooltip'},
         {label: 'Step 4', href: '#', tooltip: 'tooltip'},
         {label: 'Step 5', href: '#', tooltip: 'tooltip'},
-    ], 
+    ],
     active = 3
 </script>
 

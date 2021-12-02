@@ -1,16 +1,34 @@
 ---
 file: dropdown.md
 title: Dropdown
-api: [
-    {title: '<slot>: HTMLelement | SvelteComponent', description: 'Dropdown toggler. Add on:click event to element inside for handle active state.', variables: 'HTMLelement | SvelteComponent'},
-    {title: '<slot name="content">: HTMLelement | SvelteComponent', description: 'Dropdown content', variables: 'HTMLelement | SvelteComponent'},
-    {title: 'active: boolean = false', description: 'Dropdown active', variables: 'true | false'},
-    {title: 'align: Aling = "left"', description: 'Dropdown align', variables: 'left | center | right'},
-]
-config: { 
-    align: { options: ['left', 'center', 'right'] },
-    open: { type: 'button' },
-}
+api:
+    [
+        {
+            title: '<slot>: HTMLelement | SvelteComponent',
+            description: 'Dropdown toggler. Add on:click event to element inside for handle active state.',
+            variables: 'HTMLelement | SvelteComponent',
+        },
+        {
+            title: '<slot name="content">: HTMLelement | SvelteComponent',
+            description: 'Dropdown content',
+            variables: 'HTMLelement | SvelteComponent',
+        },
+        {
+            title: 'active: boolean = false',
+            description: 'Dropdown active',
+            variables: 'true | false',
+        },
+        {
+            title: 'align: Aling = "left"',
+            description: 'Dropdown align',
+            variables: 'left | center | right',
+        },
+    ]
+config:
+    {
+        align: { options: ['left', 'center', 'right'] },
+        open: { type: 'button' },
+    }
 ---
 
 <script>
