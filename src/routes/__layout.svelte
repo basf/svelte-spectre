@@ -52,9 +52,6 @@
 
 		<nav id="sidebar" slot="sidebarLeft" class="m-2">
 			<h5><a href={`${base}/`} on:click={() => (openLeft = false)}>Svelte-spectre</a></h5>
-			<Button block href="https://github.com/tilde-lab/svelte-spectre/" target="_blank"
-				>GitHub</Button
-			>
 			{#if links}
 				{#each Object.entries(links) as [key, value], i}
 					{#if key === 'root'}
@@ -89,6 +86,9 @@
 					{/if}
 				{/each}
 			{/if}
+			<Button block href="https://github.com/tilde-lab/svelte-spectre/" target="_blank"
+				>GitHub</Button
+			>
 		</nav>
 
 		<main class:px-2={$page.path.includes('docs')}>
