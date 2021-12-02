@@ -2,7 +2,7 @@
 file: autocomplete.md
 title: Autocomplete
 api: [
-	{title: 'placeholder: string = "typing here"', description: 'Autocomplete placeholder', variables: 'any string'},
+	{title: 'placeholder: string = "type here"', description: 'Autocomplete placeholder', variables: 'any string'},
 	{title: 'selected: string[] = []', description: 'Autocomplete selected', variables: '[]'}
 ]
 config:
@@ -26,7 +26,7 @@ config:
                 'bottom_center',
                 'bottom_right',
             ],
-        state = {placeholder: 'typing here'},
+        state = {placeholder: 'type here'},
         selected = []
 </script>
 
