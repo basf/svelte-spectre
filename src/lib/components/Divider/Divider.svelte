@@ -33,7 +33,6 @@
 			&.divider-vert {
 				&[data-content]::after {
 					color: currentColor;
-					background: transparent;
 				}
 			}
 			&.divider {
