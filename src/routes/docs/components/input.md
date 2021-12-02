@@ -64,7 +64,7 @@ config:
         label: { size: 'auto' },
         value: { size: 'auto' },
         hint: { size: 'auto' },
-        icon: {options: [null, 'left', 'right'] },
+        icon: { options: [null, 'left', 'right'] },
         rows: { type: 'number', min: 1, max: 10, size: 5 },
         size: { options: ['sm', 'md', 'lg'] },
         width: { type: 'number', min: 0, max: 12, size: 5 },
@@ -203,7 +203,7 @@ element and input-group-btn to the button element.
 <script>
     import { Button, Checkbox, Input, InputGroup, Select, Switch } from 'svelte-spectre'
 
-    let value, 
+    let value,
         selected,
         questions = [
             { value: 1, label: `Where did you go to school?` },

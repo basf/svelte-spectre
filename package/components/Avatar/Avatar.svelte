@@ -36,7 +36,7 @@ export let len = 0;
 export let caption = false;
 export let size = 'md';
 export let weight = 'normal';
-export let status = false;
+export let status = null;
 export let badge = '';
 let words;
 let clip;

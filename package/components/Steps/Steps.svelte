@@ -1,7 +1,12 @@
 <ul {...$$restProps} class="step">
-	{#each steps as { href, label }}
-		<li class="step-item">
-			<a {href} class="tooltip" data-tooltip={label}>{label}</a>
+	{#each steps as { href, label, tooltip }, i}
+		<li class="step-item" class:active={active === i + 1}>
+			<a
+				{href}
+				class="tooltip"
+				data-tooltip={tooltip}
+				on:click|preventDefault={() => (active = i + 1)}>{label}</a
+			>
 		</li>
 	{/each}
 </ul>
@@ -9,6 +14,7 @@
 <script  context="module"></script>
 
 <script >export let steps = [];
+export let active = 1;
 </script>
 
 <style >:global(.spectre) .step {

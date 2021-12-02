@@ -3,7 +3,7 @@
 	id="range-{fid}"
 	class="is-{validity}"
 	class:form-inline={inline}
-	style="--range: {range}%;"
+	style="--range: {range}; --min: {min}; --max: {max}"
 	data-range={range}
 >
 	<slot />
@@ -116,13 +116,13 @@ label {
 label:not([data-tooltip])::after {
   content: attr(data-range);
   position: absolute;
-  left: var(--range);
+  left: calc(100% / ((var(--max) - var(--min)) / (var(--range) - var(--min))));
   bottom: 150%;
   color: #fff;
   background: rgba(48, 55, 66, 0.95);
   padding: 0.2rem 0.4rem;
   border-radius: 0.1rem;
-  transform: translateX(calc(0% - var(--range)));
+  transform: translateX(-50%);
   transition: opacity 250ms, transform 250ms, bottom 250ms;
   opacity: 0;
 }
@@ -138,9 +138,12 @@ input[type=range] {
   --direction: to right;
   width: 100%;
 }
+input[type=range].is-error {
+  --background: $error-color;
+}
 input[type=range]::-webkit-slider-runnable-track {
   height: 3px;
-  background: linear-gradient(var(--direction), #5755d9 var(--range, 0%), #eef0f3 var(--range, 0%));
+  background: linear-gradient(var(--direction), #5755d9 calc(100% / ((var(--max) - var(--min)) / (var(--range) - var(--min)))), #eef0f3 calc(100% / ((var(--max) - var(--min)) / (var(--range) - var(--min)))));
 }
 input[type=range]::-webkit-slider-thumb {
   transform: scale(1.25);
@@ -157,7 +160,7 @@ input[type=range]:active::-webkit-slider-thumb {
 }
 input[type=range]::-moz-range-track {
   height: 3px;
-  background: linear-gradient(var(--direction), #5755d9 var(--range, 0%), #eef0f3 var(--range, 0%));
+  background: linear-gradient(var(--direction), #5755d9 calc(100% / ((var(--max) - var(--min)) / (var(--range) - var(--min)))), #eef0f3 calc(100% / ((var(--max) - var(--min)) / (var(--range) - var(--min)))));
 }
 input[type=range]::-moz-range-thumb {
   transform: scale(1.25);

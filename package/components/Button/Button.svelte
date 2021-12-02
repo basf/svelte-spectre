@@ -13,7 +13,7 @@
 		on:dblclick
 		use:addBadge={badge}
 	>
-		<slot>Text</slot>
+		<slot />
 	</a>
 {:else}
 	<button
@@ -29,7 +29,7 @@
 		on:dblclick
 		use:addBadge={badge}
 	>
-		<slot>Text</slot>
+		<slot />
 	</button>
 {/if}
 

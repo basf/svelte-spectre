@@ -1,12 +1,14 @@
 import { SvelteComponentTyped } from 'svelte';
-export declare type Step = {
+export interface Step {
     label: string;
     href?: string;
-};
+    tooltip?: string;
+}
 declare const __propDef: {
     props: {
         [x: string]: any;
         steps?: Step[];
+        active?: number;
     };
     events: {
         [evt: string]: CustomEvent<any>;

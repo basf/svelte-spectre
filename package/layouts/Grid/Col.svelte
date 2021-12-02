@@ -4,7 +4,7 @@
 
 <script  context="module"></script>
 
-<script >export let mq = ['col', 'xs', 'sm', 'md', 'lg', 'xl'];
+<script >export let mq = ['col', 'ml', 'mr', 'mx', 'mt', 'mb', 'my', 'xs', 'sm', 'md', 'lg', 'xl'];
 $: cols =
     $$restProps &&
         Object.entries($$restProps)

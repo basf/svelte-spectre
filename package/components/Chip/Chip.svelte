@@ -23,7 +23,7 @@
 const dispatch = createEventDispatcher();
 export let avatar = false;
 export let name = '';
-export let status = false;
+export let status = null;
 export let active = false;
 export let closable = false;
 </script>

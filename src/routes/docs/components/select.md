@@ -102,10 +102,10 @@ config:
 <script>
     import { Select } from 'svelte-spectre'
 
-    let selected = 1, 
-        options = [ 1, 2, 3 ], 
-        multiple = false, 
-        validity = null, 
+    let selected = 1,
+        options = [ 1, 2, 3 ],
+        multiple = false,
+        validity = null,
         size = 'md'
 </script>
 

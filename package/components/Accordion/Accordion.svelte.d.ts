@@ -4,13 +4,16 @@ declare const __propDef: {
         [x: string]: any;
         opened?: boolean;
         toggled?: boolean;
-        icon?: string;
+        group?: string;
     };
     events: {
+        close: CustomEvent<any>;
+        open: CustomEvent<any>;
+    } & {
         [evt: string]: CustomEvent<any>;
     };
     slots: {
-        title: {};
+        header: {};
         default: {};
     };
 };

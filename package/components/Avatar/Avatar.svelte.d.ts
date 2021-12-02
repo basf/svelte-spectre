@@ -1,7 +1,7 @@
 import { SvelteComponentTyped } from 'svelte';
 import type { Size } from '../../types/size';
 import type { Weight } from '../../types/text';
-export declare type Status = 'online' | 'busy' | 'away' | 'offline' | false;
+export declare type Status = 'online' | 'busy' | 'away' | 'offline' | null;
 export type { Size, Weight };
 declare const __propDef: {
     props: {

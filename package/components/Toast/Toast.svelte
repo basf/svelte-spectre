@@ -1,21 +1,20 @@
-{#if visible}
-	<div {...$$restProps} class="toast {type && `toast-${type}`}" use:pausable={timeout > 0}>
-		{#if icon}
-			<Icon {icon} />
-		{/if}
-		<div class="toast-content ml-2">
-			<slot />
-		</div>
-		{#if closable}
-			<IconButton icon="cross" on:click={close} />
-		{/if}
-		{#if timeout}
-			<Progress value={$progress} {invert} />
-		{/if}
+<div {...$$restProps} class="toast {type && `toast-${type}`}" use:pausable={timeout > 0}>
+	{#if icon}
+		<Icon {icon} />
+	{/if}
+	<div class="toast-content">
+		<slot />
 	</div>
-{/if}
+	{#if closable}
+		<IconButton icon="cross" on:click={close} />
+	{/if}
+	{#if timeout}
+		<Progress value={$progress} {invert} />
+	{/if}
+</div>
 
-<script context="module" >import { tweened } from 'svelte/motion';
+<script context="module" >var _a;
+import { tweened } from 'svelte/motion';
 import { linear } from 'svelte/easing';
 import IconButton from '../Button/IconButton.svelte';
 import Icon from '../Icon/Icon.svelte';
@@ -23,21 +22,22 @@ import Progress from '../Progress/Progress.svelte';
 import { toast } from './toast';
 </script>
 
-<script >import { createEventDispatcher } from 'svelte';
+<script >var _a;
+import { createEventDispatcher } from 'svelte';
 const dispatch = createEventDispatcher();
 export let toastItem = {};
 export let id = toastItem.id || 0;
 export let type = toastItem.type || 'initial';
 export let icon = toastItem.icon;
 export let timeout = toastItem.timeout || 0;
-export let closable = toastItem.closable || true;
+export let closable = (_a = toastItem.closable) !== null && _a !== void 0 ? _a : true;
 export let invert = toastItem.invert || false;
 export let reverse = toastItem.reverse || false;
 export let visible = true;
-let init = reverse ? 1 : 0, next = reverse ? 0 : 1, start = Date.now(), remaining = toastItem.timeout, options = { duration: remaining };
+let init = reverse ? 1 : 0, next = reverse ? 0 : 1, start = Date.now(), remaining = timeout, options = { duration: remaining };
 const defaults = { delay: 0, duration: 0, easing: linear };
 const progress = tweened(init, { ...defaults });
-$: progress.set(next, options).then(autoclose);
+$: timeout && progress.set(next, options).then(autoclose);
 const autoclose = () => timeout && $progress % 1 === 0 && close();
 const close = () => {
     dispatch('close', id);
@@ -117,8 +117,9 @@ function pausable(node, paused) {
   justify-content: space-between;
 }
 :global(.spectre) .toast .toast-content {
+  flex: 1;
   flex-direction: column;
-  padding: 0.4rem 0;
+  padding: 0.4rem 0.8rem;
 }
 :global(.spectre) .toast :global(.btn-link) {
   color: currentColor;

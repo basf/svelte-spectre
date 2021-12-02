@@ -76,4 +76,7 @@ export let max = 0;
 }
 :global(.spectre) .progress.progress-invert {
   transform: scaleX(-1);
+}
+:global(.spectre) .progress:indeterminate {
+  background: #eef0f3 linear-gradient(to right, var(--progress-color, #5755d9) 30%, #eef0f3 30%) top left/150% 150% no-repeat;
 }</style>
