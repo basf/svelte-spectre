@@ -1,5 +1,5 @@
 <Spectre>
-	<Aside
+	<Sidebar
 		extclose
 		both
 		bind:openLeft
@@ -116,7 +116,7 @@
 		</svelte:fragment>
 
 		<footer class="text-center p-2">&copy; {new Date().getFullYear()} BASF SE</footer>
-	</Aside>
+	</Sidebar>
 
 	<Toaster />
 </Spectre>
@@ -187,7 +187,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
-	import { Accordion, Aside, Button, IconButton, Menu, Navbar, Spectre, Toaster } from '$lib';
+	import { Accordion, Button, IconButton, Menu, Navbar, Sidebar, Spectre, Toaster } from '$lib';
 	import Xray from '$assets/b-science.svg';
 	import GitHub from '$assets/github.svg';
 

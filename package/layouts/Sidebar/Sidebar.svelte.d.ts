@@ -24,11 +24,11 @@ declare const __propDef: {
         sidebarRight: {};
     };
 };
-export declare type AsideProps = typeof __propDef.props;
-export declare type AsideEvents = typeof __propDef.events;
-export declare type AsideSlots = typeof __propDef.slots;
-export default class Aside extends SvelteComponentTyped<
-    AsideProps,
-    AsideEvents,
-    AsideSlots
+export declare type SidebarProps = typeof __propDef.props;
+export declare type SidebarEvents = typeof __propDef.events;
+export declare type SidebarSlots = typeof __propDef.slots;
+export default class Sidebar extends SvelteComponentTyped<
+    SidebarProps,
+    SidebarEvents,
+    SidebarSlots
 > {}
