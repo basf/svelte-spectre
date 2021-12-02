@@ -216,8 +216,6 @@
 	const activeLink = (page: string, path: string) =>
 		page.replace(/\/$/, '') === path.replace(/\.|md/g, '');
 	const setLink = (base: string, path: string) => base + path.replace(/\.|md/g, '');
-
-	$: console.log(links, $page.path.split('/').filter(Boolean));
 </script>
 
 <style lang="scss" global>
