@@ -28,14 +28,23 @@
 						</div>
 					{/if}
 					<div class="mr-2">
-						<IconButton
-							size="sm"
-							iconSize="2x"
-							href="https://github.com/tilde-lab/svelte-spectre"
-							target="_blank"
-						>
-							<GitHub />
-						</IconButton>
+						{#if $page.path.split('/').filter(Boolean).length > 1}
+							<IconButton
+								icon="edit"
+								href="https://github.com/tilde-lab/svelte-spectre/tree/master/src/routes{$page.path.replace(
+									/\/$/,
+									''
+								)}.md"
+								target="_blank"
+							/>
+						{:else}
+							<IconButton
+								size="sm"
+								iconSize="2x"
+								href="https://github.com/tilde-lab/svelte-spectre/"
+								target="_blank"><GitHub /></IconButton
+							>
+						{/if}
 					</div>
 				</nav>
 			</Navbar>
@@ -43,6 +52,9 @@
 
 		<nav id="sidebar" slot="sidebarLeft" class="m-2">
 			<h5><a href={`${base}/`} on:click={() => (openLeft = false)}>Svelte-spectre</a></h5>
+			<Button block href="https://github.com/tilde-lab/svelte-spectre/" target="_blank"
+				>GitHub</Button
+			>
 			{#if links}
 				{#each Object.entries(links) as [key, value], i}
 					{#if key === 'root'}
@@ -205,7 +217,7 @@
 		page.replace(/\/$/, '') === path.replace(/\.|md/g, '');
 	const setLink = (base: string, path: string) => base + path.replace(/\.|md/g, '');
 
-	$: console.log(links);
+	$: console.log(links, $page.path.split('/').filter(Boolean));
 </script>
 
 <style lang="scss" global>
