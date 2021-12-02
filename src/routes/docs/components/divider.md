@@ -4,9 +4,14 @@ title: Divider
 api:
     [
         {
-            title: 'align: string = "horizontal"',
+            title: 'align: Align = "horizontal"',
             description: 'Divider align',
             variables: 'vertical | horizontal | left | center | right',
+        },
+        {
+            title: 'color: Color = "gray"',
+            description: 'Divider text color',
+            variables: 'primary | secondary | dark | gray | light | success | warning | error',
         },
         {
             title: 'text: string = ""',
@@ -22,6 +27,7 @@ api:
 config:
     {
         align: { options: ['left', 'center', 'right'] },
+        color: { options: ['primary', 'secondary', 'dark', 'gray', 'light', 'success', 'warning', 'error'] },
         text: { size: auto },
         empty: { type: checkbox },
     }
@@ -34,7 +40,7 @@ config:
     import Knobs from '../_knobs.svelte'
     import {media} from '../_media'
 
-    let state = { align: 'center', text: 'CENTER' }
+    let state = { align: 'center', color: 'gray', text: 'CENTER' }
 </script>
 
 # {title}
@@ -42,7 +48,7 @@ config:
 The Divider is used for separating elements.
 
 <p>
-    <Divider/>
+    <Divider color={state.color} />
 </p>
 
 ```sv
@@ -59,7 +65,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent risus leo,
 dictum in vehicula sit amet, feugiat tempus tellus.
 
 <p>
-    <Divider text={state.text} align={`horizontal ${state.align}`} empty={state.empty} />
+    <Divider text={state.text} align={`horizontal ${state.align}`} color={state.color} empty={state.empty} />
 </p>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent risus leo,

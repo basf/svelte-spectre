@@ -5,18 +5,22 @@
 	class:text-right={align.includes('right')}
 	class:divider-vert={align === 'vertical'}
 	class:divider-empty={empty}
+	class="text-{color}"
 	data-content={text || undefined}
 />
 
 <script lang="ts" context="module">
+	import type { Color } from '../../types/text';
+
 	type Align = 'vertical' | 'horizontal' | 'center' | 'left' | 'right';
-	export type { Align };
+	export type { Align, Color };
 </script>
 
 <script lang="ts">
 	export let align: Align = 'horizontal';
 	export let text: string = '';
 	export let empty: boolean = false;
+	export let color: Color = 'gray';
 </script>
 
 <style lang="scss">
@@ -25,6 +29,13 @@
 		hr {
 			border: 0;
 			color: transparent;
+			&.divider,
+			&.divider-vert {
+				&[data-content]::after {
+					color: currentColor;
+					background: transparent;
+				}
+			}
 			&.divider {
 				width: 100%;
 			}

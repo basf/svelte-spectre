@@ -5,6 +5,7 @@
 	class:text-right={align.includes('right')}
 	class:divider-vert={align === 'vertical'}
 	class:divider-empty={empty}
+	class="text-{color}"
 	data-content={text || undefined}
 />
 
@@ -13,6 +14,7 @@
 <script >export let align = 'horizontal';
 export let text = '';
 export let empty = false;
+export let color = 'gray';
 </script>
 
 <style >:global(.spectre) .divider,
@@ -62,6 +64,10 @@ export let empty = false;
 :global(.spectre) hr {
   border: 0;
   color: transparent;
+}
+:global(.spectre) hr.divider[data-content]::after, :global(.spectre) hr.divider-vert[data-content]::after {
+  color: currentColor;
+  background: transparent;
 }
 :global(.spectre) hr.divider {
   width: 100%;
