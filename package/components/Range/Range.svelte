@@ -132,12 +132,11 @@ label:hover:not([data-tooltip])::after, label:active:not([data-tooltip])::after 
 }
 
 input[type=range] {
-  --direction: to right;
   width: 100%;
 }
 input[type=range]::-webkit-slider-runnable-track {
   height: 3px;
-  background: linear-gradient(var(--direction), #5755d9 calc(100% / ((var(--max) - var(--min)) / (var(--range) - var(--min)))), #eef0f3 calc(100% / ((var(--max) - var(--min)) / (var(--range) - var(--min)))));
+  background: linear-gradient(to right, #5755d9 calc(100% / ((var(--max) - var(--min)) / (var(--range) - var(--min)))), #eef0f3 calc(100% / ((var(--max) - var(--min)) / (var(--range) - var(--min)))));
 }
 input[type=range]::-webkit-slider-thumb {
   transform: scale(1.25);
@@ -154,7 +153,7 @@ input[type=range]:active::-webkit-slider-thumb {
 }
 input[type=range]::-moz-range-track {
   height: 3px;
-  background: linear-gradient(var(--direction), #5755d9 calc(100% / ((var(--max) - var(--min)) / (var(--range) - var(--min)))), #eef0f3 calc(100% / ((var(--max) - var(--min)) / (var(--range) - var(--min)))));
+  background: linear-gradient(to right, #5755d9 calc(100% / ((var(--max) - var(--min)) / (var(--range) - var(--min)))), #eef0f3 calc(100% / ((var(--max) - var(--min)) / (var(--range) - var(--min)))));
 }
 input[type=range]::-moz-range-thumb {
   transform: scale(1.25);
