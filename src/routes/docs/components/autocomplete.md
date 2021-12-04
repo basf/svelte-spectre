@@ -62,5 +62,5 @@ used for tags and contacts input.
 </script>
 
 <Autocomplete {predefined} bind:selected />
-<small>Selected: {selected}</small>
+<small>Selected: {selected.join(", ")}</small>
 ```
