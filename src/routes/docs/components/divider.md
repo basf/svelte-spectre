@@ -27,7 +27,20 @@ api:
 config:
     {
         align: { options: ['left', 'center', 'right'] },
-        color: { options: ['primary', 'secondary', 'dark', 'gray', 'light', 'success', 'warning', 'error'] },
+        color:
+            {
+                options:
+                    [
+                        'primary',
+                        'secondary',
+                        'dark',
+                        'gray',
+                        'light',
+                        'success',
+                        'warning',
+                        'error',
+                    ],
+            },
         text: { size: auto },
         empty: { type: checkbox },
     }

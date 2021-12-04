@@ -9,7 +9,7 @@ test.before.each(ENV.reset);
 
 test('check Divider', async () => {
     const { container, component } = ENV.render(Divider, {
-        align: 'horizontal',
+        align: 'horizontal center',
         text: 'divider',
     });
     const divider: HTMLElement = container.querySelector('.divider');

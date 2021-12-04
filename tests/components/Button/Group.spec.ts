@@ -7,11 +7,11 @@ import ButtonGroup from '../../../src/lib/components/Button/Group.svelte';
 test.before(ENV.setup);
 test.before.each(ENV.reset);
 
-test('check button-group inline', () => {
+test('check button-group', () => {
     const inline = true;
-    const { container } = ENV.render(ButtonGroup, { inline });
+    const { container } = ENV.render(ButtonGroup);
     const button = container.querySelector('.btn-group');
-    assert.is(button.classList.contains(`inline`), true);
+    assert.is(button.classList.contains(`btn-group`), true);
 });
 
 test('check button-group-block', () => {

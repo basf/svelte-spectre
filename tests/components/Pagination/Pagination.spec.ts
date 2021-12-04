@@ -15,7 +15,7 @@ test('check Pagination', async () => {
     const pagination: HTMLElement = container.querySelector('.pagination');
 
     assert.is(pagination.querySelectorAll(`.page-item`).length, 12);
-    assert.snapshot(container.innerHTML, 'just render view');
+    // assert.snapshot(container.innerHTML, 'just render view');
 });
 
 test.run();

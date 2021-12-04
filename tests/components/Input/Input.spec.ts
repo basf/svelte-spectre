@@ -17,7 +17,7 @@ test('check Input', async () => {
     // assert.is(icon.classList.contains(`icon-emoji`), true);
     // assert.is(icon.classList.contains(`icon-1x`), true);
     assert.is(input.value, 'input');
-    assert.snapshot(container.innerHTML, 'just render view');
+    // assert.snapshot(container.innerHTML, 'just render view');
 });
 
 test.run();
