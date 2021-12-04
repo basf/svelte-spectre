@@ -1,7 +1,7 @@
 <ul {...$$restProps} class="tab" class:tab-block={block}>
 	{#each items as item, i}
 		<li
-			class:active={active === i || item.path.includes(`${active}`)}
+			class:active={active === i || item?.path?.includes(`${active}`)}
 			class="tab-item"
 			tabindex="0"
 			use:select={i}
