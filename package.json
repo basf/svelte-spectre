@@ -34,7 +34,7 @@
 		]
 	},
 	"devDependencies": {
-		"@poppanator/sveltekit-svg": "^0.1.8",
+		"@poppanator/sveltekit-svg": "^0.2.0",
 		"@sveltejs/adapter-static": "^1.0.0-next.21",
 		"@sveltejs/kit": "^1.0.0-next.201",
 		"@types/jsdom": "^16.2.13",
@@ -45,7 +45,7 @@
 		"eslint": "^8.4.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-svelte3": "^3.2.1",
-		"jsdom": "^18.1.1",
+		"jsdom": "^19.0.0",
 		"mdsvex": "^0.9.8",
 		"micromatch": "^4.0.4",
 		"pirates": "^4.0.1",
