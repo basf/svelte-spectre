@@ -581,10 +581,6 @@ input:disabled + .form-icon, input.disabled + .form-icon {
 :global(.spectre) .form-group.d-flex {
   flex-wrap: wrap;
 }
-:global(.spectre) .has-icon-right .form-icon,
-:global(.spectre) .has-icon-left .form-icon {
-  top: 0.9rem;
-}
 :global(.spectre) .form-icon {
   width: auto;
   height: auto;
