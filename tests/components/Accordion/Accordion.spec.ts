@@ -12,7 +12,8 @@ test('check Accordion', async () => {
         title: 'Accordion',
     });
     const accordion: HTMLElement = container.querySelector('.accordion');
-    await ENV.fire(accordion, 'click');
+    const summary: HTMLElement = container.querySelector('.accordion-header');
+    await ENV.fire(summary, 'click');
     accordion.querySelector('.accordion-body').innerHTML = 'accordion-body';
 
     assert.is(accordion.innerHTML.includes(`accordion-body`), true);

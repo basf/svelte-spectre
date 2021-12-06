@@ -6,7 +6,7 @@
 	class:divider-vert={align === 'vertical'}
 	class:divider-empty={empty}
 	class="text-{color}"
-	data-content={text || undefined}
+	data-content={text}
 />
 
 <script lang="ts" context="module">

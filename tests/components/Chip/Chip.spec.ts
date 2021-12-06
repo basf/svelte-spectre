@@ -9,6 +9,7 @@ test.before.each(ENV.reset);
 
 test('check Chip', async () => {
     const { container, component } = ENV.render(Chip, {
+        avatar: true,
         name: 'chip chip',
         closable: true,
     });

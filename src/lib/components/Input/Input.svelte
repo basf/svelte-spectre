@@ -94,12 +94,6 @@
 				flex-wrap: wrap;
 			}
 		}
-		.has-icon-right,
-		.has-icon-left {
-			.form-icon {
-				top: 0.9rem;
-			}
-		}
 		.form-icon {
 			width: auto;
 			height: auto;
