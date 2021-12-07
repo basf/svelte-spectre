@@ -48,7 +48,10 @@ $: color = bg ? new TinyColor(str_to_rgb(name)) : random();
 $: words = name.length && name.replace('.', '/').match(/\b(\w)|([A-Z])|(\/)/g);
 $: clip = len || words.length;
 $: fontSize = SIZE[size] * (1 / clip);
-$: initials = (words && words.slice(0, clip).join('').toUpperCase()) || '';
+$: initials =
+    (words && words.length > 1
+        ? words.slice(0, clip).join('').toUpperCase()
+        : [...name].slice(0, clip).join('').toUpperCase()) || '';
 </script>
 
 <style >.text-primary {
