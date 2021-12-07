@@ -29,6 +29,7 @@
 	import { TinyColor, random } from '@ctrl/tinycolor';
 	import { badge as addBadge } from '../../components/Badge';
 	import { SIZE } from '../../types/const';
+	import { str_to_rgb } from '../../helpers/str_to_rgb';
 
 	import type { Size } from '../../types/size';
 	import type { Weight } from '../../types/text';
@@ -50,7 +51,7 @@
 	let clip: number;
 	let fontSize: number;
 	let initials: string;
-	$: color = bg ? new TinyColor(bg) : random();
+	$: color = bg ? new TinyColor(str_to_rgb(name)) : random();
 	$: words = name.length && name.replace('.', '/').match(/\b(\w)|([A-Z])|(\/)/g);
 	$: clip = len || words.length;
 	$: fontSize = SIZE[size] * (1 / clip);
