@@ -86,9 +86,11 @@
 					{/if}
 				{/each}
 			{/if}
-			<Button block href="https://github.com/tilde-lab/svelte-spectre/" target="_blank"
-				>GitHub</Button
-			>
+			<IconButton
+				size="sm"
+				iconSize="2x"
+				href="https://github.com/tilde-lab/svelte-spectre/"
+				target="_blank"><GitHub /></IconButton>
 		</nav>
 
 		<main class:px-2={$page.path.includes('docs')}>
