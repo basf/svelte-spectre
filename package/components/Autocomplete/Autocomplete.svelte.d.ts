@@ -7,6 +7,10 @@ declare const __propDef: {
         predefined?: string[];
         suggested?: string[];
         selected?: string[];
+        created?: string[];
+        creatable?: boolean;
+        predictable?: boolean;
+        groups?: string[];
     };
     events: {
         [evt: string]: CustomEvent<any>;

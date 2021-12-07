@@ -1,6 +1,7 @@
 import { SvelteComponentTyped } from 'svelte';
 declare type Align = 'start' | 'center' | 'end' | 'stretch' | '';
-export type { Align };
+declare type Justify = 'start' | 'center' | 'end' | 'stretch' | '';
+export type { Align, Justify };
 declare const __propDef: {
     props: {
         [x: string]: any;
@@ -8,6 +9,7 @@ declare const __propDef: {
         oneline?: boolean;
         stack?: boolean;
         align?: Align;
+        justify?: Justify;
     };
     events: {
         [evt: string]: CustomEvent<any>;

@@ -1,6 +1,6 @@
 <div
 	{...$$restProps}
-	class="columns {align && `col-align-${align}`}"
+	class="columns {align && `col-align-${align}`} {justify && `col-justify-${justify}`}"
 	class:col-gapless={gapless}
 	class:col-oneline={oneline}
 	class:col-stack={stack}
@@ -11,8 +11,9 @@
 
 <script lang="ts" context="module">
 	type Align = 'start' | 'center' | 'end' | 'stretch' | '';
+	type Justify = 'start' | 'center' | 'end' | 'stretch' | '';
 
-	export type { Align };
+	export type { Align, Justify };
 </script>
 
 <script lang="ts">
@@ -20,6 +21,7 @@
 	export let oneline: boolean = false;
 	export let stack: boolean = false;
 	export let align: Align = '';
+	export let justify: Justify = '';
 </script>
 
 <style lang="scss">
@@ -45,5 +47,14 @@
 		& > :global(* > *) {
 			height: 100%;
 		}
+	}
+	.col-justify-start {
+		justify-content: flex-start;
+	}
+	.col-justify-center {
+		justify-content: center;
+	}
+	.col-justify-end {
+		align-content: flex-end;
 	}
 </style>
