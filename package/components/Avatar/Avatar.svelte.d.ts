@@ -6,7 +6,6 @@ export type { Size, Weight };
 declare const __propDef: {
     props: {
         [x: string]: any;
-        id?: string;
         name?: string;
         add?: string;
         bg?: string;

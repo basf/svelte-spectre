@@ -3,11 +3,14 @@ file: autocomplete.md
 title: Autocomplete
 api: [
 	{title: 'placeholder: string = "type here"', description: 'Autocomplete placeholder', variables: 'any string'},
-	{title: 'selected: string[] = []', description: 'Autocomplete selected', variables: '[]'}
+	{title: 'selected: string[] = []', description: 'Autocomplete selected', variables: '[]'},
+	{title: 'predictable: boolean = false', description: 'Autocomplete predictable', variables: 'true | false'}
 ]
 config:
     {
-        placeholder: { size: 12 }
+        placeholder: { size: 12 },
+        predictable: { type: 'checkbox' },
+        groups: { size: 12 }
     }
 ---
 
@@ -26,7 +29,7 @@ config:
                 'bottom_center',
                 'bottom_right',
             ],
-        state = {placeholder: 'type here'},
+        state = {placeholder: 'type here', predictable: false, groups: ['top', 'center', 'bottom']},
         selected = []
 </script>
 
@@ -36,7 +39,13 @@ Autocomplete form component provides suggestions while you type. It is often
 used for tags and contacts input.
 
 <p>
-    <Autocomplete {predefined} bind:selected bind:placeholder={state.placeholder} />
+    <Autocomplete
+        bind:predefined
+        bind:selected
+        bind:placeholder={state.placeholder}
+        creatable
+        predictable={state.predictable}
+        groups={state.groups} />
     <small>Selected: {selected}</small>
 </p>
 

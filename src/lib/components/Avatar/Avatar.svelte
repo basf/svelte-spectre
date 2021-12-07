@@ -30,7 +30,6 @@
 	import { badge as addBadge } from '../../components/Badge';
 	import { SIZE } from '../../types/const';
 	import { str_to_rgb } from '../../helpers/str_to_rgb';
-	import { getPredefinedInitials } from '../../helpers/getPredefinedInitials';
 
 	import type { Size } from '../../types/size';
 	import type { Weight } from '../../types/text';
@@ -39,7 +38,6 @@
 </script>
 
 <script lang="ts">
-	export let id: string = '';
 	export let name: string = '';
 	export let add: string = '';
 	export let bg: string = '#f6f6f6';
@@ -57,7 +55,7 @@
 	$: words = name.length && name.replace('.', '/').match(/\b(\w)|([A-Z])|(\/)/g);
 	$: clip = len || words.length;
 	$: fontSize = SIZE[size] * (1 / clip);
-	$: initials = getPredefinedInitials(id, words.slice(0, clip).join('').toUpperCase());
+	$: initials = (words && words.slice(0, clip).join('').toUpperCase()) || '';
 </script>
 
 <style lang="scss">

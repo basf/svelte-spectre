@@ -29,11 +29,9 @@
 import { badge as addBadge } from '../../components/Badge';
 import { SIZE } from '../../types/const';
 import { str_to_rgb } from '../../helpers/str_to_rgb';
-import { getPredefinedInitials } from '../../helpers/getPredefinedInitials';
 </script>
 
-<script >export let id = '';
-export let name = '';
+<script >export let name = '';
 export let add = '';
 export let bg = '#f6f6f6';
 export let len = 0;
@@ -50,7 +48,7 @@ $: color = bg ? new TinyColor(str_to_rgb(name)) : random();
 $: words = name.length && name.replace('.', '/').match(/\b(\w)|([A-Z])|(\/)/g);
 $: clip = len || words.length;
 $: fontSize = SIZE[size] * (1 / clip);
-$: initials = getPredefinedInitials(id, words.slice(0, clip).join('').toUpperCase());
+$: initials = (words && words.slice(0, clip).join('').toUpperCase()) || '';
 </script>
 
 <style >.text-primary {

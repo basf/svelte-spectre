@@ -32,24 +32,53 @@
 		</div>
 	</div>
 
-	{#if value.length > 0 && suggested.length > 0}
+	{#if focused && (!predictable || value.length > 0)}
 		<ul class="menu">
-			{#each suggested as item, i}
+			{#if creatable && !suggested.length}
+				<!-- {#each created as item, i} -->
 				<li class="menu-item">
 					<a
 						href="#"
-						class:active={active === i}
-						on:click|preventDefault={() => confirmSuggestion(item)}
-						on:mouseover|preventDefault={() => (active = i)}
-						>{@html markSuggestion(item, value)}
+						class:active={active === 0}
+						on:click|preventDefault={() => confirmSuggestion(value)}
+						on:mouseover|preventDefault={() => (active = 0)}
+						>{@html markSuggestion(value, value)}
 					</a>
 				</li>
-			{/each}
+				<!-- {/each} -->
+			{:else if suggested.length > 0}
+				{#each groups as group, g}
+					{#if group !== 'default'}
+						<li class="divider" data-content={group} />
+					{/if}
+					{#each group !== 'default' ? suggested.filter( (s) => s.includes(group) ) : suggested as item, i}
+						<li class="menu-item">
+							<a
+								href="#"
+								class:active={active === i}
+								on:click|preventDefault={() => confirmSuggestion(item)}
+								on:mouseover|preventDefault={() => (active = i)}
+								>{@html markSuggestion(item, value)}
+							</a>
+							{#if created.includes(item)}
+								<div class="menu-badge">
+									<IconButton
+										icon="delete"
+										size="sm"
+										on:click={() => deleteCreated(item)}
+									/>
+								</div>
+							{/if}
+						</li>
+					{/each}
+				{/each}
+			{/if}
 		</ul>
 	{/if}
 </div>
 
 <script  context="module">import Chip from '../Chip/Chip.svelte';
+import IconButton from '../Button/IconButton.svelte';
 </script>
 
 <script >export let value = '';
@@ -57,10 +86,26 @@ export let placeholder = 'typing here';
 export let predefined = [];
 export let suggested = [];
 export let selected = [];
+export let created = [];
+export let creatable = false;
+export let predictable = false;
+export let groups = ['default'];
 let focused = false, active = 0, prompt = '';
-$: if (focused && value.length > 0) {
+$: if (focused) {
     suggested = calcSuggestion(predefined, selected, value);
     prompt = calcPrompt(suggested, value, active);
+    // created = creatable && calcCreated(predefined, selected, value);
+    console.log(predefined, suggested, created);
+}
+function calcCreated(predefined, selected, value) {
+    if (!predefined.some((p) => stringIndex(p, value) >= 0))
+        created.push(value);
+    return created === null || created === void 0 ? void 0 : created.filter((p) => stringIndex(p, value) >= 0 && !selected.some((s) => s === p)).sort((f, s) => (stringIndex(f, value) === 0 ? -1 : 1));
+}
+function deleteCreated(item) {
+    predefined = predefined.filter((p) => p !== item);
+    suggested = suggested.filter((s) => s !== item);
+    created = created.filter((c) => c !== item);
 }
 function calcSuggestion(predefined, selected, value) {
     return predefined
@@ -91,7 +136,7 @@ function selectSuggestion(e) {
         case 'Tab':
         case 'Enter':
             e.preventDefault();
-            suggested.length && confirmSuggestion(suggested[active]);
+            (suggested.length || value) && confirmSuggestion(suggested[active] || value);
             break;
         case 'ArrowDown':
             e.preventDefault();
@@ -100,10 +145,6 @@ function selectSuggestion(e) {
         case 'ArrowUp':
             e.preventDefault();
             active > 0 ? active-- : (active = suggested.length - 1);
-            break;
-        case 'ArrowRight':
-            e.preventDefault();
-            suggested.length && confirmSuggestion(suggested[active]);
             break;
         case 'Escape':
             e.preventDefault();
@@ -117,6 +158,11 @@ function selectSuggestion(e) {
 }
 function confirmSuggestion(item) {
     selected = [...selected, item];
+    created =
+        !created.includes(item) && !suggested.includes(item) ? [...created, item] : created;
+    predefined = created.some((c) => !predefined.includes(c))
+        ? [...predefined, item]
+        : predefined;
     suggested = [];
     value = '';
     active = 0;
