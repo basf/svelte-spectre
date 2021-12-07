@@ -1,6 +1,6 @@
 <div
 	{...$$restProps}
-	class="columns {align && `col-align-${align}`}"
+	class="columns {align && `col-align-${align}`} {justify && `col-justify-${justify}`}"
 	class:col-gapless={gapless}
 	class:col-oneline={oneline}
 	class:col-stack={stack}
@@ -15,6 +15,7 @@
 export let oneline = false;
 export let stack = false;
 export let align = '';
+export let justify = '';
 </script>
 
 <style >:global(.spectre) .container {
@@ -474,4 +475,16 @@ export let align = '';
 
 .col-align-stretch > :global(* > *) {
   height: 100%;
+}
+
+.col-justify-start {
+  justify-content: flex-start;
+}
+
+.col-justify-center {
+  justify-content: center;
+}
+
+.col-justify-end {
+  align-content: flex-end;
 }</style>
