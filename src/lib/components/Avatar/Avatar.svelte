@@ -1,7 +1,7 @@
 <figure
 	{...$$restProps}
 	class="avatar avatar-{size} text-{weight}"
-	data-initial={initials}
+	data-initial={`${initials} ${add}`}
 	style="
         background-color: {color.toHexString()};
         font-size: {fontSize}px;
@@ -38,6 +38,7 @@
 
 <script lang="ts">
 	export let name: string = '';
+	export let add: string = '';
 	export let bg: string = '#f6f6f6';
 	export let len: number = 0;
 	export let caption: boolean = false;

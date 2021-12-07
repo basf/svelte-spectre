@@ -1,7 +1,7 @@
 <figure
 	{...$$restProps}
 	class="avatar avatar-{size} text-{weight}"
-	data-initial={initials}
+	data-initial={`${initials} ${add}`}
 	style="
         background-color: {color.toHexString()};
         font-size: {fontSize}px;
@@ -31,6 +31,7 @@ import { SIZE } from '../../types/const';
 </script>
 
 <script >export let name = '';
+export let add = '';
 export let bg = '#f6f6f6';
 export let len = 0;
 export let caption = false;
