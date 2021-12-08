@@ -7,10 +7,10 @@ declare const __propDef: {
     props: {
         [x: string]: any;
         name?: string;
-        add?: string;
         bg?: string;
         len?: number;
         caption?: boolean;
+        custom?: boolean;
         size?: Size;
         weight?: Weight;
         status?: Status;

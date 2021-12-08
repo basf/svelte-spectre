@@ -1,9 +1,9 @@
 <figure
 	{...$$restProps}
 	class="avatar avatar-{size} text-{weight}"
-	data-initial={`${initials} ${add}`}
+	data-initial={`${initials}`}
 	style="
-        background-color: {color.toHexString()};
+        background-color: {custom ? bg : color.toHexString()};
         font-size: {fontSize}px;
         color: {color.isLight() ? '#000' : '#fff'}
     "
@@ -39,26 +39,25 @@
 
 <script lang="ts">
 	export let name: string = '';
-	export let add: string = '';
 	export let bg: string = '#f6f6f6';
 	export let len: number = 0;
 	export let caption: boolean = false;
+	export let custom: boolean = false;
 	export let size: Size = 'md';
 	export let weight: Weight = 'normal';
 	export let status: Status = null;
 	export let badge: string = '';
+
 	let words: RegExpMatchArray;
 	let clip: number;
 	let fontSize: number;
 	let initials: string;
-	$: color = bg ? new TinyColor(str_to_rgb(name)) : random();
+
+	$: color = new TinyColor(str_to_rgb(name));
 	$: words = name.length && name.replace('.', '/').match(/\b(\w)|([A-Z])|(\/)/g);
 	$: clip = len || words.length;
 	$: fontSize = SIZE[size] * (1 / clip);
-	$: initials =
-		(words && words.length > 1
-			? words.slice(0, clip).join('').toUpperCase()
-			: [...name].slice(0, clip).join('').toUpperCase()) || '';
+	$: initials = custom ? name : words.slice(0, clip).join('').toUpperCase();
 </script>
 
 <style lang="scss">

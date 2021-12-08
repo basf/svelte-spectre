@@ -9,9 +9,11 @@ api: [
 	{title: '<slot name="sub">: HTMLelement', description: 'Avatar subimage', variables: '<img> | <svg>'},
 	{title: 'caption: boolean = false', description: 'Avatar caption', variables: 'true | false'},
 	{title: 'badge: string = ""', description: 'Avatar badge value', variables: 'any string'},
+	{title: 'custom: boolean = false', description: 'Avatar custom name & bg', variables: 'true | false'},
 ]
 config:
     {
+        custom: { type: 'checkbox' },
         name: { size: 12 },
         size: { options: ['xs', 'sm', 'md', 'lg', 'xl'] },
         status: { options: [null, 'online', 'away', 'busy', 'offline'] },
@@ -53,6 +55,7 @@ config:
     let state = {
         size: 'xl',
         status: null,
+        custom: false,
         name: 'Albert Einstein',
         image: 'avatar-1.png',
         sub: 'avatar-2.png',
@@ -69,6 +72,7 @@ Avatars are user profile pictures or similar elements presenting their status
 
 <p>
     <Avatar
+        custom={state.custom}
         name={state.name}
         status={state.status}
         size={state.size}
