@@ -57,7 +57,7 @@
 	$: words = name.length && name.replace('.', '/').match(/\b(\w)|([A-Z])|(\/)/g);
 	$: clip = len || words.length;
 	$: fontSize = SIZE[size] * (1 / clip);
-	$: initials = custom ? name : words.slice(0, clip).join('').toUpperCase();
+	$: initials = custom ? name : words.length && words.slice(0, clip).join('').toUpperCase();
 </script>
 
 <style lang="scss">
