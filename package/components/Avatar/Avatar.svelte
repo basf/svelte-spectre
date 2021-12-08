@@ -1,9 +1,9 @@
 <figure
 	{...$$restProps}
 	class="avatar avatar-{size} text-{weight}"
-	data-initial={`${initials} ${add}`}
+	data-initial={`${initials}`}
 	style="
-        background-color: {color.toHexString()};
+        background-color: {custom ? bg : color.toHexString()};
         font-size: {fontSize}px;
         color: {color.isLight() ? '#000' : '#fff'}
     "
@@ -25,17 +25,17 @@
 	{/if}
 </figure>
 
-<script  context="module">import { TinyColor, random } from '@ctrl/tinycolor';
+<script  context="module">import { TinyColor } from '@ctrl/tinycolor';
 import { badge as addBadge } from '../../components/Badge';
 import { SIZE } from '../../types/const';
 import { str_to_rgb } from '../../helpers/str_to_rgb';
 </script>
 
 <script >export let name = '';
-export let add = '';
 export let bg = '#f6f6f6';
 export let len = 0;
 export let caption = false;
+export let custom = false;
 export let size = 'md';
 export let weight = 'normal';
 export let status = null;
@@ -44,14 +44,11 @@ let words;
 let clip;
 let fontSize;
 let initials;
-$: color = bg ? new TinyColor(str_to_rgb(name)) : random();
+$: color = new TinyColor(str_to_rgb(name));
 $: words = name.length && name.replace('.', '/').match(/\b(\w)|([A-Z])|(\/)/g);
 $: clip = len || words.length;
 $: fontSize = SIZE[size] * (1 / clip);
-$: initials =
-    (words && words.length > 1
-        ? words.slice(0, clip).join('').toUpperCase()
-        : [...name].slice(0, clip).join('').toUpperCase()) || '';
+$: initials = custom ? name : words.slice(0, clip).join('').toUpperCase();
 </script>
 
 <style >.text-primary {
