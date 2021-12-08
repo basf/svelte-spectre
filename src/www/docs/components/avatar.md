@@ -63,7 +63,7 @@ config:
         badge: '0',
         caption: false,
         badged: true,
-        bg: '#f6f6f6'
+        bg: ''
         }
 </script>
 
