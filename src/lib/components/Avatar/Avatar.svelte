@@ -39,7 +39,7 @@
 
 <script lang="ts">
 	export let name: string = '';
-	export let bg: string = '#f6f6f6';
+	export let bg: string = '';
 	export let len: number = 0;
 	export let caption: boolean = false;
 	export let custom: boolean = false;
@@ -53,11 +53,11 @@
 	let fontSize: number;
 	let initials: string;
 
-	$: color = new TinyColor(custom ? bg : str_to_rgb(name));
+	$: color = new TinyColor(bg ? bg : str_to_rgb(name));
 	$: words = name.length && name.replace('.', '/').match(/\b(\w)|([A-Z])|(\/)/g);
 	$: clip = len || words.length;
 	$: fontSize = SIZE[size] * (1 / clip);
-	$: initials = custom ? name : words.slice(0, clip).join('').toUpperCase();
+	$: initials = custom ? name : words.length && words.slice(0, clip).join('').toUpperCase();
 </script>
 
 <style lang="scss">

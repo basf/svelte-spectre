@@ -32,7 +32,7 @@ import { str_to_rgb } from '../../helpers/str_to_rgb';
 </script>
 
 <script >export let name = '';
-export let bg = '#f6f6f6';
+export let bg = '';
 export let len = 0;
 export let caption = false;
 export let custom = false;
@@ -44,11 +44,11 @@ let words;
 let clip;
 let fontSize;
 let initials;
-$: color = new TinyColor(custom ? bg : str_to_rgb(name));
+$: color = new TinyColor(bg ? bg : str_to_rgb(name));
 $: words = name.length && name.replace('.', '/').match(/\b(\w)|([A-Z])|(\/)/g);
 $: clip = len || words.length;
 $: fontSize = SIZE[size] * (1 / clip);
-$: initials = custom ? name : words.slice(0, clip).join('').toUpperCase();
+$: initials = custom ? name : words.length && words.slice(0, clip).join('').toUpperCase();
 </script>
 
 <style >.text-primary {
