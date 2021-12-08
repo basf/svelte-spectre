@@ -44,6 +44,7 @@ config:
         caption: { type: 'checkbox' },
         badged: { type: 'checkbox' },
         badge: { size: 5 },
+        bg: { size: 10 },
     }
 ---
 
@@ -61,7 +62,8 @@ config:
         sub: 'avatar-2.png',
         badge: '0',
         caption: false,
-        badged: true
+        badged: true,
+        bg: '#f6f6f6'
         }
 </script>
 
@@ -77,7 +79,8 @@ Avatars are user profile pictures or similar elements presenting their status
         status={state.status}
         size={state.size}
         badge={state.badged ? state.badge.length ? state.badge : true : false}
-        caption={state.caption}>
+        caption={state.caption}
+        bind:bg={state.bg}>
         {#if state.image}
             <img src="{base}/img/{state.image}" alt="Thor Odinson" />
         {/if}
