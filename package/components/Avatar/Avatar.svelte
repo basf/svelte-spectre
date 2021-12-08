@@ -3,7 +3,7 @@
 	class="avatar avatar-{size} text-{weight}"
 	data-initial={`${initials}`}
 	style="
-        background-color: {custom ? bg : color.toHexString()};
+        background-color: {color.toHexString()};
         font-size: {fontSize}px;
         color: {color.isLight() ? '#000' : '#fff'}
     "
@@ -44,7 +44,7 @@ let words;
 let clip;
 let fontSize;
 let initials;
-$: color = new TinyColor(str_to_rgb(name));
+$: color = new TinyColor(custom ? bg : str_to_rgb(name));
 $: words = name.length && name.replace('.', '/').match(/\b(\w)|([A-Z])|(\/)/g);
 $: clip = len || words.length;
 $: fontSize = SIZE[size] * (1 / clip);
