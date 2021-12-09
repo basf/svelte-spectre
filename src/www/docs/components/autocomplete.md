@@ -10,7 +10,7 @@ config:
     {
         placeholder: { size: 12 },
         predictable: { type: 'checkbox' },
-        groups: { size: 12 }
+        groups: { size: 'auto' }
     }
 ---
 
@@ -29,7 +29,7 @@ config:
                 'bottom_center',
                 'bottom_right',
             ],
-        state = {placeholder: 'type here', predictable: false, groups: ['top', 'center', 'bottom']},
+        state = {placeholder: 'type here', predictable: false, groups: 'top_,center_,bottom_'},
         selected = []
 </script>
 
@@ -45,7 +45,7 @@ used for tags and contacts input.
         bind:placeholder={state.placeholder}
         creatable
         predictable={state.predictable}
-        groups={state.groups} />
+        groups={state.groups.split(',')} />
     <small>Selected: {selected}</small>
 </p>
 

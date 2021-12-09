@@ -36,6 +36,7 @@
 		<ul class="menu">
 			{#if creatable && !suggested.length}
 				<!-- {#each created as item, i} -->
+				<li class="divider" data-content="Add:" />
 				<li class="menu-item">
 					<a
 						href="#"

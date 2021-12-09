@@ -45,7 +45,7 @@ config:
         active: { type: 'checkbox' },
         closable: { type: 'checkbox' },
         avatar: { type: 'checkbox' },
-        name: { size: 10 },
+        name: { size: 12 },
         status: { options: [null, 'online', 'busy', 'away', 'offline'] },
         image:
             {
