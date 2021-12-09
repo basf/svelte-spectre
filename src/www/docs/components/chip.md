@@ -76,8 +76,6 @@ config:
         status: 'online',
         image: null,
         }
-
-        $: console.log(state.name, $$slots.avatar)
 </script>
 
 # {title}
