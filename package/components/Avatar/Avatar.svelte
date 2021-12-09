@@ -3,8 +3,8 @@
 	class="avatar avatar-{size} text-{weight}"
 	data-initial={`${initials}`}
 	style="
+		--fontSize: {fontSize}px;
         background-color: {color.toHexString()};
-        font-size: {fontSize}px;
         color: {color.isLight() ? '#000' : '#fff'}
     "
 	use:addBadge={badge}
@@ -742,6 +742,9 @@ a.text-error:visited {
 }
 :global(.spectre) .avatar :global(.avatar-icon):empty {
   display: none;
+}
+:global(.spectre) .avatar::before {
+  font-size: var(--fontSize);
 }
 :global(.spectre) figcaption {
   position: absolute;

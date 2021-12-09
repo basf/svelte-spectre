@@ -3,7 +3,7 @@
 		<li class="step-item" class:active={active === i + 1}>
 			<a
 				{href}
-				class="tooltip"
+				class:tooltip
 				data-tooltip={tooltip}
 				on:click|preventDefault={() => (active = i + 1)}>{label}</a
 			>

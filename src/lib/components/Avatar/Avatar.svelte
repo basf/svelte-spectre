@@ -3,8 +3,8 @@
 	class="avatar avatar-{size} text-{weight}"
 	data-initial={`${initials}`}
 	style="
+		--fontSize: {fontSize}px;
         background-color: {color.toHexString()};
-        font-size: {fontSize}px;
         color: {color.isLight() ? '#000' : '#fff'}
     "
 	use:addBadge={badge}
@@ -88,6 +88,9 @@
 				&:empty {
 					display: none;
 				}
+			}
+			&::before {
+				font-size: var(--fontSize);
 			}
 		}
 		figcaption {

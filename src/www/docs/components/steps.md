@@ -46,7 +46,9 @@ config:
 
     let state = { active: 3, length: 5 }
 
-    $: steps = Array.from({length: state.length}, (x, i) => x = {label: `Step ${i + 1}`, href: '#', tooltip: 'tooltip'})
+    $: steps = Array.from({length: state.length}, (x, i) => x = {
+        label: `Step ${i + 1}`, href: '#', tooltip: 'tooltip'
+        })
 </script>
 
 # {title}

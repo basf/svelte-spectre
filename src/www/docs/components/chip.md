@@ -45,7 +45,7 @@ config:
         active: { type: 'checkbox' },
         closable: { type: 'checkbox' },
         avatar: { type: 'checkbox' },
-        name: { size: 10 },
+        name: { size: 12 },
         status: { options: [null, 'online', 'busy', 'away', 'offline'] },
         image:
             {
@@ -76,8 +76,6 @@ config:
         status: 'online',
         image: null,
         }
-
-        $: console.log(state.name, $$slots.avatar)
 </script>
 
 # {title}

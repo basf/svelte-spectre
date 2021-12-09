@@ -12,6 +12,7 @@
 			<input
 				class="form-input"
 				type="text"
+				tabindex="0"
 				{placeholder}
 				bind:value
 				on:focus={() => (focused = true)}
@@ -35,42 +36,43 @@
 	{#if focused && (!predictable || value.length > 0)}
 		<ul class="menu">
 			{#if creatable && !suggested.length}
-				<!-- {#each created as item, i} -->
+				<li class="divider" data-content="Add:" />
 				<li class="menu-item">
 					<a
 						href="#"
-						class:active={active === 0}
+						class:active={value.length > 0}
 						on:click|preventDefault={() => confirmSuggestion(value)}
 						on:mouseover|preventDefault={() => (active = 0)}
 						>{@html markSuggestion(value, value)}
 					</a>
 				</li>
-				<!-- {/each} -->
 			{:else if suggested.length > 0}
-				{#each groups as group, g}
-					{#if group !== 'default'}
-						<li class="divider" data-content={group} />
-					{/if}
-					{#each group !== 'default' ? suggested.filter( (s) => s.includes(group) ) : suggested as item, i}
-						<li class="menu-item">
-							<a
-								href="#"
-								class:active={active === i}
-								on:click|preventDefault={() => confirmSuggestion(item)}
-								on:mouseover|preventDefault={() => (active = i)}
-								>{@html markSuggestion(item, value)}
-							</a>
-							{#if created.includes(item)}
-								<div class="menu-badge">
-									<IconButton
-										icon="delete"
-										size="sm"
-										on:click={() => deleteCreated(item)}
-									/>
-								</div>
-							{/if}
-						</li>
-					{/each}
+				{#each groups.filter((g) => suggested.some((s) => s.includes(g))) as group, g}
+					<li
+						style="order: {groups && ordering(group, g)}"
+						class="divider"
+						data-content={group}
+					/>
+				{/each}
+				{#each suggested as item, i}
+					<li style="order: {i}" class="menu-item">
+						<a
+							href="#"
+							class:active={active === i}
+							on:click|preventDefault={() => confirmSuggestion(item)}
+							on:mouseover|preventDefault={() => (active = i)}
+							>{@html markSuggestion(item, value)}
+						</a>
+						{#if created.includes(item)}
+							<div class="menu-badge">
+								<IconButton
+									icon="delete"
+									size="sm"
+									on:click={() => deleteCreated(item)}
+								/>
+							</div>
+						{/if}
+					</li>
 				{/each}
 			{/if}
 		</ul>
@@ -95,7 +97,9 @@
 
 	let focused: boolean = false,
 		active: number = 0,
-		prompt: string = '';
+		prompt: string = '',
+		orders: number[] = [0],
+		order: number = 0;
 
 	$: if (focused) {
 		suggested = calcSuggestion(predefined, selected, value);
@@ -103,6 +107,17 @@
 		// created = creatable && calcCreated(predefined, selected, value);
 
 		console.log(predefined, suggested, created);
+	} else {
+		orders = [0];
+		order = 0;
+	}
+
+	function ordering(group: string, g: number) {
+		const byGroup = suggested.filter((s: string) => s.includes(group));
+		orders = [...orders, byGroup.length];
+		order += orders[g];
+		// console.log(g, byGroup, byGroup.length, length, orders, order);
+		return order;
 	}
 
 	function calcCreated(predefined: string[], selected: string[], value: string): string[] {
@@ -174,6 +189,8 @@
 	}
 
 	function confirmSuggestion(item: string) {
+		console.log(item);
+		focused = true;
 		selected = [...selected, item];
 		created =
 			!created.includes(item) && !suggested.includes(item) ? [...created, item] : created;
@@ -183,6 +200,7 @@
 		suggested = [];
 		value = '';
 		active = 0;
+		focused = false;
 	}
 
 	function removeSelected(index: number) {
@@ -220,6 +238,8 @@
 				}
 			}
 			.menu {
+				display: flex;
+				flex-flow: column nowrap;
 				.menu-item {
 					& > a:not(.active):hover {
 						background: inherit;

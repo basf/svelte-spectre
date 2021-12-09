@@ -52,8 +52,6 @@ config:
         ],
         active = false,
         state = {open: () => active = !active, align: 'left'}
-
-        $: console.log(active)
 </script>
 
 # {title}

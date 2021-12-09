@@ -9,12 +9,12 @@
 		<a href="#" on:click={close} class="modal-overlay" aria-label="Close" />
 	{/if}
 	<div class="modal-container">
+		<IconButton id="close" icon="cross" on:click={close} />
 		<div class="modal-header">
 			<slot name="header" />
-			<IconButton icon="cross" on:click={close} />
 		</div>
 		<div class="modal-body">
-			<slot name="body" />
+			<slot />
 		</div>
 		<div class="modal-footer">
 			<slot name="footer" />
@@ -151,20 +151,38 @@ const close = () => {
   }
 }
 
-.modal-header {
+.modal-container {
+  position: relative;
+}
+.modal-container :global(#close) {
+  position: absolute !important;
+  right: 0.8rem;
+  top: 0.8rem;
+  z-index: 1;
+}
+.modal-container .modal-header {
   display: flex;
   justify-content: space-between;
 }
-
-.modal-header > :global(*),
-.modal-footer > :global(*) {
+.modal-container .modal-header > :global(*),
+.modal-container .modal-footer > :global(*) {
   margin-bottom: 0 !important;
 }
+.modal-container .modal-body {
+  flex: 1;
+}
 
+.modal-lg .modal-overlay, .modal-fs .modal-overlay {
+  background: auto !important;
+}
+
+.modal-fs {
+  padding: 0 !important;
+}
 .modal-fs .modal-container {
   max-width: 100vw !important;
   max-height: 100vh;
-  width: calc(100vw - 0.4rem);
-  height: calc(100vh - 0.4rem);
+  width: 100vw;
+  height: 100vh;
   justify-content: space-between;
 }</style>

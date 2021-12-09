@@ -34,7 +34,7 @@
 		]
 	},
 	"devDependencies": {
-		"@poppanator/sveltekit-svg": "^0.2.1",
+		"@poppanator/sveltekit-svg": "^0.2.2",
 		"@sveltejs/adapter-static": "^1.0.0-next.21",
 		"@sveltejs/kit": "^1.0.0-next.201",
 		"@types/jsdom": "^16.2.13",
@@ -52,7 +52,7 @@
 		"postcss": "^8.4.4",
 		"postcss-load-config": "^3.1.0",
 		"prettier": "^2.5.1",
-		"prettier-plugin-svelte": "^2.5.0",
+		"prettier-plugin-svelte": "^2.5.1",
 		"sass": "^1.44.0",
 		"spectre.css": "^0.5.9",
 		"svelte": "^3.44.2",
@@ -61,7 +61,7 @@
 		"svelte-media": "^0.1.5",
 		"svelte-morphing-modal": "^2.2.0",
 		"svelte-preprocess": "^4.9.8",
-		"svelte2tsx": "^0.4.10",
+		"svelte2tsx": "^0.4.11",
 		"tslib": "^2.3.1",
 		"tsm": "^2.2.1",
 		"typescript": "^4.5.2",
