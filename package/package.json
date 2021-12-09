@@ -123,6 +123,8 @@
 		".": "./index.js",
 		"./layouts/Card/Card.svelte": "./layouts/Card/Card.svelte",
 		"./layouts/Card": "./layouts/Card/index.js",
+		"./layouts/Code/Code.svelte": "./layouts/Code/Code.svelte",
+		"./layouts/Code": "./layouts/Code/index.js",
 		"./layouts/Container/Container.svelte": "./layouts/Container/Container.svelte",
 		"./layouts/Container": "./layouts/Container/index.js",
 		"./layouts/Dropdown/Dropdown.svelte": "./layouts/Dropdown/Dropdown.svelte",
