@@ -57,14 +57,14 @@
 	}
 	.modal-container {
 		position: relative;
+		:global(#close) {
+			position: absolute !important;
+			right: $unit-4;
+			top: $unit-4;
+		}
 		.modal-header {
 			display: flex;
 			justify-content: space-between;
-			:global(#close) {
-				position: absolute !important;
-				right: $unit-4;
-				top: $unit-4;
-			}
 		}
 		.modal-header,
 		.modal-footer {

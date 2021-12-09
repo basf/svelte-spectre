@@ -154,14 +154,14 @@ const close = () => {
 .modal-container {
   position: relative;
 }
-.modal-container .modal-header {
-  display: flex;
-  justify-content: space-between;
-}
-.modal-container .modal-header :global(#close) {
+.modal-container :global(#close) {
   position: absolute !important;
   right: 0.8rem;
   top: 0.8rem;
+}
+.modal-container .modal-header {
+  display: flex;
+  justify-content: space-between;
 }
 .modal-container .modal-header > :global(*),
 .modal-container .modal-footer > :global(*) {
