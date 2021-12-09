@@ -158,6 +158,7 @@ const close = () => {
   position: absolute !important;
   right: 0.8rem;
   top: 0.8rem;
+  z-index: 1;
 }
 .modal-container .modal-header {
   display: flex;

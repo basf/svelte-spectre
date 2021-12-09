@@ -61,6 +61,7 @@
 			position: absolute !important;
 			right: $unit-4;
 			top: $unit-4;
+			z-index: 1;
 		}
 		.modal-header {
 			display: flex;
