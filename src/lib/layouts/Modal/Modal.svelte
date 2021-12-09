@@ -11,10 +11,10 @@
 	<div class="modal-container">
 		<div class="modal-header">
 			<slot name="header" />
-			<IconButton icon="cross" on:click={close} />
+			<IconButton id="close" icon="cross" on:click={close} />
 		</div>
 		<div class="modal-body">
-			<slot name="body" />
+			<slot />
 		</div>
 		<div class="modal-footer">
 			<slot name="footer" />
@@ -55,29 +55,45 @@
 		@import 'spectre.css/src/modals';
 		@import 'spectre.css/src/animations';
 	}
-	.modal-header {
-		display: flex;
-		justify-content: space-between;
-	}
-	.modal-header,
-	.modal-footer {
-		& > :global(*) {
-			margin-bottom: 0 !important;
+	.modal-container {
+		position: relative;
+		.modal-header {
+			display: flex;
+			justify-content: space-between;
+			:global(#close) {
+				position: absolute !important;
+				right: $unit-4;
+				top: $unit-4;
+			}
+		}
+		.modal-header,
+		.modal-footer {
+			& > :global(*) {
+				margin-bottom: 0 !important;
+			}
+		}
+		.modal-body {
+			flex: 1;
 		}
 	}
+
 	.modal-sm {
 		@extend .modal, .modal-sm;
 	}
 	.modal-lg {
 		@extend .modal, .modal-lg;
+		.modal-overlay {
+			background: auto !important;
+		}
 	}
 	.modal-fs {
 		@extend .modal, .modal-lg;
+		padding: 0 !important;
 		.modal-container {
 			max-width: 100vw !important;
 			max-height: 100vh;
-			width: calc(100vw - $layout-spacing);
-			height: calc(100vh - $layout-spacing);
+			width: calc(100vw);
+			height: calc(100vh);
 			justify-content: space-between;
 		}
 	}

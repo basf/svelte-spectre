@@ -18,7 +18,7 @@ declare const __propDef: {
     };
     slots: {
         header: {};
-        body: {};
+        default: {};
         footer: {};
     };
 };
