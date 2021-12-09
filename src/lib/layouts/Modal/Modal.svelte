@@ -9,9 +9,9 @@
 		<a href="#" on:click={close} class="modal-overlay" aria-label="Close" />
 	{/if}
 	<div class="modal-container">
+		<IconButton id="close" icon="cross" on:click={close} />
 		<div class="modal-header">
 			<slot name="header" />
-			<IconButton id="close" icon="cross" on:click={close} />
 		</div>
 		<div class="modal-body">
 			<slot />
