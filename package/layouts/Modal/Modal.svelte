@@ -150,6 +150,9 @@ const close = () => {
     transform: translateY(0);
   }
 }
+:global(.spectre) .modal.active, :global(.spectre) .active.modal-fs, :global(.spectre) .active.modal-lg, :global(.spectre) .active.modal-sm {
+  z-index: 500;
+}
 
 .modal-container {
   position: relative;
@@ -180,9 +183,9 @@ const close = () => {
   padding: 0 !important;
 }
 .modal-fs .modal-container {
-  max-width: 100vw !important;
-  max-height: 100vh;
-  width: 100vw;
-  height: 100vh;
+  max-width: 100% !important;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
   justify-content: space-between;
 }</style>

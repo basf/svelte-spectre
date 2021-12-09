@@ -54,6 +54,9 @@
 	:global(.spectre) {
 		@import 'spectre.css/src/modals';
 		@import 'spectre.css/src/animations';
+		.modal.active {
+			z-index: 500;
+		}
 	}
 	.modal-container {
 		position: relative;
@@ -91,10 +94,10 @@
 		@extend .modal, .modal-lg;
 		padding: 0 !important;
 		.modal-container {
-			max-width: 100vw !important;
-			max-height: 100vh;
-			width: calc(100vw);
-			height: calc(100vh);
+			max-width: 100% !important;
+			max-height: 100%;
+			width: 100%;
+			height: 100%;
 			justify-content: space-between;
 		}
 	}
