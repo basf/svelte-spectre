@@ -101,9 +101,6 @@ Accordions are used to toggle sections of content.
     <Knobs bind:state={state} {config}/>
 </p>
 
-If you remove ☝🏻 `group` name `demo` in input above, all Accordions will be in
-global toggle scope.
-
 ```sv
 <script>
     import { Accordion } from 'svelte-spectre'
