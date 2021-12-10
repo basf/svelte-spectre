@@ -169,6 +169,10 @@
 				e.preventDefault();
 				(suggested.length || value) && confirmSuggestion(suggested[active] || value);
 				break;
+			case 'ArrowRight':
+				e.preventDefault();
+				suggested.length && confirmSuggestion(suggested[active]);
+				break;
 			case 'ArrowDown':
 				e.preventDefault();
 				active < suggested.length - 1 ? active++ : (active = 0);
