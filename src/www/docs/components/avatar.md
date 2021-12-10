@@ -44,7 +44,7 @@ config:
         caption: { type: 'checkbox' },
         badged: { type: 'checkbox' },
         badge: { size: 5 },
-        bg: { size: 10 },
+        bg: { size: 'auto', placeholder: 'any color' },
     }
 ---
 
