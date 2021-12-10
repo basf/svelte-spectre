@@ -45,8 +45,8 @@ used for tags and contacts input.
         bind:placeholder={state.placeholder}
         creatable
         predictable={state.predictable}
-        groups={state.groups.split(',')} />
-    <small>Selected: {selected}</small>
+        groups={state.groups ? state.groups.split(',') : []} />
+    <small>Selected: [ {selected.join(", ")} ]</small>
 </p>
 
 <p>
@@ -71,5 +71,5 @@ used for tags and contacts input.
 </script>
 
 <Autocomplete {predefined} bind:selected />
-<small>Selected: {selected.join(", ")}</small>
+<small>Selected: [ {selected.join(", ")} ]</small>
 ```

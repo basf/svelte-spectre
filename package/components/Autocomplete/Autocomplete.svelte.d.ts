@@ -13,6 +13,8 @@ declare const __propDef: {
         groups?: string[];
     };
     events: {
+        click: MouseEvent;
+    } & {
         [evt: string]: CustomEvent<any>;
     };
     slots: {};

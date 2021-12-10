@@ -6,7 +6,7 @@
 
 		<div
 			class="form-input-icon-wrap"
-			class:has-icon-right={value.length > 0 || selected.length}
+			class:has-icon-right={value.length || selected.length}
 			data-active={value.length ? prompt : ''}
 		>
 			<input
@@ -16,10 +16,10 @@
 				{placeholder}
 				bind:value
 				on:focus={() => (focused = true)}
-				on:blur={() => (focused = false)}
 				on:keydown={selectSuggestion}
+				on:click|stopPropagation
 			/>
-			{#if value.length > 0}
+			{#if value.length}
 				<i class="form-icon loading" />
 			{:else if selected.length}
 				<button
@@ -33,29 +33,27 @@
 		</div>
 	</div>
 
-	{#if focused && (!predictable || value.length > 0)}
-		<ul class="menu">
+	{#if focused && (!predictable || value.length)}
+		<ul class="menu" tabindex="1">
 			{#if creatable && !suggested.length}
 				<li class="divider" data-content="Add:" />
 				<li class="menu-item">
 					<a
 						href="#"
-						class:active={value.length > 0}
+						class:active={value.length}
 						on:click|preventDefault={() => confirmSuggestion(value)}
 						on:mouseover|preventDefault={() => (active = 0)}
 						>{@html markSuggestion(value, value)}
 					</a>
 				</li>
-			{:else if suggested.length > 0}
+			{:else if suggested.length}
+				<!-- {#if groups.length} -->
 				{#each groups.filter((g) => suggested.some((s) => s.includes(g))) as group, g}
-					<li
-						style="order: {groups && ordering(group, g)}"
-						class="divider"
-						data-content={group}
-					/>
+					<li style="order: {ordering(group, g)}" class="divider" data-content={group} />
 				{/each}
+				<!-- {/if} -->
 				{#each suggested as item, i}
-					<li style="order: {i}" class="menu-item">
+					<li style="order: {i}" class="menu-item" tabindex="1">
 						<a
 							href="#"
 							class:active={active === i}
@@ -79,6 +77,8 @@
 	{/if}
 </div>
 
+<svelte:body on:click={() => (focused = false)} />
+
 <script lang="ts" context="module">
 	import Chip from '../Chip/Chip.svelte';
 	import IconButton from '../Button/IconButton.svelte';
@@ -93,31 +93,46 @@
 	export let created: string[] = [];
 	export let creatable: boolean = false;
 	export let predictable: boolean = false;
-	export let groups: string[] = ['default'];
+	export let groups: string[] = [];
 
 	let focused: boolean = false,
 		active: number = 0,
 		prompt: string = '',
 		orders: number[] = [0],
-		order: number = 0;
+		order: number = 0,
+		input: HTMLInputElement = null;
+	// orderBy = [0];
+
+	const focus = (node: HTMLInputElement, input: boolean) => (input ? node.focus() : node.blur());
 
 	$: if (focused) {
 		suggested = calcSuggestion(predefined, selected, value);
 		prompt = calcPrompt(suggested, value, active);
+		// groups = !focused && groups.filter((g) => suggested.some((s) => s.includes(g)));
 		// created = creatable && calcCreated(predefined, selected, value);
 
 		console.log(predefined, suggested, created);
 	} else {
-		orders = [0];
-		order = 0;
+		// orders = [0];
+		// order = 0;
 	}
 
 	function ordering(group: string, g: number) {
-		const byGroup = suggested.filter((s: string) => s.includes(group));
-		orders = [...orders, byGroup.length];
-		order += orders[g];
-		// console.log(g, byGroup, byGroup.length, length, orders, order);
-		return order;
+		if (orders.length <= groups.length) {
+			const length = suggested.filter((s: string) => s.includes(group)).length;
+			orders.push(length);
+		}
+		const orderBy = orders.map(
+			(
+				(s) => (a) =>
+					(s += a)
+			)(0)
+		);
+		// orders.push(length);
+		// order += orders[g];
+		// }
+		console.log(orderBy);
+		return orderBy[g];
 	}
 
 	function calcCreated(predefined: string[], selected: string[], value: string): string[] {
@@ -134,9 +149,10 @@
 	}
 
 	function calcSuggestion(predefined: string[], selected: string[], value: string): string[] {
-		return predefined
-			.filter((p) => stringIndex(p, value) >= 0 && !selected.some((s) => s === p))
-			.sort((f, s) => (stringIndex(f, value) === 0 ? -1 : 1));
+		return predefined.filter(
+			(p) => stringIndex(p, value) >= 0 && !selected.some((s) => s === p)
+		);
+		// .sort((f, s) => (stringIndex(f, value) === 0 ? -1 : 1));
 	}
 
 	function calcPrompt(suggested: string[], value: string, active: number): string {
@@ -144,8 +160,9 @@
 	}
 
 	function stringIndex(item: string, value: string): number {
-		const regex = new RegExp(value, 'i');
-		return item?.search(regex);
+		const regexp = new RegExp(value, 'i');
+		console.log(regexp);
+		return item?.search(regexp);
 	}
 
 	function stringMatch(item: string, value: string): string {
@@ -193,18 +210,20 @@
 	}
 
 	function confirmSuggestion(item: string) {
-		console.log(item);
-		focused = true;
 		selected = [...selected, item];
 		created =
 			!created.includes(item) && !suggested.includes(item) ? [...created, item] : created;
 		predefined = created.some((c) => !predefined.includes(c))
 			? [...predefined, item]
 			: predefined;
+		// groups = groups.filter((g) => suggested.some((s) => s.includes(g)));
 		suggested = [];
+		orders = [0];
+		// order = 0;
 		value = '';
 		active = 0;
-		focused = false;
+		// focused = false;
+		// input.blur();
 	}
 
 	function removeSelected(index: number) {
