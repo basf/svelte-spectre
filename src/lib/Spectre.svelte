@@ -102,6 +102,27 @@
 				background: rgba($bg-color, 0.75);
 				color: $error-color;
 			}
+
+			// @for $i from 3 through 9 {
+			// 	$unit: '$unit-';
+			// 	$index: $unit + $i;
+			// 	@include margin-variant($i, $index);
+			// 	@include padding-variant($i, $index);
+			// }
+			@include margin-variant(3, $unit-3);
+			@include margin-variant(4, $unit-4);
+			@include margin-variant(5, $unit-5);
+			@include margin-variant(6, $unit-6);
+			@include margin-variant(7, $unit-7);
+			@include margin-variant(8, $unit-8);
+			@include margin-variant(9, $unit-9);
+			@include padding-variant(3, $unit-3);
+			@include padding-variant(4, $unit-4);
+			@include padding-variant(5, $unit-5);
+			@include padding-variant(6, $unit-6);
+			@include padding-variant(7, $unit-7);
+			@include padding-variant(8, $unit-8);
+			@include padding-variant(9, $unit-9);
 		}
 	}
 </style>

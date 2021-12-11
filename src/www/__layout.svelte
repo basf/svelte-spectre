@@ -81,12 +81,17 @@
 			</IconButton>
 		</nav>
 
-		<main class:px-2={$page.path.includes('docs')}>
+		<main class:px-5={$page.path.includes('docs')}>
 			<slot />
 		</main>
 
 		<svelte:fragment slot="sidebarRight">
 			{#if metadata?.api}
+				{#if !show}
+					<span style="position: absolute; right: 0.5rem">
+						<IconButton icon="cross" on:click={() => (openRight = false)} />
+					</span>
+				{/if}
 				<article class="p-2 mx-2">
 					<h4>API {metadata.title}</h4>
 					<dl>
@@ -194,6 +199,7 @@
 	import { Accordion, Button, IconButton, Menu, Navbar, Sidebar, Spectre, Toaster } from '$lib';
 	import Xray from '$assets/b-science.svg';
 	import GitHub from '$assets/github.svg';
+	import Icon from '$lib/components/Icon';
 
 	let openLeft = false,
 		openRight = false,
@@ -267,14 +273,21 @@
 			}
 			main {
 				flex: 1 0 auto;
+				// &.px-5 {
+				// 	padding: 0 $unit-5;
+				// }
 			}
 			footer {
 				flex-shrink: 0;
 			}
 		}
 		.off-canvas-sidebar-right {
-			background: $light-color !important;
-			border-left: 1px dashed $gray-color;
+			min-width: 15rem !important;
+			background: $secondary-color !important;
+			// border-left: 1px dashed $gray-color;
+			.code {
+				background: $light-color;
+			}
 		}
 	}
 </style>
