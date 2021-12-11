@@ -38,7 +38,7 @@ export default {
 	// https://github.com/sveltejs/svelte-preprocess
 	compilerOptions: null,
 	preprocess: [preprocess(options), mdsvex(mdsvexConfig)],
-	extensions: ['.svelte', '.json', ...mdsvexConfig.extensions],
+	extensions: ['.svelte', ...mdsvexConfig.extensions],
 
 	onwarn: (warning, handler) => {
 		const ignore = [
@@ -56,85 +56,20 @@ export default {
 	},
 
 	kit: {
-		adapter: adapterStatic({
-			pages: 'build',
-			assets: 'build',
-			fallback: null,
-		}),
-		amp: false,
-		appDir: '_app',
+		adapter: adapterStatic(),
 		files: {
-			assets: 'static',
-			hooks: 'src/www/hooks',
-			lib: 'src/lib',
 			routes: 'src/www',
-			serviceWorker: 'src/service-worker',
 			template: 'src/www/app.html',
 		},
-		floc: false,
-		host: '',
-		hostHeader: '',
-		hydrate: true,
-		package: {
-			dir: 'package',
-			// exports: (filepath) => {
-			// 	if (mm.isMatch(filepath, ['**/_*']))
-			// 		return false;
-			// 	return mm.isMatch(filepath, ['!**/lib/*']);
-			// },
-			// files: (filepath) => {
-			// 	if (mm.isMatch(filepath, ['**/_*']))
-			// 		return false;
-			// 	return mm.isMatch(filepath, ['!**/lib/*']);
-			// },
-			emitTypes: true,
-		},
-		paths: {
-			assets: '',
-			base: '',
-		},
-		prerender: {
-			crawl: true,
-			enabled: true,
-			entries: ['*'],
-			onError: 'fail',
-		},
-		router: true,
-		// serviceWorker: {
-		// 	files: (filepath) => true,
-		// },
-		ssr: true,
-		target: '',
 		trailingSlash: 'always',
 		vite: () => ({
 			resolve: {
 				alias: {
-					// '$svelte-spectre': path.resolve('./package/index.js'),
 					$assets: path.resolve('./static'),
-					// $pack: path.resolve('./package.json'),
 				},
-				json: {
-					// stringify: true,
-					// namedExports: true
-				},
-				// extensions: ['.json']
 			},
 			server: {
 				port: 3030,
-				hmr: { overlay: true },
-				fs: {
-					// Allow serving files from one level up to the project root
-					allow: ['..'],
-				},
-			},
-			css: {
-				preprocessorOptions: {
-					scss: {
-						// example : additionalData: `@import "./src/design/styles/variables";`
-						// dont need include file extend .scss
-						// additionalData: `@import "./src/lib/spectre.scss";`
-					},
-				},
 			},
 			plugins: [svg(options)],
 		}),

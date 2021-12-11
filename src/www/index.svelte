@@ -50,13 +50,13 @@
 	<Container>
 		<h2>Introduction</h2>
 		<p>
-			Svelte-Spectre is a lightweight, responsive and modern UI-kit based on spectre.css &
-			powered by SvelteJS for faster and extensible development.
+			{name} is a lightweight, responsive and modern UI-kit based on spectre.css & powered by SvelteJS
+			for faster and extensible development.
 		</p>
 		<p>
-			Svelte-Spectre provides basic styles for typography and elements, flexbox based
-			responsive layout system, pure CSS components and utilities with best practice coding
-			and consistent design language.
+			{name} provides basic styles for typography and elements, flexbox based responsive layout
+			system, pure CSS components and utilities with best practice coding and consistent design
+			language.
 		</p>
 	</Container>
 </Hero>

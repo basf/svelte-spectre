@@ -41,7 +41,7 @@
 		</header>
 
 		<nav id="sidebar" slot="sidebarLeft" class="m-2">
-			<h5><a href={`${base}/`} on:click={() => (openLeft = false)}>Svelte-spectre</a></h5>
+			<h5><a href={`${base}/`} on:click={() => (openLeft = false)}>{name}</a></h5>
 			{#if links}
 				{#each Object.entries(links) as [key, value], i}
 					{#if key === 'root'}
@@ -124,7 +124,7 @@
 </Spectre>
 
 <svelte:head>
-	<title>Svelte-Spectre: {title || ''}</title>
+	<title>{name}: {title || ''}</title>
 </svelte:head>
 
 <svelte:window bind:innerHeight={windowHeight} />
@@ -199,6 +199,7 @@
 		openRight = false,
 		show = false,
 		repo = import.meta.env.VITE_APP_GIT,
+		name = import.meta.env.VITE_APP_NAME,
 		windowHeight = 0;
 
 	$: browser &&
@@ -207,7 +208,7 @@
 
 	export let links: Links,
 		metadata: Meta,
-		title: string = 'Svelte-Spectre';
+		title: string = '';
 
 	const openedAccordion = (path: string, key: string, i: number) =>
 		path.includes(key.replace(' ', '_'));
