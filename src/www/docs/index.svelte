@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Svelte-Spectre: Getting started</title>
+	<title>{name}: Getting started</title>
 </svelte:head>
 
 <h1>Getting started</h1>
@@ -65,4 +65,6 @@
 <script>
 	import { base } from '$app/paths';
 	import { Card, Col, Grid, Button } from '$lib';
+
+	let name = import.meta.env.VITE_APP_NAME;
 </script>

@@ -124,7 +124,7 @@
 </Spectre>
 
 <svelte:head>
-	<title>Svelte-Spectre: {title}</title>
+	<title>Svelte-Spectre: {title || ''}</title>
 </svelte:head>
 
 <svelte:window bind:innerHeight={windowHeight} />
@@ -132,7 +132,6 @@
 <script lang="ts" context="module">
 	const allMd = import.meta.glob('./**/*.md');
 	let body = [];
-
 	for (let path in allMd) {
 		body.push(
 			allMd[path]().then(({ metadata }) => {
@@ -199,12 +198,12 @@
 	let openLeft = false,
 		openRight = false,
 		show = false,
-		repo = 'https://github.com/tilde-lab/svelte-spectre/',
+		repo = import.meta.env.VITE_APP_GIT,
 		windowHeight = 0;
 
 	$: browser &&
 		document?.documentElement.style.setProperty('--window-height', `${windowHeight}px`);
-	$: docLink = `${repo}tree/master/src/routes${$page.path.replace(/\/$/, '')}.md`;
+	$: docLink = `${repo}/tree/master/src/www${$page.path.replace(/\/$/, '')}.md`;
 
 	export let links: Links,
 		metadata: Meta,

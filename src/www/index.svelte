@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Svelte-spectre</title>
+	<title>{name}</title>
 </svelte:head>
 
 <Hero size="md" bg="gray" center>
@@ -64,20 +64,11 @@
 <script context="module" lang="ts">
 	import { base } from '$app/paths';
 	import { Button, Card, Col, Container, Hero, Grid } from '$lib';
-
-	export async function load({ page, fetch }) {
-		const res = await fetch('package.json');
-		const pack = await res.json();
-		// console.log(pack);
-		return {
-			props: pack,
-		};
-	}
 </script>
 
 <script lang="ts">
-	export let name: string = '',
-		version: string = '';
+	let name = import.meta.env.VITE_APP_NAME,
+		version = import.meta.env.VITE_APP_VERSION;
 </script>
 
 <style lang="scss">
