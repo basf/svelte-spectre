@@ -7,11 +7,12 @@ import fs from 'fs';
 import svg from '@poppanator/sveltekit-svg';
 import adapterStatic from '@sveltejs/adapter-static';
 
-export const pkg = JSON.parse(
-	fs.readFileSync(new URL('package.json', import.meta.url), 'utf8')
-);
+export const pkg = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf8'));
 
-process.env.VITE_APP_NAME = pkg.name.trim().toLowerCase().replace(/\w\S*/g, (w) => w.replace(/^\w/, (c) => c.toUpperCase()));;
+process.env.VITE_APP_NAME = pkg.name
+	.trim()
+	.toLowerCase()
+	.replace(/\w\S*/g, (w) => w.replace(/^\w/, (c) => c.toUpperCase()));
 process.env.VITE_APP_VERSION = pkg.version;
 process.env.VITE_APP_GIT = pkg.repository.url.replace(/git\+|\.git/g, '');
 
@@ -115,7 +116,7 @@ export default {
 				json: {
 					// stringify: true,
 					// namedExports: true
-				}
+				},
 				// extensions: ['.json']
 			},
 			server: {
@@ -123,8 +124,8 @@ export default {
 				hmr: { overlay: true },
 				fs: {
 					// Allow serving files from one level up to the project root
-					allow: ['..']
-				}
+					allow: ['..'],
+				},
 			},
 			css: {
 				preprocessorOptions: {
