@@ -127,6 +127,8 @@
 	<title>Svelte-Spectre: {title}</title>
 </svelte:head>
 
+<svelte:window bind:innerHeight={windowHeight} />
+
 <script lang="ts" context="module">
 	const allMd = import.meta.glob('./**/*.md');
 	let body = [];
@@ -139,7 +141,7 @@
 		);
 	}
 
-	export async function load({ page }) {
+	export async function load({ page, fetch }) {
 		const mds = await Promise.all(body);
 		const links = mds.reduce((accumulator: Links, current: Link) => {
 			const key: string = current.path.split('/')[2];
@@ -189,6 +191,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
+	import { browser } from '$app/env';
 	import { Accordion, Button, IconButton, Menu, Navbar, Sidebar, Spectre, Toaster } from '$lib';
 	import Xray from '$assets/b-science.svg';
 	import GitHub from '$assets/github.svg';
@@ -196,8 +199,11 @@
 	let openLeft = false,
 		openRight = false,
 		show = false,
-		repo = 'https://github.com/tilde-lab/svelte-spectre/';
+		repo = 'https://github.com/tilde-lab/svelte-spectre/',
+		windowHeight = 0;
 
+	$: browser &&
+		document?.documentElement.style.setProperty('--window-height', `${windowHeight}px`);
 	$: docLink = `${repo}tree/master/src/routes${$page.path.replace(/\/$/, '')}.md`;
 
 	export let links: Links,
@@ -236,10 +242,18 @@
 			}
 		}
 	}
-
+	html,
+	body,
+	.spectre {
+		min-height: var(--window-height, 100vh);
+		// min-height: calc(100vh - env(safe-area-inset-bottom));
+		// padding: env(safe-area-inset-top, 20px) env(safe-area-inset-right, 20px)
+		// 	env(safe-area-inset-bottom, 20px) env(safe-area-inset-left, 20px);
+	}
 	.off-canvas {
 		height: auto !important;
-		min-height: 100%;
+		min-height: var(--window-height, 100vh);
+		// min-height: calc(100vh - env(safe-area-inset-bottom) - env(safe-area-inset-top));
 		.off-canvas-sidebar {
 			@media screen and (max-width: 450px) {
 				max-width: 80vw !important;
@@ -247,32 +261,32 @@
 		}
 		.off-canvas-content {
 			height: auto !important;
+			display: flex;
+			flex-flow: column nowrap;
+			header {
+				position: sticky;
+				top: 0;
+				z-index: $zindex-2;
+				background: white;
+			}
+			main {
+				flex: 1 0 auto;
+				// overflow-x: hidden;
+				// h1 {
+				// 	text-transform: capitalize;
+				// }
+			}
+			footer {
+				flex-shrink: 0;
+				// top: calc(100vh - env(safe-area-inset-bottom) + env(safe-area-inset-top));
+				// padding: 1em 1em calc(1em + env(safe-area-inset-bottom)) !important;
+				// bottom: 0;
+				// position: sticky;
+			}
 		}
 		.off-canvas-sidebar-right {
 			background: $light-color !important;
 			border-left: 1px dashed $gray-color;
 		}
-	}
-	header {
-		position: sticky;
-		top: 0;
-		z-index: $zindex-2;
-		background: white;
-	}
-	footer {
-		position: sticky;
-		top: 100vh;
-	}
-	html,
-	body,
-	main,
-	.spectre {
-		min-height: 100vh;
-	}
-	main {
-		overflow-x: hidden;
-	}
-	h1 {
-		text-transform: capitalize;
 	}
 </style>

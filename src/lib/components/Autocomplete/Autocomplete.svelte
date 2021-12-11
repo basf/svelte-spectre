@@ -47,11 +47,9 @@
 					</a>
 				</li>
 			{:else if suggested.length}
-				<!-- {#if groups.length} -->
-				{#each groups.filter((g) => suggested.some((s) => s.includes(g))) as group, g}
+				{#each groups as group, g}
 					<li style="order: {ordering(group, g)}" class="divider" data-content={group} />
 				{/each}
-				<!-- {/if} -->
 				{#each suggested as item, i}
 					<li style="order: {i}" class="menu-item" tabindex="1">
 						<a
@@ -98,23 +96,13 @@
 	let focused: boolean = false,
 		active: number = 0,
 		prompt: string = '',
-		orders: number[] = [0],
-		order: number = 0,
-		input: HTMLInputElement = null;
-	// orderBy = [0];
-
-	const focus = (node: HTMLInputElement, input: boolean) => (input ? node.focus() : node.blur());
+		orders: number[] = [0];
 
 	$: if (focused) {
 		suggested = calcSuggestion(predefined, selected, value);
 		prompt = calcPrompt(suggested, value, active);
-		// groups = !focused && groups.filter((g) => suggested.some((s) => s.includes(g)));
-		// created = creatable && calcCreated(predefined, selected, value);
-
-		console.log(predefined, suggested, created);
-	} else {
-		// orders = [0];
-		// order = 0;
+		groups = groups.filter((g) => suggested.some((s) => s.includes(g)));
+		console.log(predefined, suggested, created, groups);
 	}
 
 	function ordering(group: string, g: number) {
@@ -128,18 +116,7 @@
 					(s += a)
 			)(0)
 		);
-		// orders.push(length);
-		// order += orders[g];
-		// }
-		console.log(orderBy);
 		return orderBy[g];
-	}
-
-	function calcCreated(predefined: string[], selected: string[], value: string): string[] {
-		if (!predefined.some((p) => stringIndex(p, value) >= 0)) created.push(value);
-		return created
-			?.filter((p) => stringIndex(p, value) >= 0 && !selected.some((s) => s === p))
-			.sort((f, s) => (stringIndex(f, value) === 0 ? -1 : 1));
 	}
 
 	function deleteCreated(item: string) {
@@ -149,10 +126,10 @@
 	}
 
 	function calcSuggestion(predefined: string[], selected: string[], value: string): string[] {
+		orders = [0];
 		return predefined.filter(
 			(p) => stringIndex(p, value) >= 0 && !selected.some((s) => s === p)
 		);
-		// .sort((f, s) => (stringIndex(f, value) === 0 ? -1 : 1));
 	}
 
 	function calcPrompt(suggested: string[], value: string, active: number): string {
@@ -161,7 +138,6 @@
 
 	function stringIndex(item: string, value: string): number {
 		const regexp = new RegExp(value, 'i');
-		console.log(regexp);
 		return item?.search(regexp);
 	}
 
@@ -202,6 +178,8 @@
 				e.preventDefault();
 				value = '';
 				active = 0;
+				focused = false;
+				e.target.blur();
 				break;
 			default:
 				null;
@@ -216,14 +194,11 @@
 		predefined = created.some((c) => !predefined.includes(c))
 			? [...predefined, item]
 			: predefined;
-		// groups = groups.filter((g) => suggested.some((s) => s.includes(g)));
+		groups = created.length ? [...groups, 'Created'] : groups;
 		suggested = [];
 		orders = [0];
-		// order = 0;
 		value = '';
 		active = 0;
-		// focused = false;
-		// input.blur();
 	}
 
 	function removeSelected(index: number) {

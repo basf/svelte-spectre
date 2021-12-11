@@ -31,6 +31,7 @@ config:
             ],
         state = {placeholder: 'type here', predictable: false, groups: 'top_,center_,bottom_'},
         selected = []
+    $: groups = state.groups ? state.groups.split(',') : []
 </script>
 
 # {title}
@@ -45,7 +46,7 @@ used for tags and contacts input.
         bind:placeholder={state.placeholder}
         creatable
         predictable={state.predictable}
-        groups={state.groups ? state.groups.split(',') : []} />
+        bind:groups />
     <small>Selected: [ {selected.join(", ")} ]</small>
 </p>
 

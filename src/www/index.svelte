@@ -6,7 +6,11 @@
 	<Container>
 		<h1>Svelte-spectre</h1>
 		<p>
-			A Lightweight, Responsive and Modern UI-kit based on <a href="https://picturepan2.github.io/spectre">spectre.css</a> and powered by <a href="https://svelte.dev">SvelteJS</a> and <a href="https://kit.svelte.dev" target="_blank" alt="SvelteKit">SvelteKit</a>
+			A Lightweight, Responsive and Modern UI-kit based on <a
+				href="https://picturepan2.github.io/spectre">spectre.css</a
+			>
+			and powered by <a href="https://svelte.dev">SvelteJS</a> and
+			<a href="https://kit.svelte.dev" target="_blank" alt="SvelteKit">SvelteKit</a>
 		</p>
 		<p>
 			<Button href="{base}/docs" variant="primary" size="lg" sveltekit:prefetch>Docs</Button
@@ -18,9 +22,7 @@
 				size="lg">GitHub</Button
 			>
 		</p>
-		<p class="text-gray">
-			Latest version: 0.1.0
-		</p>
+		<p class="text-gray">Latest version: {version}</p>
 		<Grid stack>
 			<Col col="4" mr="auto" sm="12">
 				<Card clear>
@@ -61,44 +63,24 @@
 
 <script context="module" lang="ts">
 	import { base } from '$app/paths';
-	import {
-		Accordion,
-		Avatar,
-		Autocomplete,
-		Badge,
-		Button,
-		ButtonGroup,
-		Card,
-		Col,
-		Container,
-		Checkbox,
-		Chip,
-		Divider,
-		Empty,
-		Form,
-		FormGroup,
-		Hero,
-		Grid,
-		Icon,
-		IconButton,
-		Input,
-		InputGroup,
-		Figure,
-		Menu,
-		Modal,
-		Pagination,
-		Radio,
-		Range,
-		Select,
-		Switch,
-		Tile,
-		Toast,
-		toast,
-	} from '$lib';
+	import { Button, Card, Col, Container, Hero, Grid } from '$lib';
+
+	export async function load({ page, fetch }) {
+		const res = await fetch('package.json');
+		const pack = await res.json();
+		console.log(pack);
+		return {
+			props: pack,
+		};
+	}
 </script>
 
 <script lang="ts">
-	export let name: string = 'Svelte-spectre';
+	// import pack from '../../package.json';
+	export let name: string = 'Svelte-spectre',
+		version: string = '';
+
+	// $: console.log(version, name, JSON.parse(pack));
 </script>
 
 <style lang="scss">

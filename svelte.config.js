@@ -28,7 +28,7 @@ export default {
 	// https://github.com/sveltejs/svelte-preprocess
 	compilerOptions: null,
 	preprocess: [preprocess(options), mdsvex(mdsvexConfig)],
-	extensions: ['.svelte', ...mdsvexConfig.extensions],
+	extensions: ['.svelte', '.json', ...mdsvexConfig.extensions],
 
 	onwarn: (warning, handler) => {
 		const ignore = [
@@ -101,11 +101,21 @@ export default {
 				alias: {
 					// '$svelte-spectre': path.resolve('./package/index.js'),
 					$assets: path.resolve('./static'),
+					// $pack: path.resolve('./package.json'),
 				},
+				json: {
+					// stringify: true,
+					// namedExports: true
+				}
+				// extensions: ['.json']
 			},
 			server: {
 				port: 3030,
 				hmr: { overlay: true },
+				fs: {
+					// Allow serving files from one level up to the project root
+					allow: ['..']
+				}
 			},
 			css: {
 				preprocessorOptions: {
