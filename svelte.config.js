@@ -20,7 +20,6 @@ const options = {
 	sourceMap: dev,
 	scss: {
 		prependData: `
-			// $primary-color: #336eaa;
 			@import './node_modules/spectre.css/src/variables';
 			@import './node_modules/spectre.css/src/mixins';
 		`,
@@ -56,6 +55,7 @@ export default {
 	kit: {
 		adapter: adapterStatic(),
 		files: {
+			assets: 'src/www/assets',
 			routes: 'src/www',
 			template: 'src/www/app.html',
 		},
@@ -63,7 +63,7 @@ export default {
 		vite: () => ({
 			resolve: {
 				alias: {
-					$assets: path.resolve('./static'),
+					$assets: path.resolve('./src/www/assets'),
 				},
 			},
 			server: {
