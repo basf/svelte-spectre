@@ -2,7 +2,10 @@
 	"compilerOptions": {
 		"moduleResolution": "node",
 		"module": "es2020",
-		"lib": ["es2020", "DOM"],
+		"lib": [
+			"es2020",
+			"DOM"
+		],
 		"target": "es2019",
 		"importsNotUsedAsValues": "error",
 		"isolatedModules": true,
@@ -15,11 +18,24 @@
 		"allowJs": true,
 		"checkJs": true,
 		"paths": {
-			"$lib": ["src/lib"],
-			"$lib/*": ["src/lib/*"],
-			"$svelte-spectre": ["package/index.js"]
+			"$lib": [
+				"src/lib"
+			],
+			"$lib/*": [
+				"src/lib/*"
+			],
+			"$svelte-spectre": [
+				"package/index.js"
+			]
 		}
 	},
-	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"],
-	"exclude": ["src/**/*.spec.ts"]
+	"include": [
+		"src/**/*.d.ts",
+		"src/**/*.js",
+		"src/**/*.ts",
+		"src/**/*.svelte"
+	],
+	"exclude": [
+		"src/**/*.spec.ts"
+	]
 }

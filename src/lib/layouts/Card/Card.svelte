@@ -4,7 +4,7 @@
 	class:card-clear={clear}
 	class:card-outlined={outlined}
 	class:card-flat={flat}
-	calss:card-expand={expand}
+	class:card-expand={expand}
 	class:card-shadowed={shadowed}
 >
 	{#if $$slots.img && pos === 'top'}
