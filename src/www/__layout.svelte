@@ -246,15 +246,17 @@
 	.spectre {
 		display: flex;
 		width: 100%;
-		min-height: 100%;
+		min-height: calc(100% + env(safe-area-inset-top) + env(safe-area-inset-bottom));
 	}
 	.off-canvas {
+		min-height: calc(100% + env(safe-area-inset-top) + env(safe-area-inset-bottom));
 		.off-canvas-sidebar {
 			@media screen and (max-width: 450px) {
 				max-width: 80vw !important;
 			}
 		}
 		.off-canvas-content {
+			min-height: calc(100% + env(safe-area-inset-top) + env(safe-area-inset-bottom));
 			display: flex;
 			flex-flow: column nowrap;
 			header {
