@@ -245,14 +245,17 @@
 	html,
 	body,
 	.spectre {
-		min-height: var(--window-height, 100vh);
+		height: 100%;
+		min-height: 100%;
+		// min-height: var(--window-height, 100vh);
 		// min-height: calc(100vh - env(safe-area-inset-bottom));
 		// padding: env(safe-area-inset-top, 20px) env(safe-area-inset-right, 20px)
 		// 	env(safe-area-inset-bottom, 20px) env(safe-area-inset-left, 20px);
 	}
 	.off-canvas {
-		height: auto !important;
-		min-height: var(--window-height, 100vh);
+		// height: auto !important;
+		// min-height: 100%;
+		// min-height: var(--window-height, 100vh);
 		// min-height: calc(100vh - env(safe-area-inset-bottom) - env(safe-area-inset-top));
 		.off-canvas-sidebar {
 			@media screen and (max-width: 450px) {
@@ -260,7 +263,8 @@
 			}
 		}
 		.off-canvas-content {
-			height: auto !important;
+			// height: auto !important;
+			// min-height: 100%;
 			display: flex;
 			flex-flow: column nowrap;
 			header {

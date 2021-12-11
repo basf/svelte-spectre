@@ -4,7 +4,7 @@
 
 <Hero size="md" bg="gray" center>
 	<Container>
-		<h1>Svelte-spectre</h1>
+		<h1>{name}</h1>
 		<p>
 			A Lightweight, Responsive and Modern UI-kit based on <a
 				href="https://picturepan2.github.io/spectre">spectre.css</a
@@ -68,7 +68,7 @@
 	export async function load({ page, fetch }) {
 		const res = await fetch('package.json');
 		const pack = await res.json();
-		console.log(pack);
+		// console.log(pack);
 		return {
 			props: pack,
 		};
@@ -76,11 +76,8 @@
 </script>
 
 <script lang="ts">
-	// import pack from '../../package.json';
-	export let name: string = 'Svelte-spectre',
+	export let name: string = '',
 		version: string = '';
-
-	// $: console.log(version, name, JSON.parse(pack));
 </script>
 
 <style lang="scss">
@@ -94,5 +91,8 @@
 		:global(.btn-group > button) {
 			flex: 1 0 30%;
 		}
+	}
+	h1 {
+		text-transform: capitalize;
 	}
 </style>
