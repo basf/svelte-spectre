@@ -1,14 +1,12 @@
 import { mdsvex } from 'mdsvex';
 import mdsvexConfig from './mdsvex.config.js';
 import preprocess from 'svelte-preprocess';
-// import mm from 'micromatch';
 import path from 'path';
 import fs from 'fs';
 import svg from '@poppanator/sveltekit-svg';
 import adapterStatic from '@sveltejs/adapter-static';
 
-export const pkg = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf8'));
-
+const pkg = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf8'));
 process.env.VITE_APP_NAME = pkg.name
 	.trim()
 	.toLowerCase()
