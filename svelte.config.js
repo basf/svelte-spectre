@@ -57,7 +57,7 @@ export default {
 		files: {
 			assets: 'src/www/assets',
 			routes: 'src/www',
-			template: 'src/www/app.html',
+			template: 'src/www/index.html',
 		},
 		trailingSlash: 'always',
 		vite: () => ({
