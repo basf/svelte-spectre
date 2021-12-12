@@ -224,7 +224,7 @@
 </script>
 
 <style lang="scss" global>
-	@import 'index';
+	@import 'app';
 	nav#sidebar {
 		@import 'spectre.css/src/menus';
 		h5 {
