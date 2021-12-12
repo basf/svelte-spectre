@@ -1,3 +1,9 @@
+<svelte:head>
+	<title>{name}: {title || ''}</title>
+</svelte:head>
+
+<svelte:window bind:innerHeight={windowHeight} />
+
 <Spectre>
 	<Sidebar
 		extclose
@@ -81,7 +87,7 @@
 			</IconButton>
 		</nav>
 
-		<main class:px-5={$page.path.includes('docs')}>
+		<main class:px-5={$page.path.includes('docs') && show} class:px-3={!show}>
 			<slot />
 		</main>
 
@@ -127,12 +133,6 @@
 
 	<Toaster />
 </Spectre>
-
-<svelte:head>
-	<title>{name}: {title || ''}</title>
-</svelte:head>
-
-<svelte:window bind:innerHeight={windowHeight} />
 
 <script lang="ts" context="module">
 	const allMd = import.meta.glob('./**/*.md');
