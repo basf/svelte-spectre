@@ -34,6 +34,113 @@ export function render(Tag, props = {}) {
 	return { container, component };
 }
 
+// TODO - dinamicly $$slots --------------------------------
+
+// import { detach, insert, noop } from 'svelte/internal';
+
+// function createSlots(slots) {
+// 	const svelteSlots = {};
+
+// 	for (const slotName in slots) {
+// 		svelteSlots[slotName] = [createSlotFn(slots[slotName])];
+// 	}
+
+// 	function createSlotFn(element) {
+// 		return function () {
+// 			return {
+// 				c: noop,
+
+// 				m: function mount(target, anchor) {
+// 					insert(target, element, anchor);
+// 				},
+
+// 				d: function destroy(detaching) {
+// 					if (detaching) {
+// 						detach(element);
+// 					}
+// 				},
+
+// 				l: noop,
+// 			};
+// 		};
+// 	}
+// 	return svelteSlots;
+// }
+
+// new Component({
+// 	target: element,
+// 	props: {
+// 		$$slots: createSlots({ slot_name1: element1, slot_name2: element2, ... }),
+// 		$$scope: {},
+// 	},
+// });
+
+// new Parent({
+// 	target: document.body,
+// 	props: {
+// 		$$scope: {},
+// 		$$slots: create({
+// 			default: [Child],
+// 			// Or
+// 			default: [new Child({ $$inline: true, props: { ...} })]
+// 		})
+// 	}
+// });
+
+// export function createSlots(slots) {
+// 	const svelteSlots = {};
+
+// 	for (const slotName in slots) {
+// 		svelteSlots[slotName] = [createSlotFn(slots[slotName])];
+// 	}
+
+// 	function createSlotFn([ele, props = {}]) {
+// 		if (is_function(ele) && Object.getPrototypeOf(ele) === SvelteComponent) {
+// 			const component: any = new ele({});
+// 			return function () {
+// 				return {
+// 					c() {
+// 						create_component(component.$$.fragment);
+// 						component.$set(props);
+// 					},
+// 					m(target, anchor) {
+// 						mount_component(component, target, anchor, null);
+// 					},
+// 					d(detaching) {
+// 						destroy_component(component, detaching);
+// 					},
+// 					l: noop,
+// 				};
+// 			};
+// 		}
+// 		else {
+// 			return function () {
+// 				return {
+// 					c: noop,
+// 					m: function mount(target, anchor) {
+// 						insert(target, ele, anchor);
+// 					},
+// 					d: function destroy(detaching) {
+// 						if (detaching) {
+// 							detach(ele);
+// 						}
+// 					},
+// 					l: noop,
+// 				};
+// 			};
+// 		}
+// 	}
+// 	return svelteSlots;
+// }
+
+// const { container } = render(Row, {
+// 	props: {
+// 		gutter: 20,
+// 		$$slots: createSlots({ default: [Col, { span: 12 }] }),
+// 		$$scope: {},
+// 	}
+// });
+
 /**
  * @param {HTMLElement} elem
  * @param {String} event

@@ -121,7 +121,6 @@
 		"./components/Transition": "./components/Transition/index.js",
 		"./components": "./components/index.js",
 		"./helpers/actions": "./helpers/actions.js",
-		"./helpers/getPredefinedInitials": "./helpers/getPredefinedInitials.js",
 		"./helpers/str_to_rgb": "./helpers/str_to_rgb.js",
 		"./helpers/uuid": "./helpers/uuid.js",
 		".": "./index.js",

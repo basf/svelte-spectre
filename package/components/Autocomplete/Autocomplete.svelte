@@ -94,12 +94,26 @@ let focused = false, active = 0, prompt = '', orders = [0];
 $: if (focused) {
     suggested = calcSuggestion(predefined, selected, value);
     prompt = calcPrompt(suggested, value, active);
-    groups = groups.filter((g) => suggested.some((s) => s.includes(g)));
-    console.log(predefined, suggested, created, groups);
+    groups = suggested.every((s) => groups.some((g) => s.includes(g)))
+        ? groups.filter((g) => suggested.some((s) => s.includes(g)))
+        : [...groups, 'other'];
+    // : suggested.some((s) => created.includes(s))
+    // ? [...groups, 'created']
+    console.log(
+    // predefined,
+    suggested
+        .concat(groups)
+        .sort((f, s) => (f > s ? 1 : -1))
+        .reverse()
+    // created,
+    // groups
+    );
+    // console.dir(suggested.sort((f, s) => (groups.some((g) => f.includes(g)) ? -1 : 1)));
 }
 function ordering(group, g) {
     if (orders.length <= groups.length) {
         const length = suggested.filter((s) => s.includes(group)).length;
+        // console.log(length);
         orders.push(length);
     }
     const orderBy = orders.map(((s) => (a) => (s += a))(0));
@@ -112,7 +126,14 @@ function deleteCreated(item) {
 }
 function calcSuggestion(predefined, selected, value) {
     orders = [0];
-    return predefined.filter((p) => stringIndex(p, value) >= 0 && !selected.some((s) => s === p));
+    return predefined
+        .filter((p) => stringIndex(p, value) >= 0 && !selected.some((s) => s === p))
+        .sort((f, s) => (groups.some((g) => f.includes(g)) ? -1 : 1 || 0));
+    // .map((s) => {
+    // 	if (groups.some((g) => g.includes(s))) return s;
+    // });
+    // .sort((f, s) => (groups.some((g) => g.includes(f)) ? 1 : -1));
+    // .sort((f, s) => (stringIndex(f, value) === 0 ? -1 : 1));
 }
 function calcPrompt(suggested, value, active) {
     return stringIndex(suggested[active], value) === 0 ? suggested[active] : '';
@@ -171,7 +192,7 @@ function confirmSuggestion(item) {
     predefined = created.some((c) => !predefined.includes(c))
         ? [...predefined, item]
         : predefined;
-    groups = created.length ? [...groups, 'Created'] : groups;
+    // groups = created.length ? [...groups, 'Created'] : groups;
     suggested = [];
     orders = [0];
     value = '';
