@@ -25,6 +25,7 @@
 		@import 'spectre.css/src/popovers';
 	}
 	.popover-container {
+		z-index: 500 !important;
 		:not(.popover-transparent) & {
 			background: $light-color;
 		}

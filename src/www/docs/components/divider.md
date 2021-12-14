@@ -51,7 +51,7 @@ config:
     import { base } from '$app/paths';
     import {Divider, Col, Figure, Grid} from '$lib'
     import Knobs from '../_knobs.svelte'
-    import {media} from '../_media'
+    import {media} from '../../_media'
 
     let state = { align: 'center', color: 'gray', text: 'CENTER' }
 </script>

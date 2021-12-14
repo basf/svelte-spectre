@@ -63,6 +63,9 @@ export let shadowed = false;
   border: 0;
 }
 
+.popover-container {
+  z-index: 500 !important;
+}
 :not(.popover-transparent) .popover-container {
   background: #fff;
 }

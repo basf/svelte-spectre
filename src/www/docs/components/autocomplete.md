@@ -10,6 +10,7 @@ config:
     {
         placeholder: { size: 12 },
         predictable: { type: 'checkbox' },
+        creatable: { type: 'checkbox' },
         groups: { size: 'auto' }
     }
 ---
@@ -19,6 +20,15 @@ config:
     import Knobs from '../_knobs.svelte'
 
     let predefined = [
+                // {label: 'top_left', value: 'top_left', group: 'top'},
+                // {label: 'top_center', value: 'top_center', group: 'top'},
+                // {label: 'top_right', value: 'top_right', group: 'top'},
+                // {label: 'center_left', value: 'center_left', group: 'center'},
+                // {label: 'center_center', value: 'center_center', group: 'center'},
+                // {label: 'center_right', value: 'center_right', group: 'center'},
+                // {label: 'bottom_left', value: 'bottom_left', group: 'bottom'},
+                // {label: 'bottom_center', value: 'bottom_center', group: 'bottom'},
+                // {label: 'bottom_right', value: 'bottom_right', group: 'bottom'},
                 'top_left',
                 'top_center',
                 'top_right',
@@ -29,8 +39,14 @@ config:
                 'bottom_center',
                 'bottom_right',
             ],
-        state = {placeholder: 'type here', predictable: false, groups: 'top_,center_,bottom_'},
+        state = {
+            placeholder: 'type here',
+            predictable: false,
+            creatable: false,
+            groups: 'top_, center_, bottom_'
+            },
         selected = []
+    $: groups = state.groups ? state.groups.split(', ') : []
 </script>
 
 # {title}
@@ -43,10 +59,10 @@ used for tags and contacts input.
         bind:predefined
         bind:selected
         bind:placeholder={state.placeholder}
-        creatable
+        creatable={state.creatable}
         predictable={state.predictable}
-        groups={state.groups.split(',')} />
-    <small>Selected: {selected}</small>
+        bind:groups />
+    <small>Selected: [ {selected.join(", ")} ]</small>
 </p>
 
 <p>
@@ -71,5 +87,5 @@ used for tags and contacts input.
 </script>
 
 <Autocomplete {predefined} bind:selected />
-<small>Selected: {selected.join(", ")}</small>
+<small>Selected: [ {selected.join(", ")} ]</small>
 ```

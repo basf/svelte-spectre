@@ -6,6 +6,10 @@
 		"package/"
 	],
 	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/basf/svelte-spectre.git"
+	},
 	"engines": {
 		"node": ">= 14"
 	},
@@ -42,7 +46,7 @@
 		"postcss-load-config": "^3.1.0",
 		"prettier": "^2.5.1",
 		"prettier-plugin-svelte": "^2.5.1",
-		"sass": "^1.44.0",
+		"sass": "^1.45.0",
 		"spectre.css": "^0.5.9",
 		"svelte": "^3.44.2",
 		"svelte-check": "^2.2.10",
@@ -53,7 +57,7 @@
 		"svelte2tsx": "^0.4.11",
 		"tslib": "^2.3.1",
 		"tsm": "^2.2.1",
-		"typescript": "^4.5.2",
+		"typescript": "^4.5.3",
 		"uvu": "^0.5.2"
 	},
 	"dependencies": {
@@ -117,7 +121,6 @@
 		"./components/Transition": "./components/Transition/index.js",
 		"./components": "./components/index.js",
 		"./helpers/actions": "./helpers/actions.js",
-		"./helpers/getPredefinedInitials": "./helpers/getPredefinedInitials.js",
 		"./helpers/str_to_rgb": "./helpers/str_to_rgb.js",
 		"./helpers/uuid": "./helpers/uuid.js",
 		".": "./index.js",

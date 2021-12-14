@@ -1715,4 +1715,326 @@
   justify-content: center;
   background: rgba(247, 248, 249, 0.75);
   color: #e85600;
+}
+.spectre :global(.m-3) {
+  margin: 0.6rem !important;
+}
+.spectre :global(.mb-3) {
+  margin-bottom: 0.6rem !important;
+}
+.spectre :global(.ml-3) {
+  margin-left: 0.6rem !important;
+}
+.spectre :global(.mr-3) {
+  margin-right: 0.6rem !important;
+}
+.spectre :global(.mt-3) {
+  margin-top: 0.6rem !important;
+}
+.spectre :global(.mx-3) {
+  margin-left: 0.6rem !important;
+  margin-right: 0.6rem !important;
+}
+.spectre :global(.my-3) {
+  margin-bottom: 0.6rem !important;
+  margin-top: 0.6rem !important;
+}
+.spectre :global(.m-4) {
+  margin: 0.8rem !important;
+}
+.spectre :global(.mb-4) {
+  margin-bottom: 0.8rem !important;
+}
+.spectre :global(.ml-4) {
+  margin-left: 0.8rem !important;
+}
+.spectre :global(.mr-4) {
+  margin-right: 0.8rem !important;
+}
+.spectre :global(.mt-4) {
+  margin-top: 0.8rem !important;
+}
+.spectre :global(.mx-4) {
+  margin-left: 0.8rem !important;
+  margin-right: 0.8rem !important;
+}
+.spectre :global(.my-4) {
+  margin-bottom: 0.8rem !important;
+  margin-top: 0.8rem !important;
+}
+.spectre :global(.m-5) {
+  margin: 1rem !important;
+}
+.spectre :global(.mb-5) {
+  margin-bottom: 1rem !important;
+}
+.spectre :global(.ml-5) {
+  margin-left: 1rem !important;
+}
+.spectre :global(.mr-5) {
+  margin-right: 1rem !important;
+}
+.spectre :global(.mt-5) {
+  margin-top: 1rem !important;
+}
+.spectre :global(.mx-5) {
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
+}
+.spectre :global(.my-5) {
+  margin-bottom: 1rem !important;
+  margin-top: 1rem !important;
+}
+.spectre :global(.m-6) {
+  margin: 1.2rem !important;
+}
+.spectre :global(.mb-6) {
+  margin-bottom: 1.2rem !important;
+}
+.spectre :global(.ml-6) {
+  margin-left: 1.2rem !important;
+}
+.spectre :global(.mr-6) {
+  margin-right: 1.2rem !important;
+}
+.spectre :global(.mt-6) {
+  margin-top: 1.2rem !important;
+}
+.spectre :global(.mx-6) {
+  margin-left: 1.2rem !important;
+  margin-right: 1.2rem !important;
+}
+.spectre :global(.my-6) {
+  margin-bottom: 1.2rem !important;
+  margin-top: 1.2rem !important;
+}
+.spectre :global(.m-7) {
+  margin: 1.4rem !important;
+}
+.spectre :global(.mb-7) {
+  margin-bottom: 1.4rem !important;
+}
+.spectre :global(.ml-7) {
+  margin-left: 1.4rem !important;
+}
+.spectre :global(.mr-7) {
+  margin-right: 1.4rem !important;
+}
+.spectre :global(.mt-7) {
+  margin-top: 1.4rem !important;
+}
+.spectre :global(.mx-7) {
+  margin-left: 1.4rem !important;
+  margin-right: 1.4rem !important;
+}
+.spectre :global(.my-7) {
+  margin-bottom: 1.4rem !important;
+  margin-top: 1.4rem !important;
+}
+.spectre :global(.m-8) {
+  margin: 1.6rem !important;
+}
+.spectre :global(.mb-8) {
+  margin-bottom: 1.6rem !important;
+}
+.spectre :global(.ml-8) {
+  margin-left: 1.6rem !important;
+}
+.spectre :global(.mr-8) {
+  margin-right: 1.6rem !important;
+}
+.spectre :global(.mt-8) {
+  margin-top: 1.6rem !important;
+}
+.spectre :global(.mx-8) {
+  margin-left: 1.6rem !important;
+  margin-right: 1.6rem !important;
+}
+.spectre :global(.my-8) {
+  margin-bottom: 1.6rem !important;
+  margin-top: 1.6rem !important;
+}
+.spectre :global(.m-9) {
+  margin: 1.8rem !important;
+}
+.spectre :global(.mb-9) {
+  margin-bottom: 1.8rem !important;
+}
+.spectre :global(.ml-9) {
+  margin-left: 1.8rem !important;
+}
+.spectre :global(.mr-9) {
+  margin-right: 1.8rem !important;
+}
+.spectre :global(.mt-9) {
+  margin-top: 1.8rem !important;
+}
+.spectre :global(.mx-9) {
+  margin-left: 1.8rem !important;
+  margin-right: 1.8rem !important;
+}
+.spectre :global(.my-9) {
+  margin-bottom: 1.8rem !important;
+  margin-top: 1.8rem !important;
+}
+.spectre :global(.p-3) {
+  padding: 0.6rem !important;
+}
+.spectre :global(.pb-3) {
+  padding-bottom: 0.6rem !important;
+}
+.spectre :global(.pl-3) {
+  padding-left: 0.6rem !important;
+}
+.spectre :global(.pr-3) {
+  padding-right: 0.6rem !important;
+}
+.spectre :global(.pt-3) {
+  padding-top: 0.6rem !important;
+}
+.spectre :global(.px-3) {
+  padding-left: 0.6rem !important;
+  padding-right: 0.6rem !important;
+}
+.spectre :global(.py-3) {
+  padding-bottom: 0.6rem !important;
+  padding-top: 0.6rem !important;
+}
+.spectre :global(.p-4) {
+  padding: 0.8rem !important;
+}
+.spectre :global(.pb-4) {
+  padding-bottom: 0.8rem !important;
+}
+.spectre :global(.pl-4) {
+  padding-left: 0.8rem !important;
+}
+.spectre :global(.pr-4) {
+  padding-right: 0.8rem !important;
+}
+.spectre :global(.pt-4) {
+  padding-top: 0.8rem !important;
+}
+.spectre :global(.px-4) {
+  padding-left: 0.8rem !important;
+  padding-right: 0.8rem !important;
+}
+.spectre :global(.py-4) {
+  padding-bottom: 0.8rem !important;
+  padding-top: 0.8rem !important;
+}
+.spectre :global(.p-5) {
+  padding: 1rem !important;
+}
+.spectre :global(.pb-5) {
+  padding-bottom: 1rem !important;
+}
+.spectre :global(.pl-5) {
+  padding-left: 1rem !important;
+}
+.spectre :global(.pr-5) {
+  padding-right: 1rem !important;
+}
+.spectre :global(.pt-5) {
+  padding-top: 1rem !important;
+}
+.spectre :global(.px-5) {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+.spectre :global(.py-5) {
+  padding-bottom: 1rem !important;
+  padding-top: 1rem !important;
+}
+.spectre :global(.p-6) {
+  padding: 1.2rem !important;
+}
+.spectre :global(.pb-6) {
+  padding-bottom: 1.2rem !important;
+}
+.spectre :global(.pl-6) {
+  padding-left: 1.2rem !important;
+}
+.spectre :global(.pr-6) {
+  padding-right: 1.2rem !important;
+}
+.spectre :global(.pt-6) {
+  padding-top: 1.2rem !important;
+}
+.spectre :global(.px-6) {
+  padding-left: 1.2rem !important;
+  padding-right: 1.2rem !important;
+}
+.spectre :global(.py-6) {
+  padding-bottom: 1.2rem !important;
+  padding-top: 1.2rem !important;
+}
+.spectre :global(.p-7) {
+  padding: 1.4rem !important;
+}
+.spectre :global(.pb-7) {
+  padding-bottom: 1.4rem !important;
+}
+.spectre :global(.pl-7) {
+  padding-left: 1.4rem !important;
+}
+.spectre :global(.pr-7) {
+  padding-right: 1.4rem !important;
+}
+.spectre :global(.pt-7) {
+  padding-top: 1.4rem !important;
+}
+.spectre :global(.px-7) {
+  padding-left: 1.4rem !important;
+  padding-right: 1.4rem !important;
+}
+.spectre :global(.py-7) {
+  padding-bottom: 1.4rem !important;
+  padding-top: 1.4rem !important;
+}
+.spectre :global(.p-8) {
+  padding: 1.6rem !important;
+}
+.spectre :global(.pb-8) {
+  padding-bottom: 1.6rem !important;
+}
+.spectre :global(.pl-8) {
+  padding-left: 1.6rem !important;
+}
+.spectre :global(.pr-8) {
+  padding-right: 1.6rem !important;
+}
+.spectre :global(.pt-8) {
+  padding-top: 1.6rem !important;
+}
+.spectre :global(.px-8) {
+  padding-left: 1.6rem !important;
+  padding-right: 1.6rem !important;
+}
+.spectre :global(.py-8) {
+  padding-bottom: 1.6rem !important;
+  padding-top: 1.6rem !important;
+}
+.spectre :global(.p-9) {
+  padding: 1.8rem !important;
+}
+.spectre :global(.pb-9) {
+  padding-bottom: 1.8rem !important;
+}
+.spectre :global(.pl-9) {
+  padding-left: 1.8rem !important;
+}
+.spectre :global(.pr-9) {
+  padding-right: 1.8rem !important;
+}
+.spectre :global(.pt-9) {
+  padding-top: 1.8rem !important;
+}
+.spectre :global(.px-9) {
+  padding-left: 1.8rem !important;
+  padding-right: 1.8rem !important;
+}
+.spectre :global(.py-9) {
+  padding-bottom: 1.8rem !important;
+  padding-top: 1.8rem !important;
 }</style>

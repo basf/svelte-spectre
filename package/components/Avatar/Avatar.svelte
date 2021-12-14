@@ -1,9 +1,9 @@
 <figure
 	{...$$restProps}
 	class="avatar avatar-{size} text-{weight}"
-	data-initial={`${initials}`}
+	data-initial={`${initials || ''}`}
 	style="
-		--fontSize: {fontSize}px;
+		{fontSize && `--fontSize: ${fontSize}px`};
         background-color: {color.toHexString()};
         color: {color.isLight() ? '#000' : '#fff'}
     "

@@ -24,7 +24,7 @@
 
 <script lang="ts" context="module">
 	import { createEventDispatcher } from 'svelte';
-	import { IconButton } from '../../components/Button';
+	import IconButton from '../../components/Button/IconButton.svelte';
 	import uuid from '../../helpers/uuid';
 
 	export const SIZE = {

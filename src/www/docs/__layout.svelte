@@ -6,10 +6,6 @@
 	import { Container } from '$lib';
 </script>
 
-<script lang="ts">
-	import { page } from '$app/stores';
-</script>
-
 <style lang="scss" global>
 	@import '_code';
 	@import 'spectre.css/src/codes';

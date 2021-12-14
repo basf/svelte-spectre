@@ -33,9 +33,7 @@ Accordions are used to toggle sections of content.
             <Accordion
                 bind:toggled={state.toggled}
                 group={state.group1}
-                opened={state.opened === 1 || state.expand}
-                on:open={(e) => console.log('open:', e)}
-                on:close={(e) => console.log('close:', e)}>
+                opened={state.opened === 1 || state.expand}>
                 <h5 slot="header">
                     <i class="icon icon-arrow-right mr-2" />Accordion1
                 </h5>
@@ -44,9 +42,7 @@ Accordions are used to toggle sections of content.
             <Accordion
                 bind:toggled={state.toggled}
                 group={state.group1}
-                opened={state.opened === 2 || state.expand}
-                on:open={(e) => console.log('open:', e)}
-                on:close={(e) => console.log('close:', e)}>
+                opened={state.opened === 2 || state.expand}>
                 <h5 slot="header">
                     <i class="icon icon-arrow-right mr-2" />Accordion2
                 </h5>
@@ -55,9 +51,7 @@ Accordions are used to toggle sections of content.
             <Accordion
                 bind:toggled={state.toggled}
                 group={state.group1}
-                opened={state.opened === 3 || state.expand}
-                on:open={(e) => console.log('open:', e)}
-                on:close={(e) => console.log('close:', e)}>
+                opened={state.opened === 3 || state.expand}>
                 <h5 slot="header">
                     <i class="icon icon-arrow-right mr-2" />Accordion3
                 </h5>
@@ -69,27 +63,21 @@ Accordions are used to toggle sections of content.
             <Accordion
                 bind:toggled={state.toggled}
                 group={state.group2}
-                opened={state.opened === 4 || state.expand}
-                on:open={(e) => console.log('open:', e)}
-                on:close={(e) => console.log('close:', e)}>
+                opened={state.opened === 4 || state.expand}>
                 <h5 slot="header">Accordion4</h5>
                 <p>Accordion content<br />Accordion content<br />Accordion content</p>
             </Accordion>
             <Accordion
                 bind:toggled={state.toggled}
                 group={state.group2}
-                opened={state.opened === 5 || state.expand}
-                on:open={(e) => console.log('open:', e)}
-                on:close={(e) => console.log('close:', e)}>
+                opened={state.opened === 5 || state.expand}>
                 <h5 slot="header">Accordion5</h5>
                 <p>Accordion1<br />Accordion1<br />Accordion1</p>
             </Accordion>
             <Accordion
                 bind:toggled={state.toggled}
                 group={state.group2}
-                opened={state.opened === 6 || state.expand}
-                on:open={(e) => console.log('open:', e)}
-                on:close={(e) => console.log('close:', e)}>
+                opened={state.opened === 6 || state.expand}>
                 <h5 slot="header">Accordion6</h5>
                 <p>Accordion2<br />Accordion2<br />Accordion2</p>
             </Accordion>
@@ -100,9 +88,6 @@ Accordions are used to toggle sections of content.
 <p>
     <Knobs bind:state={state} {config}/>
 </p>
-
-If you remove ☝🏻 `group` name `demo` in input above, all Accordions will be in
-global toggle scope.
 
 ```sv
 <script>
