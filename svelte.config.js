@@ -33,7 +33,7 @@ const options = {
 /** @type {import('@sveltejs/kit').Config} */
 export default {
 	// https://github.com/sveltejs/svelte-preprocess
-	compilerOptions: null,
+	compilerOptions: { immutable: false },
 	preprocess: [preprocess(options), mdsvex(mdsvexConfig)],
 	extensions: ['.svelte', ...mdsvexConfig.extensions],
 
