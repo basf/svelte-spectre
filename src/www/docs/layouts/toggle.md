@@ -23,6 +23,7 @@ config: { toggle: { type: 'checkbox' } }
 ---
 
 <script>
+    import {fade} from 'svelte/transition'
     import {Button, Toggle} from '$lib'
     import Knobs from '../_knobs.svelte'
 
@@ -42,15 +43,13 @@ control & 1 variable `toggle: boolen`.
             on:click={() => (state.toggle = !state.toggle)}>
             {state.toggle ? 'Hide content' : 'Show content'}
         </Button>
-        <h3>Toggled content</h3>
-        <div class="content">
+        <article transition:fade>
+            <h3>Toggled content</h3>
             <p>This is the toggled content.</p>
-        </div>
-        <p>
             <Button
                 on:click={() => (state.toggle = false)}>
                 Hide toggled content</Button>
-            </p>
+        </article>
     </Toggle>
 </p>
 
@@ -60,6 +59,7 @@ control & 1 variable `toggle: boolen`.
 
 ```sv
 <script>
+    import { fade } from 'svelte/transition'
     import { Button, Toggle } from 'svelte-spectre'
 
     let toggle = false
@@ -69,7 +69,9 @@ control & 1 variable `toggle: boolen`.
     <Button slot="toggler" on:click={() => toggle = !toggle}>
         {toggle ? 'Hide' : 'Show'}
     </Button>
-    <h3>Toggled header</h3>
-    <p>Toggled content</p>
+    <article transition:fade>
+        <h3>Toggled header</h3>
+        <p>Toggled content</p>
+    <article>
 </Toggle>
 ```
