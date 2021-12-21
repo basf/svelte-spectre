@@ -156,6 +156,8 @@
 		"./layouts/Sidebar": "./layouts/Sidebar/index.js",
 		"./layouts/Tile/Tile.svelte": "./layouts/Tile/Tile.svelte",
 		"./layouts/Tile": "./layouts/Tile/index.js",
+		"./layouts/Toggle/Toggle.svelte": "./layouts/Toggle/Toggle.svelte",
+		"./layouts/Toggle": "./layouts/Toggle/index.js",
 		"./layouts": "./layouts/index.js",
 		"./types/const": "./types/const.js"
 	},
