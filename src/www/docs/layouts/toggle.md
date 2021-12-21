@@ -37,12 +37,13 @@ control & 1 variable `toggle: boolen`.
 
 <p>
     <Toggle bind:toggle={state.toggle}>
-        <Button
-            slot="toggler"
-            variant="primary"
-            on:click={() => (state.toggle = !state.toggle)}>
-            {state.toggle ? 'Hide content' : 'Show content'}
-        </Button>
+        <p slot="toggler">
+            <Button
+                variant="primary"
+                on:click={() => (state.toggle = !state.toggle)}>
+                {state.toggle ? 'Hide content' : 'Show content'}
+            </Button>
+        </p>
         <article transition:fade>
             <h3>Toggled content</h3>
             <p>This is the toggled content.</p>
