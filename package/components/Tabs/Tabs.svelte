@@ -58,7 +58,6 @@ function select(node, i) {
     };
     node.onclick = (e) => {
         if (typeof active === 'number') {
-            e.preventDefault();
             active = i;
         }
         index = i;

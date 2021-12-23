@@ -13,3 +13,4 @@ export * from './Panel/';
 export * from './Popover/';
 export * from './Sidebar';
 export * from './Tile/';
+export * from './Toggle/';
