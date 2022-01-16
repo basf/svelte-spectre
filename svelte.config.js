@@ -59,6 +59,13 @@ export default {
 			routes: 'src/www',
 			template: 'src/www/app.html',
 		},
+		prerender: {
+			concurrency: 1,
+			crawl: true,
+			enabled: false,
+			entries: ['*'],
+			onError: 'fail'
+		},
 		trailingSlash: 'always',
 		vite: () => ({
 			resolve: {

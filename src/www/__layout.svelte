@@ -55,7 +55,6 @@
 							{#each value as { path, metadata: { title } }, i}
 								<li class="menu-item">
 									<a
-										sveltekit:prefetch
 										href={setLink(base, path)}
 										class:active={activeLink($page.url.pathname, path)}
 										on:click={() => (openLeft = false)}>{title}</a
@@ -162,7 +161,7 @@
 		const metadata = getMeta(url.pathname) || null;
 		const title = metadata?.title;
 
-		console.log(url, params);
+		// console.log(url, params);
 		function getMeta(path: string) {
 			const parts = path.split('/').filter(Boolean);
 			const category = parts[1];
@@ -170,7 +169,7 @@
 
 			return links[category]?.find((l: Link) => l.path.includes(page)).metadata;
 		}
-		console.dir({ links, metadata, title });
+		// console.dir({ links, metadata, title });
 		return {
 			props: { links, metadata, title },
 		};
@@ -222,7 +221,7 @@
 		metadata: Meta,
 		title: string = '';
 
-	$: console.log({ links, metadata, title });
+	// $: console.log({ links, metadata, title });
 
 	const openedAccordion = (path: string, key: string, i: number) =>
 		path.includes(key.replace(' ', '_'));
