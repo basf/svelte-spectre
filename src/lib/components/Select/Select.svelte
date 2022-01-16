@@ -1,11 +1,19 @@
 {#if multiple}
 	<select
+		{...$$restProps}
 		multiple
 		size={options.length}
 		id="select-{fid}"
 		class="form-select is-{validity} select-{size}"
 		class:form-inline={inline}
 		bind:value
+		on:change
+		on:click
+		on:dblclick
+		on:focus
+		on:blur
+		on:scroll
+		on:keydown
 	>
 		{#if unselected}
 			<option />
@@ -23,6 +31,13 @@
 		class="form-select is-{validity} select-{size}"
 		class:form-inline={inline}
 		bind:value
+		on:change
+		on:click
+		on:dblclick
+		on:focus
+		on:blur
+		on:scroll
+		on:keydown
 	>
 		{#if unselected}
 			<option />
