@@ -1,26 +1,34 @@
 name: Build and Deploy
 on: [push]
 jobs:
-    build-and-deploy:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout 🛎️
-              uses: actions/checkout@v2.3.1
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
 
-            - name: Install 🔧
-              run: |
-                  npm install
+      - name: Install 🔧
+        run: |
+          npm install
 
-            - name: Test 🔧
-              run: |
-                  npm run test
+      - name: Test 🔧
+        run: |
+          npm run test
 
-            - name: Build 🔧
-              run: |
-                  npm run build
+      - name: Format 🔧
+        run: |
+          npm run format
 
-            - name: Deploy 🚀
-              uses: JamesIves/github-pages-deploy-action@4.1.7
-              with:
-                  branch: gh-pages # The branch the action should deploy to.
-                  folder: build # The folder the action should deploy.
+      - name: Package 🔧
+        run: |
+          npm run package
+
+      - name: Build 🔧
+        run: |
+          npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.7
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build # The folder the action should deploy.
