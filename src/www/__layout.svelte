@@ -161,15 +161,13 @@
 		const metadata = getMeta(url.pathname) || null;
 		const title = metadata?.title;
 
-		// console.log(url, params);
 		function getMeta(path: string) {
 			const parts = path.split('/').filter(Boolean);
 			const category = parts[1];
 			const page = parts[2];
 
-			return links[category]?.find((l: Link) => l.path.includes(page)).metadata;
+			return links[category]?.find((link: Link) => link.path.includes(page)).metadata;
 		}
-		// console.dir({ links, metadata, title });
 		return {
 			props: { links, metadata, title },
 		};
@@ -220,8 +218,6 @@
 	export let links: Links,
 		metadata: Meta,
 		title: string = '';
-
-	// $: console.log({ links, metadata, title });
 
 	const openedAccordion = (path: string, key: string, i: number) =>
 		path.includes(key.replace(' ', '_'));
