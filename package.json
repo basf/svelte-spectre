@@ -14,7 +14,7 @@
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --ignore-path .gitignore  --check . && eslint --ignore-path .gitignore .",
-		"format": "prettier --ignore-path .gitignore --write \"{,!(node_modules|public)/**/}*.{js,ts,md,svelte}\"",
+		"format": "prettier --ignore-path .gitignore --write \"{,(src|tests|package)/**/}*.{js,ts,md,svelte}\"",
 		"test": "uvu tests '.spec.ts' -r tsm -r tests/setup/register -i setup"
 	},
 	"repository": {
