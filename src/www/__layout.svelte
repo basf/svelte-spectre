@@ -11,9 +11,9 @@
 		bind:openLeft
 		bind:openRight
 		bind:show
-		breakpoint={$page.path.includes('docs') ? 'xl' : Infinity}
+		breakpoint={$page.url.pathname.includes('docs') ? 'xl' : Infinity}
 	>
-		<header class:bg-gray={!$page.path.includes('docs')}>
+		<header class:bg-gray={!$page.url.pathname.includes('docs')}>
 			<Navbar>
 				<nav slot="left">
 					{#if !show}
@@ -34,7 +34,7 @@
 						</div>
 					{/if}
 					<div class="mr-2">
-						{#if $page.path.split('/').filter(Boolean).length > 1}
+						{#if $page.url.pathname.split('/').filter(Boolean).length > 1}
 							<IconButton icon="edit" href={docLink} target="_blank" />
 						{:else}
 							<IconButton size="sm" iconSize="2x" href={repo} target="_blank">
@@ -55,16 +55,19 @@
 							{#each value as { path, metadata: { title } }, i}
 								<li class="menu-item">
 									<a
-										sveltekit:prefetch
 										href={setLink(base, path)}
-										class:active={activeLink($page.path, path)}
+										class:active={activeLink($page.url.pathname, path)}
 										on:click={() => (openLeft = false)}>{title}</a
 									>
 								</li>
 							{/each}
 						</Menu>
 					{:else}
-						<Accordion group="nav" toggled opened={openedAccordion($page.path, key, i)}>
+						<Accordion
+							group="nav"
+							toggled
+							opened={openedAccordion($page.url.pathname, key, i)}
+						>
 							<h5 class="header" slot="header">{key.replace(/_|-|[0-9]/g, ' ')}</h5>
 							<Menu nav>
 								{#each value as { path, metadata: { title } }, i}
@@ -72,7 +75,7 @@
 										<a
 											sveltekit:prefetch
 											href={setLink(base, path)}
-											class:active={activeLink($page.path, path)}
+											class:active={activeLink($page.url.pathname, path)}
 											on:click={() => (openLeft = false)}>{title}</a
 										>
 									</li>
@@ -87,7 +90,7 @@
 			</IconButton>
 		</nav>
 
-		<main class:px-5={$page.path.includes('docs') && show} class:px-3={!show}>
+		<main class:px-5={$page.url.pathname.includes('docs') && show} class:px-3={!show}>
 			<slot />
 		</main>
 
@@ -145,7 +148,7 @@
 		);
 	}
 
-	export async function load({ page, fetch }) {
+	export async function load({ url, params, fetch }) {
 		const mds = await Promise.all(body);
 		const links = mds.reduce((accumulator: Links, current: Link) => {
 			const key: string = current.path.split('/')[2];
@@ -155,7 +158,7 @@
 				[key]: accumulator[key] ? [...accumulator[key], current] : [current],
 			};
 		}, {});
-		const metadata = getMeta(page.path) || null;
+		const metadata = getMeta(url.pathname) || null;
 		const title = metadata?.title;
 
 		function getMeta(path: string) {
@@ -163,7 +166,7 @@
 			const category = parts[1];
 			const page = parts[2];
 
-			return links[category]?.find((l) => l.path.includes(page)).metadata;
+			return links[category]?.find((link: Link) => link.path.includes(page)).metadata;
 		}
 		return {
 			props: { links, metadata, title },
@@ -210,7 +213,7 @@
 
 	$: browser &&
 		document?.documentElement.style.setProperty('--window-height', `${windowHeight}px`);
-	$: docLink = `${repo}/tree/master/src/www${$page.path.replace(/\/$/, '')}.md`;
+	$: docLink = `${repo}/tree/master/src/www${$page.url.pathname.replace(/\/$/, '')}.md`;
 
 	export let links: Links,
 		metadata: Meta,

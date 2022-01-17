@@ -92,7 +92,7 @@ config:
 
     $: items[0] = state
 
-    onMount(() => goto(`${base + $page.path}?${$page.query.toString() || 'tab=1'}`, {keepfocus: true}))
+    onMount(() => goto(`${base + $page.url.pathname}?${$page.url.searchParams.toString() || 'tab=1'}`, {keepfocus: true}))
 </script>
 
 # {title}
@@ -106,8 +106,8 @@ tab-item or its child with the active class will be highlighted.
 <p>
     <Grid stack>
         <Col xs="12">
-            <Tabs active={$page.query.toString()} {items} block={state.block}/>
-            active: {$page.query.toString()}
+            <Tabs active={$page.url.searchParams.toString()} {items} block={state.block}/>
+            active: {$page.url.searchParams.toString()}
         </Col>
         <Col xs="12">
             <Tabs items={items2} block/>
