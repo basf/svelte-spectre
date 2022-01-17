@@ -24,6 +24,14 @@ declare const __propDef: {
         validity?: Validity;
     };
     events: {
+        change: Event;
+        click: MouseEvent;
+        dblclick: MouseEvent;
+        focus: FocusEvent;
+        blur: FocusEvent;
+        scroll: Event;
+        keydown: KeyboardEvent;
+    } & {
         [evt: string]: CustomEvent<any>;
     };
     slots: {

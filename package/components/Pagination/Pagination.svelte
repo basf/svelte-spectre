@@ -80,74 +80,80 @@
 	{/if}
 </div>
 
-<script  context="module">import Icon from '../Icon/Icon.svelte';
-import Select from '../Select/Select.svelte';
+<script context="module">
+	import Icon from '../Icon/Icon.svelte';
+	import Select from '../Select/Select.svelte';
 </script>
 
-<script >import { createEventDispatcher } from 'svelte';
-const dispatch = createEventDispatcher();
-export let page = 1;
-export let total = 0;
-export let limit = 10;
-export let rest;
-export let perpage = true;
-export let limits = Array.from({ length: 10 }, (_, i) => (i + 1) * limit);
-$: length = Math.ceil(total / limit);
-$: shift = Math.trunc(rest / 2);
-$: page = page > length ? length : page;
+<script>
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+	export let page = 1;
+	export let total = 0;
+	export let limit = 10;
+	export let rest;
+	export let perpage = true;
+	export let limits = Array.from({ length: 10 }, (_, i) => (i + 1) * limit);
+	$: length = Math.ceil(total / limit);
+	$: shift = Math.trunc(rest / 2);
+	$: page = page > length ? length : page;
 </script>
 
-<style >.pagination {
-  display: flex;
-  list-style: none;
-  margin: 0.2rem 0;
-  padding: 0.2rem 0;
-}
-.pagination .page-item {
-  margin: 0.2rem 0.05rem;
-}
-.pagination .page-item span {
-  display: inline-block;
-  padding: 0.2rem 0.2rem;
-}
-.pagination .page-item a {
-  border-radius: 0.1rem;
-  display: inline-block;
-  padding: 0.2rem 0.4rem;
-  text-decoration: none;
-}
-.pagination .page-item a:focus, .pagination .page-item a:hover {
-  color: #5755d9;
-}
-.pagination .page-item.disabled a {
-  cursor: default;
-  opacity: 0.5;
-  pointer-events: none;
-}
-.pagination .page-item.active a {
-  background: #5755d9;
-  color: #fff;
-}
-.pagination .page-item.page-prev, .pagination .page-item.page-next {
-  flex: 1 0 50%;
-}
-.pagination .page-item.page-next {
-  text-align: right;
-}
-.pagination .page-item .page-item-title {
-  margin: 0;
-}
-.pagination .page-item .page-item-subtitle {
-  margin: 0;
-  opacity: 0.5;
-}
+<style>
+	.pagination {
+		display: flex;
+		list-style: none;
+		margin: 0.2rem 0;
+		padding: 0.2rem 0;
+	}
+	.pagination .page-item {
+		margin: 0.2rem 0.05rem;
+	}
+	.pagination .page-item span {
+		display: inline-block;
+		padding: 0.2rem 0.2rem;
+	}
+	.pagination .page-item a {
+		border-radius: 0.1rem;
+		display: inline-block;
+		padding: 0.2rem 0.4rem;
+		text-decoration: none;
+	}
+	.pagination .page-item a:focus,
+	.pagination .page-item a:hover {
+		color: #5755d9;
+	}
+	.pagination .page-item.disabled a {
+		cursor: default;
+		opacity: 0.5;
+		pointer-events: none;
+	}
+	.pagination .page-item.active a {
+		background: #5755d9;
+		color: #fff;
+	}
+	.pagination .page-item.page-prev,
+	.pagination .page-item.page-next {
+		flex: 1 0 50%;
+	}
+	.pagination .page-item.page-next {
+		text-align: right;
+	}
+	.pagination .page-item .page-item-title {
+		margin: 0;
+	}
+	.pagination .page-item .page-item-subtitle {
+		margin: 0;
+		opacity: 0.5;
+	}
 
-.pagination {
-  flex-wrap: wrap;
-}
-.pagination .page-item a {
-  font-weight: bold;
-}
-.pagination .page-item a :global(.icon) {
-  vertical-align: sub;
-}</style>
+	.pagination {
+		flex-wrap: wrap;
+	}
+	.pagination .page-item a {
+		font-weight: bold;
+	}
+	.pagination .page-item a :global(.icon) {
+		vertical-align: sub;
+	}
+</style>
