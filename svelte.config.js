@@ -64,7 +64,7 @@ export default {
 			crawl: true,
 			enabled: false,
 			entries: ['*'],
-			onError: 'fail'
+			onError: 'fail',
 		},
 		trailingSlash: 'always',
 		vite: () => ({

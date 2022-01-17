@@ -3,6 +3,5 @@
 	<slot />
 {/if}
 
-<script>
-	export let toggle = false;
+<script >export let toggle = false;
 </script>

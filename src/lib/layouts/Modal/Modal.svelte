@@ -6,7 +6,7 @@
 	id="modal-{mid}"
 >
 	{#if !custom}
-		<a href="#" on:click={close} class="modal-overlay" aria-label="Close" />
+		<a href="#_" on:click={close} class="modal-overlay" aria-label="Close" />
 	{/if}
 	<div class="modal-container">
 		<IconButton id="close" icon="cross" on:click={close} />
