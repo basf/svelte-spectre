@@ -10,11 +10,11 @@
 		"dev": "svelte-kit dev --port 3030 --host '0.0.0.0'",
 		"build": "svelte-kit build",
 		"preview": "svelte-kit preview",
-		"package": "svelte-kit package && prettier --ignore-path .gitignore --write package",
+		"package": "svelte-kit package && prettier --ignore-path .gitignore --write \"{,package/**/}*.{js,ts,md,svelte}\"",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --ignore-path .gitignore  --check . && eslint --ignore-path .gitignore .",
-		"format": "prettier --ignore-path .gitignore --write .",
+		"format": "prettier --ignore-path .gitignore --write \"{,!(node_modules|public)/**/}*.{js,ts,md,svelte}\"",
 		"test": "uvu tests '.spec.ts' -r tsm -r tests/setup/register -i setup"
 	},
 	"repository": {
