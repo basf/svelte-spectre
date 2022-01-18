@@ -30,8 +30,8 @@
     "@sveltejs/adapter-static": "^1.0.0-next.26",
     "@sveltejs/kit": "^1.0.0-next.232",
     "@types/jsdom": "^16.2.14",
-    "@typescript-eslint/eslint-plugin": "^5.9.1",
-    "@typescript-eslint/parser": "^5.9.1",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
     "autoprefixer": "^10.4.2",
     "cssnano": "^5.0.15",
     "eslint": "^8.7.0",
@@ -52,7 +52,7 @@
     "svelte-loader": "^3.1.2",
     "svelte-media": "^0.1.5",
     "svelte-morphing-modal": "^2.2.0",
-    "svelte-preprocess": "^4.10.1",
+    "svelte-preprocess": "^4.10.2",
     "svelte2tsx": "^0.4.14",
     "tslib": "^2.3.1",
     "tsm": "^2.2.1",
@@ -158,7 +158,15 @@
     "./layouts/Toggle/Toggle.svelte": "./layouts/Toggle/Toggle.svelte",
     "./layouts/Toggle": "./layouts/Toggle/index.js",
     "./layouts": "./layouts/index.js",
-    "./types/const": "./types/const.js"
+    "./types/asset.d.ts": "./types/asset.d.ts",
+    "./types/bg.d.ts": "./types/bg.d.ts",
+    "./types/const": "./types/const.js",
+    "./types/display.d.ts": "./types/display.d.ts",
+    "./types/icons.d.ts": "./types/icons.d.ts",
+    "./types/position.d.ts": "./types/position.d.ts",
+    "./types/shape.d.ts": "./types/shape.d.ts",
+    "./types/size.d.ts": "./types/size.d.ts",
+    "./types/text.d.ts": "./types/text.d.ts"
   },
   "svelte": "./index.js"
 }

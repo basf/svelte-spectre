@@ -7,6 +7,7 @@ import svg from '@poppanator/sveltekit-svg';
 import adapterStatic from '@sveltejs/adapter-static';
 
 const pkg = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf8'));
+
 process.env.VITE_APP_NAME = pkg.name
 	.trim()
 	.toLowerCase()
@@ -67,6 +68,13 @@ export default {
 			onError: 'fail',
 		},
 		trailingSlash: 'always',
+		package: {
+			dir: 'package',
+			// excludes all .d.ts and files starting with _ as the name
+			exports: (filepath) => !/^_|\/_|\.scss$/.test(filepath),
+			files: (filepath) => !/^_|\/_|\.scss$/.test(filepath),
+			emitTypes: true,
+		},
 		vite: () => ({
 			resolve: {
 				alias: {
