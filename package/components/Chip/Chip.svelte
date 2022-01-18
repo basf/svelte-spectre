@@ -7,10 +7,8 @@
 	<slot />
 	{#if closable}
 		<button
-			href="#"
 			class="btn btn-clear mr--1"
 			aria-label="Close"
-			role="button"
 			on:click={() => dispatch('close', 'chip close')}
 		/>
 	{/if}

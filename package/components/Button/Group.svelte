@@ -4,7 +4,6 @@
 
 <script>
 	export let block = false;
-	export let spaced = false;
 </script>
 
 <style global>

@@ -4,7 +4,7 @@
 	{#if !extclose}
 		<a
 			class="off-canvas-toggle btn btn-primary btn-action"
-			href="#"
+			href="#_"
 			on:click|preventDefault={() => close('Left')}
 		>
 			<i class="icon icon-menu" />
@@ -15,7 +15,7 @@
 		<div class="off-canvas-sidebar p-2" class:active={openLeft}>
 			<!-- {#if !show}
 				<button
-					href="#"
+					href="#_"
 					class="btn btn-clear p-absolute mr--1"
 					aria-label="Close"
 					role="button"
@@ -29,7 +29,7 @@
 	{#if (openLeft || openRight) && !show}
 		<a
 			class="off-canvas-overlay"
-			href="#"
+			href="#_"
 			class:z-300={openLeft || openRight}
 			on:click|preventDefault={() => close('Both')}
 			transition:fade
@@ -48,7 +48,7 @@
 		>
 			<!-- {#if !show}
 				<button
-					href="#"
+					href="#_"
 					class="btn btn-clear p-absolute mr--1"
 					aria-label="Close"
 					role="button"
@@ -61,7 +61,7 @@
 		{#if !extclose}
 			<a
 				class="off-canvas-toggle btn btn-primary btn-action"
-				href="#"
+				href="#_"
 				on:click|preventDefault={() => close('Right')}
 			>
 				<i class="icon icon-menu" />
@@ -82,8 +82,6 @@
 	export let right = false;
 	export let both = false;
 	export let breakpoint = 960;
-	export let size = 'md';
-	export let offset = '';
 	const media = {
 		xs: 480,
 		sm: 600,

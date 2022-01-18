@@ -1,7 +1,4 @@
 import { SvelteComponentTyped } from 'svelte';
-import type { Size } from '../../types/size';
-import type { Offset } from '../../types/position';
-export type { Size, Offset };
 declare const __propDef: {
     props: {
         [x: string]: any;
@@ -12,8 +9,6 @@ declare const __propDef: {
         right?: boolean;
         both?: boolean;
         breakpoint?: string | number;
-        size?: Size;
-        offset?: Offset;
     };
     events: {
         [evt: string]: CustomEvent<any>;
@@ -32,3 +27,4 @@ export default class Sidebar extends SvelteComponentTyped<
     SidebarEvents,
     SidebarSlots
 > {}
+export {};

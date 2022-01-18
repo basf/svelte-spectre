@@ -1,7 +1,7 @@
 <div {...$$restProps} class="columns">
 	<ul class="pagination column col-{perpage ? 10 : 12} col-xs-12">
 		<li class="page-item" class:disabled={page === 1}>
-			<a href="#" on:click|preventDefault={() => page--}>
+			<a href="#_" on:click|preventDefault={() => page--}>
 				<slot name="prev">
 					<Icon icon="back" />
 				</slot>
@@ -10,12 +10,12 @@
 		{#each { length } as _, p (++p)}
 			{#if !rest}
 				<li class="page-item" class:active={page === p}>
-					<a href="#" on:click|preventDefault={() => (page = p)}>{p}</a>
+					<a href="#_" on:click|preventDefault={() => (page = p)}>{p}</a>
 				</li>
 			{:else if page <= rest}
 				{#if p <= rest + 1 || p === length}
 					<li class="page-item" class:active={page === p}>
-						<a href="#" on:click|preventDefault={() => (page = p)}>{p}</a>
+						<a href="#_" on:click|preventDefault={() => (page = p)}>{p}</a>
 					</li>
 				{/if}
 				{#if p === rest + 1}
@@ -35,7 +35,7 @@
 				{/if}
 				{#if (p >= page - shift && p < page + (rest - shift)) || p === length || p === 1}
 					<li class="page-item" class:active={page === p}>
-						<a href="#" on:click|preventDefault={() => (page = p)}>{p}</a>
+						<a href="#_" on:click|preventDefault={() => (page = p)}>{p}</a>
 					</li>
 				{/if}
 				{#if p === 1}
@@ -55,13 +55,13 @@
 				{/if}
 				{#if p >= length - rest || p === 1}
 					<li class="page-item" class:active={page === p}>
-						<a href="#" on:click|preventDefault={() => (page = p)}>{p}</a>
+						<a href="#_" on:click|preventDefault={() => (page = p)}>{p}</a>
 					</li>
 				{/if}
 			{/if}
 		{/each}
 		<li class="page-item" class:disabled={page === length}>
-			<a href="#" on:click|preventDefault={() => page++}>
+			<a href="#_" on:click|preventDefault={() => page++}>
 				<slot name="next">
 					<Icon icon="forward" />
 				</slot>

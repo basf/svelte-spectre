@@ -23,7 +23,6 @@
 				<i class="form-icon loading" />
 			{:else if selected.length}
 				<button
-					href="#"
 					class="btn btn-clear mr--1"
 					aria-label="Close"
 					role="button"
@@ -39,7 +38,7 @@
 				<li class="divider" data-content="Add:" />
 				<li class="menu-item">
 					<a
-						href="#"
+						href="#_"
 						class:active={value.length}
 						on:click|preventDefault={() => confirmSuggestion(value)}
 						on:mouseover|preventDefault={() => (active = 0)}
@@ -53,7 +52,7 @@
 				{#each suggested as item, i}
 					<li style="order: {i}" class="menu-item" tabindex="1">
 						<a
-							href="#"
+							href="#_"
 							class:active={active === i}
 							on:click|preventDefault={() => confirmSuggestion(item)}
 							on:mouseover|preventDefault={() => (active = i)}

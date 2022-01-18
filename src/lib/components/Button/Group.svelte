@@ -4,7 +4,6 @@
 
 <script lang="ts">
 	export let block: boolean = false;
-	export let spaced: boolean = false;
 </script>
 
 <style lang="scss" global>
