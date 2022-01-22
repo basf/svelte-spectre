@@ -1,22 +1,22 @@
-import { mdsvex } from 'mdsvex';
-import mdsvexConfig from './mdsvex.config.js';
-import preprocess from 'svelte-preprocess';
-import path from 'path';
-import fs from 'fs';
-import svg from '@poppanator/sveltekit-svg';
-import adapterStatic from '@sveltejs/adapter-static';
+import { mdsvex } from 'mdsvex'
+import mdsvexConfig from './mdsvex.config.js'
+import preprocess from 'svelte-preprocess'
+import path from 'path'
+import fs from 'fs'
+import svg from '@poppanator/sveltekit-svg'
+import adapterStatic from '@sveltejs/adapter-static'
 
-const pkg = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf8'));
+const pkg = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf8'))
 
 process.env.VITE_APP_NAME = pkg.name
 	.trim()
 	.toLowerCase()
-	.replace(/\w\S*/g, (w) => w.replace(/^\w/, (c) => c.toUpperCase()));
-process.env.VITE_APP_VERSION = pkg.version;
-process.env.VITE_APP_GIT = pkg.repository.url.replace(/git\+|\.git/g, '');
+	.replace(/\w\S*/g, (w) => w.replace(/^\w/, (c) => c.toUpperCase()))
+process.env.VITE_APP_VERSION = pkg.version
+process.env.VITE_APP_GIT = pkg.repository.url.replace(/git\+|\.git/g, '')
 
-const mode = process.env.NODE_ENV;
-const dev = mode === 'development';
+const mode = process.env.NODE_ENV
+const dev = mode === 'development'
 const options = {
 	sourceMap: dev,
 	scss: {
@@ -29,7 +29,7 @@ const options = {
 	},
 	postcss: true,
 	typescript: true,
-};
+}
 
 /** @type {import('@sveltejs/kit').Config} */
 export default {
@@ -47,10 +47,10 @@ export default {
 			'css-unused-selector',
 			'missing-declaration',
 			'unused-export-let',
-		];
-		if (ignore.includes(warning.code)) return;
-		console.log('w:', warning);
-		handler(warning);
+		]
+		if (ignore.includes(warning.code)) return
+		console.log('w:', warning)
+		handler(warning)
 	},
 
 	kit: {
@@ -63,7 +63,7 @@ export default {
 		prerender: {
 			concurrency: 1,
 			crawl: true,
-			enabled: false,
+			enabled: true,
 			entries: ['*'],
 			onError: 'fail',
 		},
@@ -87,4 +87,4 @@ export default {
 			plugins: [svg(options)],
 		}),
 	},
-};
+}

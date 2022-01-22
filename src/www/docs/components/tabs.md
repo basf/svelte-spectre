@@ -65,6 +65,7 @@ config:
 <script>
     import {onMount} from 'svelte'
     import { goto, invalidate, prefetch, prefetchRoutes } from '$app/navigation';
+    import { browser } from '$app/env';
     import { page } from '$app/stores';
     import { base } from '$app/paths';
     import { Col, Grid, Tabs } from '$lib'
@@ -92,7 +93,7 @@ config:
 
     $: items[0] = state
 
-    onMount(() => goto(`${base + $page.url.pathname}?${$page.url.searchParams.toString() || 'tab=1'}`, {keepfocus: true}))
+    onMount(() => goto(`${base + $page.url.pathname}${state.path}`, {keepfocus: true}))
 </script>
 
 # {title}
@@ -106,8 +107,10 @@ tab-item or its child with the active class will be highlighted.
 <p>
     <Grid stack>
         <Col xs="12">
-            <Tabs active={$page.url.searchParams.toString()} {items} block={state.block}/>
-            active: {$page.url.searchParams.toString()}
+        {#if browser}
+            <Tabs active={$page.url.searchParams} {items} block={state.block}/>
+            active: {$page.url.searchParams}
+            {/if}
         </Col>
         <Col xs="12">
             <Tabs items={items2} block/>
