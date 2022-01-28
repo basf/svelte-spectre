@@ -1,11 +1,17 @@
-<pre {...$$restProps} class="code" data-lang={lang}>
-    <code>
-        <slot />
-    </code>
-</pre>
+{#if action}
+	<pre {...$$restProps} class="code" data-lang={lang} use:action={options}>
+		<code><slot /></code>
+	</pre>
+{:else}
+	<pre {...$$restProps} class="code" data-lang={lang}>
+		<code><slot /></code>
+	</pre>
+{/if}
 
 <script>
 	export let lang = '';
+	export let action;
+	export let options;
 </script>
 
 <style>

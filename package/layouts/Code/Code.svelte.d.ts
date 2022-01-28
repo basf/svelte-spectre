@@ -3,6 +3,8 @@ declare const __propDef: {
     props: {
         [x: string]: any;
         lang?: string;
+        action: Function;
+        options: any;
     };
     events: {
         [evt: string]: CustomEvent<any>;
