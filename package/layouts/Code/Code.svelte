@@ -1,6 +1,6 @@
 {#if action}
-	<pre {...$$restProps} class="code" data-lang={lang} use:action={options} on:change>
-		<code><slot /></code>
+	<pre {...$$restProps} class="code" data-lang={lang}>
+		<code use:action={options} on:change><slot /></code>
 	</pre>
 {:else}
 	<pre {...$$restProps} class="code" data-lang={lang}>
