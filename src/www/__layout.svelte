@@ -303,6 +303,10 @@
 	}
 
 	@media (prefers-color-scheme: dark) {
+		main code {
+			background: $dark-code;
+			color: $code-color;
+		}
 		nav#sidebar {
 			.menu {
 				.menu-item > a {
@@ -333,6 +337,10 @@
 		}
 	}
 	[color-scheme='dark'] {
+		main code {
+			background: $dark-code;
+			color: $code-color;
+		}
 		nav#sidebar {
 			.menu {
 				.menu-item > a {

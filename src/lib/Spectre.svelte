@@ -30,30 +30,6 @@
 		background: $body-bg;
 		color: $body-font-color;
 
-		@media (prefers-color-scheme: dark) {
-			background: $dark-background;
-			color: $dark-text;
-
-			code {
-				@include label-variant($dark-code, lighten($dark-code, 42.5%));
-			}
-			.code {
-				color: $gray-color;
-
-				&::before {
-					color: $gray-color;
-				}
-
-				code {
-					background: $bg-color;
-				}
-			}
-		}
-		[color-scheme='dark'] {
-			background: $dark-background;
-			color: $dark-text;
-		}
-
 		:global {
 			@import 'spectre.css/src/base';
 			@import 'spectre.css/src/normalize';
@@ -160,8 +136,86 @@
 			@include padding-variant(7, $unit-7);
 			@include padding-variant(8, $unit-8);
 			@include padding-variant(9, $unit-9);
-
 			@include bg-color-variant('.bg-light', $light-color);
+		}
+
+		@media (prefers-color-scheme: dark) {
+			background: $dark-background;
+			color: $dark-text;
+
+			:global(:root) {
+				color-scheme: dark;
+			}
+			:global(.form-input),
+			:global(.form-select) {
+				background-color: $dark-background !important;
+				border-color: $gray-color-dark !important;
+				color: $dark-text !important;
+			}
+			:global(.form-checkbox .form-icon),
+			:global(.form-radio .form-icon),
+			:global(.form-switch .form-icon) {
+				border-color: $gray-color-dark !important;
+				background: $dark-background !important;
+			}
+			:global(input:active + .form-icon) {
+				background: $dark-secondary !important;
+			}
+
+			:global(input:checked + .form-icon) {
+				background: $primary-color !important;
+			}
+			:global(.badge) {
+				&[data-badge],
+				&:not([data-badge]) {
+					&::after {
+						box-shadow: 0 0 0 0.1rem $dark-background !important;
+						color: $dark-text !important;
+					}
+				}
+			}
+			:global(blockquote) {
+				border-left-color: $gray-color-dark !important;
+			}
+		}
+		[color-scheme='dark'] {
+			background: $dark-background;
+			color: $dark-text;
+
+			:global(:root) {
+				color-scheme: dark;
+			}
+			:global(.form-input),
+			:global(.form-select) {
+				background-color: $dark-background !important;
+				border-color: $gray-color-dark !important;
+				color: $dark-text !important;
+			}
+			:global(.form-checkbox .form-icon),
+			:global(.form-radio .form-icon),
+			:global(.form-switch .form-icon) {
+				border-color: $gray-color-dark !important;
+				background: $dark-background !important;
+			}
+			:global(input:active + .form-icon) {
+				background: $dark-secondary !important;
+			}
+
+			:global(input:checked + .form-icon) {
+				background: $primary-color !important;
+			}
+			:global(.badge) {
+				&[data-badge],
+				&:not([data-badge]) {
+					&::after {
+						box-shadow: 0 0 0 0.1rem $dark-background !important;
+						color: $dark-text !important;
+					}
+				}
+			}
+			:global(blockquote) {
+				border-left-color: $gray-color-dark !important;
+			}
 		}
 	}
 </style>
