@@ -23,7 +23,8 @@
 				padding-right: 0.5rem;
 			}
 			@media (prefers-color-scheme: dark) {
-				&.label-default {
+				&.label-default,
+				&.label-initial {
 					@include label-variant($dark-text, $dark-color);
 				}
 				&.label-secondary {
@@ -32,7 +33,8 @@
 			}
 
 			[color-scheme='dark'] {
-				&.label-default {
+				&.label-default,
+				&.label-initial {
 					@include label-variant($dark-text, $dark-color);
 				}
 				&.label-secondary {

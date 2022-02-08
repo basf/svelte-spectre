@@ -76,7 +76,8 @@
 		padding-right: 0.5rem;
 	}
 	@media (prefers-color-scheme: dark) {
-		:global(.spectre) .label.label-default {
+		:global(.spectre) .label.label-default,
+		:global(.spectre) .label.label-initial {
 			background: #303742;
 			color: #f2f2f2;
 		}
@@ -85,7 +86,8 @@
 			color: #5755d9;
 		}
 	}
-	:global(.spectre) .label [color-scheme='dark'].label-default {
+	:global(.spectre) .label [color-scheme='dark'].label-default,
+	:global(.spectre) .label [color-scheme='dark'].label-initial {
 		background: #303742;
 		color: #f2f2f2;
 	}
