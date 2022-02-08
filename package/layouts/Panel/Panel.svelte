@@ -57,10 +57,10 @@
 	}
 	@media (prefers-color-scheme: dark) {
 		:global(.spectre) .panel {
-			border-color: #bcc3ce;
+			border-color: #303742;
 		}
 	}
 	:global(.spectre) .panel [color-scheme='dark'] {
-		border-color: #bcc3ce;
+		border-color: #303742;
 	}
 </style>

@@ -19,10 +19,10 @@
 
 		.panel {
 			@media (prefers-color-scheme: dark) {
-				border-color: $dark-border;
+				border-color: $dark-color;
 			}
 			[color-scheme='dark'] {
-				border-color: $dark-border;
+				border-color: $dark-color;
 			}
 		}
 	}
