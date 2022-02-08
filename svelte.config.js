@@ -23,6 +23,7 @@ const options = {
 		prependData: `
 			@import './node_modules/spectre.css/src/variables';
 			@import './node_modules/spectre.css/src/mixins';
+			@import './src/lib/dark';
 		`,
 		quietDeps: true,
 		renderSync: true,

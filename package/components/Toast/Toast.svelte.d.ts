@@ -17,7 +17,8 @@ declare const __propDef: {
             | 'light'
             | 'success'
             | 'warning'
-            | 'error';
+            | 'error'
+            | 'darked';
         icon?: Icons;
         timeout?: number;
         closable?: boolean;

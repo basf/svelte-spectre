@@ -58,6 +58,86 @@
 </script>
 
 <style>
+	.bg-darked {
+		background: #252b33 !important;
+		color: #fff;
+	}
+
+	.bg-secondary-darked {
+		background: #343a51 !important;
+		color: #fff;
+	}
+
+	.text-darked {
+		color: #f2f2f2 !important;
+	}
+
+	a.text-darked:focus,
+	a.text-darked:hover {
+		color: #e6e6e6;
+	}
+	a.text-darked:visited {
+		color: white;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			color-scheme: dark;
+		}
+
+		.form-input,
+		.form-select {
+			background-color: #252b33 !important;
+			border-color: #66758c !important;
+			color: #f2f2f2 !important;
+		}
+
+		.form-checkbox .form-icon,
+		.form-radio .form-icon,
+		.form-switch .form-icon {
+			border-color: #66758c !important;
+			background: #252b33 !important;
+		}
+
+		input:active + .form-icon {
+			background: #343a51 !important;
+		}
+		input:checked + .form-icon {
+			background: #5755d9 !important;
+		}
+
+		.badge[data-badge]::after,
+		.badge:not([data-badge])::after {
+			box-shadow: 0 0 0 0.1rem #252b33 !important;
+			color: #f2f2f2 !important;
+		}
+
+		code {
+			background: #afa2b1;
+			color: #413843;
+		}
+
+		.code {
+			color: #bcc3ce;
+		}
+		.code::before {
+			color: #bcc3ce;
+		}
+		.code code {
+			background: #303742;
+		}
+	}
+	[color-scheme='dark'] :root {
+		color-scheme: dark;
+	}
+	[color-scheme='dark'] .form-input,
+	[color-scheme='dark'] .form-checkbox .form-icon,
+	[color-scheme='dark'] .form-select {
+		background-color: #252b33 !important;
+		border-color: #66758c !important;
+		color: #f2f2f2 !important;
+	}
+
 	:global(.spectre) .card {
 		background: #fff;
 		border: 0.05rem solid #dadee4;
@@ -93,28 +173,43 @@
 		border-bottom-left-radius: 0.1rem;
 		border-bottom-right-radius: 0.1rem;
 	}
-
-	.card {
+	:global(.spectre) .card {
 		margin: 0;
 	}
-	.card .card-title,
-	.card .card-subtitle {
+	:global(.spectre) .card .card-title,
+	:global(.spectre) .card .card-subtitle {
 		word-break: break-all;
 	}
-	.card.card-clear {
+	:global(.spectre) .card.card-clear {
 		background: 0 0;
 		border: 0;
 	}
-	.card.card-flat {
+	:global(.spectre) .card.card-flat {
 		border: 0;
 	}
-	.card.card-outlined {
+	:global(.spectre) .card.card-outlined {
 		background: 0 0;
 	}
-	.card.card-shadowed {
+	:global(.spectre) .card.card-shadowed {
 		box-shadow: 0 0.25rem 1rem rgba(48, 55, 66, 0.15);
 	}
-	.card.card-expand {
+	:global(.spectre) .card.card-expand {
 		height: 100%;
+	}
+	@media (prefers-color-scheme: dark) {
+		:global(.spectre) .card {
+			background: #252b33;
+			border-color: #303742;
+		}
+		:global(.spectre) .card.card-shadowed {
+			box-shadow: 0 0.25rem 1rem rgba(16, 18, 22, 0.45);
+		}
+	}
+	:global(.spectre) .card [color-scheme='dark'] {
+		background: #252b33;
+		border-color: #303742;
+	}
+	:global(.spectre) .card [color-scheme='dark'].card-shadowed {
+		box-shadow: 0 0.25rem 1rem rgba(16, 18, 22, 0.45);
 	}
 </style>

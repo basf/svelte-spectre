@@ -8,6 +8,86 @@
 
 <style global>
 	@charset "UTF-8";
+	:global(.bg-darked) {
+		background: #252b33 !important;
+		color: #fff;
+	}
+
+	:global(.bg-secondary-darked) {
+		background: #343a51 !important;
+		color: #fff;
+	}
+
+	:global(.text-darked) {
+		color: #f2f2f2 !important;
+	}
+
+	:global(a.text-darked:focus),
+	:global(a.text-darked:hover) {
+		color: #e6e6e6;
+	}
+	:global(a.text-darked:visited) {
+		color: white;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:global(:root) {
+			color-scheme: dark;
+		}
+
+		:global(.form-input),
+		:global(.form-select) {
+			background-color: #252b33 !important;
+			border-color: #66758c !important;
+			color: #f2f2f2 !important;
+		}
+
+		:global(.form-checkbox) :global(.form-icon),
+		:global(.form-radio) :global(.form-icon),
+		:global(.form-switch) :global(.form-icon) {
+			border-color: #66758c !important;
+			background: #252b33 !important;
+		}
+
+		:global(input:active) + :global(.form-icon) {
+			background: #343a51 !important;
+		}
+		:global(input:checked) + :global(.form-icon) {
+			background: #5755d9 !important;
+		}
+
+		:global(.badge[data-badge]::after),
+		:global(.badge:not([data-badge])::after) {
+			box-shadow: 0 0 0 0.1rem #252b33 !important;
+			color: #f2f2f2 !important;
+		}
+
+		:global(code) {
+			background: #afa2b1;
+			color: #413843;
+		}
+
+		:global(.code) {
+			color: #bcc3ce;
+		}
+		:global(.code::before) {
+			color: #bcc3ce;
+		}
+		:global(.code) :global(code) {
+			background: #303742;
+		}
+	}
+	:global([color-scheme='dark']) :global(:root) {
+		color-scheme: dark;
+	}
+	:global([color-scheme='dark']) :global(.form-input),
+	:global([color-scheme='dark']) :global(.form-checkbox) :global(.form-icon),
+	:global([color-scheme='dark']) :global(.form-select) {
+		background-color: #252b33 !important;
+		border-color: #66758c !important;
+		color: #f2f2f2 !important;
+	}
+
 	:global(.spectre) :global(.btn) {
 		-webkit-appearance: none;
 		-moz-appearance: none;

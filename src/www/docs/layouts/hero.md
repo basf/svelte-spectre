@@ -5,10 +5,11 @@ title: Hero
 
 <script>
     import {Hero} from '$lib'
+    import {media} from '../../_media'
 </script>
 
 # {title}
 
 > 🚧 Under construction
 
-<Hero bg="gray" center/>
+<Hero bg="{$media.dark ? 'dark' : 'gray'}" center/>

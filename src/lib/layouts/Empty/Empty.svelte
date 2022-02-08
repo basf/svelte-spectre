@@ -24,8 +24,17 @@
 <style lang="scss">
 	:global(.spectre) {
 		@import 'spectre.css/src/empty';
-	}
-	.empty > :global(:nth-child(n + 2) > *) {
-		margin: 0;
+
+		.empty {
+			& > :global(:nth-child(n + 2) > *) {
+				margin: 0;
+			}
+			@media (prefers-color-scheme: dark) {
+				background: $dark-color;
+			}
+			[color-scheme='dark'] {
+				background: $dark-background;
+			}
+		}
 	}
 </style>

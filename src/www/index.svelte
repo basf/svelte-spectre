@@ -2,7 +2,7 @@
 	<title>{name}</title>
 </svelte:head>
 
-<Hero size="md" bg="gray" center>
+<Hero size="md" bg={$media.dark ? 'darked' : 'light'} center>
 	<Container>
 		<h1>{name}</h1>
 		<p>
@@ -64,6 +64,7 @@
 <script context="module" lang="ts">
 	import { base } from '$app/paths';
 	import { Button, Card, Col, Container, Hero, Grid } from '$lib';
+	import { media } from './_media';
 </script>
 
 <script lang="ts">

@@ -2,7 +2,7 @@
 @import "../../node_modules/spectre.css/src/mixins";
 
 .spectre {
-    display: contents;
+    // display: contents;
     box-sizing: border-box;
     overflow-x: hidden;
     font-size: $font-size;
@@ -14,6 +14,11 @@
     -webkit-tap-highlight-color: transparent;
     background: $body-bg;
     color: $body-font-color;
+
+    @media (prefers-color-scheme: dark) {
+        background: darken($dark-color, 5%);
+        color: darken($light-color, 15%);
+    }
 
     @import "../../node_modules/spectre.css/src/base";
     @import "../../node_modules/spectre.css/src/normalize";

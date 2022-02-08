@@ -214,6 +214,86 @@
 
 <style>
 	@charset "UTF-8";
+	.bg-darked {
+		background: #252b33 !important;
+		color: #fff;
+	}
+
+	.bg-secondary-darked {
+		background: #343a51 !important;
+		color: #fff;
+	}
+
+	.text-darked {
+		color: #f2f2f2 !important;
+	}
+
+	a.text-darked:focus,
+	a.text-darked:hover {
+		color: #e6e6e6;
+	}
+	a.text-darked:visited {
+		color: white;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			color-scheme: dark;
+		}
+
+		.form-input,
+		.form-select {
+			background-color: #252b33 !important;
+			border-color: #66758c !important;
+			color: #f2f2f2 !important;
+		}
+
+		.form-checkbox .form-icon,
+		.form-radio .form-icon,
+		.form-switch .form-icon {
+			border-color: #66758c !important;
+			background: #252b33 !important;
+		}
+
+		input:active + .form-icon {
+			background: #343a51 !important;
+		}
+		input:checked + .form-icon {
+			background: #5755d9 !important;
+		}
+
+		.badge[data-badge]::after,
+		.badge:not([data-badge])::after {
+			box-shadow: 0 0 0 0.1rem #252b33 !important;
+			color: #f2f2f2 !important;
+		}
+
+		code {
+			background: #afa2b1;
+			color: #413843;
+		}
+
+		.code {
+			color: #bcc3ce;
+		}
+		.code::before {
+			color: #bcc3ce;
+		}
+		.code code {
+			background: #303742;
+		}
+	}
+	[color-scheme='dark'] :root {
+		color-scheme: dark;
+	}
+	[color-scheme='dark'] .form-input,
+	[color-scheme='dark'] .form-checkbox .form-icon,
+	[color-scheme='dark'] .form-select {
+		background-color: #252b33 !important;
+		border-color: #66758c !important;
+		color: #f2f2f2 !important;
+	}
+
 	.form-autocomplete {
 		position: relative;
 	}
@@ -892,5 +972,55 @@
 	}
 	:global(.spectre) .btn-clear::before {
 		content: '✕';
+	}
+	@media (prefers-color-scheme: dark) {
+		:global(.spectre) .menu {
+			background: #252b33;
+		}
+		:global(.spectre) .menu:not(.menu-nav) {
+			box-shadow: 0 0.05rem 0.2rem #101216;
+		}
+		:global(.spectre) .menu .menu-item > a:focus,
+		:global(.spectre) .menu .menu-item > a:hover,
+		:global(.spectre) .menu .menu-item > a:active,
+		:global(.spectre) .menu .menu-item > a.active {
+			background: #343a51 !important;
+		}
+		:global(.spectre) .menu .menu-item:focus,
+		:global(.spectre) .menu .menu-item:hover,
+		:global(.spectre) .menu .menu-item:active,
+		:global(.spectre) .menu .menu-item.active {
+			background: #343a51 !important;
+		}
+		:global(.spectre) .menu .divider {
+			border-color: #303742 !important;
+		}
+		:global(.spectre) .menu .divider[data-content]::after {
+			background: #252b33 !important;
+		}
+	}
+	:global(.spectre) [color-scheme='dark'] .menu {
+		background: #252b33;
+	}
+	:global(.spectre) [color-scheme='dark'] .menu:not(.menu-nav) {
+		box-shadow: 0 0.05rem 0.2rem #101216;
+	}
+	:global(.spectre) [color-scheme='dark'] .menu .menu-item > a:focus,
+	:global(.spectre) [color-scheme='dark'] .menu .menu-item > a:hover,
+	:global(.spectre) [color-scheme='dark'] .menu .menu-item > a:active,
+	:global(.spectre) [color-scheme='dark'] .menu .menu-item > a.active {
+		background: #343a51 !important;
+	}
+	:global(.spectre) [color-scheme='dark'] .menu .menu-item:focus,
+	:global(.spectre) [color-scheme='dark'] .menu .menu-item:hover,
+	:global(.spectre) [color-scheme='dark'] .menu .menu-item:active,
+	:global(.spectre) [color-scheme='dark'] .menu .menu-item.active {
+		background: #343a51 !important;
+	}
+	:global(.spectre) [color-scheme='dark'] .divider {
+		border-color: #303742 !important;
+	}
+	:global(.spectre) [color-scheme='dark'] .divider[data-content]::after {
+		background: #252b33 !important;
 	}
 </style>

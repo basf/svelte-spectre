@@ -3,6 +3,7 @@ export type Color =
     | 'primary'
     | 'secondary'
     | 'dark'
+    | 'darked'
     | 'gray'
     | 'light'
     | 'success'

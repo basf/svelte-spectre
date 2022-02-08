@@ -33,4 +33,10 @@
 
 <style lang="scss">
 	@import 'spectre.css/src/forms';
+
+	@media (prefers-color-scheme: dark) {
+	}
+
+	[color-scheme='dark'] {
+	}
 </style>

@@ -86,4 +86,48 @@
 	.btn.btn-action.btn-xs {
 		width: $unit-6 !important;
 	}
+	@media (prefers-color-scheme: dark) {
+		.btn.btn-default {
+			@include label-variant($primary-color, $dark-background);
+			&:hover,
+			&:focus {
+				background: $dark-secondary;
+			}
+			&:active {
+				background: $primary-color;
+			}
+		}
+		.btn.btn-secondary {
+			@include label-variant($primary-color, $dark-secondary);
+			&:hover,
+			&:focus {
+				background: $dark-background;
+			}
+			&:active {
+				background: $primary-color;
+			}
+		}
+	}
+	[color-scheme='dark'] {
+		.btn.btn-default {
+			@include label-variant($primary-color, $dark-background);
+			&:hover,
+			&:focus {
+				background: $dark-secondary;
+			}
+			&:active {
+				background: $primary-color;
+			}
+		}
+		.btn.btn-secondary {
+			@include label-variant($primary-color, $dark-secondary);
+			&:hover,
+			&:focus {
+				background: $dark-background;
+			}
+			&:active {
+				background: $primary-color;
+			}
+		}
+	}
 </style>

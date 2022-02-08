@@ -126,4 +126,53 @@
 			}
 		}
 	}
+
+	@media (prefers-color-scheme: dark) {
+		.menu {
+			&:not(.menu-nav) {
+				box-shadow: 0 0.05rem 0.2rem $dark-shadow;
+			}
+			background: $dark-background;
+			.menu-item {
+				& > a {
+					&:focus,
+					&:hover,
+					&:active,
+					&.active {
+						background: $dark-secondary !important;
+					}
+				}
+				&:focus,
+				&:hover,
+				&:active,
+				&.active {
+					background: $dark-secondary !important;
+				}
+			}
+		}
+	}
+	[color-scheme='dark'] {
+		.menu {
+			&:not(.menu-nav) {
+				box-shadow: 0 0.05rem 0.2rem $dark-shadow;
+			}
+			background: $dark-background;
+			.menu-item {
+				& > a {
+					&:focus,
+					&:hover,
+					&:active,
+					&.active {
+						background: $dark-secondary !important;
+					}
+				}
+				&:focus,
+				&:hover,
+				&:active,
+				&.active {
+					background: $dark-secondary !important;
+				}
+			}
+		}
+	}
 </style>

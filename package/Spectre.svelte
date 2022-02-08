@@ -3,6 +3,97 @@
 </div>
 
 <style>
+	.bg-darked {
+		background: #252b33 !important;
+		color: #fff;
+	}
+
+	.bg-secondary-darked {
+		background: #343a51 !important;
+		color: #fff;
+	}
+
+	.text-darked {
+		color: #f2f2f2 !important;
+	}
+
+	a.text-darked:focus,
+	a.text-darked:hover {
+		color: #e6e6e6;
+	}
+	a.text-darked:visited {
+		color: white;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			color-scheme: dark;
+		}
+
+		.form-input,
+		.form-select {
+			background-color: #252b33 !important;
+			border-color: #66758c !important;
+			color: #f2f2f2 !important;
+		}
+
+		.form-checkbox .form-icon,
+		.form-radio .form-icon,
+		.form-switch .form-icon {
+			border-color: #66758c !important;
+			background: #252b33 !important;
+		}
+
+		input:active + .form-icon {
+			background: #343a51 !important;
+		}
+		input:checked + .form-icon {
+			background: #5755d9 !important;
+		}
+
+		.badge[data-badge]::after,
+		.badge:not([data-badge])::after {
+			box-shadow: 0 0 0 0.1rem #252b33 !important;
+			color: #f2f2f2 !important;
+		}
+
+		code {
+			background: #afa2b1;
+			color: #413843;
+		}
+
+		.code {
+			color: #bcc3ce;
+		}
+		.code::before {
+			color: #bcc3ce;
+		}
+		.code code {
+			background: #303742;
+		}
+	}
+	[color-scheme='dark'] :root {
+		color-scheme: dark;
+	}
+	[color-scheme='dark'] .form-input,
+	[color-scheme='dark'] .form-checkbox .form-icon,
+	[color-scheme='dark'] .form-select {
+		background-color: #252b33 !important;
+		border-color: #66758c !important;
+		color: #f2f2f2 !important;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:global(body) {
+			background: #252b33;
+			color: #f2f2f2;
+		}
+	}
+	[color-scheme='dark'] :global(body) {
+		background: #252b33;
+		color: #f2f2f2;
+	}
+
 	.spectre {
 		display: contents;
 		box-sizing: border-box;
@@ -17,6 +108,29 @@
 		-webkit-tap-highlight-color: transparent;
 		background: #fff;
 		color: #3b4351;
+	}
+	@media (prefers-color-scheme: dark) {
+		.spectre {
+			background: #252b33;
+			color: #f2f2f2;
+		}
+		.spectre code {
+			background: #afa2b1;
+			color: #413843;
+		}
+		.spectre .code {
+			color: #bcc3ce;
+		}
+		.spectre .code::before {
+			color: #bcc3ce;
+		}
+		.spectre .code code {
+			background: #f7f8f9;
+		}
+	}
+	.spectre [color-scheme='dark'] {
+		background: #252b33;
+		color: #f2f2f2;
 	}
 	.spectre {
 		/* Manually forked from Normalize.css */
@@ -2083,5 +2197,8 @@
 	.spectre :global(.py-9) {
 		padding-bottom: 1.8rem !important;
 		padding-top: 1.8rem !important;
+	}
+	.spectre :global(.bg-light) {
+		background: #fff !important;
 	}
 </style>

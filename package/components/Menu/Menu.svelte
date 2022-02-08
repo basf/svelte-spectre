@@ -70,6 +70,86 @@
 </script>
 
 <style>
+	.bg-darked {
+		background: #252b33 !important;
+		color: #fff;
+	}
+
+	.bg-secondary-darked {
+		background: #343a51 !important;
+		color: #fff;
+	}
+
+	.text-darked {
+		color: #f2f2f2 !important;
+	}
+
+	a.text-darked:focus,
+	a.text-darked:hover {
+		color: #e6e6e6;
+	}
+	a.text-darked:visited {
+		color: white;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			color-scheme: dark;
+		}
+
+		.form-input,
+		.form-select {
+			background-color: #252b33 !important;
+			border-color: #66758c !important;
+			color: #f2f2f2 !important;
+		}
+
+		.form-checkbox .form-icon,
+		.form-radio .form-icon,
+		.form-switch .form-icon {
+			border-color: #66758c !important;
+			background: #252b33 !important;
+		}
+
+		input:active + .form-icon {
+			background: #343a51 !important;
+		}
+		input:checked + .form-icon {
+			background: #5755d9 !important;
+		}
+
+		.badge[data-badge]::after,
+		.badge:not([data-badge])::after {
+			box-shadow: 0 0 0 0.1rem #252b33 !important;
+			color: #f2f2f2 !important;
+		}
+
+		code {
+			background: #afa2b1;
+			color: #413843;
+		}
+
+		.code {
+			color: #bcc3ce;
+		}
+		.code::before {
+			color: #bcc3ce;
+		}
+		.code code {
+			background: #303742;
+		}
+	}
+	[color-scheme='dark'] :root {
+		color-scheme: dark;
+	}
+	[color-scheme='dark'] .form-input,
+	[color-scheme='dark'] .form-checkbox .form-icon,
+	[color-scheme='dark'] .form-select {
+		background-color: #252b33 !important;
+		border-color: #66758c !important;
+		color: #f2f2f2 !important;
+	}
+
 	.menu {
 		box-shadow: 0 0.05rem 0.2rem rgba(48, 55, 66, 0.3);
 		background: #fff;
@@ -751,5 +831,44 @@
 	}
 	.menu :global(.divider):not(:first-child) {
 		margin-top: 1.5em !important;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		.menu {
+			background: #252b33;
+		}
+		.menu:not(.menu-nav) {
+			box-shadow: 0 0.05rem 0.2rem #101216;
+		}
+		.menu .menu-item > a:focus,
+		.menu .menu-item > a:hover,
+		.menu .menu-item > a:active,
+		.menu .menu-item > a.active {
+			background: #343a51 !important;
+		}
+		.menu .menu-item:focus,
+		.menu .menu-item:hover,
+		.menu .menu-item:active,
+		.menu .menu-item.active {
+			background: #343a51 !important;
+		}
+	}
+	[color-scheme='dark'] .menu {
+		background: #252b33;
+	}
+	[color-scheme='dark'] .menu:not(.menu-nav) {
+		box-shadow: 0 0.05rem 0.2rem #101216;
+	}
+	[color-scheme='dark'] .menu .menu-item > a:focus,
+	[color-scheme='dark'] .menu .menu-item > a:hover,
+	[color-scheme='dark'] .menu .menu-item > a:active,
+	[color-scheme='dark'] .menu .menu-item > a.active {
+		background: #343a51 !important;
+	}
+	[color-scheme='dark'] .menu .menu-item:focus,
+	[color-scheme='dark'] .menu .menu-item:hover,
+	[color-scheme='dark'] .menu .menu-item:active,
+	[color-scheme='dark'] .menu .menu-item.active {
+		background: #343a51 !important;
 	}
 </style>

@@ -28,9 +28,21 @@
 		z-index: 500 !important;
 		:not(.popover-transparent) & {
 			background: $light-color;
+			@media (prefers-color-scheme: dark) {
+				background: $dark-background;
+			}
+			[color-scheme='dark'] {
+				background: $dark-background;
+			}
 		}
 		.popover-shadowed & {
 			@include shadow-variant(0.2rem);
+			@media (prefers-color-scheme: dark) {
+				box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3);
+			}
+			[color-scheme='dark'] {
+				box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3);
+			}
 		}
 	}
 </style>

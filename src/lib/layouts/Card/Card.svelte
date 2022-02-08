@@ -62,28 +62,45 @@
 <style lang="scss">
 	:global(.spectre) {
 		@import 'spectre.css/src/cards';
-	}
-	.card {
-		margin: 0;
-		.card-title,
-		.card-subtitle {
-			word-break: break-all;
-		}
-		&.card-clear {
-			background: 0 0;
-			border: 0;
-		}
-		&.card-flat {
-			border: 0;
-		}
-		&.card-outlined {
-			background: 0 0;
-		}
-		&.card-shadowed {
-			box-shadow: 0 0.25rem 1rem rgba($dark-color, 0.15);
-		}
-		&.card-expand {
-			height: 100%;
+
+		.card {
+			margin: 0;
+			.card-title,
+			.card-subtitle {
+				word-break: break-all;
+			}
+			&.card-clear {
+				background: 0 0;
+				border: 0;
+			}
+			&.card-flat {
+				border: 0;
+			}
+			&.card-outlined {
+				background: 0 0;
+			}
+			&.card-shadowed {
+				box-shadow: 0 0.25rem 1rem rgba($dark-color, 0.15);
+			}
+			&.card-expand {
+				height: 100%;
+			}
+			@media (prefers-color-scheme: dark) {
+				background: $dark-background;
+				border-color: $dark-color;
+
+				&.card-shadowed {
+					box-shadow: 0 0.25rem 1rem rgba($dark-shadow, 0.45);
+				}
+			}
+			[color-scheme='dark'] {
+				background: $dark-background;
+				border-color: $dark-color;
+
+				&.card-shadowed {
+					box-shadow: 0 0.25rem 1rem rgba($dark-shadow, 0.45);
+				}
+			}
 		}
 	}
 </style>

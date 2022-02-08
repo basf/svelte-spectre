@@ -46,6 +46,86 @@
 </script>
 
 <style>
+	.bg-darked {
+		background: #252b33 !important;
+		color: #fff;
+	}
+
+	.bg-secondary-darked {
+		background: #343a51 !important;
+		color: #fff;
+	}
+
+	.text-darked {
+		color: #f2f2f2 !important;
+	}
+
+	a.text-darked:focus,
+	a.text-darked:hover {
+		color: #e6e6e6;
+	}
+	a.text-darked:visited {
+		color: white;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			color-scheme: dark;
+		}
+
+		.form-input,
+		.form-select {
+			background-color: #252b33 !important;
+			border-color: #66758c !important;
+			color: #f2f2f2 !important;
+		}
+
+		.form-checkbox .form-icon,
+		.form-radio .form-icon,
+		.form-switch .form-icon {
+			border-color: #66758c !important;
+			background: #252b33 !important;
+		}
+
+		input:active + .form-icon {
+			background: #343a51 !important;
+		}
+		input:checked + .form-icon {
+			background: #5755d9 !important;
+		}
+
+		.badge[data-badge]::after,
+		.badge:not([data-badge])::after {
+			box-shadow: 0 0 0 0.1rem #252b33 !important;
+			color: #f2f2f2 !important;
+		}
+
+		code {
+			background: #afa2b1;
+			color: #413843;
+		}
+
+		.code {
+			color: #bcc3ce;
+		}
+		.code::before {
+			color: #bcc3ce;
+		}
+		.code code {
+			background: #303742;
+		}
+	}
+	[color-scheme='dark'] :root {
+		color-scheme: dark;
+	}
+	[color-scheme='dark'] .form-input,
+	[color-scheme='dark'] .form-checkbox .form-icon,
+	[color-scheme='dark'] .form-select {
+		background-color: #252b33 !important;
+		border-color: #66758c !important;
+		color: #f2f2f2 !important;
+	}
+
 	:global(.spectre) .modal,
 	:global(.spectre) .modal-fs,
 	:global(.spectre) .modal-lg,
@@ -188,37 +268,73 @@
 	:global(.spectre) .active.modal-sm {
 		z-index: 500;
 	}
-
-	.modal-container {
+	@media (prefers-color-scheme: dark) {
+		:global(.spectre) .modal:target .modal-overlay,
+		:global(.spectre) .modal-fs:target .modal-overlay,
+		:global(.spectre) .modal-lg:target .modal-overlay,
+		:global(.spectre) .modal-sm:target .modal-overlay,
+		:global(.spectre) .modal.active .modal-overlay,
+		:global(.spectre) .active.modal-fs .modal-overlay,
+		:global(.spectre) .active.modal-lg .modal-overlay,
+		:global(.spectre) .active.modal-sm .modal-overlay {
+			background: rgba(37, 43, 51, 0.69);
+		}
+		:global(.spectre) .modal .modal-container,
+		:global(.spectre) .modal-fs .modal-container,
+		:global(.spectre) .modal-lg .modal-container,
+		:global(.spectre) .modal-sm .modal-container {
+			box-shadow: #101216;
+			box-shadow: 0 0.2rem 0.5rem rgba(16, 18, 22, 0.3);
+			background: #252b33;
+		}
+	}
+	:global(.spectre) [color-scheme='dark'] .modal:target .modal-overlay,
+	:global(.spectre) [color-scheme='dark'] .modal-fs:target .modal-overlay,
+	:global(.spectre) [color-scheme='dark'] .modal-lg:target .modal-overlay,
+	:global(.spectre) [color-scheme='dark'] .modal-sm:target .modal-overlay,
+	:global(.spectre) [color-scheme='dark'] .modal.active .modal-overlay,
+	:global(.spectre) [color-scheme='dark'] .active.modal-fs .modal-overlay,
+	:global(.spectre) [color-scheme='dark'] .active.modal-lg .modal-overlay,
+	:global(.spectre) [color-scheme='dark'] .active.modal-sm .modal-overlay {
+		background: rgba(37, 43, 51, 0.69);
+	}
+	:global(.spectre) [color-scheme='dark'] .modal .modal-container,
+	:global(.spectre) [color-scheme='dark'] .modal-fs .modal-container,
+	:global(.spectre) [color-scheme='dark'] .modal-lg .modal-container,
+	:global(.spectre) [color-scheme='dark'] .modal-sm .modal-container {
+		box-shadow: #101216;
+		box-shadow: 0 0.2rem 0.5rem rgba(16, 18, 22, 0.3);
+		background: #252b33;
+	}
+	:global(.spectre) .modal-container {
 		position: relative;
 	}
-	.modal-container :global(#close) {
+	:global(.spectre) .modal-container :global(#close) {
 		position: absolute !important;
 		right: 0.8rem;
 		top: 0.8rem;
 		z-index: 1;
 	}
-	.modal-container .modal-header {
+	:global(.spectre) .modal-container .modal-header {
 		display: flex;
 		justify-content: space-between;
+		color: inherit;
 	}
-	.modal-container .modal-header > :global(*),
-	.modal-container .modal-footer > :global(*) {
+	:global(.spectre) .modal-container .modal-header > :global(*),
+	:global(.spectre) .modal-container .modal-footer > :global(*) {
 		margin-bottom: 0 !important;
 	}
-	.modal-container .modal-body {
+	:global(.spectre) .modal-container .modal-body {
 		flex: 1;
 	}
-
-	.modal-lg .modal-overlay,
-	.modal-fs .modal-overlay {
+	:global(.spectre) .modal-lg .modal-overlay,
+	:global(.spectre) .modal-fs .modal-overlay {
 		background: auto !important;
 	}
-
-	.modal-fs {
+	:global(.spectre) .modal-fs {
 		padding: 0 !important;
 	}
-	.modal-fs .modal-container {
+	:global(.spectre) .modal-fs .modal-container {
 		max-width: 100% !important;
 		max-height: 100%;
 		width: 100%;

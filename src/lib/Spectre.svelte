@@ -3,6 +3,19 @@
 </div>
 
 <style lang="scss">
+	@media (prefers-color-scheme: dark) {
+		:global(body) {
+			background: $dark-background;
+			color: $dark-text;
+		}
+	}
+	[color-scheme='dark'] {
+		:global(body) {
+			background: $dark-background;
+			color: $dark-text;
+		}
+	}
+
 	.spectre {
 		display: contents;
 		box-sizing: border-box;
@@ -16,6 +29,30 @@
 		-webkit-tap-highlight-color: transparent;
 		background: $body-bg;
 		color: $body-font-color;
+
+		@media (prefers-color-scheme: dark) {
+			background: $dark-background;
+			color: $dark-text;
+
+			code {
+				@include label-variant($dark-code, lighten($dark-code, 42.5%));
+			}
+			.code {
+				color: $gray-color;
+
+				&::before {
+					color: $gray-color;
+				}
+
+				code {
+					background: $bg-color;
+				}
+			}
+		}
+		[color-scheme='dark'] {
+			background: $dark-background;
+			color: $dark-text;
+		}
 
 		:global {
 			@import 'spectre.css/src/base';
@@ -123,6 +160,8 @@
 			@include padding-variant(7, $unit-7);
 			@include padding-variant(8, $unit-8);
 			@include padding-variant(9, $unit-9);
+
+			@include bg-color-variant('.bg-light', $light-color);
 		}
 	}
 </style>

@@ -120,6 +120,28 @@
 	@import 'spectre.css/src/icons';
 
 	:global(.spectre) {
+		@media (prefers-color-scheme: dark) {
+			.off-canvas {
+				.off-canvas-sidebar {
+					background: $dark-color;
+				}
+				.off-canvas-overlay {
+					background: $dark-overlay;
+				}
+			}
+		}
+
+		[color-scheme='dark'] {
+			.off-canvas {
+				.off-canvas-sidebar {
+					background: $dark-background;
+				}
+				.off-canvas-overlay {
+					background: rgba($dark-background, 0.69);
+				}
+			}
+		}
+
 		.z-300 {
 			z-index: $zindex-3;
 		}
