@@ -63,6 +63,16 @@
 		padding: 0.4rem;
 		z-index: 300;
 	}
+	@media (prefers-color-scheme: dark) {
+		.dropdown .menu {
+			background: #252b33;
+			box-shadow: 0 0.25rem 1rem rgba(16, 18, 22, 0.45);
+		}
+	}
+	.dropdown .menu [color-scheme='dark'] {
+		background: #252b33;
+		box-shadow: 0 0.25rem 1rem rgba(16, 18, 22, 0.45);
+	}
 	.dropdown.dropdown-center .menu {
 		--x: -50%;
 		--left: 50%;

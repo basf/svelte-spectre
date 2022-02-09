@@ -188,37 +188,35 @@
 	:global(.spectre) .active.modal-sm {
 		z-index: 500;
 	}
-
-	.modal-container {
+	:global(.spectre) .modal-container {
 		position: relative;
 	}
-	.modal-container :global(#close) {
+	:global(.spectre) .modal-container :global(#close) {
 		position: absolute !important;
 		right: 0.8rem;
 		top: 0.8rem;
 		z-index: 1;
 	}
-	.modal-container .modal-header {
+	:global(.spectre) .modal-container .modal-header {
 		display: flex;
 		justify-content: space-between;
+		color: inherit;
 	}
-	.modal-container .modal-header > :global(*),
-	.modal-container .modal-footer > :global(*) {
+	:global(.spectre) .modal-container .modal-header > :global(*),
+	:global(.spectre) .modal-container .modal-footer > :global(*) {
 		margin-bottom: 0 !important;
 	}
-	.modal-container .modal-body {
+	:global(.spectre) .modal-container .modal-body {
 		flex: 1;
 	}
-
-	.modal-lg .modal-overlay,
-	.modal-fs .modal-overlay {
+	:global(.spectre) .modal-lg .modal-overlay,
+	:global(.spectre) .modal-fs .modal-overlay {
 		background: auto !important;
 	}
-
-	.modal-fs {
+	:global(.spectre) .modal-fs {
 		padding: 0 !important;
 	}
-	.modal-fs .modal-container {
+	:global(.spectre) .modal-fs .modal-container {
 		max-width: 100% !important;
 		max-height: 100%;
 		width: 100%;

@@ -1,4 +1,4 @@
-<section class="bg-secondary px-2 s-rounded">
+<section class="bg-secondary px-2 s-rounded" class:bg-secondary-darked={$media.dark}>
 	<Grid>
 		{#each Object.keys(config) as key}
 			<Col col="auto">
@@ -54,6 +54,7 @@
 
 <script lang="ts">
 	import { Grid, Col } from '$lib';
+	import { media } from '../_media';
 
 	export let state: Record<string, unknown> = {};
 	export let config: Record<
@@ -104,4 +105,17 @@
 	input[type='button'] {
 		vertical-align: middle;
 	}
+
+	// @media (prefers-color-scheme: dark) {
+	// 	:root {
+	// 		color-scheme: dark;
+	// 	}
+	// 	.form-input,
+	// 	.form-checkbox .form-icon,
+	// 	.form-select {
+	// 		background-color: $dark-background !important;
+	// 		border-color: $gray-color-dark;
+	// 		color: $dark-text;
+	// 	}
+	// }
 </style>

@@ -13,7 +13,7 @@
 		bind:show
 		breakpoint={$page.url.pathname.includes('docs') ? 'xl' : Infinity}
 	>
-		<header class:bg-gray={!$page.url.pathname.includes('docs')}>
+		<header class:bg-light={!$media.dark} class:bg-darked={$media.dark}>
 			<Navbar>
 				<nav slot="left">
 					{#if !show}
@@ -23,7 +23,13 @@
 					{/if}
 				</nav>
 
-				<IconButton slot="center" size="xl" iconSize="3x" color="dark" href={`${base}/`}>
+				<IconButton
+					slot="center"
+					size="xl"
+					iconSize="3x"
+					color={$media.dark ? 'gray' : 'dark'}
+					href={`${base}/`}
+				>
 					<Xray />
 				</IconButton>
 
@@ -203,6 +209,7 @@
 	import Xray from '$assets/b-science.svg';
 	import GitHub from '$assets/github.svg';
 	import Icon from '$lib/components/Icon';
+	import { media } from './_media';
 
 	let openLeft = false,
 		openRight = false,
@@ -228,6 +235,7 @@
 
 <style lang="scss" global>
 	@import 'app';
+
 	nav#sidebar {
 		@import 'spectre.css/src/menus';
 		h5 {
@@ -272,7 +280,7 @@
 				position: sticky;
 				top: 0;
 				z-index: $zindex-2;
-				background: white;
+				// background: white;
 			}
 			main {
 				flex: 1 0 auto;
@@ -290,6 +298,77 @@
 			// border-left: 1px dashed $gray-color;
 			.code {
 				background: $light-color;
+			}
+		}
+	}
+
+	@media (prefers-color-scheme: dark) {
+		main code {
+			background: $dark-code;
+			color: $code-color;
+		}
+		nav#sidebar {
+			.menu {
+				background: transparent !important;
+				.menu-item > a {
+					color: $gray-color;
+					&:focus,
+					&:hover {
+						background: $dark-secondary;
+					}
+					&:active,
+					&.active {
+						background: $dark-secondary;
+					}
+				}
+			}
+		}
+		.off-canvas {
+			.off-canvas-sidebar.p-2.off-canvas-sidebar-right {
+				background: $dark-secondary !important;
+				code {
+					background: $dark-code;
+					color: $code-color;
+				}
+				.code {
+					color: $gray-color;
+					background: $dark-color !important;
+				}
+			}
+		}
+	}
+	[color-scheme='dark'] {
+		background: transparent !important;
+		main code {
+			background: $dark-code;
+			color: $code-color;
+		}
+		nav#sidebar {
+			.menu {
+				.menu-item > a {
+					color: $gray-color;
+					&:focus,
+					&:hover {
+						background: $dark-secondary;
+					}
+					&:active,
+					&.active {
+						background: $dark-secondary;
+					}
+				}
+			}
+		}
+		.off-canvas {
+			.off-canvas-sidebar.p-2.off-canvas-sidebar-right {
+				background: $dark-secondary !important;
+				code {
+					background: $dark-code;
+					color: $code-color;
+				}
+				.code {
+					color: $gray-color;
+					background: $dark-color !important;
+				}
 			}
 		}
 	}

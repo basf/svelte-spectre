@@ -5,6 +5,7 @@ title: Container
 
 <script>
     import {Button, Container} from '$lib'
+    import {media} from '../../_media'
 </script>
 
 # {title}
@@ -12,7 +13,7 @@ title: Container
 > 🚧 Under construction
 
 <Container>
-    <div class="bg-secondary p-2 text-center">I'm Container</div>
+    <div class="bg-secondary{$media.dark && '-darked'} p-2 text-center">I'm Container</div>
 </Container>
 
 <style>

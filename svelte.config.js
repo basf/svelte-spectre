@@ -23,6 +23,7 @@ const options = {
 		prependData: `
 			@import './node_modules/spectre.css/src/variables';
 			@import './node_modules/spectre.css/src/mixins';
+			@import './src/lib/dark';
 		`,
 		quietDeps: true,
 		renderSync: true,
@@ -71,8 +72,8 @@ export default {
 		package: {
 			dir: 'package',
 			// excludes all .d.ts and files starting with _ as the name
-			exports: (filepath) => !/^_|\/_|\.scss$/.test(filepath),
-			files: (filepath) => !/^_|\/_|\.scss$/.test(filepath),
+			// exports: (filepath) => !/^_|\/_|\.scss$/.test(filepath),
+			// files: (filepath) => !/^_|\/_|\.scss$/.test(filepath),
 			emitTypes: true,
 		},
 		vite: () => ({

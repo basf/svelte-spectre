@@ -34,8 +34,8 @@
 </script>
 
 <style lang="scss">
-	@import 'spectre.css/src/chips';
 	:global(.spectre) {
+		@import 'spectre.css/src/chips';
 		.chip {
 			:global(.avatar) {
 				margin-left: -$unit-2;

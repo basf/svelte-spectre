@@ -24,8 +24,11 @@
 <style lang="scss">
 	:global(.spectre) {
 		@import 'spectre.css/src/empty';
-	}
-	.empty > :global(:nth-child(n + 2) > *) {
-		margin: 0;
+
+		.empty {
+			& > :global(:nth-child(n + 2) > *) {
+				margin: 0;
+			}
+		}
 	}
 </style>

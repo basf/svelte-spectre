@@ -123,6 +123,688 @@
 			@include padding-variant(7, $unit-7);
 			@include padding-variant(8, $unit-8);
 			@include padding-variant(9, $unit-9);
+			@include bg-color-variant('.bg-light', $light-color);
+
+			@include bg-color-variant('.bg-darked', $dark-background);
+			@include bg-color-variant('.bg-secondary-darked', $dark-secondary);
+
+			@include text-color-variant('.text-darked', $dark-text);
+		}
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:global(:root) {
+			color-scheme: dark !important;
+		}
+		:global(body) {
+			background: $dark-background;
+			color: $dark-text;
+		}
+		.spectre {
+			background: $dark-background;
+			color: $dark-text;
+
+			:global {
+				//FORMS
+				.form-input,
+				.form-select {
+					background-color: $dark-background !important;
+					// border: 0.05rem solid $gray-color-dark;
+					color: $dark-text !important;
+				}
+				.form-checkbox .form-icon,
+				.form-radio .form-icon,
+				.form-switch .form-icon {
+					// border-color: $gray-color-dark;
+					background: $dark-background !important;
+				}
+				input:active + .form-icon {
+					background: $dark-secondary !important;
+				}
+
+				input:checked + .form-icon {
+					background: $primary-color !important;
+				}
+
+				// BADGE
+				.badge {
+					&[data-badge],
+					&:not([data-badge]) {
+						&::after {
+							box-shadow: 0 0 0 0.1rem $dark-background !important;
+							color: $dark-text !important;
+						}
+					}
+				}
+				.label {
+					&.label-default,
+					&.label-initial {
+						@include label-variant($dark-text, $dark-color);
+					}
+					&.label-secondary {
+						@include label-variant($primary-color, $dark-secondary);
+					}
+				}
+
+				// BUTTON
+				.btn {
+					&.btn-default {
+						@include label-variant($primary-color, $dark-background);
+						&:hover,
+						&:focus {
+							background: $dark-secondary;
+						}
+						&:active {
+							background: $primary-color;
+							color: $light-color;
+						}
+					}
+					&.btn-secondary {
+						@include label-variant($primary-color, $dark-secondary);
+						&:hover,
+						&:focus {
+							background: $dark-background;
+						}
+						&:active {
+							background: $primary-color;
+							color: $light-color;
+						}
+					}
+				}
+
+				// CHIP
+				.chip {
+					background-color: $dark-color !important;
+					color: $dark-text;
+				}
+
+				// PROGRESS
+				.progress {
+					background: $dark-color;
+					&:indeterminate {
+						background: $dark-color
+							linear-gradient(
+								to right,
+								var(--progress-color, $primary-color) 30%,
+								$dark-color 30%
+							)
+							top left / 150% 150% no-repeat;
+					}
+				}
+
+				// CARD
+				.card {
+					background: $dark-background !important;
+					border-color: $dark-color !important;
+
+					&.card-shadowed {
+						box-shadow: 0 0.25rem 1rem rgba($dark-shadow, 0.45) !important;
+					}
+				}
+
+				// CODE
+				code {
+					background: $dark-code;
+					color: $code-color;
+				}
+				.code {
+					color: $gray-color;
+					&::before {
+						color: $gray-color;
+					}
+					code {
+						background: $dark-color !important;
+						color: $gray-color !important;
+					}
+				}
+
+				// MENU
+				.menu {
+					background: $dark-background !important;
+					&:not(.menu-nav) {
+						box-shadow: 0 0.05rem 0.2rem $dark-shadow;
+					}
+					.menu-item {
+						& > a {
+							&:focus,
+							&:hover,
+							&:active,
+							&.active {
+								background: $dark-secondary !important;
+							}
+						}
+						&:focus,
+						&:hover,
+						&:active,
+						&.active {
+							background: $dark-secondary !important;
+						}
+					}
+				}
+
+				// DIVIDER
+				.divider,
+				.divider-vert {
+					&[data-content]::after {
+						background: $dark-background !important;
+					}
+				}
+				.divider {
+					border-color: $dark-color !important;
+				}
+				.divider-vert {
+					&::before {
+						border-color: $dark-color !important;
+					}
+				}
+
+				// TYPO
+				blockquote {
+					border-left-color: $gray-color-dark !important;
+				}
+
+				// AVATAR
+				.avatar {
+					.avatar-icon {
+						background: $dark-background;
+					}
+					.avatar-presence {
+						box-shadow: 0 0 0 0.1rem $dark-background;
+					}
+				}
+
+				// EMPTY
+				.empty {
+					background: $dark-color !important;
+				}
+
+				// MODAL
+				.modal {
+					&:target,
+					&.active {
+						.modal-overlay {
+							background: $dark-overlay !important;
+						}
+					}
+					.modal-container {
+						box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3) !important;
+						background: $dark-background !important;
+					}
+				}
+
+				// PANEL
+				.panel {
+					border-color: $dark-color;
+				}
+
+				// POPOVER
+				.popover-container {
+					background: $dark-background !important;
+				}
+				.popover-shadowed .popover-container {
+					box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3);
+				}
+
+				// SIDEBAR
+				.off-canvas {
+					.off-canvas-sidebar {
+						background: $dark-color !important;
+					}
+					.off-canvas-overlay {
+						background: $dark-overlay !important;
+					}
+				}
+			}
+		}
+	}
+	:global([color-scheme='dark']) {
+		:global {
+			color-scheme: dark !important;
+			body {
+				background: $dark-background;
+				color: $dark-text;
+			}
+		}
+		.spectre {
+			background: $dark-background;
+			color: $dark-text;
+
+			:global {
+				//FORMS
+				.form-input,
+				.form-select {
+					background-color: $dark-background !important;
+					// border: 0.05rem solid $gray-color-dark;
+					color: $dark-text !important;
+				}
+				.form-checkbox .form-icon,
+				.form-radio .form-icon,
+				.form-switch .form-icon {
+					// border-color: $gray-color-dark;
+					background: $dark-background !important;
+				}
+				input:active + .form-icon {
+					background: $dark-secondary !important;
+				}
+
+				input:checked + .form-icon {
+					background: $primary-color !important;
+				}
+
+				// BADGE
+				.badge {
+					&[data-badge],
+					&:not([data-badge]) {
+						&::after {
+							box-shadow: 0 0 0 0.1rem $dark-background !important;
+							color: $dark-text !important;
+						}
+					}
+				}
+				.label {
+					&.label-default,
+					&.label-initial {
+						@include label-variant($dark-text, $dark-color);
+					}
+					&.label-secondary {
+						@include label-variant($primary-color, $dark-secondary);
+					}
+				}
+
+				// BUTTON
+				.btn {
+					&.btn-default {
+						@include label-variant($primary-color, $dark-background);
+						&:hover,
+						&:focus {
+							background: $dark-secondary;
+						}
+						&:active {
+							background: $primary-color;
+							color: $light-color;
+						}
+					}
+					&.btn-secondary {
+						@include label-variant($primary-color, $dark-secondary);
+						&:hover,
+						&:focus {
+							background: $dark-background;
+						}
+						&:active {
+							background: $primary-color;
+							color: $light-color;
+						}
+					}
+				}
+
+				// CHIP
+				.chip {
+					background-color: $dark-color !important;
+					color: $dark-text;
+				}
+
+				// PROGRESS
+				.progress {
+					background: $dark-color;
+					&:indeterminate {
+						background: $dark-color
+							linear-gradient(
+								to right,
+								var(--progress-color, $primary-color) 30%,
+								$dark-color 30%
+							)
+							top left / 150% 150% no-repeat;
+					}
+				}
+
+				// CARD
+				.card {
+					background: $dark-background !important;
+					border-color: $dark-color !important;
+
+					&.card-shadowed {
+						box-shadow: 0 0.25rem 1rem rgba($dark-shadow, 0.45) !important;
+					}
+				}
+
+				// CODE
+				code {
+					background: $dark-code;
+					color: $code-color;
+				}
+				.code {
+					color: $gray-color;
+					&::before {
+						color: $gray-color;
+					}
+					code {
+						background: $dark-color !important;
+						color: $gray-color !important;
+					}
+				}
+
+				// MENU
+				.menu {
+					background: $dark-background !important;
+					&:not(.menu-nav) {
+						box-shadow: 0 0.05rem 0.2rem $dark-shadow;
+					}
+					.menu-item {
+						& > a {
+							&:focus,
+							&:hover,
+							&:active,
+							&.active {
+								background: $dark-secondary !important;
+							}
+						}
+						&:focus,
+						&:hover,
+						&:active,
+						&.active {
+							background: $dark-secondary !important;
+						}
+					}
+				}
+
+				// DIVIDER
+				.divider,
+				.divider-vert {
+					&[data-content]::after {
+						background: $dark-background !important;
+					}
+				}
+				.divider {
+					border-color: $dark-color !important;
+				}
+				.divider-vert {
+					&::before {
+						border-color: $dark-color !important;
+					}
+				}
+
+				// TYPO
+				blockquote {
+					border-left-color: $gray-color-dark !important;
+				}
+
+				// AVATAR
+				.avatar {
+					.avatar-icon {
+						background: $dark-background;
+					}
+					.avatar-presence {
+						box-shadow: 0 0 0 0.1rem $dark-background;
+					}
+				}
+
+				// EMPTY
+				.empty {
+					background: $dark-color !important;
+				}
+
+				// MODAL
+				.modal {
+					&:target,
+					&.active {
+						.modal-overlay {
+							background: $dark-overlay !important;
+						}
+					}
+					.modal-container {
+						box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3) !important;
+						background: $dark-background !important;
+					}
+				}
+
+				// PANEL
+				.panel {
+					border-color: $dark-color;
+				}
+
+				// POPOVER
+				.popover-container {
+					background: $dark-background !important;
+				}
+				.popover-shadowed .popover-container {
+					box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3);
+				}
+
+				// SIDEBAR
+				.off-canvas {
+					.off-canvas-sidebar {
+						background: $dark-color !important;
+					}
+					.off-canvas-overlay {
+						background: $dark-overlay !important;
+					}
+				}
+			}
+		}
+	}
+	:global([color-scheme='light']) {
+		:global {
+			color-scheme: light !important;
+			body {
+				background: $body-bg;
+				color: $body-font-color;
+			}
+		}
+		.spectre {
+			background: $bg-color-light;
+			color: $body-font-color;
+
+			:global {
+				//FORMS
+				.form-input,
+				.form-select {
+					background-color: $bg-color-light !important;
+					color: $body-font-color !important;
+				}
+				.form-checkbox .form-icon,
+				.form-radio .form-icon {
+					background: $bg-color-light !important;
+				}
+				.form-switch .form-icon {
+					background: $gray-color !important;
+				}
+
+				input:active + .form-icon {
+					background: $secondary-color !important;
+				}
+
+				input:checked + .form-icon {
+					background: $primary-color !important;
+				}
+
+				// BADGE
+				.badge {
+					&[data-badge],
+					&:not([data-badge]) {
+						&::after {
+							box-shadow: 0 0 0 0.1rem $bg-color-light !important;
+							color: $body-font-color !important;
+						}
+					}
+				}
+				.label {
+					&.label-default,
+					&.label-initial {
+						@include label-variant(lighten($body-font-color, 5%), $bg-color-dark);
+					}
+					&.label-secondary {
+						@include label-variant($primary-color, $secondary-color);
+					}
+				}
+
+				// BUTTON
+				.btn {
+					&.btn-default {
+						@include label-variant($primary-color, $bg-color-light);
+						&:hover,
+						&:focus {
+							background: $secondary-color;
+						}
+						&:active {
+							background: $primary-color;
+							color: $light-color;
+						}
+					}
+					&.btn-secondary {
+						@include label-variant($primary-color, $secondary-color);
+						&:hover,
+						&:focus {
+							background: $bg-color-light;
+						}
+						&:active {
+							background: $primary-color;
+							color: $light-color;
+						}
+					}
+				}
+
+				// CHIP
+				.chip {
+					background-color: $bg-color-dark !important;
+					color: $body-font-color;
+				}
+
+				// PROGRESS
+				.progress {
+					background: $bg-color-dark;
+					&:indeterminate {
+						background: $bg-color-dark
+							linear-gradient(
+								to right,
+								var(--progress-color, $primary-color) 30%,
+								$bg-color-dark 30%
+							)
+							top left / 150% 150% no-repeat;
+					}
+				}
+
+				// CARD
+				.card {
+					background: $bg-color-light !important;
+					border-color: $bg-color-dark !important;
+
+					&.card-shadowed {
+						box-shadow: 0 0.25rem 1rem rgba($dark-color, 0.45) !important;
+					}
+				}
+
+				// CODE
+				code {
+					@include label-variant($code-color, lighten($code-color, 42.5%));
+				}
+				.code {
+					color: $body-font-color;
+					&::before {
+						color: $gray-color;
+					}
+					code {
+						background: $bg-color !important;
+						color: inherit !important;
+					}
+				}
+
+				// MENU
+				.menu {
+					background: $bg-color-light !important;
+					&:not(.menu-nav) {
+						box-shadow: 0 0.05rem 0.2rem $dark-color;
+					}
+					.menu-item {
+						& > a {
+							&:focus,
+							&:hover,
+							&:active,
+							&.active {
+								background: $secondary-color !important;
+							}
+						}
+						&:focus,
+						&:hover,
+						&:active,
+						&.active {
+							background: $secondary-color !important;
+						}
+					}
+				}
+
+				// DIVIDER
+				.divider,
+				.divider-vert {
+					&[data-content]::after {
+						background: $bg-color-light !important;
+					}
+				}
+				.divider {
+					border-color: $border-color-light !important;
+				}
+				.divider-vert {
+					&::before {
+						border-color: $border-color-light !important;
+					}
+				}
+
+				// TYPO
+				blockquote {
+					border-left-color: $border-color !important;
+				}
+
+				// AVATAR
+				.avatar {
+					.avatar-icon {
+						background: $bg-color-light;
+					}
+					.avatar-presence {
+						box-shadow: 0 0 0 0.1rem $bg-color-light;
+					}
+				}
+
+				// EMPTY
+				.empty {
+					background: $bg-color !important;
+				}
+
+				// MODAL
+				.modal {
+					&:target,
+					&.active {
+						.modal-overlay {
+							background: rgba($bg-color, 0.75) !important;
+						}
+					}
+					.modal-container {
+						box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-color, 0.3) !important;
+						background: $bg-color-light !important;
+					}
+				}
+
+				// PANEL
+				.panel {
+					border-color: $bg-color-dark;
+				}
+
+				// POPOVER
+				.popover-container {
+					background: $bg-color-light !important;
+				}
+				.popover-shadowed .popover-container {
+					box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-color, 0.3);
+				}
+
+				// SIDEBAR
+				.off-canvas {
+					.off-canvas-sidebar {
+						background: $bg-color !important;
+					}
+					.off-canvas-overlay {
+						background: rgba($dark-color, 0.1) !important;
+					}
+				}
+			}
 		}
 	}
 </style>

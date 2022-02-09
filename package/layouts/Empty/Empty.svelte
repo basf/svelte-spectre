@@ -39,8 +39,7 @@
 	:global(.spectre) .empty .empty-action {
 		margin-top: 0.8rem;
 	}
-
-	.empty > :global(:nth-child(n + 2) > *) {
+	:global(.spectre) .empty > :global(:nth-child(n + 2) > *) {
 		margin: 0;
 	}
 </style>

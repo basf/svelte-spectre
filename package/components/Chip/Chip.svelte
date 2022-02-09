@@ -30,7 +30,7 @@
 
 <style>
 	@charset "UTF-8";
-	.chip {
+	:global(.spectre) .chip {
 		align-items: center;
 		background: #eef0f3;
 		border-radius: 5rem;
@@ -47,19 +47,18 @@
 		vertical-align: middle;
 		white-space: nowrap;
 	}
-	.chip.active {
+	:global(.spectre) .chip.active {
 		background: #5755d9;
 		color: #fff;
 	}
-	.chip .avatar {
+	:global(.spectre) .chip .avatar {
 		margin-left: -0.4rem;
 		margin-right: 0.2rem;
 	}
-	.chip .btn-clear {
+	:global(.spectre) .chip .btn-clear {
 		border-radius: 50%;
 		transform: scale(0.75);
 	}
-
 	:global(.spectre) .chip :global(.avatar) {
 		margin-left: -0.4rem;
 		margin-right: 0.4rem;

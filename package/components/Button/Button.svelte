@@ -278,27 +278,21 @@
 		align-items: center !important;
 		justify-content: center !important;
 	}
-
 	.btn.btn-xl {
 		height: 2.4rem !important;
 	}
-
-	.btn.btn-action.btn-xl {
-		width: 2.4rem !important;
-	}
-
 	.btn.btn-xxl {
 		height: 3.2rem !important;
 	}
-
-	.btn.btn-action.btn-xxl {
-		width: 3.2rem !important;
-	}
-
 	.btn.btn-xs {
 		height: 1.2rem !important;
 	}
-
+	.btn.btn-action.btn-xl {
+		width: 2.4rem !important;
+	}
+	.btn.btn-action.btn-xxl {
+		width: 3.2rem !important;
+	}
 	.btn.btn-action.btn-xs {
 		width: 1.2rem !important;
 	}

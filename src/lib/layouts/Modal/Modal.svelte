@@ -57,48 +57,49 @@
 		.modal.active {
 			z-index: 500;
 		}
-	}
-	.modal-container {
-		position: relative;
-		:global(#close) {
-			position: absolute !important;
-			right: $unit-4;
-			top: $unit-4;
-			z-index: 1;
-		}
-		.modal-header {
-			display: flex;
-			justify-content: space-between;
-		}
-		.modal-header,
-		.modal-footer {
-			& > :global(*) {
-				margin-bottom: 0 !important;
+		.modal-container {
+			position: relative;
+			:global(#close) {
+				position: absolute !important;
+				right: $unit-4;
+				top: $unit-4;
+				z-index: 1;
+			}
+			.modal-header {
+				display: flex;
+				justify-content: space-between;
+				color: inherit;
+			}
+			.modal-header,
+			.modal-footer {
+				& > :global(*) {
+					margin-bottom: 0 !important;
+				}
+			}
+			.modal-body {
+				flex: 1;
 			}
 		}
-		.modal-body {
-			flex: 1;
-		}
-	}
 
-	.modal-sm {
-		@extend .modal, .modal-sm;
-	}
-	.modal-lg {
-		@extend .modal, .modal-lg;
-		.modal-overlay {
-			background: auto !important;
+		.modal-sm {
+			@extend .modal, .modal-sm;
 		}
-	}
-	.modal-fs {
-		@extend .modal, .modal-lg;
-		padding: 0 !important;
-		.modal-container {
-			max-width: 100% !important;
-			max-height: 100%;
-			width: 100%;
-			height: 100%;
-			justify-content: space-between;
+		.modal-lg {
+			@extend .modal, .modal-lg;
+			.modal-overlay {
+				background: auto !important;
+			}
+		}
+		.modal-fs {
+			@extend .modal, .modal-lg;
+			padding: 0 !important;
+			.modal-container {
+				max-width: 100% !important;
+				max-height: 100%;
+				width: 100%;
+				height: 100%;
+				justify-content: space-between;
+			}
 		}
 	}
 </style>

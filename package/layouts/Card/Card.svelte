@@ -93,28 +93,27 @@
 		border-bottom-left-radius: 0.1rem;
 		border-bottom-right-radius: 0.1rem;
 	}
-
-	.card {
+	:global(.spectre) .card {
 		margin: 0;
 	}
-	.card .card-title,
-	.card .card-subtitle {
+	:global(.spectre) .card .card-title,
+	:global(.spectre) .card .card-subtitle {
 		word-break: break-all;
 	}
-	.card.card-clear {
+	:global(.spectre) .card.card-clear {
 		background: 0 0;
 		border: 0;
 	}
-	.card.card-flat {
+	:global(.spectre) .card.card-flat {
 		border: 0;
 	}
-	.card.card-outlined {
+	:global(.spectre) .card.card-outlined {
 		background: 0 0;
 	}
-	.card.card-shadowed {
+	:global(.spectre) .card.card-shadowed {
 		box-shadow: 0 0.25rem 1rem rgba(48, 55, 66, 0.15);
 	}
-	.card.card-expand {
+	:global(.spectre) .card.card-expand {
 		height: 100%;
 	}
 </style>
