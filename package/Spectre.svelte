@@ -2275,7 +2275,7 @@
 			background: rgba(37, 43, 51, 0.69) !important;
 		}
 	}
-	[color-scheme='dark'] :global(:root) {
+	[color-scheme='dark'] {
 		color-scheme: dark !important;
 	}
 	[color-scheme='dark'] :global(body) {
@@ -2437,7 +2437,7 @@
 		background: rgba(37, 43, 51, 0.69) !important;
 	}
 
-	[color-scheme='light'] :global(:root) {
+	[color-scheme='light'] {
 		color-scheme: light !important;
 	}
 	[color-scheme='light'] :global(body) {

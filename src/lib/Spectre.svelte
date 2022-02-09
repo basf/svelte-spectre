@@ -353,12 +353,12 @@
 		}
 	}
 	[color-scheme='dark'] {
-		:global(:root) {
+		:global {
 			color-scheme: dark !important;
-		}
-		:global(body) {
-			background: $dark-background;
-			color: $dark-text;
+			body {
+				background: $dark-background;
+				color: $dark-text;
+			}
 		}
 		.spectre {
 			background: $dark-background;
@@ -578,12 +578,12 @@
 		}
 	}
 	[color-scheme='light'] {
-		:global(:root) {
+		:global {
 			color-scheme: light !important;
-		}
-		:global(body) {
-			background: $body-bg;
-			color: $body-font-color;
+			body {
+				background: $body-bg;
+				color: $body-font-color;
+			}
 		}
 		.spectre {
 			background: $bg-color-light;
