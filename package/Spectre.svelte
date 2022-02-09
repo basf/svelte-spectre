@@ -2264,9 +2264,8 @@
 			background: rgba(37, 43, 51, 0.69) !important;
 		}
 		.spectre :global(.modal) :global(.modal-container) {
-			box-shadow: #101216;
-			box-shadow: 0 0.2rem 0.5rem rgba(16, 18, 22, 0.3);
-			background: #252b33;
+			box-shadow: 0 0.2rem 0.5rem rgba(16, 18, 22, 0.3) !important;
+			background: #252b33 !important;
 		}
 		.spectre :global(.panel) {
 			border-color: #303742;
@@ -2420,9 +2419,8 @@
 		background: rgba(37, 43, 51, 0.69) !important;
 	}
 	.spectre :global([color-scheme='dark']) :global(.modal) :global(.modal-container) {
-		box-shadow: #101216;
-		box-shadow: 0 0.2rem 0.5rem rgba(16, 18, 22, 0.3);
-		background: #252b33;
+		box-shadow: 0 0.2rem 0.5rem rgba(16, 18, 22, 0.3) !important;
+		background: #252b33 !important;
 	}
 	.spectre :global([color-scheme='dark']) :global(.panel) {
 		border-color: #303742;

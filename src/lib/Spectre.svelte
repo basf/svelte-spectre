@@ -330,9 +330,8 @@
 						}
 					}
 					.modal-container {
-						box-shadow: $dark-shadow;
-						box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3);
-						background: $dark-background;
+						box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3) !important;
+						background: $dark-background !important;
 					}
 				}
 
@@ -546,9 +545,8 @@
 						}
 					}
 					.modal-container {
-						box-shadow: $dark-shadow;
-						box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3);
-						background: $dark-background;
+						box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3) !important;
+						background: $dark-background !important;
 					}
 				}
 
