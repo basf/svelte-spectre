@@ -2275,327 +2275,334 @@
 			background: rgba(37, 43, 51, 0.69) !important;
 		}
 	}
-	[color-scheme='dark'] {
+	:global([color-scheme='dark']) {
 		color-scheme: dark !important;
 	}
-	[color-scheme='dark'] :global(body) {
+	:global([color-scheme='dark']) :global(body) {
 		background: #252b33;
 		color: #f2f2f2;
 	}
-	[color-scheme='dark'] .spectre {
+	:global([color-scheme='dark']) .spectre {
 		background: #252b33;
 		color: #f2f2f2;
 	}
-	[color-scheme='dark'] .spectre :global(.form-input),
-	[color-scheme='dark'] .spectre :global(.form-select) {
+	:global([color-scheme='dark']) .spectre :global(.form-input),
+	:global([color-scheme='dark']) .spectre :global(.form-select) {
 		background-color: #252b33 !important;
 		color: #f2f2f2 !important;
 	}
-	[color-scheme='dark'] .spectre :global(.form-checkbox) :global(.form-icon),
-	[color-scheme='dark'] .spectre :global(.form-radio) :global(.form-icon),
-	[color-scheme='dark'] .spectre :global(.form-switch) :global(.form-icon) {
+	:global([color-scheme='dark']) .spectre :global(.form-checkbox) :global(.form-icon),
+	:global([color-scheme='dark']) .spectre :global(.form-radio) :global(.form-icon),
+	:global([color-scheme='dark']) .spectre :global(.form-switch) :global(.form-icon) {
 		background: #252b33 !important;
 	}
-	[color-scheme='dark'] .spectre :global(input:active) + :global(.form-icon) {
+	:global([color-scheme='dark']) .spectre :global(input:active) + :global(.form-icon) {
 		background: #343a51 !important;
 	}
-	[color-scheme='dark'] .spectre :global(input:checked) + :global(.form-icon) {
+	:global([color-scheme='dark']) .spectre :global(input:checked) + :global(.form-icon) {
 		background: #5755d9 !important;
 	}
-	[color-scheme='dark'] .spectre :global(.badge[data-badge]::after),
-	[color-scheme='dark'] .spectre :global(.badge:not([data-badge])::after) {
+	:global([color-scheme='dark']) .spectre :global(.badge[data-badge]::after),
+	:global([color-scheme='dark']) .spectre :global(.badge:not([data-badge])::after) {
 		box-shadow: 0 0 0 0.1rem #252b33 !important;
 		color: #f2f2f2 !important;
 	}
-	[color-scheme='dark'] .spectre :global(.label.label-default),
-	[color-scheme='dark'] .spectre :global(.label.label-initial) {
+	:global([color-scheme='dark']) .spectre :global(.label.label-default),
+	:global([color-scheme='dark']) .spectre :global(.label.label-initial) {
 		background: #303742;
 		color: #f2f2f2;
 	}
-	[color-scheme='dark'] .spectre :global(.label.label-secondary) {
+	:global([color-scheme='dark']) .spectre :global(.label.label-secondary) {
 		background: #343a51;
 		color: #5755d9;
 	}
-	[color-scheme='dark'] .spectre :global(.btn.btn-default) {
+	:global([color-scheme='dark']) .spectre :global(.btn.btn-default) {
 		background: #252b33;
 		color: #5755d9;
 	}
-	[color-scheme='dark'] .spectre :global(.btn.btn-default:hover),
-	[color-scheme='dark'] .spectre :global(.btn.btn-default:focus) {
+	:global([color-scheme='dark']) .spectre :global(.btn.btn-default:hover),
+	:global([color-scheme='dark']) .spectre :global(.btn.btn-default:focus) {
 		background: #343a51;
 	}
-	[color-scheme='dark'] .spectre :global(.btn.btn-default:active) {
+	:global([color-scheme='dark']) .spectre :global(.btn.btn-default:active) {
 		background: #5755d9;
 		color: #fff;
 	}
-	[color-scheme='dark'] .spectre :global(.btn.btn-secondary) {
+	:global([color-scheme='dark']) .spectre :global(.btn.btn-secondary) {
 		background: #343a51;
 		color: #5755d9;
 	}
-	[color-scheme='dark'] .spectre :global(.btn.btn-secondary:hover),
-	[color-scheme='dark'] .spectre :global(.btn.btn-secondary:focus) {
+	:global([color-scheme='dark']) .spectre :global(.btn.btn-secondary:hover),
+	:global([color-scheme='dark']) .spectre :global(.btn.btn-secondary:focus) {
 		background: #252b33;
 	}
-	[color-scheme='dark'] .spectre :global(.btn.btn-secondary:active) {
+	:global([color-scheme='dark']) .spectre :global(.btn.btn-secondary:active) {
 		background: #5755d9;
 		color: #fff;
 	}
-	[color-scheme='dark'] .spectre :global(.chip) {
+	:global([color-scheme='dark']) .spectre :global(.chip) {
 		background-color: #303742 !important;
 		color: #f2f2f2;
 	}
-	[color-scheme='dark'] .spectre :global(.progress) {
+	:global([color-scheme='dark']) .spectre :global(.progress) {
 		background: #303742;
 	}
-	[color-scheme='dark'] .spectre :global(.progress:indeterminate) {
+	:global([color-scheme='dark']) .spectre :global(.progress:indeterminate) {
 		background: #303742
 			linear-gradient(to right, var(--progress-color, #5755d9) 30%, #303742 30%) top left/150%
 			150% no-repeat;
 	}
-	[color-scheme='dark'] .spectre :global(.card) {
+	:global([color-scheme='dark']) .spectre :global(.card) {
 		background: #252b33 !important;
 		border-color: #303742 !important;
 	}
-	[color-scheme='dark'] .spectre :global(.card.card-shadowed) {
+	:global([color-scheme='dark']) .spectre :global(.card.card-shadowed) {
 		box-shadow: 0 0.25rem 1rem rgba(16, 18, 22, 0.45) !important;
 	}
-	[color-scheme='dark'] .spectre :global(code) {
+	:global([color-scheme='dark']) .spectre :global(code) {
 		background: #413843;
 		color: #d73e48;
 	}
-	[color-scheme='dark'] .spectre :global(.code) {
+	:global([color-scheme='dark']) .spectre :global(.code) {
 		color: #bcc3ce;
 	}
-	[color-scheme='dark'] .spectre :global(.code::before) {
+	:global([color-scheme='dark']) .spectre :global(.code::before) {
 		color: #bcc3ce;
 	}
-	[color-scheme='dark'] .spectre :global(.code) :global(code) {
+	:global([color-scheme='dark']) .spectre :global(.code) :global(code) {
 		background: #303742 !important;
 		color: #bcc3ce !important;
 	}
-	[color-scheme='dark'] .spectre :global(.menu) {
+	:global([color-scheme='dark']) .spectre :global(.menu) {
 		background: #252b33 !important;
 	}
-	[color-scheme='dark'] .spectre :global(.menu:not(.menu-nav)) {
+	:global([color-scheme='dark']) .spectre :global(.menu:not(.menu-nav)) {
 		box-shadow: 0 0.05rem 0.2rem #101216;
 	}
-	[color-scheme='dark'] .spectre :global(.menu) :global(.menu-item) > :global(a:focus),
-	[color-scheme='dark'] .spectre :global(.menu) :global(.menu-item) > :global(a:hover),
-	[color-scheme='dark'] .spectre :global(.menu) :global(.menu-item) > :global(a:active),
-	[color-scheme='dark'] .spectre :global(.menu) :global(.menu-item) > :global(a.active) {
+	:global([color-scheme='dark']) .spectre :global(.menu) :global(.menu-item) > :global(a:focus),
+	:global([color-scheme='dark']) .spectre :global(.menu) :global(.menu-item) > :global(a:hover),
+	:global([color-scheme='dark']) .spectre :global(.menu) :global(.menu-item) > :global(a:active),
+	:global([color-scheme='dark']) .spectre :global(.menu) :global(.menu-item) > :global(a.active) {
 		background: #343a51 !important;
 	}
-	[color-scheme='dark'] .spectre :global(.menu) :global(.menu-item:focus),
-	[color-scheme='dark'] .spectre :global(.menu) :global(.menu-item:hover),
-	[color-scheme='dark'] .spectre :global(.menu) :global(.menu-item:active),
-	[color-scheme='dark'] .spectre :global(.menu) :global(.menu-item.active) {
+	:global([color-scheme='dark']) .spectre :global(.menu) :global(.menu-item:focus),
+	:global([color-scheme='dark']) .spectre :global(.menu) :global(.menu-item:hover),
+	:global([color-scheme='dark']) .spectre :global(.menu) :global(.menu-item:active),
+	:global([color-scheme='dark']) .spectre :global(.menu) :global(.menu-item.active) {
 		background: #343a51 !important;
 	}
-	[color-scheme='dark'] .spectre :global(.divider[data-content]::after),
-	[color-scheme='dark'] .spectre :global(.divider-vert[data-content]::after) {
+	:global([color-scheme='dark']) .spectre :global(.divider[data-content]::after),
+	:global([color-scheme='dark']) .spectre :global(.divider-vert[data-content]::after) {
 		background: #252b33 !important;
 	}
-	[color-scheme='dark'] .spectre :global(.divider) {
+	:global([color-scheme='dark']) .spectre :global(.divider) {
 		border-color: #303742 !important;
 	}
-	[color-scheme='dark'] .spectre :global(.divider-vert::before) {
+	:global([color-scheme='dark']) .spectre :global(.divider-vert::before) {
 		border-color: #303742 !important;
 	}
-	[color-scheme='dark'] .spectre :global(blockquote) {
+	:global([color-scheme='dark']) .spectre :global(blockquote) {
 		border-left-color: #66758c !important;
 	}
-	[color-scheme='dark'] .spectre :global(.avatar) :global(.avatar-icon) {
+	:global([color-scheme='dark']) .spectre :global(.avatar) :global(.avatar-icon) {
 		background: #252b33;
 	}
-	[color-scheme='dark'] .spectre :global(.avatar) :global(.avatar-presence) {
+	:global([color-scheme='dark']) .spectre :global(.avatar) :global(.avatar-presence) {
 		box-shadow: 0 0 0 0.1rem #252b33;
 	}
-	[color-scheme='dark'] .spectre :global(.empty) {
+	:global([color-scheme='dark']) .spectre :global(.empty) {
 		background: #303742 !important;
 	}
-	[color-scheme='dark'] .spectre :global(.modal:target) :global(.modal-overlay),
-	[color-scheme='dark'] .spectre :global(.modal.active) :global(.modal-overlay) {
+	:global([color-scheme='dark']) .spectre :global(.modal:target) :global(.modal-overlay),
+	:global([color-scheme='dark']) .spectre :global(.modal.active) :global(.modal-overlay) {
 		background: rgba(37, 43, 51, 0.69) !important;
 	}
-	[color-scheme='dark'] .spectre :global(.modal) :global(.modal-container) {
+	:global([color-scheme='dark']) .spectre :global(.modal) :global(.modal-container) {
 		box-shadow: 0 0.2rem 0.5rem rgba(16, 18, 22, 0.3) !important;
 		background: #252b33 !important;
 	}
-	[color-scheme='dark'] .spectre :global(.panel) {
+	:global([color-scheme='dark']) .spectre :global(.panel) {
 		border-color: #303742;
 	}
-	[color-scheme='dark'] .spectre :global(.popover-container) {
+	:global([color-scheme='dark']) .spectre :global(.popover-container) {
 		background: #252b33 !important;
 	}
-	[color-scheme='dark'] .spectre :global(.popover-shadowed) :global(.popover-container) {
+	:global([color-scheme='dark']) .spectre :global(.popover-shadowed) :global(.popover-container) {
 		box-shadow: 0 0.2rem 0.5rem rgba(16, 18, 22, 0.3);
 	}
-	[color-scheme='dark'] .spectre :global(.off-canvas) :global(.off-canvas-sidebar) {
+	:global([color-scheme='dark']) .spectre :global(.off-canvas) :global(.off-canvas-sidebar) {
 		background: #303742 !important;
 	}
-	[color-scheme='dark'] .spectre :global(.off-canvas) :global(.off-canvas-overlay) {
+	:global([color-scheme='dark']) .spectre :global(.off-canvas) :global(.off-canvas-overlay) {
 		background: rgba(37, 43, 51, 0.69) !important;
 	}
 
-	[color-scheme='light'] {
+	:global([color-scheme='light']) {
 		color-scheme: light !important;
 	}
-	[color-scheme='light'] :global(body) {
+	:global([color-scheme='light']) :global(body) {
 		background: #fff;
 		color: #3b4351;
 	}
-	[color-scheme='light'] .spectre {
+	:global([color-scheme='light']) .spectre {
 		background: #fff;
 		color: #3b4351;
 	}
-	[color-scheme='light'] .spectre :global(.form-input),
-	[color-scheme='light'] .spectre :global(.form-select) {
+	:global([color-scheme='light']) .spectre :global(.form-input),
+	:global([color-scheme='light']) .spectre :global(.form-select) {
 		background-color: #fff !important;
 		color: #3b4351 !important;
 	}
-	[color-scheme='light'] .spectre :global(.form-checkbox) :global(.form-icon),
-	[color-scheme='light'] .spectre :global(.form-radio) :global(.form-icon),
-	[color-scheme='light'] .spectre :global(.form-switch) :global(.form-icon) {
+	:global([color-scheme='light']) .spectre :global(.form-checkbox) :global(.form-icon),
+	:global([color-scheme='light']) .spectre :global(.form-radio) :global(.form-icon),
+	:global([color-scheme='light']) .spectre :global(.form-switch) :global(.form-icon) {
 		background: #fff !important;
 	}
-	[color-scheme='light'] .spectre :global(input:active) + :global(.form-icon) {
+	:global([color-scheme='light']) .spectre :global(input:active) + :global(.form-icon) {
 		background: #f1f1fc !important;
 	}
-	[color-scheme='light'] .spectre :global(input:checked) + :global(.form-icon) {
+	:global([color-scheme='light']) .spectre :global(input:checked) + :global(.form-icon) {
 		background: #5755d9 !important;
 	}
-	[color-scheme='light'] .spectre :global(.badge[data-badge]::after),
-	[color-scheme='light'] .spectre :global(.badge:not([data-badge])::after) {
+	:global([color-scheme='light']) .spectre :global(.badge[data-badge]::after),
+	:global([color-scheme='light']) .spectre :global(.badge:not([data-badge])::after) {
 		box-shadow: 0 0 0 0.1rem #fff !important;
 		color: #3b4351 !important;
 	}
-	[color-scheme='light'] .spectre :global(.label.label-default),
-	[color-scheme='light'] .spectre :global(.label.label-initial) {
+	:global([color-scheme='light']) .spectre :global(.label.label-default),
+	:global([color-scheme='light']) .spectre :global(.label.label-initial) {
 		background: #eef0f3;
 		color: #455060;
 	}
-	[color-scheme='light'] .spectre :global(.label.label-secondary) {
+	:global([color-scheme='light']) .spectre :global(.label.label-secondary) {
 		background: #f1f1fc;
 		color: #5755d9;
 	}
-	[color-scheme='light'] .spectre :global(.btn.btn-default) {
+	:global([color-scheme='light']) .spectre :global(.btn.btn-default) {
 		background: #fff;
 		color: #5755d9;
 	}
-	[color-scheme='light'] .spectre :global(.btn.btn-default:hover),
-	[color-scheme='light'] .spectre :global(.btn.btn-default:focus) {
+	:global([color-scheme='light']) .spectre :global(.btn.btn-default:hover),
+	:global([color-scheme='light']) .spectre :global(.btn.btn-default:focus) {
 		background: #f1f1fc;
 	}
-	[color-scheme='light'] .spectre :global(.btn.btn-default:active) {
+	:global([color-scheme='light']) .spectre :global(.btn.btn-default:active) {
 		background: #5755d9;
 		color: #fff;
 	}
-	[color-scheme='light'] .spectre :global(.btn.btn-secondary) {
+	:global([color-scheme='light']) .spectre :global(.btn.btn-secondary) {
 		background: #f1f1fc;
 		color: #5755d9;
 	}
-	[color-scheme='light'] .spectre :global(.btn.btn-secondary:hover),
-	[color-scheme='light'] .spectre :global(.btn.btn-secondary:focus) {
+	:global([color-scheme='light']) .spectre :global(.btn.btn-secondary:hover),
+	:global([color-scheme='light']) .spectre :global(.btn.btn-secondary:focus) {
 		background: #fff;
 	}
-	[color-scheme='light'] .spectre :global(.btn.btn-secondary:active) {
+	:global([color-scheme='light']) .spectre :global(.btn.btn-secondary:active) {
 		background: #5755d9;
 		color: #fff;
 	}
-	[color-scheme='light'] .spectre :global(.chip) {
+	:global([color-scheme='light']) .spectre :global(.chip) {
 		background-color: #eef0f3 !important;
 		color: #3b4351;
 	}
-	[color-scheme='light'] .spectre :global(.progress) {
+	:global([color-scheme='light']) .spectre :global(.progress) {
 		background: #eef0f3;
 	}
-	[color-scheme='light'] .spectre :global(.progress:indeterminate) {
+	:global([color-scheme='light']) .spectre :global(.progress:indeterminate) {
 		background: #eef0f3
 			linear-gradient(to right, var(--progress-color, #5755d9) 30%, #eef0f3 30%) top left/150%
 			150% no-repeat;
 	}
-	[color-scheme='light'] .spectre :global(.card) {
+	:global([color-scheme='light']) .spectre :global(.card) {
 		background: #fff !important;
 		border-color: #eef0f3 !important;
 	}
-	[color-scheme='light'] .spectre :global(.card.card-shadowed) {
+	:global([color-scheme='light']) .spectre :global(.card.card-shadowed) {
 		box-shadow: 0 0.25rem 1rem rgba(48, 55, 66, 0.45) !important;
 	}
-	[color-scheme='light'] .spectre :global(code) {
+	:global([color-scheme='light']) .spectre :global(code) {
 		background: #fcf2f2;
 		color: #d73e48;
 	}
-	[color-scheme='light'] .spectre :global(.code) {
+	:global([color-scheme='light']) .spectre :global(.code) {
 		color: #3b4351;
 	}
-	[color-scheme='light'] .spectre :global(.code::before) {
+	:global([color-scheme='light']) .spectre :global(.code::before) {
 		color: #bcc3ce;
 	}
-	[color-scheme='light'] .spectre :global(.code) :global(code) {
+	:global([color-scheme='light']) .spectre :global(.code) :global(code) {
 		background: #f7f8f9 !important;
 		color: inherit !important;
 	}
-	[color-scheme='light'] .spectre :global(.menu) {
+	:global([color-scheme='light']) .spectre :global(.menu) {
 		background: #fff !important;
 	}
-	[color-scheme='light'] .spectre :global(.menu:not(.menu-nav)) {
+	:global([color-scheme='light']) .spectre :global(.menu:not(.menu-nav)) {
 		box-shadow: 0 0.05rem 0.2rem #303742;
 	}
-	[color-scheme='light'] .spectre :global(.menu) :global(.menu-item) > :global(a:focus),
-	[color-scheme='light'] .spectre :global(.menu) :global(.menu-item) > :global(a:hover),
-	[color-scheme='light'] .spectre :global(.menu) :global(.menu-item) > :global(a:active),
-	[color-scheme='light'] .spectre :global(.menu) :global(.menu-item) > :global(a.active) {
+	:global([color-scheme='light']) .spectre :global(.menu) :global(.menu-item) > :global(a:focus),
+	:global([color-scheme='light']) .spectre :global(.menu) :global(.menu-item) > :global(a:hover),
+	:global([color-scheme='light']) .spectre :global(.menu) :global(.menu-item) > :global(a:active),
+	:global([color-scheme='light'])
+		.spectre
+		:global(.menu)
+		:global(.menu-item)
+		> :global(a.active) {
 		background: #f1f1fc !important;
 	}
-	[color-scheme='light'] .spectre :global(.menu) :global(.menu-item:focus),
-	[color-scheme='light'] .spectre :global(.menu) :global(.menu-item:hover),
-	[color-scheme='light'] .spectre :global(.menu) :global(.menu-item:active),
-	[color-scheme='light'] .spectre :global(.menu) :global(.menu-item.active) {
+	:global([color-scheme='light']) .spectre :global(.menu) :global(.menu-item:focus),
+	:global([color-scheme='light']) .spectre :global(.menu) :global(.menu-item:hover),
+	:global([color-scheme='light']) .spectre :global(.menu) :global(.menu-item:active),
+	:global([color-scheme='light']) .spectre :global(.menu) :global(.menu-item.active) {
 		background: #f1f1fc !important;
 	}
-	[color-scheme='light'] .spectre :global(.divider[data-content]::after),
-	[color-scheme='light'] .spectre :global(.divider-vert[data-content]::after) {
+	:global([color-scheme='light']) .spectre :global(.divider[data-content]::after),
+	:global([color-scheme='light']) .spectre :global(.divider-vert[data-content]::after) {
 		background: #fff !important;
 	}
-	[color-scheme='light'] .spectre :global(.divider) {
+	:global([color-scheme='light']) .spectre :global(.divider) {
 		border-color: #f1f3f5 !important;
 	}
-	[color-scheme='light'] .spectre :global(.divider-vert::before) {
+	:global([color-scheme='light']) .spectre :global(.divider-vert::before) {
 		border-color: #f1f3f5 !important;
 	}
-	[color-scheme='light'] .spectre :global(blockquote) {
+	:global([color-scheme='light']) .spectre :global(blockquote) {
 		border-left-color: #dadee4 !important;
 	}
-	[color-scheme='light'] .spectre :global(.avatar) :global(.avatar-icon) {
+	:global([color-scheme='light']) .spectre :global(.avatar) :global(.avatar-icon) {
 		background: #fff;
 	}
-	[color-scheme='light'] .spectre :global(.avatar) :global(.avatar-presence) {
+	:global([color-scheme='light']) .spectre :global(.avatar) :global(.avatar-presence) {
 		box-shadow: 0 0 0 0.1rem #fff;
 	}
-	[color-scheme='light'] .spectre :global(.empty) {
+	:global([color-scheme='light']) .spectre :global(.empty) {
 		background: #f7f8f9 !important;
 	}
-	[color-scheme='light'] .spectre :global(.modal:target) :global(.modal-overlay),
-	[color-scheme='light'] .spectre :global(.modal.active) :global(.modal-overlay) {
+	:global([color-scheme='light']) .spectre :global(.modal:target) :global(.modal-overlay),
+	:global([color-scheme='light']) .spectre :global(.modal.active) :global(.modal-overlay) {
 		background: rgba(247, 248, 249, 0.75) !important;
 	}
-	[color-scheme='light'] .spectre :global(.modal) :global(.modal-container) {
+	:global([color-scheme='light']) .spectre :global(.modal) :global(.modal-container) {
 		box-shadow: 0 0.2rem 0.5rem rgba(48, 55, 66, 0.3) !important;
 		background: #fff !important;
 	}
-	[color-scheme='light'] .spectre :global(.panel) {
+	:global([color-scheme='light']) .spectre :global(.panel) {
 		border-color: #eef0f3;
 	}
-	[color-scheme='light'] .spectre :global(.popover-container) {
+	:global([color-scheme='light']) .spectre :global(.popover-container) {
 		background: #fff !important;
 	}
-	[color-scheme='light'] .spectre :global(.popover-shadowed) :global(.popover-container) {
+	:global([color-scheme='light'])
+		.spectre
+		:global(.popover-shadowed)
+		:global(.popover-container) {
 		box-shadow: 0 0.2rem 0.5rem rgba(48, 55, 66, 0.3);
 	}
-	[color-scheme='light'] .spectre :global(.off-canvas) :global(.off-canvas-sidebar) {
+	:global([color-scheme='light']) .spectre :global(.off-canvas) :global(.off-canvas-sidebar) {
 		background: #f7f8f9 !important;
 	}
-	[color-scheme='light'] .spectre :global(.off-canvas) :global(.off-canvas-overlay) {
+	:global([color-scheme='light']) .spectre :global(.off-canvas) :global(.off-canvas-overlay) {
 		background: rgba(48, 55, 66, 0.1) !important;
 	}
 </style>

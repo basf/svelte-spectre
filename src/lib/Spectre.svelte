@@ -352,7 +352,7 @@
 			}
 		}
 	}
-	[color-scheme='dark'] {
+	:global([color-scheme='dark']) {
 		:global {
 			color-scheme: dark !important;
 			body {
@@ -577,7 +577,7 @@
 			}
 		}
 	}
-	[color-scheme='light'] {
+	:global([color-scheme='light']) {
 		:global {
 			color-scheme: light !important;
 			body {
