@@ -4,12 +4,18 @@
 
 <style lang="scss">
 	@media (prefers-color-scheme: dark) {
+		:global(:root) {
+			color-scheme: dark !important;
+		}
 		:global(body) {
 			background: $dark-background;
 			color: $dark-text;
 		}
 	}
 	[color-scheme='dark'] {
+		:global(:root) {
+			color-scheme: dark !important;
+		}
 		:global(body) {
 			background: $dark-background;
 			color: $dark-text;
@@ -137,84 +143,437 @@
 			@include padding-variant(8, $unit-8);
 			@include padding-variant(9, $unit-9);
 			@include bg-color-variant('.bg-light', $light-color);
-		}
 
-		@media (prefers-color-scheme: dark) {
-			background: $dark-background;
-			color: $dark-text;
+			@media (prefers-color-scheme: dark) {
+				background: $dark-background;
+				color: $dark-text;
 
-			:global(:root) {
-				color-scheme: dark;
-			}
-			:global(.form-input),
-			:global(.form-select) {
-				background-color: $dark-background !important;
-				border-color: $gray-color-dark !important;
-				color: $dark-text !important;
-			}
-			:global(.form-checkbox .form-icon),
-			:global(.form-radio .form-icon),
-			:global(.form-switch .form-icon) {
-				border-color: $gray-color-dark !important;
-				background: $dark-background !important;
-			}
-			:global(input:active + .form-icon) {
-				background: $dark-secondary !important;
-			}
+				//FORMS
+				.form-input,
+				.form-select {
+					background-color: $dark-background !important;
+					// border: 0.05rem solid $gray-color-dark;
+					color: $dark-text !important;
+				}
+				.form-checkbox .form-icon,
+				.form-radio .form-icon,
+				.form-switch .form-icon {
+					// border-color: $gray-color-dark;
+					background: $dark-background !important;
+				}
+				input:active + .form-icon {
+					background: $dark-secondary !important;
+				}
 
-			:global(input:checked + .form-icon) {
-				background: $primary-color !important;
-			}
-			:global(.badge) {
-				&[data-badge],
-				&:not([data-badge]) {
-					&::after {
-						box-shadow: 0 0 0 0.1rem $dark-background !important;
-						color: $dark-text !important;
+				input:checked + .form-icon {
+					background: $primary-color !important;
+				}
+
+				// BADGE
+				.badge {
+					&[data-badge],
+					&:not([data-badge]) {
+						&::after {
+							box-shadow: 0 0 0 0.1rem $dark-background !important;
+							color: $dark-text !important;
+						}
+					}
+				}
+				.label {
+					&.label-default,
+					&.label-initial {
+						@include label-variant($dark-text, $dark-color);
+					}
+					&.label-secondary {
+						@include label-variant($primary-color, $dark-secondary);
+					}
+				}
+
+				// BUTTON
+				.btn {
+					&.btn-default {
+						@include label-variant($primary-color, $dark-background);
+						&:hover,
+						&:focus {
+							background: $dark-secondary;
+						}
+						&:active {
+							background: $primary-color;
+							color: $light-color;
+						}
+					}
+					&.btn-secondary {
+						@include label-variant($primary-color, $dark-secondary);
+						&:hover,
+						&:focus {
+							background: $dark-background;
+						}
+						&:active {
+							background: $primary-color;
+							color: $light-color;
+						}
+					}
+				}
+
+				// CHIP
+				.chip {
+					background-color: $dark-color !important;
+					color: $dark-text;
+				}
+
+				// PROGRESS
+				.progress {
+					background: $dark-color;
+					&:indeterminate {
+						background: $dark-color
+							linear-gradient(
+								to right,
+								var(--progress-color, $primary-color) 30%,
+								$dark-color 30%
+							)
+							top left / 150% 150% no-repeat;
+					}
+				}
+
+				// CARD
+				.card {
+					background: $dark-background !important;
+					border-color: $dark-color !important;
+
+					&.card-shadowed {
+						box-shadow: 0 0.25rem 1rem rgba($dark-shadow, 0.45) !important;
+					}
+				}
+
+				// CODE
+				code {
+					background: $dark-code;
+					color: $code-color;
+				}
+				.code {
+					color: $gray-color;
+					&::before {
+						color: $gray-color;
+					}
+					code {
+						background: $dark-color !important;
+						color: $gray-color !important;
+					}
+				}
+
+				// MENU
+				.menu {
+					background: $dark-background !important;
+					&:not(.menu-nav) {
+						box-shadow: 0 0.05rem 0.2rem $dark-shadow;
+					}
+					.menu-item {
+						& > a {
+							&:focus,
+							&:hover,
+							&:active,
+							&.active {
+								background: $dark-secondary !important;
+							}
+						}
+						&:focus,
+						&:hover,
+						&:active,
+						&.active {
+							background: $dark-secondary !important;
+						}
+					}
+				}
+
+				// DIVIDER
+				.divider,
+				.divider-vert {
+					&[data-content]::after {
+						background: $dark-background !important;
+					}
+				}
+				.divider {
+					border-color: $dark-color !important;
+				}
+				.divider-vert {
+					&::before {
+						border-color: $dark-color !important;
+					}
+				}
+
+				// TYPO
+				blockquote {
+					border-left-color: $gray-color-dark !important;
+				}
+
+				// AVATAR
+				.avatar {
+					.avatar-icon {
+						background: $dark-background;
+					}
+					.avatar-presence {
+						box-shadow: 0 0 0 0.1rem $dark-background;
+					}
+				}
+
+				// EMPTY
+				.empty {
+					background: $dark-color !important;
+				}
+
+				// MODAL
+				.modal {
+					&:target,
+					&.active {
+						.modal-overlay {
+							background: $dark-overlay !important;
+						}
+					}
+					.modal-container {
+						box-shadow: $dark-shadow;
+						box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3);
+						background: $dark-background;
+					}
+				}
+
+				// PANEL
+				.panel {
+					border-color: $dark-color;
+				}
+
+				// POPOVER
+				.popover-container {
+					background: $dark-background !important;
+				}
+				.popover-shadowed .popover-container {
+					box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3);
+				}
+
+				// SIDEBAR
+				.off-canvas {
+					.off-canvas-sidebar {
+						background: $dark-color !important;
+					}
+					.off-canvas-overlay {
+						background: $dark-overlay !important;
 					}
 				}
 			}
-			:global(blockquote) {
-				border-left-color: $gray-color-dark !important;
-			}
-		}
-		[color-scheme='dark'] {
-			background: $dark-background;
-			color: $dark-text;
 
-			:global(:root) {
-				color-scheme: dark;
-			}
-			:global(.form-input),
-			:global(.form-select) {
-				background-color: $dark-background !important;
-				border-color: $gray-color-dark !important;
-				color: $dark-text !important;
-			}
-			:global(.form-checkbox .form-icon),
-			:global(.form-radio .form-icon),
-			:global(.form-switch .form-icon) {
-				border-color: $gray-color-dark !important;
-				background: $dark-background !important;
-			}
-			:global(input:active + .form-icon) {
-				background: $dark-secondary !important;
-			}
+			[color-scheme='dark'] {
+				background: $dark-background;
+				color: $dark-text;
 
-			:global(input:checked + .form-icon) {
-				background: $primary-color !important;
-			}
-			:global(.badge) {
-				&[data-badge],
-				&:not([data-badge]) {
-					&::after {
-						box-shadow: 0 0 0 0.1rem $dark-background !important;
-						color: $dark-text !important;
+				//FORMS
+				.form-input,
+				.form-select {
+					background-color: $dark-background !important;
+					// border: 0.05rem solid $gray-color-dark;
+					color: $dark-text !important;
+				}
+				.form-checkbox .form-icon,
+				.form-radio .form-icon,
+				.form-switch .form-icon {
+					// border-color: $gray-color-dark;
+					background: $dark-background !important;
+				}
+				input:active + .form-icon {
+					background: $dark-secondary !important;
+				}
+
+				input:checked + .form-icon {
+					background: $primary-color !important;
+				}
+
+				// BADGE
+				.badge {
+					&[data-badge],
+					&:not([data-badge]) {
+						&::after {
+							box-shadow: 0 0 0 0.1rem $dark-background !important;
+							color: $dark-text !important;
+						}
 					}
 				}
-			}
-			:global(blockquote) {
-				border-left-color: $gray-color-dark !important;
+				.label {
+					&.label-default,
+					&.label-initial {
+						@include label-variant($dark-text, $dark-color);
+					}
+					&.label-secondary {
+						@include label-variant($primary-color, $dark-secondary);
+					}
+				}
+
+				// BUTTON
+				.btn {
+					&.btn-default {
+						@include label-variant($primary-color, $dark-background);
+						&:hover,
+						&:focus {
+							background: $dark-secondary;
+						}
+						&:active {
+							background: $primary-color;
+							color: $light-color;
+						}
+					}
+					&.btn-secondary {
+						@include label-variant($primary-color, $dark-secondary);
+						&:hover,
+						&:focus {
+							background: $dark-background;
+						}
+						&:active {
+							background: $primary-color;
+							color: $light-color;
+						}
+					}
+				}
+
+				// CHIP
+				.chip {
+					background-color: $dark-color !important;
+					color: $dark-text;
+				}
+
+				// PROGRESS
+				.progress {
+					background: $dark-color;
+					&:indeterminate {
+						background: $dark-color
+							linear-gradient(
+								to right,
+								var(--progress-color, $primary-color) 30%,
+								$dark-color 30%
+							)
+							top left / 150% 150% no-repeat;
+					}
+				}
+
+				// CARD
+				.card {
+					background: $dark-background !important;
+					border-color: $dark-color !important;
+
+					&.card-shadowed {
+						box-shadow: 0 0.25rem 1rem rgba($dark-shadow, 0.45) !important;
+					}
+				}
+
+				// CODE
+				code {
+					background: $dark-code;
+					color: $code-color;
+				}
+				.code {
+					color: $gray-color;
+					&::before {
+						color: $gray-color;
+					}
+					code {
+						background: $dark-color !important;
+						color: $gray-color !important;
+					}
+				}
+
+				// MENU
+				.menu {
+					background: $dark-background !important;
+					&:not(.menu-nav) {
+						box-shadow: 0 0.05rem 0.2rem $dark-shadow;
+					}
+					.menu-item {
+						& > a {
+							&:focus,
+							&:hover,
+							&:active,
+							&.active {
+								background: $dark-secondary !important;
+							}
+						}
+						&:focus,
+						&:hover,
+						&:active,
+						&.active {
+							background: $dark-secondary !important;
+						}
+					}
+				}
+
+				// DIVIDER
+				.divider,
+				.divider-vert {
+					&[data-content]::after {
+						background: $dark-background !important;
+					}
+				}
+				.divider {
+					border-color: $dark-color !important;
+				}
+				.divider-vert {
+					&::before {
+						border-color: $dark-color !important;
+					}
+				}
+
+				// TYPO
+				blockquote {
+					border-left-color: $gray-color-dark !important;
+				}
+
+				// AVATAR
+				.avatar {
+					.avatar-icon {
+						background: $dark-background;
+					}
+					.avatar-presence {
+						box-shadow: 0 0 0 0.1rem $dark-background;
+					}
+				}
+
+				// EMPTY
+				.empty {
+					background: $dark-color !important;
+				}
+
+				// MODAL
+				.modal {
+					&:target,
+					&.active {
+						.modal-overlay {
+							background: $dark-overlay !important;
+						}
+					}
+					.modal-container {
+						box-shadow: $dark-shadow;
+						box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3);
+						background: $dark-background;
+					}
+				}
+
+				// PANEL
+				.panel {
+					border-color: $dark-color;
+				}
+
+				// POPOVER
+				.popover-container {
+					background: $dark-background !important;
+				}
+				.popover-shadowed .popover-container {
+					box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3);
+				}
+
+				// SIDEBAR
+				.off-canvas {
+					.off-canvas-sidebar {
+						background: $dark-color !important;
+					}
+					.off-canvas-overlay {
+						background: $dark-overlay !important;
+					}
+				}
 			}
 		}
 	}

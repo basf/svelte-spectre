@@ -72,8 +72,8 @@ export default {
 		package: {
 			dir: 'package',
 			// excludes all .d.ts and files starting with _ as the name
-			exports: (filepath) => !/^_|\/_|\.scss$/.test(filepath),
-			files: (filepath) => !/^_|\/_|\.scss$/.test(filepath),
+			// exports: (filepath) => !/^_|\/_|\.scss$/.test(filepath),
+			// files: (filepath) => !/^_|\/_|\.scss$/.test(filepath),
 			emitTypes: true,
 		},
 		vite: () => ({

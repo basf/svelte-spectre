@@ -75,24 +75,4 @@
 		padding-left: 0.5rem;
 		padding-right: 0.5rem;
 	}
-	@media (prefers-color-scheme: dark) {
-		:global(.spectre) .label.label-default,
-		:global(.spectre) .label.label-initial {
-			background: #303742;
-			color: #f2f2f2;
-		}
-		:global(.spectre) .label.label-secondary {
-			background: #343a51;
-			color: #5755d9;
-		}
-	}
-	:global(.spectre) .label [color-scheme='dark'].label-default,
-	:global(.spectre) .label [color-scheme='dark'].label-initial {
-		background: #303742;
-		color: #f2f2f2;
-	}
-	:global(.spectre) .label [color-scheme='dark'].label-secondary {
-		background: #343a51;
-		color: #5755d9;
-	}
 </style>

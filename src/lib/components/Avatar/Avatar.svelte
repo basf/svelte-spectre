@@ -92,23 +92,6 @@
 			&::before {
 				font-size: var(--fontSize);
 			}
-
-			@media (prefers-color-scheme: dark) {
-				.avatar-icon {
-					background: $dark-background;
-				}
-				.avatar-presence {
-					box-shadow: 0 0 0 0.1rem $dark-background;
-				}
-			}
-			[color-scheme='dark'] {
-				.avatar-icon {
-					background: $dark-background;
-				}
-				.avatar-presence {
-					box-shadow: 0 0 0 0.1rem $dark-background;
-				}
-			}
 		}
 		figcaption {
 			position: absolute;

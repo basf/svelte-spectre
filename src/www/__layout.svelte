@@ -309,6 +309,7 @@
 		}
 		nav#sidebar {
 			.menu {
+				background: transparent !important;
 				.menu-item > a {
 					color: $gray-color;
 					&:focus,
@@ -337,6 +338,7 @@
 		}
 	}
 	[color-scheme='dark'] {
+		background: transparent !important;
 		main code {
 			background: $dark-code;
 			color: $code-color;

@@ -774,43 +774,4 @@
 	.menu :global(.divider):not(:first-child) {
 		margin-top: 1.5em !important;
 	}
-
-	@media (prefers-color-scheme: dark) {
-		.menu {
-			background: #252b33;
-		}
-		.menu:not(.menu-nav) {
-			box-shadow: 0 0.05rem 0.2rem #101216;
-		}
-		.menu .menu-item > a:focus,
-		.menu .menu-item > a:hover,
-		.menu .menu-item > a:active,
-		.menu .menu-item > a.active {
-			background: #343a51 !important;
-		}
-		.menu .menu-item:focus,
-		.menu .menu-item:hover,
-		.menu .menu-item:active,
-		.menu .menu-item.active {
-			background: #343a51 !important;
-		}
-	}
-	[color-scheme='dark'] .menu {
-		background: #252b33;
-	}
-	[color-scheme='dark'] .menu:not(.menu-nav) {
-		box-shadow: 0 0.05rem 0.2rem #101216;
-	}
-	[color-scheme='dark'] .menu .menu-item > a:focus,
-	[color-scheme='dark'] .menu .menu-item > a:hover,
-	[color-scheme='dark'] .menu .menu-item > a:active,
-	[color-scheme='dark'] .menu .menu-item > a.active {
-		background: #343a51 !important;
-	}
-	[color-scheme='dark'] .menu .menu-item:focus,
-	[color-scheme='dark'] .menu .menu-item:hover,
-	[color-scheme='dark'] .menu .menu-item:active,
-	[color-scheme='dark'] .menu .menu-item.active {
-		background: #343a51 !important;
-	}
 </style>

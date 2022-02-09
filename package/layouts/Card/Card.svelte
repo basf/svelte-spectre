@@ -138,20 +138,4 @@
 	:global(.spectre) .card.card-expand {
 		height: 100%;
 	}
-	@media (prefers-color-scheme: dark) {
-		:global(.spectre) .card {
-			background: #252b33;
-			border-color: #303742;
-		}
-		:global(.spectre) .card.card-shadowed {
-			box-shadow: 0 0.25rem 1rem rgba(16, 18, 22, 0.45);
-		}
-	}
-	:global(.spectre) .card [color-scheme='dark'] {
-		background: #252b33;
-		border-color: #303742;
-	}
-	:global(.spectre) .card [color-scheme='dark'].card-shadowed {
-		box-shadow: 0 0.25rem 1rem rgba(16, 18, 22, 0.45);
-	}
 </style>

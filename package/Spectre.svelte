@@ -26,10 +26,17 @@
 	}
 
 	@media (prefers-color-scheme: dark) {
+		:global(:root) {
+			color-scheme: dark !important;
+		}
+
 		:global(body) {
 			background: #252b33;
 			color: #f2f2f2;
 		}
+	}
+	[color-scheme='dark'] :global(:root) {
+		color-scheme: dark !important;
 	}
 	[color-scheme='dark'] :global(body) {
 		background: #252b33;
@@ -2125,67 +2132,311 @@
 			background: #252b33;
 			color: #f2f2f2;
 		}
-		.spectre :global(:root) {
-			color-scheme: dark;
-		}
 		.spectre :global(.form-input),
 		.spectre :global(.form-select) {
 			background-color: #252b33 !important;
-			border-color: #66758c !important;
 			color: #f2f2f2 !important;
 		}
-		.spectre :global(.form-checkbox .form-icon),
-		.spectre :global(.form-radio .form-icon),
-		.spectre :global(.form-switch .form-icon) {
-			border-color: #66758c !important;
+		.spectre :global(.form-checkbox) :global(.form-icon),
+		.spectre :global(.form-radio) :global(.form-icon),
+		.spectre :global(.form-switch) :global(.form-icon) {
 			background: #252b33 !important;
 		}
-		.spectre :global(input:active + .form-icon) {
+		.spectre :global(input:active) + :global(.form-icon) {
 			background: #343a51 !important;
 		}
-		.spectre :global(input:checked + .form-icon) {
+		.spectre :global(input:checked) + :global(.form-icon) {
 			background: #5755d9 !important;
 		}
-		.spectre :global(.badge)[data-badge]::after,
-		.spectre :global(.badge):not([data-badge])::after {
+		.spectre :global(.badge[data-badge]::after),
+		.spectre :global(.badge:not([data-badge])::after) {
 			box-shadow: 0 0 0 0.1rem #252b33 !important;
 			color: #f2f2f2 !important;
+		}
+		.spectre :global(.label.label-default),
+		.spectre :global(.label.label-initial) {
+			background: #303742;
+			color: #f2f2f2;
+		}
+		.spectre :global(.label.label-secondary) {
+			background: #343a51;
+			color: #5755d9;
+		}
+		.spectre :global(.btn.btn-default) {
+			background: #252b33;
+			color: #5755d9;
+		}
+		.spectre :global(.btn.btn-default:hover),
+		.spectre :global(.btn.btn-default:focus) {
+			background: #343a51;
+		}
+		.spectre :global(.btn.btn-default:active) {
+			background: #5755d9;
+			color: #fff;
+		}
+		.spectre :global(.btn.btn-secondary) {
+			background: #343a51;
+			color: #5755d9;
+		}
+		.spectre :global(.btn.btn-secondary:hover),
+		.spectre :global(.btn.btn-secondary:focus) {
+			background: #252b33;
+		}
+		.spectre :global(.btn.btn-secondary:active) {
+			background: #5755d9;
+			color: #fff;
+		}
+		.spectre :global(.chip) {
+			background-color: #303742 !important;
+			color: #f2f2f2;
+		}
+		.spectre :global(.progress) {
+			background: #303742;
+		}
+		.spectre :global(.progress:indeterminate) {
+			background: #303742
+				linear-gradient(to right, var(--progress-color, #5755d9) 30%, #303742 30%) top
+				left/150% 150% no-repeat;
+		}
+		.spectre :global(.card) {
+			background: #252b33 !important;
+			border-color: #303742 !important;
+		}
+		.spectre :global(.card.card-shadowed) {
+			box-shadow: 0 0.25rem 1rem rgba(16, 18, 22, 0.45) !important;
+		}
+		.spectre :global(code) {
+			background: #413843;
+			color: #d73e48;
+		}
+		.spectre :global(.code) {
+			color: #bcc3ce;
+		}
+		.spectre :global(.code::before) {
+			color: #bcc3ce;
+		}
+		.spectre :global(.code) :global(code) {
+			background: #303742 !important;
+			color: #bcc3ce !important;
+		}
+		.spectre :global(.menu) {
+			background: #252b33 !important;
+		}
+		.spectre :global(.menu:not(.menu-nav)) {
+			box-shadow: 0 0.05rem 0.2rem #101216;
+		}
+		.spectre :global(.menu) :global(.menu-item) > :global(a:focus),
+		.spectre :global(.menu) :global(.menu-item) > :global(a:hover),
+		.spectre :global(.menu) :global(.menu-item) > :global(a:active),
+		.spectre :global(.menu) :global(.menu-item) > :global(a.active) {
+			background: #343a51 !important;
+		}
+		.spectre :global(.menu) :global(.menu-item:focus),
+		.spectre :global(.menu) :global(.menu-item:hover),
+		.spectre :global(.menu) :global(.menu-item:active),
+		.spectre :global(.menu) :global(.menu-item.active) {
+			background: #343a51 !important;
+		}
+		.spectre :global(.divider[data-content]::after),
+		.spectre :global(.divider-vert[data-content]::after) {
+			background: #252b33 !important;
+		}
+		.spectre :global(.divider) {
+			border-color: #303742 !important;
+		}
+		.spectre :global(.divider-vert::before) {
+			border-color: #303742 !important;
 		}
 		.spectre :global(blockquote) {
 			border-left-color: #66758c !important;
 		}
+		.spectre :global(.avatar) :global(.avatar-icon) {
+			background: #252b33;
+		}
+		.spectre :global(.avatar) :global(.avatar-presence) {
+			box-shadow: 0 0 0 0.1rem #252b33;
+		}
+		.spectre :global(.empty) {
+			background: #303742 !important;
+		}
+		.spectre :global(.modal:target) :global(.modal-overlay),
+		.spectre :global(.modal.active) :global(.modal-overlay) {
+			background: rgba(37, 43, 51, 0.69) !important;
+		}
+		.spectre :global(.modal) :global(.modal-container) {
+			box-shadow: #101216;
+			box-shadow: 0 0.2rem 0.5rem rgba(16, 18, 22, 0.3);
+			background: #252b33;
+		}
+		.spectre :global(.panel) {
+			border-color: #303742;
+		}
+		.spectre :global(.popover-container) {
+			background: #252b33 !important;
+		}
+		.spectre :global(.popover-shadowed) :global(.popover-container) {
+			box-shadow: 0 0.2rem 0.5rem rgba(16, 18, 22, 0.3);
+		}
+		.spectre :global(.off-canvas) :global(.off-canvas-sidebar) {
+			background: #303742 !important;
+		}
+		.spectre :global(.off-canvas) :global(.off-canvas-overlay) {
+			background: rgba(37, 43, 51, 0.69) !important;
+		}
 	}
-	.spectre [color-scheme='dark'] {
+	.spectre :global([color-scheme='dark']) {
 		background: #252b33;
 		color: #f2f2f2;
 	}
-	.spectre [color-scheme='dark'] :global(:root) {
-		color-scheme: dark;
-	}
-	.spectre [color-scheme='dark'] :global(.form-input),
-	.spectre [color-scheme='dark'] :global(.form-select) {
+	.spectre :global([color-scheme='dark']) :global(.form-input),
+	.spectre :global([color-scheme='dark']) :global(.form-select) {
 		background-color: #252b33 !important;
-		border-color: #66758c !important;
 		color: #f2f2f2 !important;
 	}
-	.spectre [color-scheme='dark'] :global(.form-checkbox .form-icon),
-	.spectre [color-scheme='dark'] :global(.form-radio .form-icon),
-	.spectre [color-scheme='dark'] :global(.form-switch .form-icon) {
-		border-color: #66758c !important;
+	.spectre :global([color-scheme='dark']) :global(.form-checkbox) :global(.form-icon),
+	.spectre :global([color-scheme='dark']) :global(.form-radio) :global(.form-icon),
+	.spectre :global([color-scheme='dark']) :global(.form-switch) :global(.form-icon) {
 		background: #252b33 !important;
 	}
-	.spectre [color-scheme='dark'] :global(input:active + .form-icon) {
+	.spectre :global([color-scheme='dark']) :global(input:active) + :global(.form-icon) {
 		background: #343a51 !important;
 	}
-	.spectre [color-scheme='dark'] :global(input:checked + .form-icon) {
+	.spectre :global([color-scheme='dark']) :global(input:checked) + :global(.form-icon) {
 		background: #5755d9 !important;
 	}
-	.spectre [color-scheme='dark'] :global(.badge)[data-badge]::after,
-	.spectre [color-scheme='dark'] :global(.badge):not([data-badge])::after {
+	.spectre :global([color-scheme='dark']) :global(.badge[data-badge]::after),
+	.spectre :global([color-scheme='dark']) :global(.badge:not([data-badge])::after) {
 		box-shadow: 0 0 0 0.1rem #252b33 !important;
 		color: #f2f2f2 !important;
 	}
-	.spectre [color-scheme='dark'] :global(blockquote) {
+	.spectre :global([color-scheme='dark']) :global(.label.label-default),
+	.spectre :global([color-scheme='dark']) :global(.label.label-initial) {
+		background: #303742;
+		color: #f2f2f2;
+	}
+	.spectre :global([color-scheme='dark']) :global(.label.label-secondary) {
+		background: #343a51;
+		color: #5755d9;
+	}
+	.spectre :global([color-scheme='dark']) :global(.btn.btn-default) {
+		background: #252b33;
+		color: #5755d9;
+	}
+	.spectre :global([color-scheme='dark']) :global(.btn.btn-default:hover),
+	.spectre :global([color-scheme='dark']) :global(.btn.btn-default:focus) {
+		background: #343a51;
+	}
+	.spectre :global([color-scheme='dark']) :global(.btn.btn-default:active) {
+		background: #5755d9;
+		color: #fff;
+	}
+	.spectre :global([color-scheme='dark']) :global(.btn.btn-secondary) {
+		background: #343a51;
+		color: #5755d9;
+	}
+	.spectre :global([color-scheme='dark']) :global(.btn.btn-secondary:hover),
+	.spectre :global([color-scheme='dark']) :global(.btn.btn-secondary:focus) {
+		background: #252b33;
+	}
+	.spectre :global([color-scheme='dark']) :global(.btn.btn-secondary:active) {
+		background: #5755d9;
+		color: #fff;
+	}
+	.spectre :global([color-scheme='dark']) :global(.chip) {
+		background-color: #303742 !important;
+		color: #f2f2f2;
+	}
+	.spectre :global([color-scheme='dark']) :global(.progress) {
+		background: #303742;
+	}
+	.spectre :global([color-scheme='dark']) :global(.progress:indeterminate) {
+		background: #303742
+			linear-gradient(to right, var(--progress-color, #5755d9) 30%, #303742 30%) top left/150%
+			150% no-repeat;
+	}
+	.spectre :global([color-scheme='dark']) :global(.card) {
+		background: #252b33 !important;
+		border-color: #303742 !important;
+	}
+	.spectre :global([color-scheme='dark']) :global(.card.card-shadowed) {
+		box-shadow: 0 0.25rem 1rem rgba(16, 18, 22, 0.45) !important;
+	}
+	.spectre :global([color-scheme='dark']) :global(code) {
+		background: #413843;
+		color: #d73e48;
+	}
+	.spectre :global([color-scheme='dark']) :global(.code) {
+		color: #bcc3ce;
+	}
+	.spectre :global([color-scheme='dark']) :global(.code::before) {
+		color: #bcc3ce;
+	}
+	.spectre :global([color-scheme='dark']) :global(.code) :global(code) {
+		background: #303742 !important;
+		color: #bcc3ce !important;
+	}
+	.spectre :global([color-scheme='dark']) :global(.menu) {
+		background: #252b33 !important;
+	}
+	.spectre :global([color-scheme='dark']) :global(.menu:not(.menu-nav)) {
+		box-shadow: 0 0.05rem 0.2rem #101216;
+	}
+	.spectre :global([color-scheme='dark']) :global(.menu) :global(.menu-item) > :global(a:focus),
+	.spectre :global([color-scheme='dark']) :global(.menu) :global(.menu-item) > :global(a:hover),
+	.spectre :global([color-scheme='dark']) :global(.menu) :global(.menu-item) > :global(a:active),
+	.spectre :global([color-scheme='dark']) :global(.menu) :global(.menu-item) > :global(a.active) {
+		background: #343a51 !important;
+	}
+	.spectre :global([color-scheme='dark']) :global(.menu) :global(.menu-item:focus),
+	.spectre :global([color-scheme='dark']) :global(.menu) :global(.menu-item:hover),
+	.spectre :global([color-scheme='dark']) :global(.menu) :global(.menu-item:active),
+	.spectre :global([color-scheme='dark']) :global(.menu) :global(.menu-item.active) {
+		background: #343a51 !important;
+	}
+	.spectre :global([color-scheme='dark']) :global(.divider[data-content]::after),
+	.spectre :global([color-scheme='dark']) :global(.divider-vert[data-content]::after) {
+		background: #252b33 !important;
+	}
+	.spectre :global([color-scheme='dark']) :global(.divider) {
+		border-color: #303742 !important;
+	}
+	.spectre :global([color-scheme='dark']) :global(.divider-vert::before) {
+		border-color: #303742 !important;
+	}
+	.spectre :global([color-scheme='dark']) :global(blockquote) {
 		border-left-color: #66758c !important;
+	}
+	.spectre :global([color-scheme='dark']) :global(.avatar) :global(.avatar-icon) {
+		background: #252b33;
+	}
+	.spectre :global([color-scheme='dark']) :global(.avatar) :global(.avatar-presence) {
+		box-shadow: 0 0 0 0.1rem #252b33;
+	}
+	.spectre :global([color-scheme='dark']) :global(.empty) {
+		background: #303742 !important;
+	}
+	.spectre :global([color-scheme='dark']) :global(.modal:target) :global(.modal-overlay),
+	.spectre :global([color-scheme='dark']) :global(.modal.active) :global(.modal-overlay) {
+		background: rgba(37, 43, 51, 0.69) !important;
+	}
+	.spectre :global([color-scheme='dark']) :global(.modal) :global(.modal-container) {
+		box-shadow: #101216;
+		box-shadow: 0 0.2rem 0.5rem rgba(16, 18, 22, 0.3);
+		background: #252b33;
+	}
+	.spectre :global([color-scheme='dark']) :global(.panel) {
+		border-color: #303742;
+	}
+	.spectre :global([color-scheme='dark']) :global(.popover-container) {
+		background: #252b33 !important;
+	}
+	.spectre :global([color-scheme='dark']) :global(.popover-shadowed) :global(.popover-container) {
+		box-shadow: 0 0.2rem 0.5rem rgba(16, 18, 22, 0.3);
+	}
+	.spectre :global([color-scheme='dark']) :global(.off-canvas) :global(.off-canvas-sidebar) {
+		background: #303742 !important;
+	}
+	.spectre :global([color-scheme='dark']) :global(.off-canvas) :global(.off-canvas-overlay) {
+		background: rgba(37, 43, 51, 0.69) !important;
 	}
 </style>

@@ -55,12 +55,4 @@
 		overflow-y: auto;
 		padding: 0 0.8rem;
 	}
-	@media (prefers-color-scheme: dark) {
-		:global(.spectre) .panel {
-			border-color: #303742;
-		}
-	}
-	:global(.spectre) .panel [color-scheme='dark'] {
-		border-color: #303742;
-	}
 </style>

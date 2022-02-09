@@ -975,20 +975,6 @@
 		width: 0.5em;
 	}
 
-	@media (prefers-color-scheme: dark) {
-		:global(.spectre) .off-canvas .off-canvas-sidebar {
-			background: #303742;
-		}
-		:global(.spectre) .off-canvas .off-canvas-overlay {
-			background: rgba(37, 43, 51, 0.69);
-		}
-	}
-	:global(.spectre) [color-scheme='dark'] .off-canvas .off-canvas-sidebar {
-		background: #252b33;
-	}
-	:global(.spectre) [color-scheme='dark'] .off-canvas .off-canvas-overlay {
-		background: rgba(37, 43, 51, 0.69);
-	}
 	:global(.spectre) .z-300 {
 		z-index: 300;
 	}

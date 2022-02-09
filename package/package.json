@@ -119,6 +119,7 @@
     "./components/Transition/Transition.svelte": "./components/Transition/Transition.svelte",
     "./components/Transition": "./components/Transition/index.js",
     "./components": "./components/index.js",
+    "./dark.scss": "./dark.scss",
     "./helpers/actions": "./helpers/actions.js",
     "./helpers/str_to_rgb": "./helpers/str_to_rgb.js",
     "./helpers/uuid": "./helpers/uuid.js",
@@ -158,15 +159,8 @@
     "./layouts/Toggle/Toggle.svelte": "./layouts/Toggle/Toggle.svelte",
     "./layouts/Toggle": "./layouts/Toggle/index.js",
     "./layouts": "./layouts/index.js",
-    "./types/asset.d.ts": "./types/asset.d.ts",
-    "./types/bg.d.ts": "./types/bg.d.ts",
-    "./types/const": "./types/const.js",
-    "./types/display.d.ts": "./types/display.d.ts",
-    "./types/icons.d.ts": "./types/icons.d.ts",
-    "./types/position.d.ts": "./types/position.d.ts",
-    "./types/shape.d.ts": "./types/shape.d.ts",
-    "./types/size.d.ts": "./types/size.d.ts",
-    "./types/text.d.ts": "./types/text.d.ts"
+    "./spectre.scss": "./spectre.scss",
+    "./types/const": "./types/const.js"
   },
   "svelte": "./index.js"
 }

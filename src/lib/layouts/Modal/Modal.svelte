@@ -57,38 +57,6 @@
 		.modal.active {
 			z-index: 500;
 		}
-
-		@media (prefers-color-scheme: dark) {
-			.modal {
-				&:target,
-				&.active {
-					.modal-overlay {
-						background: $dark-overlay;
-					}
-				}
-				.modal-container {
-					box-shadow: $dark-shadow;
-					box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3);
-					background: $dark-background;
-				}
-			}
-		}
-
-		[color-scheme='dark'] {
-			.modal {
-				&:target,
-				&.active {
-					.modal-overlay {
-						background: $dark-overlay;
-					}
-				}
-				.modal-container {
-					box-shadow: $dark-shadow;
-					box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3);
-					background: $dark-background;
-				}
-			}
-		}
 		.modal-container {
 			position: relative;
 			:global(#close) {

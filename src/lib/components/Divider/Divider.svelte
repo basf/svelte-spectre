@@ -46,25 +46,5 @@
 				border: 0;
 			}
 		}
-
-		@media (prefers-color-scheme: dark) {
-			.divider,
-			.divider-vert {
-				&[data-content]::after {
-					background: $dark-background !important;
-				}
-			}
-			.divider {
-				// border-top: $border-width solid $border-color-light;
-				border-color: $dark-color !important;
-			}
-			.divider-vert {
-				&::before {
-					border-color: $dark-color !important;
-				}
-			}
-		}
-		[color-scheme='dark'] {
-		}
 	}
 </style>

@@ -210,44 +210,6 @@
 	:global(.spectre) .active.modal-sm {
 		z-index: 500;
 	}
-	@media (prefers-color-scheme: dark) {
-		:global(.spectre) .modal:target .modal-overlay,
-		:global(.spectre) .modal-fs:target .modal-overlay,
-		:global(.spectre) .modal-lg:target .modal-overlay,
-		:global(.spectre) .modal-sm:target .modal-overlay,
-		:global(.spectre) .modal.active .modal-overlay,
-		:global(.spectre) .active.modal-fs .modal-overlay,
-		:global(.spectre) .active.modal-lg .modal-overlay,
-		:global(.spectre) .active.modal-sm .modal-overlay {
-			background: rgba(37, 43, 51, 0.69);
-		}
-		:global(.spectre) .modal .modal-container,
-		:global(.spectre) .modal-fs .modal-container,
-		:global(.spectre) .modal-lg .modal-container,
-		:global(.spectre) .modal-sm .modal-container {
-			box-shadow: #101216;
-			box-shadow: 0 0.2rem 0.5rem rgba(16, 18, 22, 0.3);
-			background: #252b33;
-		}
-	}
-	:global(.spectre) [color-scheme='dark'] .modal:target .modal-overlay,
-	:global(.spectre) [color-scheme='dark'] .modal-fs:target .modal-overlay,
-	:global(.spectre) [color-scheme='dark'] .modal-lg:target .modal-overlay,
-	:global(.spectre) [color-scheme='dark'] .modal-sm:target .modal-overlay,
-	:global(.spectre) [color-scheme='dark'] .modal.active .modal-overlay,
-	:global(.spectre) [color-scheme='dark'] .active.modal-fs .modal-overlay,
-	:global(.spectre) [color-scheme='dark'] .active.modal-lg .modal-overlay,
-	:global(.spectre) [color-scheme='dark'] .active.modal-sm .modal-overlay {
-		background: rgba(37, 43, 51, 0.69);
-	}
-	:global(.spectre) [color-scheme='dark'] .modal .modal-container,
-	:global(.spectre) [color-scheme='dark'] .modal-fs .modal-container,
-	:global(.spectre) [color-scheme='dark'] .modal-lg .modal-container,
-	:global(.spectre) [color-scheme='dark'] .modal-sm .modal-container {
-		box-shadow: #101216;
-		box-shadow: 0 0.2rem 0.5rem rgba(16, 18, 22, 0.3);
-		background: #252b33;
-	}
 	:global(.spectre) .modal-container {
 		position: relative;
 	}

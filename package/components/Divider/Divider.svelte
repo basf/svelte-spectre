@@ -102,16 +102,4 @@
 	:global(.spectre) hr.divider-empty {
 		border: 0;
 	}
-	@media (prefers-color-scheme: dark) {
-		:global(.spectre) .divider[data-content]::after,
-		:global(.spectre) .divider-vert[data-content]::after {
-			background: #252b33 !important;
-		}
-		:global(.spectre) .divider {
-			border-color: #303742 !important;
-		}
-		:global(.spectre) .divider-vert::before {
-			border-color: #303742 !important;
-		}
-	}
 </style>

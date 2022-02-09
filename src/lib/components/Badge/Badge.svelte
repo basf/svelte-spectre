@@ -22,25 +22,6 @@
 				padding-left: 0.5rem;
 				padding-right: 0.5rem;
 			}
-			@media (prefers-color-scheme: dark) {
-				&.label-default,
-				&.label-initial {
-					@include label-variant($dark-text, $dark-color);
-				}
-				&.label-secondary {
-					@include label-variant($primary-color, $dark-secondary);
-				}
-			}
-
-			[color-scheme='dark'] {
-				&.label-default,
-				&.label-initial {
-					@include label-variant($dark-text, $dark-color);
-				}
-				&.label-secondary {
-					@include label-variant($primary-color, $dark-secondary);
-				}
-			}
 		}
 	}
 </style>

@@ -48,32 +48,6 @@
 					)
 					top left / 150% 150% no-repeat;
 			}
-
-			@media (prefers-color-scheme: dark) {
-				background: $dark-color;
-				&:indeterminate {
-					background: $dark-color
-						linear-gradient(
-							to right,
-							var(--progress-color, $primary-color) 30%,
-							$dark-color 30%
-						)
-						top left / 150% 150% no-repeat;
-				}
-			}
-
-			[color-scheme='dark'] {
-				background: $dark-color;
-				&:indeterminate {
-					background: $dark-color
-						linear-gradient(
-							to right,
-							var(--progress-color, $primary-color) 30%,
-							$dark-color 30%
-						)
-						top left / 150% 150% no-repeat;
-				}
-			}
 		}
 	}
 </style>

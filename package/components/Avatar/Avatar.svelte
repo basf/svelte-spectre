@@ -779,20 +779,6 @@
 	:global(.spectre) .avatar::before {
 		font-size: var(--fontSize);
 	}
-	@media (prefers-color-scheme: dark) {
-		:global(.spectre) .avatar .avatar-icon {
-			background: #252b33;
-		}
-		:global(.spectre) .avatar .avatar-presence {
-			box-shadow: 0 0 0 0.1rem #252b33;
-		}
-	}
-	:global(.spectre) .avatar [color-scheme='dark'] .avatar-icon {
-		background: #252b33;
-	}
-	:global(.spectre) .avatar [color-scheme='dark'] .avatar-presence {
-		box-shadow: 0 0 0 0.1rem #252b33;
-	}
 	:global(.spectre) figcaption {
 		position: absolute;
 		top: 100%;

@@ -65,32 +65,4 @@
 		padding: 1rem;
 		width: 100%;
 	}
-	@media (prefers-color-scheme: dark) {
-		:global(.spectre) code code {
-			background: #413843;
-			color: #d73e48;
-		}
-		:global(.spectre) .code {
-			color: #bcc3ce;
-		}
-		:global(.spectre) .code::before {
-			color: #bcc3ce;
-		}
-		:global(.spectre) .code code {
-			background: #303742;
-		}
-	}
-	:global(.spectre) [color-scheme='dark'] code code {
-		background: #413843;
-		color: #d73e48;
-	}
-	:global(.spectre) [color-scheme='dark'] .code {
-		color: #bcc3ce;
-	}
-	:global(.spectre) [color-scheme='dark'] .code::before {
-		color: #bcc3ce;
-	}
-	:global(.spectre) [color-scheme='dark'] .code code {
-		background: #303742;
-	}
 </style>

@@ -64,69 +64,27 @@
 		display: inline-flex !important;
 		align-items: center !important;
 		justify-content: center !important;
-	}
-	.btn.btn-xl {
-		@extend .btn, .btn-lg;
-		height: $unit-12 !important;
-	}
-	.btn.btn-action.btn-xl {
-		width: $unit-12 !important;
-	}
-	.btn.btn-xxl {
-		@extend .btn, .btn-lg;
-		height: $unit-16 !important;
-	}
-	.btn.btn-action.btn-xxl {
-		width: $unit-16 !important;
-	}
-	.btn.btn-xs {
-		@extend .btn, .btn-sm;
-		height: $unit-6 !important;
-	}
-	.btn.btn-action.btn-xs {
-		width: $unit-6 !important;
-	}
-	@media (prefers-color-scheme: dark) {
-		.btn.btn-default {
-			@include label-variant($primary-color, $dark-background);
-			&:hover,
-			&:focus {
-				background: $dark-secondary;
-			}
-			&:active {
-				background: $primary-color;
-			}
+		&.btn-xl {
+			@extend .btn, .btn-lg;
+			height: $unit-12 !important;
 		}
-		.btn.btn-secondary {
-			@include label-variant($primary-color, $dark-secondary);
-			&:hover,
-			&:focus {
-				background: $dark-background;
-			}
-			&:active {
-				background: $primary-color;
-			}
+		&.btn-xxl {
+			@extend .btn, .btn-lg;
+			height: $unit-16 !important;
 		}
-	}
-	[color-scheme='dark'] {
-		.btn.btn-default {
-			@include label-variant($primary-color, $dark-background);
-			&:hover,
-			&:focus {
-				background: $dark-secondary;
-			}
-			&:active {
-				background: $primary-color;
-			}
+		&.btn-xs {
+			@extend .btn, .btn-sm;
+			height: $unit-6 !important;
 		}
-		.btn.btn-secondary {
-			@include label-variant($primary-color, $dark-secondary);
-			&:hover,
-			&:focus {
-				background: $dark-background;
+		&.btn-action {
+			&.btn-xl {
+				width: $unit-12 !important;
 			}
-			&:active {
-				background: $primary-color;
+			&.btn-xxl {
+				width: $unit-16 !important;
+			}
+			&.btn-xs {
+				width: $unit-6 !important;
 			}
 		}
 	}

@@ -300,76 +300,22 @@
 		align-items: center !important;
 		justify-content: center !important;
 	}
-
 	.btn.btn-xl {
 		height: 2.4rem !important;
 	}
-
-	.btn.btn-action.btn-xl {
-		width: 2.4rem !important;
-	}
-
 	.btn.btn-xxl {
 		height: 3.2rem !important;
 	}
-
-	.btn.btn-action.btn-xxl {
-		width: 3.2rem !important;
-	}
-
 	.btn.btn-xs {
 		height: 1.2rem !important;
 	}
-
+	.btn.btn-action.btn-xl {
+		width: 2.4rem !important;
+	}
+	.btn.btn-action.btn-xxl {
+		width: 3.2rem !important;
+	}
 	.btn.btn-action.btn-xs {
 		width: 1.2rem !important;
-	}
-
-	@media (prefers-color-scheme: dark) {
-		.btn.btn-default {
-			background: #252b33;
-			color: #5755d9;
-		}
-		.btn.btn-default:hover,
-		.btn.btn-default:focus {
-			background: #343a51;
-		}
-		.btn.btn-default:active {
-			background: #5755d9;
-		}
-
-		.btn.btn-secondary {
-			background: #343a51;
-			color: #5755d9;
-		}
-		.btn.btn-secondary:hover,
-		.btn.btn-secondary:focus {
-			background: #252b33;
-		}
-		.btn.btn-secondary:active {
-			background: #5755d9;
-		}
-	}
-	[color-scheme='dark'] .btn.btn-default {
-		background: #252b33;
-		color: #5755d9;
-	}
-	[color-scheme='dark'] .btn.btn-default:hover,
-	[color-scheme='dark'] .btn.btn-default:focus {
-		background: #343a51;
-	}
-	[color-scheme='dark'] .btn.btn-default:active {
-		background: #5755d9;
-	}
-	[color-scheme='dark'] .btn.btn-secondary {
-		background: #343a51;
-		color: #5755d9;
-	}
-	[color-scheme='dark'] .btn.btn-secondary:hover,
-	[color-scheme='dark'] .btn.btn-secondary:focus {
-		background: #252b33;
-	}
-	[color-scheme='dark'] .btn.btn-secondary:active {
-		background: #5755d9;
 	}
 </style>

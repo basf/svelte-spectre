@@ -107,22 +107,4 @@
 			linear-gradient(to right, var(--progress-color, #5755d9) 30%, #eef0f3 30%) top left/150%
 			150% no-repeat;
 	}
-	@media (prefers-color-scheme: dark) {
-		:global(.spectre) .progress {
-			background: #303742;
-		}
-		:global(.spectre) .progress:indeterminate {
-			background: #303742
-				linear-gradient(to right, var(--progress-color, #5755d9) 30%, #303742 30%) top
-				left/150% 150% no-repeat;
-		}
-	}
-	:global(.spectre) .progress [color-scheme='dark'] {
-		background: #303742;
-	}
-	:global(.spectre) .progress [color-scheme='dark']:indeterminate {
-		background: #303742
-			linear-gradient(to right, var(--progress-color, #5755d9) 30%, #303742 30%) top left/150%
-			150% no-repeat;
-	}
 </style>

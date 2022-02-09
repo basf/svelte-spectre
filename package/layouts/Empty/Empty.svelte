@@ -64,12 +64,4 @@
 	:global(.spectre) .empty > :global(:nth-child(n + 2) > *) {
 		margin: 0;
 	}
-	@media (prefers-color-scheme: dark) {
-		:global(.spectre) .empty {
-			background: #303742;
-		}
-	}
-	:global(.spectre) .empty [color-scheme='dark'] {
-		background: #252b33;
-	}
 </style>

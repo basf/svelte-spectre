@@ -97,23 +97,7 @@
 	:not(.popover-transparent) .popover-container {
 		background: #fff;
 	}
-	@media (prefers-color-scheme: dark) {
-		:not(.popover-transparent) .popover-container {
-			background: #252b33;
-		}
-	}
-	:not(.popover-transparent) .popover-container [color-scheme='dark'] {
-		background: #252b33;
-	}
 	.popover-shadowed .popover-container {
 		box-shadow: 0 0.2rem 0.5rem rgba(48, 55, 66, 0.3);
-	}
-	@media (prefers-color-scheme: dark) {
-		.popover-shadowed .popover-container {
-			box-shadow: 0 0.2rem 0.5rem rgba(16, 18, 22, 0.3);
-		}
-	}
-	.popover-shadowed .popover-container [color-scheme='dark'] {
-		box-shadow: 0 0.2rem 0.5rem rgba(16, 18, 22, 0.3);
 	}
 </style>

@@ -16,14 +16,5 @@
 <style lang="scss">
 	:global(.spectre) {
 		@import 'spectre.css/src/panels';
-
-		.panel {
-			@media (prefers-color-scheme: dark) {
-				border-color: $dark-color;
-			}
-			[color-scheme='dark'] {
-				border-color: $dark-color;
-			}
-		}
 	}
 </style>

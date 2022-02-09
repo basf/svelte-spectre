@@ -107,10 +107,4 @@
 	:global(.spectre) .chip .btn-clear::before {
 		content: '✕';
 	}
-	@media (prefers-color-scheme: dark) {
-		:global(.spectre) .chip {
-			background-color: #303742;
-			color: #f2f2f2;
-		}
-	}
 </style>

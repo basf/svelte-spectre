@@ -116,7 +116,7 @@ code[class*="language-"] ::selection {
     code[class*="language-"],
     pre[class*="language-"] {
         color: $dark-text;
-        background: $dark-color;
+        background: $dark-color !important;
     }
     pre[class*="language-"]::selection,
     pre[class*="language-"] ::selection,

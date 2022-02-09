@@ -63,12 +63,6 @@
 					content: '\2715';
 				}
 			}
-			@media (prefers-color-scheme: dark) {
-				background-color: $dark-color;
-				color: $dark-text;
-			}
-			[color-scheme='dark'] {
-			}
 		}
 	}
 </style>
