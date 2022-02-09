@@ -594,15 +594,16 @@
 				.form-input,
 				.form-select {
 					background-color: $bg-color-light !important;
-					// border: 0.05rem solid $gray-color-dark;
 					color: $body-font-color !important;
 				}
 				.form-checkbox .form-icon,
-				.form-radio .form-icon,
-				.form-switch .form-icon {
-					// border-color: $gray-color-dark;
+				.form-radio .form-icon {
 					background: $bg-color-light !important;
 				}
+				.form-switch .form-icon {
+					background: $gray-color !important;
+				}
+
 				input:active + .form-icon {
 					background: $secondary-color !important;
 				}

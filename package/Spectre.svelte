@@ -2454,9 +2454,11 @@
 		color: #3b4351 !important;
 	}
 	:global([color-scheme='light']) .spectre :global(.form-checkbox) :global(.form-icon),
-	:global([color-scheme='light']) .spectre :global(.form-radio) :global(.form-icon),
-	:global([color-scheme='light']) .spectre :global(.form-switch) :global(.form-icon) {
+	:global([color-scheme='light']) .spectre :global(.form-radio) :global(.form-icon) {
 		background: #fff !important;
+	}
+	:global([color-scheme='light']) .spectre :global(.form-switch) :global(.form-icon) {
+		background: #bcc3ce !important;
 	}
 	:global([color-scheme='light']) .spectre :global(input:active) + :global(.form-icon) {
 		background: #f1f1fc !important;
