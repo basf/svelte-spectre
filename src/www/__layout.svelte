@@ -324,7 +324,7 @@
 			}
 		}
 		.off-canvas {
-			.off-canvas-sidebar-right {
+			.off-canvas-sidebar.p-2.off-canvas-sidebar-right {
 				background: $dark-secondary !important;
 				code {
 					background: $dark-code;
@@ -359,7 +359,7 @@
 			}
 		}
 		.off-canvas {
-			.off-canvas-sidebar-right {
+			.off-canvas-sidebar.p-2.off-canvas-sidebar-right {
 				background: $dark-secondary !important;
 				code {
 					background: $dark-code;

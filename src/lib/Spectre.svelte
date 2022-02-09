@@ -124,6 +124,11 @@
 			@include padding-variant(8, $unit-8);
 			@include padding-variant(9, $unit-9);
 			@include bg-color-variant('.bg-light', $light-color);
+
+			@include bg-color-variant('.bg-darked', $dark-background);
+			@include bg-color-variant('.bg-secondary-darked', $dark-secondary);
+
+			@include text-color-variant('.text-darked', $dark-text);
 		}
 	}
 

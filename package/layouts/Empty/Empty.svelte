@@ -22,28 +22,6 @@
 </div>
 
 <style>
-	.bg-darked {
-		background: #252b33 !important;
-		color: #fff;
-	}
-
-	.bg-secondary-darked {
-		background: #343a51 !important;
-		color: #fff;
-	}
-
-	.text-darked {
-		color: #f2f2f2 !important;
-	}
-
-	a.text-darked:focus,
-	a.text-darked:hover {
-		color: #e6e6e6;
-	}
-	a.text-darked:visited {
-		color: white;
-	}
-
 	:global(.spectre) .empty {
 		background: #f7f8f9;
 		border-radius: 0.1rem;

@@ -8,28 +8,6 @@
 
 <style global>
 	@charset "UTF-8";
-	:global(.bg-darked) {
-		background: #252b33 !important;
-		color: #fff;
-	}
-
-	:global(.bg-secondary-darked) {
-		background: #343a51 !important;
-		color: #fff;
-	}
-
-	:global(.text-darked) {
-		color: #f2f2f2 !important;
-	}
-
-	:global(a.text-darked:focus),
-	:global(a.text-darked:hover) {
-		color: #e6e6e6;
-	}
-	:global(a.text-darked:visited) {
-		color: white;
-	}
-
 	:global(.spectre) :global(.btn) {
 		-webkit-appearance: none;
 		-moz-appearance: none;

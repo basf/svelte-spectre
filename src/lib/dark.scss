@@ -6,8 +6,3 @@ $dark-border: darken($border-color, 10%);
 $dark-overlay: rgba($dark-background, 0.69);
 $dark-code: mix($dark-color, $code-color, 90%);
 $dark-highlight: darken($highlight-color, 50%);
-
-@include bg-color-variant(".bg-darked", $dark-background);
-@include bg-color-variant(".bg-secondary-darked", $dark-secondary);
-
-@include text-color-variant(".text-darked", $dark-text);

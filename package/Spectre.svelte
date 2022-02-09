@@ -3,28 +3,6 @@
 </div>
 
 <style>
-	.bg-darked {
-		background: #252b33 !important;
-		color: #fff;
-	}
-
-	.bg-secondary-darked {
-		background: #343a51 !important;
-		color: #fff;
-	}
-
-	.text-darked {
-		color: #f2f2f2 !important;
-	}
-
-	a.text-darked:focus,
-	a.text-darked:hover {
-		color: #e6e6e6;
-	}
-	a.text-darked:visited {
-		color: white;
-	}
-
 	.spectre {
 		display: contents;
 		box-sizing: border-box;
@@ -2108,6 +2086,24 @@
 	}
 	.spectre :global(.bg-light) {
 		background: #fff !important;
+	}
+	.spectre :global(.bg-darked) {
+		background: #252b33 !important;
+		color: #fff;
+	}
+	.spectre :global(.bg-secondary-darked) {
+		background: #343a51 !important;
+		color: #fff;
+	}
+	.spectre :global(.text-darked) {
+		color: #f2f2f2 !important;
+	}
+	.spectre :global(a.text-darked:focus),
+	.spectre :global(a.text-darked:hover) {
+		color: #e6e6e6;
+	}
+	.spectre :global(a.text-darked:visited) {
+		color: white;
 	}
 
 	@media (prefers-color-scheme: dark) {
