@@ -3,34 +3,6 @@
 </div>
 
 <style lang="scss">
-	@media (prefers-color-scheme: dark) {
-		:global(:root) {
-			color-scheme: dark !important;
-		}
-		:global(body) {
-			background: $dark-background;
-			color: $dark-text;
-		}
-	}
-	[color-scheme='dark'] {
-		:global(:root) {
-			color-scheme: dark !important;
-		}
-		:global(body) {
-			background: $dark-background;
-			color: $dark-text;
-		}
-	}
-	[color-scheme='light'] {
-		:global(:root) {
-			color-scheme: light !important;
-		}
-		:global(body) {
-			background: $body-bg;
-			color: $body-font-color;
-		}
-	}
-
 	.spectre {
 		display: contents;
 		box-sizing: border-box;
@@ -152,11 +124,22 @@
 			@include padding-variant(8, $unit-8);
 			@include padding-variant(9, $unit-9);
 			@include bg-color-variant('.bg-light', $light-color);
+		}
+	}
 
-			@media (prefers-color-scheme: dark) {
-				background: $dark-background;
-				color: $dark-text;
+	@media (prefers-color-scheme: dark) {
+		:global(:root) {
+			color-scheme: dark !important;
+		}
+		:global(body) {
+			background: $dark-background;
+			color: $dark-text;
+		}
+		.spectre {
+			background: $dark-background;
+			color: $dark-text;
 
+			:global {
 				//FORMS
 				.form-input,
 				.form-select {
@@ -367,11 +350,21 @@
 					}
 				}
 			}
+		}
+	}
+	[color-scheme='dark'] {
+		:global(:root) {
+			color-scheme: dark !important;
+		}
+		:global(body) {
+			background: $dark-background;
+			color: $dark-text;
+		}
+		.spectre {
+			background: $dark-background;
+			color: $dark-text;
 
-			[color-scheme='dark'] {
-				background: $dark-background;
-				color: $dark-text;
-
+			:global {
 				//FORMS
 				.form-input,
 				.form-select {
@@ -582,11 +575,21 @@
 					}
 				}
 			}
+		}
+	}
+	[color-scheme='light'] {
+		:global(:root) {
+			color-scheme: light !important;
+		}
+		:global(body) {
+			background: $body-bg;
+			color: $body-font-color;
+		}
+		.spectre {
+			background: $bg-color-light;
+			color: $body-font-color;
 
-			[color-scheme='light'] {
-				background: $bg-color-light;
-				color: $body-font-color;
-
+			:global {
 				//FORMS
 				.form-input,
 				.form-select {
