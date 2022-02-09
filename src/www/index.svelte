@@ -16,7 +16,7 @@
 			<Button href="{base}/docs" variant="primary" size="lg" sveltekit:prefetch>Docs</Button
 			>&nbsp;
 			<Button
-				href="https://github.com/tilde-lab/svelte-spectre"
+				href="https://github.com/basf/svelte-spectre"
 				target="_blank"
 				variant="primary"
 				size="lg">GitHub</Button
