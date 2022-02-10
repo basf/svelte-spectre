@@ -40,15 +40,6 @@
 			min-width: $control-width-xs;
 			padding: $unit-2;
 			z-index: $zindex-3;
-
-			@media (prefers-color-scheme: dark) {
-				background: $dark-background;
-				box-shadow: 0 0.25rem 1rem rgba($dark-shadow, 0.45);
-			}
-			[color-scheme='dark'] {
-				background: $dark-background;
-				box-shadow: 0 0.25rem 1rem rgba($dark-shadow, 0.45);
-			}
 		}
 
 		&.dropdown-center {

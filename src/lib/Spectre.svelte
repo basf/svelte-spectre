@@ -212,6 +212,14 @@
 					}
 				}
 
+				// DROpDOWN
+				.dropdown {
+					.menu {
+						background: $dark-background;
+						box-shadow: 0 0.25rem 1rem rgba($dark-shadow, 0.45);
+					}
+				}
+
 				// CHIP
 				.chip {
 					background-color: $dark-color !important;
@@ -434,6 +442,14 @@
 							background: $primary-color;
 							color: $light-color;
 						}
+					}
+				}
+
+				// DROpDOWN
+				.dropdown {
+					.menu {
+						background: $dark-background;
+						box-shadow: 0 0.25rem 1rem rgba($dark-shadow, 0.45);
 					}
 				}
 
@@ -660,6 +676,14 @@
 							background: $primary-color;
 							color: $light-color;
 						}
+					}
+				}
+
+				// DROpDOWN
+				.dropdown {
+					.menu {
+						@include shadow-variant(0.05rem);
+						background: $bg-color-light;
 					}
 				}
 
