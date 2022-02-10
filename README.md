@@ -1,6 +1,6 @@
 # Svelte-spectre
 
-UI-kit based on [spectre.css](https://picturepan2.github.io/spectre/) powered by SvelteJS.
+UI-kit based on [spectre.css](https://picturepan2.github.io/spectre/) and powered by SvelteJS.
 
 ### Requirements
 
@@ -15,12 +15,15 @@ npm install
 
 ## Building package
 
+This builds the GUI components in a `package` folder:
+
 ```bash
-# build components for GUI in package folder
 npm run package
 ```
 
 ## Developing
+
+This serves a demonstration website:
 
 ```bash
 npm run dev
@@ -31,9 +34,7 @@ npm run dev -- --open
 
 ## Building
 
-Before creating a production version of your app, install an
-[adapter](https://kit.svelte.dev/docs#adapters) for your target environment.
-Then:
+Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then run:
 
 ```bash
 npm run build

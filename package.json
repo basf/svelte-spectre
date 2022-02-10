@@ -8,7 +8,7 @@
 	],
 	"type": "module",
 	"scripts": {
-		"dev": "svelte-kit dev --port 3030 --host '0.0.0.0'",
+		"dev": "svelte-kit dev --port 3030",
 		"build": "svelte-kit build",
 		"preview": "svelte-kit preview",
 		"package": "svelte-kit package && sass src/lib/spectre.scss package/spectre.css  --style=compressed --no-source-map --quiet-deps && prettier --ignore-path .gitignore --write \"{,package/**/}*.{js,ts,md,svelte}\"",
