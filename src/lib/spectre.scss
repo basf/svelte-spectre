@@ -145,6 +145,14 @@
         background: $dark-background;
         color: $dark-text;
 
+        // DROpDOWN
+        .dropdown {
+            .menu {
+                background: $dark-background;
+                box-shadow: 0 0.25rem 1rem rgba($dark-shadow, 0.45);
+            }
+        }
+
         //FORMS
         .form-input,
         .form-select {
@@ -355,6 +363,14 @@
     [color-scheme="dark"] {
         background: $dark-background;
         color: $dark-text;
+
+        // DROpDOWN
+        .dropdown {
+            .menu {
+                background: $dark-background;
+                box-shadow: 0 0.25rem 1rem rgba($dark-shadow, 0.45);
+            }
+        }
 
         //FORMS
         .form-input,
