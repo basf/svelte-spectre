@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-fed844b3.js",
+    "file": "start-2a1a9437.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -60,7 +60,7 @@
     ]
   },
   "src/www/__layout.svelte": {
-    "file": "pages/__layout.svelte-e8638363.js",
+    "file": "pages/__layout.svelte-19fd149e.js",
     "src": "src/www/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -70,14 +70,14 @@
       "_stores-bfe64bea.js",
       "_paths-4b3c6e7e.js",
       "_Accordion-02d685a8.js",
-      "_IconButton-fcbcbe51.js",
+      "_IconButton-89d63667.js",
       "_Button-0eaa4050.js",
-      "_Menu-b9efb3a9.js",
-      "_Toast-bf025cc6.js",
+      "_Menu-6d393e26.js",
+      "_Toast-722e9cdd.js",
       "_Navbar-abd10e3c.js",
       "_github-cde0f11b.js",
       "__media-dda27efa.js",
-      "_Icon-4f86fe99.js",
+      "_Icon-da8b5507.js",
       "_action-63149ef0.js",
       "_Checkbox-5d0ba434.js",
       "_uuid-770ab681.js",
@@ -132,7 +132,7 @@
     ],
     "css": [
       "assets/pages/__layout.svelte-8a898891.css",
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
@@ -162,7 +162,7 @@
     ],
     "css": [
       "assets/pages/index.svelte-4c29141a.css",
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/__layout.svelte": {
@@ -176,7 +176,7 @@
     ],
     "css": [
       "assets/pages/docs/__layout.svelte-0cb29aee.css",
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/index.svelte": {
@@ -193,7 +193,7 @@
       "_action-63149ef0.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/01-getting_started/01-installation.md": {
@@ -205,7 +205,7 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/01-getting_started/browser-support.md": {
@@ -218,7 +218,7 @@
       "_Badge-7d637b9f.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/01-getting_started/02-customize.md": {
@@ -230,7 +230,7 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/01-getting_started/changelog.md": {
@@ -242,20 +242,20 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/autocomplete.md": {
-    "file": "pages/docs/components/autocomplete.md-1f38bc62.js",
+    "file": "pages/docs/components/autocomplete.md-d920dc92.js",
     "src": "src/www/docs/components/autocomplete.md",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-b6cdff54.js",
-      "_IconButton-fcbcbe51.js",
+      "_IconButton-89d63667.js",
       "_Chip-fe2537ed.js",
       "__knobs-8c8f1b9a.js",
-      "_Icon-4f86fe99.js",
+      "_Icon-da8b5507.js",
       "_Button-0eaa4050.js",
       "_action-63149ef0.js",
       "_Avatar-9091a48a.js",
@@ -263,7 +263,7 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/breadcrumbs.md": {
@@ -275,25 +275,25 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/pagination.md": {
-    "file": "pages/docs/components/pagination.md-fd8dc259.js",
+    "file": "pages/docs/components/pagination.md-5d905cbc.js",
     "src": "src/www/docs/components/pagination.md",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-b6cdff54.js",
       "_Select-1decf61f.js",
-      "_Icon-4f86fe99.js",
+      "_Icon-da8b5507.js",
       "__knobs-8c8f1b9a.js",
       "_uuid-770ab681.js",
       "_Col-bdd7a3ba.js",
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/transition.md": {
@@ -305,7 +305,7 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/accordion.md": {
@@ -321,7 +321,7 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/checkbox.md": {
@@ -339,7 +339,7 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/progress.md": {
@@ -355,11 +355,11 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/divider.md": {
-    "file": "pages/docs/components/divider.md-107cb920.js",
+    "file": "pages/docs/components/divider.md-772248e7.js",
     "src": "src/www/docs/components/divider.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -367,13 +367,13 @@
       "_vendor-b6cdff54.js",
       "_paths-4b3c6e7e.js",
       "_Divider-487bfd66.js",
-      "_Figure-cb199c86.js",
+      "_Figure-3121ecfc.js",
       "_Col-bdd7a3ba.js",
       "__knobs-8c8f1b9a.js",
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/avatar.md": {
@@ -391,27 +391,27 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/button.md": {
-    "file": "pages/docs/components/button.md-44e68411.js",
+    "file": "pages/docs/components/button.md-d3904e5b.js",
     "src": "src/www/docs/components/button.md",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-b6cdff54.js",
-      "_IconButton-fcbcbe51.js",
+      "_IconButton-89d63667.js",
       "_Button-0eaa4050.js",
       "_Group-d2703ad8.js",
-      "_Icon-4f86fe99.js",
+      "_Icon-da8b5507.js",
       "__knobs-8c8f1b9a.js",
       "_action-63149ef0.js",
       "_Col-bdd7a3ba.js",
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/select.md": {
@@ -429,7 +429,7 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/switch.md": {
@@ -447,7 +447,7 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/badge.md": {
@@ -467,20 +467,20 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/input.md": {
-    "file": "pages/docs/components/input.md-e326ec4f.js",
+    "file": "pages/docs/components/input.md-a85bade6.js",
     "src": "src/www/docs/components/input.md",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-b6cdff54.js",
-      "_IconButton-fcbcbe51.js",
+      "_IconButton-89d63667.js",
       "_Button-0eaa4050.js",
       "_Checkbox-5d0ba434.js",
-      "_Icon-4f86fe99.js",
+      "_Icon-da8b5507.js",
       "_Input-7baa9154.js",
       "_Switch-c01d4330.js",
       "_Select-1decf61f.js",
@@ -492,7 +492,7 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/radio.md": {
@@ -509,7 +509,7 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/range.md": {
@@ -526,7 +526,7 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/steps.md": {
@@ -541,23 +541,23 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/toast.md": {
-    "file": "pages/docs/components/toast.md-24cadfbb.js",
+    "file": "pages/docs/components/toast.md-943bbda5.js",
     "src": "src/www/docs/components/toast.md",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-b6cdff54.js",
-      "_IconButton-fcbcbe51.js",
+      "_IconButton-89d63667.js",
       "_Group-d2703ad8.js",
       "_Divider-487bfd66.js",
-      "_Toast-bf025cc6.js",
+      "_Toast-722e9cdd.js",
       "_Col-bdd7a3ba.js",
       "__knobs-8c8f1b9a.js",
-      "_Icon-4f86fe99.js",
+      "_Icon-da8b5507.js",
       "_Button-0eaa4050.js",
       "_action-63149ef0.js",
       "_Progress-eed0cb4a.js",
@@ -565,7 +565,7 @@
     ],
     "css": [
       "assets/pages/docs/components/toast.md-e05a0efb.css",
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/chip.md": {
@@ -584,18 +584,18 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/icon.md": {
-    "file": "pages/docs/components/icon.md-fdb04f28.js",
+    "file": "pages/docs/components/icon.md-6b418610.js",
     "src": "src/www/docs/components/icon.md",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-b6cdff54.js",
-      "_IconButton-fcbcbe51.js",
-      "_Icon-4f86fe99.js",
+      "_IconButton-89d63667.js",
+      "_Icon-da8b5507.js",
       "_Col-bdd7a3ba.js",
       "__knobs-8c8f1b9a.js",
       "_github-cde0f11b.js",
@@ -604,11 +604,11 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/menu.md": {
-    "file": "pages/docs/components/menu.md-93b6ef9f.js",
+    "file": "pages/docs/components/menu.md-8db01c7d.js",
     "src": "src/www/docs/components/menu.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -617,7 +617,7 @@
       "_paths-4b3c6e7e.js",
       "_Button-0eaa4050.js",
       "_Avatar-9091a48a.js",
-      "_Menu-b9efb3a9.js",
+      "_Menu-6d393e26.js",
       "_Col-bdd7a3ba.js",
       "_Tile-04ea0ce2.js",
       "__knobs-8c8f1b9a.js",
@@ -627,15 +627,15 @@
       "_Switch-c01d4330.js",
       "_Divider-487bfd66.js",
       "_Badge-7d637b9f.js",
-      "_Icon-4f86fe99.js",
+      "_Icon-da8b5507.js",
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/components/tabs.md": {
-    "file": "pages/docs/components/tabs.md-061b0b5c.js",
+    "file": "pages/docs/components/tabs.md-4dc92f56.js",
     "src": "src/www/docs/components/tabs.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -646,13 +646,13 @@
       "_paths-4b3c6e7e.js",
       "_action-63149ef0.js",
       "_Button-0eaa4050.js",
-      "_Icon-4f86fe99.js",
+      "_Icon-da8b5507.js",
       "_Col-bdd7a3ba.js",
       "__knobs-8c8f1b9a.js",
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/layouts/container.md": {
@@ -666,23 +666,23 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/layouts/dropdown.md": {
-    "file": "pages/docs/layouts/dropdown.md-790230c4.js",
+    "file": "pages/docs/layouts/dropdown.md-0da5bed1.js",
     "src": "src/www/docs/layouts/dropdown.md",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-b6cdff54.js",
       "_paths-4b3c6e7e.js",
-      "_IconButton-fcbcbe51.js",
+      "_IconButton-89d63667.js",
       "_Avatar-9091a48a.js",
       "_Button-0eaa4050.js",
       "_Group-d2703ad8.js",
-      "_Icon-4f86fe99.js",
-      "_Menu-b9efb3a9.js",
+      "_Icon-da8b5507.js",
+      "_Menu-6d393e26.js",
       "_Col-bdd7a3ba.js",
       "_Tile-04ea0ce2.js",
       "__knobs-8c8f1b9a.js",
@@ -695,7 +695,7 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/layouts/popover.md": {
@@ -713,7 +713,7 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/layouts/sidebar.md": {
@@ -725,40 +725,40 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/layouts/figure.md": {
-    "file": "pages/docs/layouts/figure.md-d654b5a4.js",
+    "file": "pages/docs/layouts/figure.md-61d16adb.js",
     "src": "src/www/docs/layouts/figure.md",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-b6cdff54.js",
       "_paths-4b3c6e7e.js",
-      "_Figure-cb199c86.js",
+      "_Figure-3121ecfc.js",
       "_Col-bdd7a3ba.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/layouts/navbar.md": {
-    "file": "pages/docs/layouts/navbar.md-02b41092.js",
+    "file": "pages/docs/layouts/navbar.md-14851793.js",
     "src": "src/www/docs/layouts/navbar.md",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-b6cdff54.js",
-      "_IconButton-fcbcbe51.js",
+      "_IconButton-89d63667.js",
       "_Navbar-abd10e3c.js",
       "__media-dda27efa.js",
-      "_Icon-4f86fe99.js",
+      "_Icon-da8b5507.js",
       "_Button-0eaa4050.js",
       "_action-63149ef0.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/layouts/toggle.md": {
@@ -775,26 +775,26 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/layouts/empty.md": {
-    "file": "pages/docs/layouts/empty.md-8c3a621d.js",
+    "file": "pages/docs/layouts/empty.md-0859dd0e.js",
     "src": "src/www/docs/layouts/empty.md",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-b6cdff54.js",
-      "_Icon-4f86fe99.js",
+      "_Icon-da8b5507.js",
       "_Button-0eaa4050.js",
       "_action-63149ef0.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/layouts/modal.md": {
-    "file": "pages/docs/layouts/modal.md-15b0f09a.js",
+    "file": "pages/docs/layouts/modal.md-906a17d2.js",
     "src": "src/www/docs/layouts/modal.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -802,15 +802,15 @@
       "_vendor-b6cdff54.js",
       "_Button-0eaa4050.js",
       "_uuid-770ab681.js",
-      "_IconButton-fcbcbe51.js",
+      "_IconButton-89d63667.js",
       "__knobs-8c8f1b9a.js",
       "_action-63149ef0.js",
-      "_Icon-4f86fe99.js",
+      "_Icon-da8b5507.js",
       "_Col-bdd7a3ba.js",
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/layouts/panel.md": {
@@ -822,7 +822,7 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/layouts/card.md": {
@@ -840,7 +840,7 @@
       "_action-63149ef0.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/layouts/code.md": {
@@ -852,18 +852,18 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/layouts/form.md": {
-    "file": "pages/docs/layouts/form.md-601a2ef5.js",
+    "file": "pages/docs/layouts/form.md-ee89985a.js",
     "src": "src/www/docs/layouts/form.md",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-b6cdff54.js",
-      "_IconButton-fcbcbe51.js",
-      "_Icon-4f86fe99.js",
+      "_IconButton-89d63667.js",
+      "_Icon-da8b5507.js",
       "_Input-7baa9154.js",
       "_Group-a1037b6b.js",
       "_Button-0eaa4050.js",
@@ -871,7 +871,7 @@
       "_uuid-770ab681.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/layouts/grid.md": {
@@ -885,7 +885,7 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/layouts/hero.md": {
@@ -899,7 +899,7 @@
       "__media-dda27efa.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "src/www/docs/layouts/tile.md": {
@@ -911,7 +911,7 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "_vendor-b6cdff54.js": {
@@ -938,14 +938,14 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
-  "_IconButton-fcbcbe51.js": {
-    "file": "chunks/IconButton-fcbcbe51.js",
+  "_IconButton-89d63667.js": {
+    "file": "chunks/IconButton-89d63667.js",
     "imports": [
       "_vendor-b6cdff54.js",
-      "_Icon-4f86fe99.js",
+      "_Icon-da8b5507.js",
       "_Button-0eaa4050.js"
     ]
   },
@@ -956,21 +956,21 @@
       "_action-63149ef0.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
-  "_Menu-b9efb3a9.js": {
-    "file": "chunks/Menu-b9efb3a9.js",
+  "_Menu-6d393e26.js": {
+    "file": "chunks/Menu-6d393e26.js",
     "imports": [
       "_vendor-b6cdff54.js",
       "_Checkbox-5d0ba434.js",
       "_Switch-c01d4330.js",
       "_Divider-487bfd66.js",
       "_Badge-7d637b9f.js",
-      "_Icon-4f86fe99.js"
+      "_Icon-da8b5507.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "_Navbar-abd10e3c.js": {
@@ -979,7 +979,7 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "_github-cde0f11b.js": {
@@ -994,13 +994,13 @@
       "_vendor-b6cdff54.js"
     ]
   },
-  "_Icon-4f86fe99.js": {
-    "file": "chunks/Icon-4f86fe99.js",
+  "_Icon-da8b5507.js": {
+    "file": "chunks/Icon-da8b5507.js",
     "imports": [
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "_action-63149ef0.js": {
@@ -1013,7 +1013,7 @@
       "_uuid-770ab681.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "_Switch-c01d4330.js": {
@@ -1023,7 +1023,7 @@
       "_uuid-770ab681.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "_Divider-487bfd66.js": {
@@ -1032,7 +1032,7 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "_Badge-7d637b9f.js": {
@@ -1041,19 +1041,19 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
-  "_Toast-bf025cc6.js": {
-    "file": "chunks/Toast-bf025cc6.js",
+  "_Toast-722e9cdd.js": {
+    "file": "chunks/Toast-722e9cdd.js",
     "imports": [
       "_vendor-b6cdff54.js",
       "_Progress-eed0cb4a.js",
-      "_Icon-4f86fe99.js",
-      "_IconButton-fcbcbe51.js"
+      "_Icon-da8b5507.js",
+      "_IconButton-89d63667.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "_uuid-770ab681.js": {
@@ -1065,7 +1065,7 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "_Card-ae1bea79.js": {
@@ -1074,7 +1074,7 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "_Container-575600a1.js": {
@@ -1083,7 +1083,7 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "_Col-bdd7a3ba.js": {
@@ -1092,7 +1092,7 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "_Hero-3f720c2b.js": {
@@ -1101,7 +1101,7 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "__knobs-8c8f1b9a.js": {
@@ -1113,7 +1113,7 @@
     ],
     "css": [
       "assets/_knobs-21579823.css",
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "_Chip-fe2537ed.js": {
@@ -1123,7 +1123,7 @@
       "_Avatar-9091a48a.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "_Avatar-9091a48a.js": {
@@ -1133,7 +1133,7 @@
       "_action-63149ef0.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "_Select-1decf61f.js": {
@@ -1143,7 +1143,7 @@
       "_uuid-770ab681.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "_Group-a1037b6b.js": {
@@ -1152,16 +1152,16 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
-  "_Figure-cb199c86.js": {
-    "file": "chunks/Figure-cb199c86.js",
+  "_Figure-3121ecfc.js": {
+    "file": "chunks/Figure-3121ecfc.js",
     "imports": [
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "_Group-d2703ad8.js": {
@@ -1170,7 +1170,7 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "_Input-7baa9154.js": {
@@ -1180,7 +1180,7 @@
       "_uuid-770ab681.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   },
   "_Tile-04ea0ce2.js": {
@@ -1189,7 +1189,7 @@
       "_vendor-b6cdff54.js"
     ],
     "css": [
-      "assets/Spectre.svelte_svelte_type_style_lang-803b58b7.css"
+      "assets/Spectre.svelte_svelte_type_style_lang-1d1d592e.css"
     ]
   }
 }
