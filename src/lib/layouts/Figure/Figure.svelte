@@ -4,6 +4,7 @@
 			class="img-responsive"
 			class:img-fit-contain={contain}
 			class:img-fit-cover={cover}
+			alt="alt"
 			{...$$restProps}
 		/>
 	</slot>

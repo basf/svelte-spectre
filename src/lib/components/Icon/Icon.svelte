@@ -224,4 +224,45 @@
 			left: 2px;
 		}
 	}
+
+	// icon-tag
+	.icon-tag {
+		display: block;
+		border: 2px solid;
+		border-right: 0;
+		border-top-left-radius: 3px;
+		border-bottom-left-radius: 3px;
+		box-sizing: border-box;
+		transform: scale(var(--ggs, 0.8)) rotate(-45deg);
+		position: relative;
+		width: 19px !important;
+		height: 14px !important;
+
+		&::before {
+			content: '';
+			display: block;
+			border: 2px solid;
+			position: absolute;
+			width: 2px;
+			height: 2px;
+			box-sizing: content-box !important;
+			border-radius: 100px;
+			left: 85% !important;
+			top: 2px;
+		}
+		&::after {
+			content: '';
+			display: block;
+			box-sizing: border-box;
+			position: absolute;
+			width: 10px;
+			height: 10px;
+			border-bottom: 2px solid;
+			border-right: 2px solid;
+			border-bottom-right-radius: 4px;
+			transform: rotate(-45deg) !important;
+			top: 0 !important;
+			left: 70% !important;
+		}
+	}
 </style>

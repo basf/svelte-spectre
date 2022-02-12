@@ -25,7 +25,6 @@
 				<button
 					class="btn btn-clear mr--1"
 					aria-label="Close"
-					role="button"
 					on:click={() => (selected = [])}
 				/>
 			{/if}
@@ -33,7 +32,7 @@
 	</div>
 
 	{#if focused && (!predictable || value.length)}
-		<ul class="menu" tabindex="1">
+		<ul class="menu" tabindex="0">
 			{#if creatable && !suggested.length}
 				<li class="divider" data-content="Add:" />
 				<li class="menu-item">
@@ -42,6 +41,7 @@
 						class:active={value.length}
 						on:click|preventDefault={() => confirmSuggestion(value)}
 						on:mouseover|preventDefault={() => (active = 0)}
+						on:focus|preventDefault={() => (active = 0)}
 						>{@html markSuggestion(value, value)}
 					</a>
 				</li>
@@ -50,12 +50,13 @@
 					<li style="order: {ordering(group, g)}" class="divider" data-content={group} />
 				{/each}
 				{#each suggested as item, i}
-					<li style="order: {i}" class="menu-item" tabindex="1">
+					<li style="order: {i}" class="menu-item" tabindex="0">
 						<a
 							href="#_"
 							class:active={active === i}
 							on:click|preventDefault={() => confirmSuggestion(item)}
 							on:mouseover|preventDefault={() => (active = i)}
+							on:focus|preventDefault={() => (active = i)}
 							>{@html markSuggestion(item, value)}
 						</a>
 						{#if created.includes(item)}
