@@ -38,7 +38,7 @@
 		}
 		// fix
 		&.icon-edit::after {
-			left: 10%;
+			left: 9%;
 			top: 96%;
 		}
 	}
