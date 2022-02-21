@@ -43,7 +43,7 @@
 		}
 	}
 
-	// icon-dimond - DRAFT!!!
+	// icon-diamond - TODO
 	.icon-diamond {
 		border-style: solid;
 		border-color: transparent transparent red transparent;
