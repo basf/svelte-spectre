@@ -46,7 +46,8 @@
 	const dispatch = createEventDispatcher();
 
 	const close = () => {
-		!custom ? (open = false) : dispatch('close', 'detail value');
+		if (!custom) open = false;
+		dispatch('close', 'detail value');
 	};
 </script>
 

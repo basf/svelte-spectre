@@ -36,6 +36,11 @@
 			align-items: center;
 			justify-content: center;
 		}
+		// fix
+		&.icon-edit::after {
+			left: 10%;
+			top: 96%;
+		}
 	}
 
 	// icon-dimond - DRAFT!!!
