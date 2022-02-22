@@ -23,13 +23,13 @@ jobs:
         run: |
           npm run package
 
-      - name: Commit files 🖍
+      - name: Commit Package 🖍
         run: |
           git config --local user.name "package"
           git add ./package -f
           git commit -m "Updating the package folder"
 
-      - name: Push changes 🚚
+      - name: Push Package 🚚
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
