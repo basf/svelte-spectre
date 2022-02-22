@@ -4,14 +4,14 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout 🔔
         uses: actions/checkout@v2.3.1
 
-      - name: Install 🔧
+      - name: Install 🚧
         run: |
           npm install
 
-      - name: Test 🔧
+      - name: Test 🧪
         run: |
           npm run test
 
@@ -19,23 +19,22 @@ jobs:
         run: |
           npm run format
 
-      - name: Package 🔧
+      - name: Package 📦
         run: |
           npm run package
 
-      - name: Commit files 📦
+      - name: Commit files 🖍
         run: |
-          git config --local user.name "valexr"
           git add ./package
           git commit -m "Updating the package folder"
 
-      - name: Push changes 🚀
+      - name: Push changes 🚚
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
 
-      - name: Build 🔧
+      - name: Build 🏗
         run: |
           npm run build
 
