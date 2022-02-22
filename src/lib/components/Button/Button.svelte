@@ -9,7 +9,7 @@
 		class:input-group-btn={input}
 		class:loading
 		class:active
-		class:tooltip
+		class:tooltip={tooltip || tooltipLeft || tooltipRight || tooltipBottom}
 		class:tooltip-left={tooltipLeft}
 		class:tooltip-right={tooltipRight}
 		class:tooltip-bottom={tooltipBottom}
@@ -30,6 +30,7 @@
 		class:input-group-btn={input}
 		class:loading
 		class:active
+		class:tooltip={tooltip || tooltipLeft || tooltipRight || tooltipBottom}
 		class:tooltip-left={tooltipLeft}
 		class:tooltip-right={tooltipRight}
 		class:tooltip-bottom={tooltipBottom}
