@@ -21,6 +21,10 @@ declare const __propDef: {
         input?: boolean;
         href?: string;
         badge: any;
+        tooltip: string;
+        tooltipLeft: string;
+        tooltipRight: string;
+        tooltipBottom: string;
     };
     events: {
         click: MouseEvent;
