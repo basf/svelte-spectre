@@ -270,4 +270,45 @@
 			left: 70% !important;
 		}
 	}
+
+	// icon-trend
+	.icon-trend {
+		box-sizing: border-box;
+		position: relative;
+		display: block;
+		transform: rotate(-45deg) scale(var(--ggs, 1));
+		width: 10px !important;
+		height: 8px !important;
+		border-top: 2px solid;
+		border-right: 2px solid;
+		right: 5px;
+		top: 3px;
+		&::after,
+		&::before {
+			content: '';
+			display: block;
+			box-sizing: border-box;
+			position: absolute;
+			transform: none !important;
+			top: auto !important;
+		}
+		&:before {
+			background: currentColor;
+			left: 8px !important;
+			width: 10px !important;
+			height: 2px !important;
+			bottom: 0 !important;
+			right: auto !important;
+		}
+		&::after {
+			width: 0 !important;
+			height: 0 !important;
+			border-top: 4px solid transparent;
+			border-bottom: 4px solid transparent;
+			border-left: 6px solid;
+			bottom: -3px !important;
+			right: -14px !important;
+			left: auto !important;
+		}
+	}
 </style>
