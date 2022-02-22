@@ -44,5 +44,4 @@ export type Icons =
     | 'wifi'
     | 'audio'
     | 'tag'
-    | 'trend'
     | '';
