@@ -803,7 +803,6 @@ export let color = '';
   box-sizing: content-box !important;
   border-radius: 100px;
   left: 85% !important;
-  top: 2px;
 }
 .icon-tag::after {
   content: "";
