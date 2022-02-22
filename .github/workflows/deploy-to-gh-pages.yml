@@ -26,7 +26,7 @@ jobs:
       - name: Commit files 🖍
         run: |
           git config --local user.name "package"
-          git add ./package
+          git add ./package -f
           git commit -m "Updating the package folder"
 
       - name: Push changes 🚚
