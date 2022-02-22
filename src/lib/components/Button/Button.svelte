@@ -9,6 +9,11 @@
 		class:input-group-btn={input}
 		class:loading
 		class:active
+		class:tooltip={tooltip || tooltipLeft || tooltipRight || tooltipBottom}
+		class:tooltip-left={tooltipLeft}
+		class:tooltip-right={tooltipRight}
+		class:tooltip-bottom={tooltipBottom}
+		data-tooltip={tooltip || tooltipLeft || tooltipRight || tooltipBottom}
 		on:click
 		on:dblclick
 		use:addBadge={badge}
@@ -25,6 +30,11 @@
 		class:input-group-btn={input}
 		class:loading
 		class:active
+		class:tooltip={tooltip || tooltipLeft || tooltipRight || tooltipBottom}
+		class:tooltip-left={tooltipLeft}
+		class:tooltip-right={tooltipRight}
+		class:tooltip-bottom={tooltipBottom}
+		data-tooltip={tooltip || tooltipLeft || tooltipRight || tooltipBottom}
 		on:click
 		on:dblclick
 		use:addBadge={badge}
@@ -53,6 +63,10 @@
 	export let input: boolean = false;
 	export let href: string = '';
 	export let badge: any;
+	export let tooltip: string;
+	export let tooltipLeft: string;
+	export let tooltipRight: string;
+	export let tooltipBottom: string;
 </script>
 
 <style lang="scss">
