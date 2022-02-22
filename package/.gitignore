@@ -1,8 +1,0 @@
-/node_modules
-/.svelte-kit
-/build
-/coverage
-/package
-
-.DS_Store
-*-lock.*
