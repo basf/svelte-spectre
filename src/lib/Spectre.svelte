@@ -313,10 +313,10 @@
 				// AVATAR
 				.avatar {
 					.avatar-icon {
-						background: $dark-background;
+						background: $dark-background !important;
 					}
 					.avatar-presence {
-						box-shadow: 0 0 0 0.1rem $dark-background;
+						box-shadow: 0 0 0 0.1rem $dark-background !important;
 					}
 				}
 
@@ -333,10 +333,10 @@
 							background: $dark-overlay !important;
 						}
 					}
-					.modal-container {
-						box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3) !important;
-						background: $dark-background !important;
-					}
+				}
+				.modal-container {
+					box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3) !important;
+					background: $dark-background !important;
 				}
 
 				// PANEL
@@ -546,10 +546,10 @@
 				// AVATAR
 				.avatar {
 					.avatar-icon {
-						background: $dark-background;
+						background: $dark-background !important;
 					}
 					.avatar-presence {
-						box-shadow: 0 0 0 0.1rem $dark-background;
+						box-shadow: 0 0 0 0.1rem $dark-background !important;
 					}
 				}
 
@@ -566,10 +566,10 @@
 							background: $dark-overlay !important;
 						}
 					}
-					.modal-container {
-						box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3) !important;
-						background: $dark-background !important;
-					}
+				}
+				.modal-container {
+					box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-shadow, 0.3) !important;
+					background: $dark-background !important;
 				}
 
 				// PANEL
@@ -779,10 +779,10 @@
 				// AVATAR
 				.avatar {
 					.avatar-icon {
-						background: $bg-color-light;
+						background: $bg-color-light !important;
 					}
 					.avatar-presence {
-						box-shadow: 0 0 0 0.1rem $bg-color-light;
+						box-shadow: 0 0 0 0.1rem $bg-color-light !important;
 					}
 				}
 
@@ -799,10 +799,10 @@
 							background: rgba($bg-color, 0.75) !important;
 						}
 					}
-					.modal-container {
-						box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-color, 0.3) !important;
-						background: $bg-color-light !important;
-					}
+				}
+				.modal-container {
+					box-shadow: 0 0.2rem (0.2rem + 0.05rem) * 2 rgba($dark-color, 0.3) !important;
+					background: $bg-color-light !important;
 				}
 
 				// PANEL

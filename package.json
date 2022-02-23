@@ -42,7 +42,7 @@
 	"devDependencies": {
 		"@poppanator/sveltekit-svg": "^0.2.3",
 		"@sveltejs/adapter-static": "^1.0.0-next.28",
-		"@sveltejs/kit": "^1.0.0-next.281",
+		"@sveltejs/kit": "^1.0.0-next.283",
 		"@types/jsdom": "^16.2.14",
 		"@typescript-eslint/eslint-plugin": "^5.12.1",
 		"@typescript-eslint/parser": "^5.12.1",
