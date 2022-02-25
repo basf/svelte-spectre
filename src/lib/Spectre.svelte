@@ -681,7 +681,7 @@
 				// DROpDOWN
 				.dropdown {
 					.menu {
-						@include shadow-variant(0.05rem);
+						box-shadow: 0 0.25rem 1rem rgba($dark-color, 0.45);
 						background: $bg-color-light;
 					}
 				}

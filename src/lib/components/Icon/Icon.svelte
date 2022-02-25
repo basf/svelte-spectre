@@ -232,7 +232,6 @@
 
 	// icon-tag
 	.icon-tag {
-		display: block;
 		border: 2px solid;
 		border-right: 0;
 		border-top-left-radius: 3px;
