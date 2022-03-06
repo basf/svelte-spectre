@@ -1,7 +1,12 @@
 <div {...$$restProps} class="form-autocomplete">
 	<div class="form-autocomplete-input form-input" class:is-focused={focused}>
 		{#each selected as chip, i}
-			<Chip closable on:close={() => removeSelected(i)}>{chip}</Chip>
+			<Chip
+				style={chip.style || ''}
+				closable
+				color={chip.type || ''}
+				on:close={() => removeSelected(i)}>{chip.label}</Chip
+			>
 		{/each}
 
 		<div
@@ -32,10 +37,10 @@
 	</div>
 
 	{#if focused && (!predictable || value.length)}
-		<ul class="menu" tabindex="0">
+		<dl class="menu" tabindex="0">
 			{#if creatable && !suggested.length}
-				<li class="divider" data-content="Add:" />
-				<li class="menu-item">
+				<dt class="divider" data-content="Add:" />
+				<dd class="menu-item">
 					<a
 						href="#_"
 						class:active={value.length}
@@ -44,34 +49,39 @@
 						on:focus|preventDefault={() => (active = 0)}
 						>{@html markSuggestion(value, value)}
 					</a>
-				</li>
+				</dd>
 			{:else if suggested.length}
-				{#each groups as group, g}
-					<li style="order: {ordering(group, g)}" class="divider" data-content={group} />
-				{/each}
-				{#each suggested as item, i}
-					<li style="order: {i}" class="menu-item" tabindex="0">
-						<a
-							href="#_"
-							class:active={active === i}
-							on:click|preventDefault={() => confirmSuggestion(item)}
-							on:mouseover|preventDefault={() => (active = i)}
-							on:focus|preventDefault={() => (active = i)}
-							>{@html markSuggestion(item, value)}
-						</a>
-						{#if created.includes(item)}
-							<div class="menu-badge">
-								<IconButton
-									icon="delete"
-									size="sm"
-									on:click={() => deleteCreated(item)}
-								/>
-							</div>
-						{/if}
-					</li>
+				{#each Object.entries(makeGroups(suggested)) as [group, items], i}
+					{#if group && items.length}
+						<dt class="divider" data-content={group || ''} />
+					{/if}
+
+					{#each items as item, i (item.index)}
+						<dd class="menu-item" tabindex="0">
+							<a
+								href="#_"
+								class:active={active === suggested.indexOf(item)}
+								on:click|preventDefault={() => confirmSuggestion(item)}
+								on:mouseover|preventDefault={() =>
+									(active = suggested.indexOf(item))}
+								on:focus|preventDefault={() => (active = suggested.indexOf(item))}
+							>
+								{@html markSuggestion(item.label, value)}</a
+							>
+							{#if created.indexOf(item) >= 0}
+								<div class="menu-badge">
+									<IconButton
+										icon="delete"
+										size="sm"
+										on:click={() => deleteCreated(item.index)}
+									/>
+								</div>
+							{/if}
+						</dd>
+					{/each}
 				{/each}
 			{/if}
-		</ul>
+		</dl>
 	{/if}
 </div>
 
@@ -80,79 +90,57 @@
 <script lang="ts" context="module">
 	import Chip from '../Chip/Chip.svelte';
 	import IconButton from '../Button/IconButton.svelte';
+	import type { Color } from '../../types/text';
+
+	type Item = {
+		index: number;
+		label: string;
+		value?: any;
+		group?: string;
+		type?: Color;
+		style?: string;
+	};
 </script>
 
 <script lang="ts">
 	export let value: string = '';
 	export let placeholder: string = 'typing here';
-	export let predefined: string[] = [];
-	export let suggested: string[] = [];
-	export let selected: string[] = [];
-	export let created: string[] = [];
+	export let predefined: string[] | Item[] = [];
+	export let suggested: Item[] = [];
+	export let selected: Item[] = [];
+	export let created: Item[] = [];
 	export let creatable: boolean = false;
 	export let predictable: boolean = false;
-	export let groups: string[] = [];
+	export let objectable: boolean = false;
+	export let groupsBy: (item: string) => typeof item | undefined = () => '';
 
 	let focused: boolean = false,
 		active: number = 0,
-		prompt: string = '',
-		orders: number[] = [0];
+		prompt: string = '';
 
 	$: if (focused) {
-		suggested = calcSuggestion(predefined, selected, value);
+		predefined =
+			typeof predefined[0] === 'string'
+				? toObjects(predefined as string[])
+				: createIndexes(predefined as Item[]);
+		suggested = calcSuggestion(predefined as Item[], selected, value);
 		prompt = calcPrompt(suggested, value, active);
-		groups = suggested.every((s) => groups.some((g) => s.includes(g)))
-			? groups.filter((g) => suggested.some((s) => s.includes(g)))
-			: [...groups, 'other'];
-		// : suggested.some((s) => created.includes(s))
-		// ? [...groups, 'created']
-		console.log(
-			// predefined,
-			suggested
-				.concat(groups)
-				.sort((f, s) => (f > s ? 1 : -1))
-				.reverse()
-			// created,
-			// groups
+	}
+
+	function deleteCreated(index: number) {
+		predefined = predefined.filter((p: Item) => p.index !== index);
+		suggested = suggested.filter((s) => s.index !== index);
+		created = created.filter((c) => c.index !== index);
+	}
+
+	function calcSuggestion(predefined: Item[], selected: Item[], value: string): Item[] {
+		return predefined.filter(
+			(p) => stringIndex(p.label, value) >= 0 && !selected.some((s) => s.index === p.index)
 		);
-		// console.dir(suggested.sort((f, s) => (groups.some((g) => f.includes(g)) ? -1 : 1)));
 	}
 
-	function ordering(group: string, g: number) {
-		if (orders.length <= groups.length) {
-			const length = suggested.filter((s: string) => s.includes(group)).length;
-			// console.log(length);
-			orders.push(length);
-		}
-		const orderBy = orders.map(
-			(
-				(s) => (a) =>
-					(s += a)
-			)(0)
-		);
-		return orderBy[g];
-	}
-
-	function deleteCreated(item: string) {
-		predefined = predefined.filter((p) => p !== item);
-		suggested = suggested.filter((s) => s !== item);
-		created = created.filter((c) => c !== item);
-	}
-
-	function calcSuggestion(predefined: string[], selected: string[], value: string): string[] {
-		orders = [0];
-		return predefined
-			.filter((p) => stringIndex(p, value) >= 0 && !selected.some((s) => s === p))
-			.sort((f, s) => (groups.some((g) => f.includes(g)) ? -1 : 1 || 0));
-		// .map((s) => {
-		// 	if (groups.some((g) => g.includes(s))) return s;
-		// });
-		// .sort((f, s) => (groups.some((g) => g.includes(f)) ? 1 : -1));
-		// .sort((f, s) => (stringIndex(f, value) === 0 ? -1 : 1));
-	}
-
-	function calcPrompt(suggested: string[], value: string, active: number): string {
-		return stringIndex(suggested[active], value) === 0 ? suggested[active] : '';
+	function calcPrompt(suggested: Item[], value: string, active: number): string {
+		return stringIndex(suggested[active]?.label, value) === 0 ? suggested[active].label : '';
 	}
 
 	function stringIndex(item: string, value: string): number {
@@ -206,22 +194,55 @@
 		}
 	}
 
-	function confirmSuggestion(item: string) {
+	function confirmSuggestion(item: Item | string) {
+		item = typeof item === 'string' ? createObject(item) : item;
 		selected = [...selected, item];
 		created =
-			!created.includes(item) && !suggested.includes(item) ? [...created, item] : created;
-		predefined = created.some((c) => !predefined.includes(c))
-			? [...predefined, item]
+			created.indexOf(item) === -1 && suggested.indexOf(item) === -1
+				? [...created, item]
+				: created;
+		predefined = created.some((c: Item & string) => predefined.indexOf(c) === -1)
+			? [...(predefined as Item[]), item]
 			: predefined;
-		// groups = created.length ? [...groups, 'Created'] : groups;
 		suggested = [];
-		orders = [0];
-		value = '';
 		active = 0;
+		value = '';
 	}
 
 	function removeSelected(index: number) {
 		selected = selected.filter((s, i) => i !== index);
+	}
+
+	function toObjects(items: string[]) {
+		return items.map((item, index) => createObject(item, index));
+	}
+
+	function createObject(item: string, index?: number) {
+		return {
+			index: index >= 0 ? index : predefined.length,
+			value: item,
+			label: `${item}`,
+			group: groupsBy(item) || '',
+		};
+	}
+
+	function createIndexes(items: Item[]) {
+		return items.some((item) => !item.hasOwnProperty('index'))
+			? items.map((item: Item, i) => ({ ...item, index: i }))
+			: items;
+	}
+
+	function makeGroups(items: Item[]): { [key: string]: Item[] } | [] {
+		if (!items || !items.length) {
+			console.warn(`Autocomplete haven't items`);
+			return [];
+		} else {
+			return items.reduce((a, c) => {
+				a[c.group] = a[c.group] || [];
+				a[c.group]?.push(c);
+				return a;
+			}, {});
+		}
 	}
 </script>
 
@@ -233,7 +254,8 @@
 		.form-autocomplete {
 			.form-autocomplete-input {
 				align-items: center;
-				padding: 0 0.1rem;
+				// padding: 0 0.1rem;
+				background: transparent;
 				.form-input-icon-wrap {
 					flex: auto;
 					.form-input {
@@ -241,14 +263,16 @@
 						line-height: 1.2rem;
 						margin: 0;
 						width: 100%;
-						background: transparent;
+						background: transparent !important;
+						border: none !important;
 					}
 					&:is([data-active]) {
 						&::before {
 							content: attr(data-active);
 							position: absolute;
-							padding: 0.25rem 0.4rem;
-							color: $gray-color;
+							padding: 0.25rem 0.35rem;
+							color: $gray-color-dark;
+							line-height: 1.45;
 							border: 0.05rem solid transparent;
 						}
 					}
@@ -258,6 +282,7 @@
 				display: flex;
 				flex-flow: column nowrap;
 				.menu-item {
+					margin-bottom: 0;
 					& > a:not(.active):hover {
 						background: inherit;
 						color: inherit;
@@ -265,6 +290,10 @@
 					:global(mark) {
 						padding: 0;
 					}
+				}
+				dt {
+					font-weight: normal;
+					margin: 1rem 0;
 				}
 			}
 		}

@@ -1,4 +1,4 @@
-<div {...$$restProps} class="chip" class:active>
+<div {...$$restProps} class="chip bg-{color}" class:active>
 	{#if avatar}
 		<Avatar size="sm" {name} {status}>
 			<slot name="avatar" />
@@ -19,6 +19,8 @@
 
 	import Avatar from '../Avatar/Avatar.svelte';
 
+	import type { Color } from '../../types/text';
+
 	export type { Status };
 </script>
 
@@ -29,6 +31,7 @@
 	export let avatar: boolean = false;
 	export let name: string = '';
 	export let status: Status = null;
+	export let color: Color = null;
 	export let active: boolean = false;
 	export let closable: boolean = false;
 </script>
@@ -40,6 +43,27 @@
 			:global(.avatar) {
 				margin-left: -$unit-2;
 				margin-right: $unit-2;
+			}
+			&.bg-primary {
+				background-color: $primary-color !important;
+			}
+			&.bg-secondary {
+				background-color: $secondary-color !important;
+			}
+			&.bg-success {
+				background-color: $success-color !important;
+			}
+			&.bg-warning {
+				background-color: $warning-color !important;
+			}
+			&.bg-error {
+				background-color: $error-color !important;
+			}
+			&.bg-gray {
+				background-color: $gray-color !important;
+			}
+			&.bg-light {
+				background-color: $light-color !important;
 			}
 			.btn-clear {
 				background: transparent;

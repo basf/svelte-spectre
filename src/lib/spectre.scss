@@ -238,6 +238,16 @@
         .chip {
             background-color: $dark-color !important;
             color: $dark-text;
+            &.active {
+                background: $primary-color !important;
+            }
+            &.bg-secondary {
+                background-color: $dark-secondary !important;
+            }
+            &.bg-gray,
+            &.bg-light {
+                color: $dark-color;
+            }
         }
 
         // PROGRESS
@@ -457,6 +467,16 @@
         .chip {
             background-color: $dark-color !important;
             color: $dark-text;
+            &.active {
+                background: $primary-color !important;
+            }
+            &.bg-secondary {
+                background-color: $dark-secondary !important;
+            }
+            &.bg-gray,
+            &.bg-light {
+                color: $dark-color;
+            }
         }
 
         // PROGRESS
@@ -676,6 +696,9 @@
         .chip {
             background-color: $bg-color-dark !important;
             color: $body-font-color;
+            &.bg-secondary {
+                background-color: $secondary-color !important;
+            }
         }
 
         // PROGRESS
