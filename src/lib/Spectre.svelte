@@ -148,13 +148,13 @@
 				.form-input,
 				.form-select {
 					background-color: $dark-background !important;
-					// border: 0.05rem solid $gray-color-dark;
+					border-color: $gray-color-dark !important;
 					color: $dark-text !important;
 				}
 				.form-checkbox .form-icon,
 				.form-radio .form-icon,
 				.form-switch .form-icon {
-					// border-color: $gray-color-dark;
+					border-color: $gray-color-dark !important;
 					background: $dark-background !important;
 				}
 				input:active + .form-icon {
@@ -221,8 +221,18 @@
 
 				// CHIP
 				.chip {
-					background-color: $dark-color !important;
+					background: $dark-color !important;
 					color: $dark-text;
+					&.active {
+						background: $primary-color !important;
+					}
+					&.bg-secondary {
+						background-color: $dark-secondary !important;
+					}
+					&.bg-gray,
+					&.bg-light {
+						color: $dark-color;
+					}
 				}
 
 				// PROGRESS
@@ -378,16 +388,17 @@
 
 			:global {
 				//FORMS
+				//FORMS
 				.form-input,
 				.form-select {
 					background-color: $dark-background !important;
-					// border: 0.05rem solid $gray-color-dark;
+					border-color: $gray-color-dark !important;
 					color: $dark-text !important;
 				}
 				.form-checkbox .form-icon,
 				.form-radio .form-icon,
 				.form-switch .form-icon {
-					// border-color: $gray-color-dark;
+					border-color: $gray-color-dark !important;
 					background: $dark-background !important;
 				}
 				input:active + .form-icon {
@@ -454,8 +465,18 @@
 
 				// CHIP
 				.chip {
-					background-color: $dark-color !important;
+					background: $dark-color !important;
 					color: $dark-text;
+					&.active {
+						background: $primary-color !important;
+					}
+					&.bg-secondary {
+						background-color: $dark-secondary !important;
+					}
+					&.bg-gray,
+					&.bg-light {
+						color: $dark-color;
+					}
 				}
 
 				// PROGRESS
@@ -688,8 +709,11 @@
 
 				// CHIP
 				.chip {
-					background-color: $bg-color-dark !important;
+					background-color: $bg-color-dark;
 					color: $body-font-color;
+					&.bg-secondary {
+						background-color: $secondary-color !important;
+					}
 				}
 
 				// PROGRESS
@@ -708,11 +732,11 @@
 
 				// CARD
 				.card {
-					background: $bg-color-light !important;
-					border-color: $bg-color-dark !important;
+					background: $bg-color-light;
+					border-color: $bg-color-dark;
 
 					&.card-shadowed {
-						box-shadow: 0 0.25rem 1rem rgba($dark-color, 0.45) !important;
+						box-shadow: 0 0.25rem 1rem rgba($dark-color, 0.45);
 					}
 				}
 

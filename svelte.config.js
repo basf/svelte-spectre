@@ -62,6 +62,7 @@ export default {
 			template: 'src/www/app.html',
 		},
 		prerender: {
+			default: true,
 			concurrency: 1,
 			crawl: true,
 			enabled: true,
