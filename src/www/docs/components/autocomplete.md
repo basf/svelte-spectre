@@ -2,9 +2,19 @@
 file: autocomplete.md
 title: Autocomplete
 api: [
-	{title: 'placeholder: string = "type here"', description: 'Autocomplete placeholder', variables: 'any string'},
-	{title: 'selected: string[] = []', description: 'Autocomplete selected', variables: '[]'},
-	{title: 'predictable: boolean = false', description: 'Autocomplete predictable', variables: 'true | false'}
+    {title: 'predefined: string | Item = []', description: 'Predefined values array', variables: 'type Item = {
+		index: number;
+		label: string;
+		value?: any;
+		group?: string;
+		type?: Color;
+		style?: string;
+	}'},
+	{title: 'selected: string[] = []', description: 'Selected values array returned', variables: '[]'},
+	{title: 'groupBy: (item) => item = undefined', description: 'Groupping condition – returns headers strings', variables: 'groups headers'},
+	{title: 'predictable: boolean = false', description: 'Open suggested values list only on search match', variables: 'true | false'},
+	{title: 'creatable: boolean = false', description: 'Can add to suggested list new values', variables: 'true | false'},
+	{title: 'placeholder: string = "type here"', description: 'Placeholder', variables: 'any string'}
 ]
 config:
     {
@@ -94,9 +104,24 @@ used for tags and contacts input.
             'bottom_left',
             'bottom_center',
             'bottom_right',
+        ],
+        groups = [
+            '↖ top_left',
+            '↑ top_center',
+            '↗ top_right',
+            '← center_left',
+            '✛ center_center',
+            '→ center_right',
+            '↙ bottom_left',
+            '↓ bottom_center',
+            '↘ bottom_right',
         ]
+    
+    const groupsBy = (item) => {
+        return groups.split(', ').find((g) => item.includes(g))
+    }
 </script>
 
-<Autocomplete {predefined} bind:selected />
+<Autocomplete {predefined} bind:selected {groupsBy} />
 <small>Selected: [ {selected.join(", ")} ]</small>
 ```
