@@ -1,5 +1,9 @@
 # Svelte-spectre
 
+[![NPM version](https://img.shields.io/npm/v/svelte-spectre.svg?style=flat)](https://www.npmjs.com/package/svelte-spectre)
+[![NPM downloads](https://img.shields.io/npm/dm/svelte-spectre.svg?style=flat)](https://www.npmjs.com/package/svelte-spectre)
+[![GitHub issues](https://img.shields.io/github/issues/basf/svelte-spectre?style=flat)](https://github.com/basf/svelte-spectre/issues)
+
 UI-kit based on [spectre.css](https://picturepan2.github.io/spectre/) and powered by SvelteJS.
 
 ### Requirements
