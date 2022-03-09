@@ -19,7 +19,7 @@
 		</span>
 	{/if}
 	{#if caption || $$slots.caption}
-		<figcaption class="text-dark">
+		<figcaption>
 			<slot name="caption">{name}</slot>
 		</figcaption>
 	{/if}
@@ -99,7 +99,6 @@
 			left: 50%;
 			transform: translate(-50%, 0);
 			font-size: 80%;
-			color: black;
 			text-align: center;
 		}
 	}
