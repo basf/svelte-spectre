@@ -165,6 +165,11 @@
 					background: $primary-color !important;
 				}
 
+				// FIGCAPTION
+				figcaption {
+					color: $dark-text !important;
+				}
+
 				// BADGE
 				.badge {
 					&[data-badge],
@@ -409,6 +414,11 @@
 					background: $primary-color !important;
 				}
 
+				// FIGCAPTION
+				figcaption {
+					color: $dark-text !important;
+				}
+
 				// BADGE
 				.badge {
 					&[data-badge],
@@ -651,6 +661,11 @@
 
 				input:checked + .form-icon {
 					background: $primary-color !important;
+				}
+
+				// FIGCAPTION
+				figcaption {
+					color: $body-font-color !important;
 				}
 
 				// BADGE
