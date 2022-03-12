@@ -148,13 +148,13 @@
 				.form-input,
 				.form-select {
 					background-color: $dark-background !important;
-					border-color: $gray-color-dark !important;
+					// border-color: $gray-color-dark !important;
 					color: $dark-text !important;
 				}
 				.form-checkbox .form-icon,
 				.form-radio .form-icon,
 				.form-switch .form-icon {
-					border-color: $gray-color-dark !important;
+					// border-color: $gray-color-dark !important;
 					background: $dark-background !important;
 				}
 				input:active + .form-icon {
@@ -397,13 +397,13 @@
 				.form-input,
 				.form-select {
 					background-color: $dark-background !important;
-					border-color: $gray-color-dark !important;
+					// border-color: $gray-color-dark !important;
 					color: $dark-text !important;
 				}
 				.form-checkbox .form-icon,
 				.form-radio .form-icon,
 				.form-switch .form-icon {
-					border-color: $gray-color-dark !important;
+					// border-color: $gray-color-dark !important;
 					background: $dark-background !important;
 				}
 				input:active + .form-icon {
