@@ -2,10 +2,11 @@
 	{...$$restProps}
 	class="dropdown"
 	class:active
-	class:dropdown-center={align === 'center'}
-	class:dropdown-right={align === 'right'}
+	class:dropdown-center={align.center}
+	class:dropdown-right={align.right}
+	class:dropdown-bottom={align.bottom}
 >
-	<div class="dropdown-toggle" on:click|stopPropagation tabindex="0">
+	<div class="dropdown-toggle" on:click|stopPropagation on:click={onToggle} tabindex="0">
 		<slot />
 	</div>
 	<div class="menu">
@@ -13,15 +14,22 @@
 	</div>
 </div>
 
+<svelte:window bind:innerWidth={wW} bind:innerHeight={wH} />
 <svelte:body on:click={() => (active = false)} />
-
-<script lang="ts" context="module">
-	type Align = 'left' | 'center' | 'right';
-</script>
 
 <script lang="ts">
 	export let active: boolean = false;
-	export let align: Align = 'left';
+	export let align: { [key: string]: boolean } = {};
+
+	let wW = 0,
+		wH = 0;
+
+	function onToggle(e) {
+		align = {
+			right: wW - e.clientX < e.clientX,
+			bottom: wH - e.clientY < e.clientY,
+		};
+	}
 </script>
 
 <style lang="scss">
@@ -53,6 +61,12 @@
 		&.dropdown-right {
 			.menu {
 				--right: 0;
+			}
+		}
+		&.dropdown-bottom {
+			.menu {
+				top: auto;
+				bottom: 100%;
 			}
 		}
 	}
