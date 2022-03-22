@@ -2,7 +2,7 @@
 file: autocomplete.md
 title: Autocomplete
 api: [
-    {title: 'predefined: string | Item = []', description: 'Predefined values array', variables: 'type Item = {
+    {title: 'predefined: string | Item = []', description: 'Predefined values array input', variables: 'type Item = {
 		index: number;
 		label: string;
 		value?: any;
@@ -10,15 +10,18 @@ api: [
 		type?: Color;
 		style?: string;
 	}'},
-	{title: 'selected: string[] = []', description: 'Selected values array returned', variables: '[]'},
-	{title: 'groupBy: (item) => item = undefined', description: 'Groupping condition – returns headers strings', variables: 'groups headers'},
+	{title: 'selected: Item[] = []', description: 'Selected values array output', variables: '[]'},
+	{title: 'created: Item[] = []', description: 'Created values array output', variables: '[]'},
+	{title: 'groupBy: (item: Item) => item = undefined', description: 'Groupping condition – returns headers strings', variables: 'groups headers'},
 	{title: 'predictable: boolean = false', description: 'Open suggested values list only on search match', variables: 'true | false'},
 	{title: 'creatable: boolean = false', description: 'Can add to suggested list new values', variables: 'true | false'},
-	{title: 'placeholder: string = "type here"', description: 'Placeholder', variables: 'any string'}
+	{title: 'placeholder: string = "type here"', description: 'Placeholder', variables: 'any string'},
+	{title: 'empty: string = "No suggested"', description: 'No suggested message', variables: 'any string'}
 ]
 config:
     {
         placeholder: { size: 12 },
+        empty: { size: 12 },
         predictable: { type: 'checkbox' },
         creatable: { type: 'checkbox' },
         objects: { type: 'checkbox' },
@@ -54,16 +57,18 @@ config:
         ],
         state = {
             placeholder: 'type here',
+            empty: 'No suggested',
             predictable: false,
             creatable: false,
             groups: 'top_, center_, bottom_',
-            objects: false
+            objects: false,
         },
-        selected = []
+        selected = [{label: '↘ bottom_right'}],
+        created = []
     
     
-    const groupsBy = (item) => {
-        return state.groups.split(', ').find((g) => item.includes(g))
+    const groupBy = (item) => {
+        return state.groups.split(', ').find((g) => item.value.includes(g))
     }
 
     $: predefined = state.objects ? objects : strings
@@ -76,14 +81,18 @@ used for tags and contacts input.
 
 <p>
     <Autocomplete
-        bind:predefined
+        {predefined}
         bind:selected
-        bind:placeholder={state.placeholder}
+        bind:created
+        placeholder={state.placeholder}
         creatable={state.creatable}
         predictable={state.predictable}
-        {groupsBy}
-/>
+        empty={state.empty}
+        {groupBy} 
+    />
     <small>Selected: [ {selected.map(s => s.label).join(', ')} ]</small>
+    <br/>
+    <small>Created: [ {created.map(s => s.label).join(', ')} ]</small>
 </p>
 
 <p>
@@ -115,13 +124,22 @@ used for tags and contacts input.
             '↙ bottom_left',
             '↓ bottom_center',
             '↘ bottom_right',
-        ]
+        ],
+        seleted = []
     
     const groupsBy = (item) => {
-        return groups.split(', ').find((g) => item.includes(g))
+        return groups.split(', ').find((g) => item.value.includes(g))
     }
 </script>
 
-<Autocomplete {predefined} bind:selected {groupsBy} />
-<small>Selected: [ {selected.join(", ")} ]</small>
+<Autocomplete
+    {predefined}
+    bind:selected
+    bind:created
+    placeholder="type here"
+    empty="No suggested"
+    {groupBy}
+/>
+<small>Selected: [ {selected.map(s => s.label).join(', ')} ]</small>
+<small>Created: [ {created.map(s => s.label).join(', ')} ]</small>
 ```

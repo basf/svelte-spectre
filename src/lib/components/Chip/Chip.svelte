@@ -40,6 +40,7 @@
 	:global(.spectre) {
 		@import 'spectre.css/src/chips';
 		.chip {
+			max-width: fit-content;
 			:global(.avatar) {
 				margin-left: -$unit-2;
 				margin-right: $unit-2;
