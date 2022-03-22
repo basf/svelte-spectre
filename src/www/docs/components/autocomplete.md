@@ -81,6 +81,7 @@ used for tags and contacts input.
         bind:placeholder={state.placeholder}
         creatable={state.creatable}
         predictable={state.predictable}
+        empty="No data"
         {groupBy}
 />
     <small>Selected: [ {selected.map(s => s.label).join(', ')} ]</small>

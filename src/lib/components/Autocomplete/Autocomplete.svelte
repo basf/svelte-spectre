@@ -38,18 +38,21 @@
 
 	{#if focused && (!predictable || value.length)}
 		<dl class="menu" tabindex="0">
-			{#if creatable && !suggested.length}
-				<dt class="divider" data-content="Add:" />
-				<dd class="menu-item">
-					<a
-						href="#_"
-						class:active={value.length}
-						on:click|preventDefault={() => confirmSuggestion(value)}
-						on:mouseover|preventDefault={() => (active = 0)}
-						on:focus|preventDefault={() => (active = 0)}
-						>{@html markSuggestion(value, value)}
-					</a>
-				</dd>
+			{#if !suggested.length}
+				<dt class="divider" data-content={empty || 'No suggested'} />
+				{#if creatable}
+					<dt class="divider" data-content="Add:" />
+					<dd class="menu-item">
+						<a
+							href="#_"
+							class:active={value.length}
+							on:click|preventDefault={() => confirmSuggestion(value)}
+							on:mouseover|preventDefault={() => (active = 0)}
+							on:focus|preventDefault={() => (active = 0)}
+							>{@html markSuggestion(value, value)}
+						</a>
+					</dd>
+				{/if}
 			{:else if suggested.length}
 				{#each Object.entries(makeGroups(suggested)) as [group, items], i}
 					{#if group && items.length}
@@ -104,6 +107,7 @@
 
 <script lang="ts">
 	export let value: string = '';
+	export let empty: string = '';
 	export let placeholder: string = 'typing here';
 	export let predefined: string[] | Item[] = [];
 	export let suggested: Item[] = [];
