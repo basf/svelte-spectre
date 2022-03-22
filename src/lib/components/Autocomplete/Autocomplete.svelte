@@ -53,7 +53,7 @@
 						</a>
 					</dd>
 				{/if}
-			{:else if suggested.length}
+			{:else}
 				{#each Object.entries(makeGroups(suggested)) as [group, items], i}
 					{#if group && items.length}
 						<dt class="divider" data-content={group || ''} />
