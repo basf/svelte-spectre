@@ -112,23 +112,22 @@
 	export let creatable: boolean = false;
 	export let predictable: boolean = false;
 	export let objectable: boolean = false;
-	export let groupBy: (item: string) => typeof item | undefined = () => '';
+	export let groupBy: (item: Item | string) => string;
 
 	let focused: boolean = false,
 		active: number = 0,
 		prompt: string = '';
 
 	$: if (focused) {
-		predefined =
-			typeof predefined[0] === 'string'
-				? toObjects(predefined as string[])
-				: createIndexes(predefined as Item[]);
+		predefined = predefined.some((p: string | Item) => typeof p === 'string')
+			? toObjects(predefined as string[])
+			: createIndexes(predefined as Item[]);
 		suggested = calcSuggestion(predefined as Item[], selected, value);
 		prompt = calcPrompt(suggested, value, active);
 	}
 
 	function deleteCreated(index: number) {
-		predefined = predefined.filter((p: Item) => p.index !== index);
+		predefined = predefined.filter<Item>((p: Item) => p.index !== index);
 		suggested = suggested.filter((s) => s.index !== index);
 		created = created.filter((c) => c.index !== index);
 	}
@@ -214,15 +213,18 @@
 	}
 
 	function toObjects(items: string[]) {
-		return items.map((item, index) => createObject(item, index));
+		return items.map((item, index) => {
+			const object = createObject(item, index);
+			object.group = groupBy(object) || '';
+			return object;
+		});
 	}
 
-	function createObject(item: string, index?: number) {
+	function createObject(item: string, index?: number): Item {
 		return {
 			index: index >= 0 ? index : predefined.length,
 			value: item,
 			label: `${item}`,
-			group: groupBy(item) || '',
 		};
 	}
 

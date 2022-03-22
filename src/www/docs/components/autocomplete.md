@@ -63,7 +63,7 @@ config:
     
     
     const groupBy = (item) => {
-        return state.groups.split(', ').find((g) => item.includes(g))
+        return state.groups.split(', ').find((g) => item.value.includes(g))
     }
 
     $: predefined = state.objects ? objects : strings
