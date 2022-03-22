@@ -63,7 +63,7 @@ config:
             groups: 'top_, center_, bottom_',
             objects: false,
         },
-        selected = [],
+        selected = [{label: '↘ bottom_right'}],
         created = []
     
     

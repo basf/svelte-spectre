@@ -39,8 +39,7 @@
 	{#if focused && (!predictable || value.length)}
 		<dl class="menu" tabindex="0">
 			{#if !suggested.length}
-				<dt class="divider" data-content={empty || 'No suggested'} />
-				{#if creatable}
+				{#if creatable && value.length}
 					<dt class="divider" data-content="Add:" />
 					<dd class="menu-item">
 						<a
@@ -52,6 +51,8 @@
 							>{@html markSuggestion(value, value)}
 						</a>
 					</dd>
+				{:else}
+					<dt class="divider" data-content={empty || 'No suggested'} />
 				{/if}
 			{:else}
 				{#each Object.entries(makeGroups(suggested)) as [group, items], i}
@@ -59,7 +60,7 @@
 						<dt class="divider" data-content={group || ''} />
 					{/if}
 
-					{#each items as item, i (item.index)}
+					{#each items.filter((i) => i.label) as item, i (item.index)}
 						<dd class="menu-item" tabindex="0">
 							<a
 								href="#_"
@@ -93,6 +94,15 @@
 <script lang="ts" context="module">
 	import Chip from '../Chip/Chip.svelte';
 	import IconButton from '../Button/IconButton.svelte';
+	import {
+		calcSuggestion,
+		calcPrompt,
+		createIndexes,
+		createObject,
+		markSuggestion,
+		makeGroups,
+	} from './utils';
+
 	import type { Color } from '../../types/text';
 
 	type Item = {
@@ -123,42 +133,23 @@
 		prompt: string = '';
 
 	$: if (focused) {
-		predefined = predefined.some((p: string | Item) => typeof p === 'string')
-			? toObjects(predefined as string[])
-			: createIndexes(predefined as Item[]);
+		predefined = predefine(predefined);
 		suggested = calcSuggestion(predefined as Item[], selected, value);
 		prompt = calcPrompt(suggested, value, active);
 	}
 
-	function deleteCreated(index: number) {
-		predefined = predefined.filter<Item>((p: Item) => p.index !== index);
-		suggested = suggested.filter((s) => s.index !== index);
-		created = created.filter((c) => c.index !== index);
+	function predefine(predefined: Item[] | string[]) {
+		return predefined.some((p: string | Item) => typeof p === 'string')
+			? toObjects(predefined as string[])
+			: createIndexes(predefined as Item[]);
 	}
 
-	function calcSuggestion(predefined: Item[], selected: Item[], value: string): Item[] {
-		return predefined.filter(
-			(p) => stringIndex(p.label, value) >= 0 && !selected.some((s) => s.index === p.index)
-		);
-	}
-
-	function calcPrompt(suggested: Item[], value: string, active: number): string {
-		return stringIndex(suggested[active]?.label, value) === 0 ? suggested[active].label : '';
-	}
-
-	function stringIndex(item: string, value: string): number {
-		const regexp = new RegExp(value, 'i');
-		return item?.search(regexp);
-	}
-
-	function stringMatch(item: string, value: string): string {
-		const regex = new RegExp(value, 'i');
-		return item?.match(regex).join('');
-	}
-
-	function markSuggestion(item: string, value: string): string {
-		const match = stringMatch(item, value);
-		return item.replace(match, `<mark>${match}</mark>`);
+	function toObjects(items: string[]) {
+		return items.map((item, index) => {
+			const object = createObject(item, items, index);
+			object.group = groupBy(object) || '';
+			return object;
+		});
 	}
 
 	function selectSuggestion(e: KeyboardEvent) {
@@ -198,7 +189,7 @@
 	}
 
 	function confirmSuggestion(item: Item | string) {
-		item = typeof item === 'string' ? createObject(item) : item;
+		item = typeof item === 'string' ? createObject(item, predefined) : item;
 		selected = [...selected, item];
 		created =
 			created.indexOf(item) === -1 && suggested.indexOf(item) === -1
@@ -216,39 +207,10 @@
 		selected = selected.filter((s, i) => i !== index);
 	}
 
-	function toObjects(items: string[]) {
-		return items.map((item, index) => {
-			const object = createObject(item, index);
-			object.group = groupBy(object) || '';
-			return object;
-		});
-	}
-
-	function createObject(item: string, index?: number): Item {
-		return {
-			index: index >= 0 ? index : predefined.length,
-			value: item,
-			label: `${item}`,
-		};
-	}
-
-	function createIndexes(items: Item[]) {
-		return items.some((item) => !item.hasOwnProperty('index'))
-			? items.map((item: Item, i) => ({ ...item, index: i }))
-			: items;
-	}
-
-	function makeGroups(items: Item[]): { [key: string]: Item[] } | [] {
-		if (!items || !items.length) {
-			console.warn(`Autocomplete haven't items`);
-			return [];
-		} else {
-			return items.reduce((a, c) => {
-				a[c.group] = a[c.group] || [];
-				a[c.group]?.push(c);
-				return a;
-			}, {});
-		}
+	function deleteCreated(index: number) {
+		predefined = predefined.filter<Item>((p: Item) => p.index !== index);
+		suggested = suggested.filter((s) => s.index !== index);
+		created = created.filter((c) => c.index !== index);
 	}
 </script>
 
