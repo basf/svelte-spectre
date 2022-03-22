@@ -62,7 +62,7 @@ config:
         selected = []
     
     
-    const groupsBy = (item) => {
+    const groupBy = (item) => {
         return state.groups.split(', ').find((g) => item.includes(g))
     }
 
@@ -81,7 +81,7 @@ used for tags and contacts input.
         bind:placeholder={state.placeholder}
         creatable={state.creatable}
         predictable={state.predictable}
-        {groupsBy}
+        {groupBy}
 />
     <small>Selected: [ {selected.map(s => s.label).join(', ')} ]</small>
 </p>

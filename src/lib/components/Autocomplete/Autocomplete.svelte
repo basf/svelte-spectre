@@ -112,7 +112,7 @@
 	export let creatable: boolean = false;
 	export let predictable: boolean = false;
 	export let objectable: boolean = false;
-	export let groupsBy: (item: string) => typeof item | undefined = () => '';
+	export let groupBy: (item: string) => typeof item | undefined = () => '';
 
 	let focused: boolean = false,
 		active: number = 0,
@@ -222,7 +222,7 @@
 			index: index >= 0 ? index : predefined.length,
 			value: item,
 			label: `${item}`,
-			group: groupsBy(item) || '',
+			group: groupBy(item) || '',
 		};
 	}
 
