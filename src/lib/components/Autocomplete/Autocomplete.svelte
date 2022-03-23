@@ -145,11 +145,14 @@
 	}
 
 	function toObjects(items: string[]) {
-		return items.map((item, index) => {
-			const object = createObject(item, items, index);
-			object.group = groupBy(object) || '';
-			return object;
-		});
+		return items.reduce((accumulator = [], current, index) => {
+			const object = current ? createObject(current, items, index) : null;
+			if (object) {
+				object.group = groupBy(object) || '';
+				accumulator.push(object);
+				return accumulator;
+			}
+		}, []);
 	}
 
 	function selectSuggestion(e: KeyboardEvent) {
@@ -161,7 +164,8 @@
 			case 'Tab':
 			case 'Enter':
 				e.preventDefault();
-				(suggested.length || value) && confirmSuggestion(suggested[active] || value);
+				if (suggested.length || (value && creatable))
+					confirmSuggestion(suggested[active] || value);
 				break;
 			case 'ArrowRight':
 				e.preventDefault();
