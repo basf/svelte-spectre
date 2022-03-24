@@ -15,8 +15,8 @@
 		on:scroll
 		on:keydown
 	>
-		{#if unselected}
-			<option value="">{unselected}</option>
+		{#if placeholder}
+			<option value="">{placeholder}</option>
 		{/if}
 		{#each options as option, index}
 			<option value={getValue(option, index)}>
@@ -70,7 +70,7 @@
 	export let selected: Selected;
 	export let inline = false;
 	export let multiple = false;
-	export let unselected: string;
+	export let placeholder: string;
 	export let size: Size;
 	export let validity: Validity = false;
 
