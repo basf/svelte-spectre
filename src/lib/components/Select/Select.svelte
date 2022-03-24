@@ -16,7 +16,7 @@
 		on:keydown
 	>
 		{#if unselected}
-			<option />
+			<option value="">{unselected}</option>
 		{/if}
 		{#each options as option, index}
 			<option value={getValue(option, index)}>
@@ -70,7 +70,7 @@
 	export let selected: Selected;
 	export let inline = false;
 	export let multiple = false;
-	export let unselected = false;
+	export let unselected: string;
 	export let size: Size;
 	export let validity: Validity = false;
 
