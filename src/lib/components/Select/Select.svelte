@@ -39,8 +39,8 @@
 		on:scroll
 		on:keydown
 	>
-		{#if unselected}
-			<option />
+		{#if placeholder}
+			<option value="">{placeholder}</option>
 		{/if}
 		{#each options as option, index}
 			<option value={getValue(option, index)}>
