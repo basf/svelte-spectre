@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-8a340eaa.js",
+    "file": "start-1f616afa.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -60,7 +60,7 @@
     ]
   },
   "src/www/__layout.svelte": {
-    "file": "pages/__layout.svelte-4befdc24.js",
+    "file": "pages/__layout.svelte-7bbe5a70.js",
     "src": "src/www/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -145,7 +145,7 @@
     ]
   },
   "src/www/index.svelte": {
-    "file": "pages/index.svelte-15ac05b6.js",
+    "file": "pages/index.svelte-86339aad.js",
     "src": "src/www/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -246,7 +246,7 @@
     ]
   },
   "src/www/docs/components/autocomplete.md": {
-    "file": "pages/docs/components/autocomplete.md-ab3ad62b.js",
+    "file": "pages/docs/components/autocomplete.md-dbefb3f3.js",
     "src": "src/www/docs/components/autocomplete.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -279,13 +279,13 @@
     ]
   },
   "src/www/docs/components/pagination.md": {
-    "file": "pages/docs/components/pagination.md-4fa2c994.js",
+    "file": "pages/docs/components/pagination.md-84d9669f.js",
     "src": "src/www/docs/components/pagination.md",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-d8afbd78.js",
-      "_Select-a805a7c4.js",
+      "_Select-93fecca3.js",
       "_Icon-c2990a68.js",
       "__knobs-dd5dffe2.js",
       "_uuid-770ab681.js",
@@ -415,13 +415,13 @@
     ]
   },
   "src/www/docs/components/select.md": {
-    "file": "pages/docs/components/select.md-04771a99.js",
+    "file": "pages/docs/components/select.md-04cd91ae.js",
     "src": "src/www/docs/components/select.md",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-d8afbd78.js",
-      "_Select-a805a7c4.js",
+      "_Select-93fecca3.js",
       "_Group-423aae3c.js",
       "__knobs-dd5dffe2.js",
       "_uuid-770ab681.js",
@@ -471,7 +471,7 @@
     ]
   },
   "src/www/docs/components/input.md": {
-    "file": "pages/docs/components/input.md-a5bfaec2.js",
+    "file": "pages/docs/components/input.md-bf6632bc.js",
     "src": "src/www/docs/components/input.md",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -483,7 +483,7 @@
       "_Icon-c2990a68.js",
       "_Input-8683772f.js",
       "_Switch-a9cb4823.js",
-      "_Select-a805a7c4.js",
+      "_Select-93fecca3.js",
       "_Group-423aae3c.js",
       "__knobs-dd5dffe2.js",
       "_action-63149ef0.js",
@@ -1136,8 +1136,8 @@
       "assets/Spectre.svelte_svelte_type_style_lang-0b8a4dd4.css"
     ]
   },
-  "_Select-a805a7c4.js": {
-    "file": "chunks/Select-a805a7c4.js",
+  "_Select-93fecca3.js": {
+    "file": "chunks/Select-93fecca3.js",
     "imports": [
       "_vendor-d8afbd78.js",
       "_uuid-770ab681.js"
