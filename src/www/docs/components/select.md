@@ -29,8 +29,8 @@ api:
             variables: 'true | false',
         },
         {
-            title: 'unselected: boolean = false',
-            description: 'Select unselected',
+            title: 'placeholder: boolean = false',
+            description: 'Select placeholder',
             variables: 'true | false',
         },
         {
