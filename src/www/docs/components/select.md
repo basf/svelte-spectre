@@ -31,7 +31,6 @@ api:
         {
             title: 'placeholder: string',
             description: 'Select placeholder',
-            variables: 'true | false',
         },
         {
             title: 'size: Size',
