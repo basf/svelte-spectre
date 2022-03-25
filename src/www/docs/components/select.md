@@ -29,7 +29,7 @@ api:
             variables: 'true | false',
         },
         {
-            title: 'placeholder: boolean = false',
+            title: 'placeholder: string',
             description: 'Select placeholder',
             variables: 'true | false',
         },
