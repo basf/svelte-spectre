@@ -28,7 +28,6 @@ const options = {
 		quietDeps: true,
 		renderSync: true,
 	},
-	postcss: true,
 	typescript: true,
 };
 
