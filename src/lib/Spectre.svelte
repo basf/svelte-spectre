@@ -256,8 +256,8 @@
 
 				// CARD
 				.card {
-					background: $dark-background !important;
-					border-color: $dark-color !important;
+					background: $dark-background;
+					border-color: $dark-color;
 
 					&.card-shadowed {
 						box-shadow: 0 0.25rem 1rem rgba($dark-shadow, 0.45) !important;
@@ -505,11 +505,11 @@
 
 				// CARD
 				.card {
-					background: $dark-background !important;
-					border-color: $dark-color !important;
+					background: $dark-background;
+					border-color: $dark-color;
 
 					&.card-shadowed {
-						box-shadow: 0 0.25rem 1rem rgba($dark-shadow, 0.45) !important;
+						box-shadow: 0 0.25rem 1rem rgba($dark-shadow, 0.45);
 					}
 				}
 
