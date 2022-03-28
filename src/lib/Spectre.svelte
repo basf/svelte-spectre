@@ -747,11 +747,11 @@
 
 				// CARD
 				.card {
-					background: $bg-color-light;
-					border-color: $bg-color-dark;
+					background: $bg-color-light !important;
+					border-color: $bg-color-dark !important;
 
 					&.card-shadowed {
-						box-shadow: 0 0.25rem 1rem rgba($dark-color, 0.45);
+						box-shadow: 0 0.25rem 1rem rgba($dark-color, 0.45) !important;
 					}
 				}
 

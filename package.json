@@ -16,7 +16,8 @@
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --ignore-path .gitignore --check \"{,(src|tests|package)/**/}*.{js,ts,md,svelte}\" && eslint --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .gitignore --write \"{,(src|tests|package)/**/}*.{js,ts,md,svelte}\"",
-		"test": "uvu tests '.spec.ts' -r tsm -r tests/setup/register -i setup"
+		"test": "uvu tests '.spec.ts' -r tsm -r tests/setup/register -i setup",
+		"prepublishOnly": "pnpm package"
 	},
 	"author": "Alexander Volkov",
 	"license": "BSD 3-Clause",
