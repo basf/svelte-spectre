@@ -256,8 +256,8 @@
 
 				// CARD
 				.card {
-					background: $dark-background;
-					border-color: $dark-color;
+					background: $dark-background !important;
+					border-color: $dark-color !important;
 
 					&.card-shadowed {
 						box-shadow: 0 0.25rem 1rem rgba($dark-shadow, 0.45) !important;
@@ -505,11 +505,11 @@
 
 				// CARD
 				.card {
-					background: $dark-background;
-					border-color: $dark-color;
+					background: $dark-background !important;
+					border-color: $dark-color !important;
 
 					&.card-shadowed {
-						box-shadow: 0 0.25rem 1rem rgba($dark-shadow, 0.45);
+						box-shadow: 0 0.25rem 1rem rgba($dark-shadow, 0.45) !important;
 					}
 				}
 
@@ -747,11 +747,11 @@
 
 				// CARD
 				.card {
-					background: $bg-color-light;
-					border-color: $bg-color-dark;
+					background: $bg-color-light !important;
+					border-color: $bg-color-dark !important;
 
 					&.card-shadowed {
-						box-shadow: 0 0.25rem 1rem rgba($dark-color, 0.45);
+						box-shadow: 0 0.25rem 1rem rgba($dark-color, 0.45) !important;
 					}
 				}
 
