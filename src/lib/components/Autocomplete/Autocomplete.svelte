@@ -126,7 +126,7 @@
 	export let creatable: boolean = false;
 	export let predictable: boolean = false;
 	export let objectable: boolean = false;
-	export let groupBy: (item: Item | string) => string;
+	export let groupBy: (item: Item | string) => string = () => '';
 
 	let focused: boolean = false,
 		active: number = 0,
@@ -148,7 +148,7 @@
 		return items.reduce((accumulator = [], current, index) => {
 			const object = current ? createObject(current, items, index) : null;
 			if (object) {
-				object.group = groupBy ? groupBy(object) || '' : '';
+				object.group = groupBy(object) || '';
 				accumulator.push(object);
 				return accumulator;
 			}
