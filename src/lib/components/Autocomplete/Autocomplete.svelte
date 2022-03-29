@@ -148,7 +148,7 @@
 		return items.reduce((accumulator = [], current, index) => {
 			const object = current ? createObject(current, items, index) : null;
 			if (object) {
-				object.group = groupBy(object) || '';
+				object.group = groupBy ? groupBy(object) || '' : '';
 				accumulator.push(object);
 				return accumulator;
 			}
