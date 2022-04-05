@@ -1,11 +1,11 @@
 import type { Color } from '../../types/text';
 
-type Item = {
-    index: number;
-    label: string;
+export type Item = {
+    index?: number;
+    label?: string;
     value?: any;
     group?: string;
-    type?: Color;
+    type?: Color | string;
     style?: string;
 };
 
@@ -42,13 +42,13 @@ function createObject(item: string, items: string[] | Item[], index?: number,): 
     };
 }
 
-function createIndexes(items: Item[]) {
+function createIndexes(items: Item[]): Item[] {
     return items?.some((item) => !item?.hasOwnProperty('index'))
         ? items.map((item: Item, i) => ({ ...item, index: i }))
         : items;
 }
 
-function makeGroups(items: Item[]): { [key: string]: Item[] } | [] {
+function makeGroups(items: Item[]): any[] | Item {
     if (!items || !items.length) {
         console.warn(`Autocomplete haven't items`);
         return [];
