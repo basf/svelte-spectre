@@ -103,16 +103,7 @@
 		makeGroups,
 	} from './utils';
 
-	import type { Color } from '../../types/text';
-
-	type Item = {
-		index: number;
-		label: string;
-		value?: any;
-		group?: string;
-		type?: Color;
-		style?: string;
-	};
+	import type { Item } from './utils';
 </script>
 
 <script lang="ts">
@@ -225,7 +216,6 @@
 		.form-autocomplete {
 			.form-autocomplete-input {
 				align-items: center;
-				// padding: 0 0.1rem;
 				background: transparent;
 				.form-input-icon-wrap {
 					flex: auto;
