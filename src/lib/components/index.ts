@@ -10,6 +10,7 @@ export * from './Divider/';
 export * from './Icon/';
 export * from './Input/';
 export * from './Menu/';
+export * from './Meter/';
 export * from './Pagination/';
 export * from './Progress/';
 export * from './Radio';
