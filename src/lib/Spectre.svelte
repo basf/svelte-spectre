@@ -254,6 +254,11 @@
 					}
 				}
 
+				// METER
+				.meter {
+					background: $dark-color;
+				}
+
 				// CARD
 				.card {
 					background: $dark-background !important;
@@ -501,6 +506,11 @@
 							)
 							top left / 150% 150% no-repeat;
 					}
+				}
+
+				// METER
+				.meter {
+					background: $dark-color;
 				}
 
 				// CARD

@@ -29,33 +29,33 @@
 		"node": ">= 14"
 	},
 	"devDependencies": {
-		"@poppanator/sveltekit-svg": "^0.3.1",
+		"@poppanator/sveltekit-svg": "^0.3.2",
 		"@sveltejs/adapter-static": "^1.0.0-next.29",
 		"@sveltejs/kit": "next",
 		"@types/jsdom": "^16.2.14",
-		"@typescript-eslint/eslint-plugin": "^5.17.0",
-		"@typescript-eslint/parser": "^5.17.0",
-		"eslint": "^8.12.0",
+		"@typescript-eslint/eslint-plugin": "^5.18.0",
+		"@typescript-eslint/parser": "^5.18.0",
+		"eslint": "^8.13.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^3.4.1",
 		"jsdom": "^19.0.0",
 		"mdsvex": "^0.10.5",
 		"pirates": "^4.0.5",
-		"prettier": "^2.6.1",
-		"prettier-plugin-svelte": "^2.6.0",
-		"sass": "^1.49.9",
+		"prettier": "^2.6.2",
+		"prettier-plugin-svelte": "^2.7.0",
+		"sass": "^1.50.0",
 		"spectre.css": "^0.5.9",
-		"svelte": "^3.46.4",
-		"svelte-check": "^2.4.6",
+		"svelte": "^3.47.0",
+		"svelte-check": "^2.6.0",
 		"svelte-media": "^0.1.5",
-		"svelte-preprocess": "^4.10.4",
-		"svelte2tsx": "^0.5.6",
+		"svelte-preprocess": "^4.10.5",
+		"svelte2tsx": "^0.5.8",
 		"tslib": "^2.3.1",
 		"tsm": "^2.2.1",
 		"typescript": "~4.6.3",
 		"uvu": "^0.5.3"
 	},
 	"dependencies": {
-		"@ctrl/tinycolor": "^3.4.0"
+		"@ctrl/tinycolor": "^3.4.1"
 	}
 }
