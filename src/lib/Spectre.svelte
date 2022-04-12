@@ -259,6 +259,16 @@
 					background: $dark-color;
 				}
 
+				// BARS
+				.bar {
+					background: $dark-color;
+					.bar-item {
+						&.bar-secondary {
+							background-color: $dark-secondary;
+						}
+					}
+				}
+
 				// CARD
 				.card {
 					background: $dark-background !important;
@@ -511,6 +521,16 @@
 				// METER
 				.meter {
 					background: $dark-color;
+				}
+
+				// BARS
+				.bar {
+					background: $dark-color;
+					.bar-item {
+						&.bar-secondary {
+							background-color: $dark-secondary;
+						}
+					}
 				}
 
 				// CARD

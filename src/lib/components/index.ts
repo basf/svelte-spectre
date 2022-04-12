@@ -2,6 +2,7 @@ export * from './Accordion/';
 export * from './Autocomplete/';
 export * from './Avatar/';
 export * from './Badge/';
+export * from './Bars/';
 export * from './Breadcrumbs/';
 export * from './Button/';
 export * from './Checkbox/';
