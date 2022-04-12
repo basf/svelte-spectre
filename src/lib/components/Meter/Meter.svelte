@@ -42,7 +42,7 @@
 					transparent 75%,
 					transparent
 				);
-				background-size: 1rem 1rem;
+				background-size: 1em 1em;
 			}
 			&::-webkit-meter-suboptimum-value,
 			&::-webkit-meter-optimum-value,
@@ -57,7 +57,7 @@
 					transparent 75%,
 					transparent
 				);
-				background-size: 1rem 1rem;
+				background-size: 1em 1em;
 			}
 			&.animated {
 				&::-moz-meter-bar {
@@ -74,7 +74,7 @@
 		}
 		@keyframes progress-bar-stripes {
 			0% {
-				background-position-x: 1rem;
+				background-position-x: 1em;
 			}
 		}
 	}
