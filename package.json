@@ -47,7 +47,6 @@
 		"spectre.css": "^0.5.9",
 		"svelte": "^3.47.0",
 		"svelte-check": "^2.6.0",
-		"svelte-media": "^0.1.5",
 		"svelte-preprocess": "^4.10.5",
 		"svelte2tsx": "^0.5.8",
 		"tslib": "^2.3.1",
