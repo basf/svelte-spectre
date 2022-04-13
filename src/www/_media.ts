@@ -31,7 +31,7 @@ function watchMedia(queries: MediaQuery, storage: Partial<BrowserStorage>) {
     storage = { ...base, ...storage }
 
     if (persist(storage)) {
-        const match: MediaQuery = JSON.parse(persist(storage).getItem(storage.key) as string) || {};
+        const match: MediaQuery = JSON.parse(persist(storage).getItem(storage.key as string) as string) || {};
 
         for (const query in queries) {
             const media = window.matchMedia(queries[query] as string)
@@ -39,21 +39,21 @@ function watchMedia(queries: MediaQuery, storage: Partial<BrowserStorage>) {
             media.onchange = (e) => setMatches(e, query)
         }
 
-        subscribe((match): void => persist(storage).setItem(storage.key, JSON.stringify(match)));
+        subscribe((match): void => persist(storage).setItem(storage.key as string, JSON.stringify(match)));
 
         function setMatches(media: MediaQueryList | MediaQueryListEvent, query: string) {
             if ('target' in media) match[query] = media.matches;
             else match[query] ??= media.matches;
             set(match);
-            persist(storage).setItem(storage.key, JSON.stringify(match));
+            persist(storage).setItem(storage.key as string, JSON.stringify(match));
         }
     }
 
     function persist(storage: Partial<BrowserStorage>): Storage {
         try {
             const store = storage.type === 'session' ? sessionStorage : localStorage
-            store.setItem(storage.key, storage.key);
-            store.removeItem(storage.key);
+            store.setItem(storage.key as string, storage.key as string);
+            store.removeItem(storage.key as string);
             return store;
         } catch (e) {
             console.error(e)
