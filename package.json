@@ -19,6 +19,11 @@
 		"test": "uvu tests '.spec.ts' -r tsm -r tests/setup/register -i setup",
 		"prepublishOnly": "npm run package"
 	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run lint"
+		}
+	},
 	"author": "Alexander Volkov",
 	"license": "BSD 3-Clause",
 	"repository": {
@@ -38,6 +43,7 @@
 		"eslint": "^8.13.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^3.4.1",
+		"husky": "^7.0.4",
 		"jsdom": "^19.0.0",
 		"mdsvex": "^0.10.5",
 		"pirates": "^4.0.5",
