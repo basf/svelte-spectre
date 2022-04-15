@@ -17,7 +17,8 @@
 		"lint": "prettier --ignore-path .gitignore --check \"{,(src|tests|package)/**/}*.{js,ts,md,svelte}\" && eslint --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .gitignore --write \"{,(src|tests|package)/**/}*.{js,ts,md,svelte}\"",
 		"test": "uvu tests '.spec.ts' -r tsm -r tests/setup/register -i setup",
-		"prepublishOnly": "npm run package"
+		"prepublishOnly": "npm run package",
+		"prepare": "husky install"
 	},
 	"husky": {
 		"hooks": {
