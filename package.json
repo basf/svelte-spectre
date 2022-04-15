@@ -40,6 +40,7 @@
 		"eslint": "^8.13.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^3.4.1",
+		"husky": "^7.0.4",
 		"jsdom": "^19.0.0",
 		"mdsvex": "^0.10.5",
 		"pirates": "^4.0.5",
@@ -48,14 +49,13 @@
 		"sass": "^1.50.0",
 		"spectre.css": "^0.5.9",
 		"svelte": "^3.47.0",
-		"svelte-check": "^2.6.0",
-		"svelte-preprocess": "^4.10.5",
-		"svelte2tsx": "^0.5.8",
+		"svelte-check": "^2.7.0",
+		"svelte-preprocess": "^4.10.6",
+		"svelte2tsx": "^0.5.9",
 		"tslib": "^2.3.1",
 		"tsm": "^2.2.1",
 		"typescript": "~4.6.3",
-		"uvu": "^0.5.3",
-		"husky": "^7.0.0"
+		"uvu": "^0.5.3"
 	},
 	"dependencies": {
 		"@ctrl/tinycolor": "^3.4.1"
