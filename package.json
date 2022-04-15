@@ -14,7 +14,7 @@
 		"package": "svelte-kit package && sass src/lib/spectre.scss package/spectre.css  --style=compressed --no-source-map --quiet-deps && prettier --ignore-path .gitignore --write \"{,package/**/}*.{js,ts,md,svelte}\"",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --ignore-path .gitignore --check \"{,(src|tests|package)/**/}*.{js,ts,md,svelte}\" && eslint --ignore-path .gitignore .",
+		"lint": "npm run format && eslint --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .gitignore --write \"{,(src|tests|package)/**/}*.{js,ts,md,svelte}\"",
 		"test": "uvu tests '.spec.ts' -r tsm -r tests/setup/register -i setup",
 		"prepublishOnly": "npm run package",

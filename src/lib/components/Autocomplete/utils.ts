@@ -9,14 +9,22 @@ export type Item = {
     style?: string;
 };
 
-function calcSuggestion(predefined: Item[], selected: Item[], value: string): Item[] {
+function calcSuggestion(
+    predefined: Item[],
+    selected: Item[],
+    value: string
+): Item[] {
     return predefined.filter(
-        (p) => stringIndex(p.label, value) >= 0 && !selected.some((s) => s.label === p.label)
+        (p) =>
+            stringIndex(p.label, value) >= 0 &&
+            !selected.some((s) => s.label === p.label)
     );
 }
 
 function calcPrompt(suggested: Item[], value: string, active: number): string {
-    return stringIndex(suggested[active]?.label, value) === 0 ? suggested[active].label : '';
+    return stringIndex(suggested[active]?.label, value) === 0
+        ? suggested[active].label
+        : '';
 }
 
 function stringIndex(item: string, value: string): number {
@@ -34,7 +42,11 @@ function markSuggestion(item: string, value: string): string {
     return item.replace(match, `<mark>${match}</mark>`);
 }
 
-function createObject(item: string, items: string[] | Item[], index?: number,): Item {
+function createObject(
+    item: string,
+    items: string[] | Item[],
+    index?: number
+): Item {
     return {
         index: index >= 0 ? index : items.length,
         value: item,
@@ -70,4 +82,4 @@ export {
     makeGroups,
     stringIndex,
     stringMatch,
-}
+};

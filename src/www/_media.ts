@@ -4,9 +4,9 @@ type MediaQuery = {
     [key: string]: boolean | string;
 };
 type BrowserStorage = {
-    type: string
-    key: string
-}
+    type: string;
+    key: string;
+};
 const mediaQueries: MediaQuery = {
     xs: '(max-width: 480px)',
     sm: '(max-width: 600px)',
@@ -22,43 +22,58 @@ const mediaQueries: MediaQuery = {
     touch: '(hover: none)',
 };
 
-export const media = watchMedia(mediaQueries, { key: 'ss-media' })
+export const media = watchMedia(mediaQueries, { key: 'ss-media' });
 
 function watchMedia(queries: MediaQuery, storage: Partial<BrowserStorage>) {
     const { subscribe, set, update } = writable({});
-    const base = { type: 'session', key: 'media-query' }
+    const base = { type: 'session', key: 'media-query' };
 
-    storage = { ...base, ...storage }
+    storage = { ...base, ...storage };
 
     if (persist(storage)) {
-        const match: MediaQuery = JSON.parse(persist(storage).getItem(storage.key as string) as string) || {};
+        const match: MediaQuery =
+            JSON.parse(
+                persist(storage).getItem(storage.key as string) as string
+            ) || {};
 
         for (const query in queries) {
-            const media = window.matchMedia(queries[query] as string)
-            setMatches(media, query)
-            media.onchange = (e) => setMatches(e, query)
+            const media = window.matchMedia(queries[query] as string);
+            setMatches(media, query);
+            media.onchange = (e) => setMatches(e, query);
         }
 
-        subscribe((match): void => persist(storage).setItem(storage.key as string, JSON.stringify(match)));
+        subscribe((match): void =>
+            persist(storage).setItem(
+                storage.key as string,
+                JSON.stringify(match)
+            )
+        );
 
-        function setMatches(media: MediaQueryList | MediaQueryListEvent, query: string) {
+        function setMatches(
+            media: MediaQueryList | MediaQueryListEvent,
+            query: string
+        ) {
             if ('target' in media) match[query] = media.matches;
             else match[query] ??= media.matches;
             set(match);
-            persist(storage).setItem(storage.key as string, JSON.stringify(match));
+            persist(storage).setItem(
+                storage.key as string,
+                JSON.stringify(match)
+            );
         }
     }
 
     function persist(storage: Partial<BrowserStorage>): Storage {
         try {
-            const store = storage.type === 'session' ? sessionStorage : localStorage
+            const store =
+                storage.type === 'session' ? sessionStorage : localStorage;
             store.setItem(storage.key as string, storage.key as string);
             store.removeItem(storage.key as string);
             return store;
         } catch (e) {
-            console.error(e)
+            console.error(e);
         }
     }
 
-    return { subscribe, set, update }
+    return { subscribe, set, update };
 }

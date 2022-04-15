@@ -126,7 +126,7 @@ used for tags and contacts input.
             '↘ bottom_right',
         ],
         seleted = []
-    
+
     const groupsBy = (item) => {
         return groups.split(', ').find((g) => item.value.includes(g))
     }
