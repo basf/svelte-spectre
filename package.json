@@ -17,8 +17,7 @@
 		"lint": "npm run format && eslint --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .gitignore --write \"{,(src|tests|package)/**/}*.{js,ts,md,svelte}\"",
 		"test": "uvu tests '.spec.ts' -r tsm -r tests/setup/register -i setup",
-		"prepublishOnly": "npm run package",
-		"prepare": "husky install"
+		"prepublishOnly": "npm run package"
 	},
 	"author": "Alexander Volkov",
 	"license": "BSD 3-Clause",
@@ -39,7 +38,6 @@
 		"eslint": "^8.13.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^3.4.1",
-		"husky": "^7.0.0",
 		"jsdom": "^19.0.0",
 		"mdsvex": "^0.10.5",
 		"pirates": "^4.0.5",
