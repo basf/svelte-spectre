@@ -6,6 +6,7 @@
 	"svelteStrictMode": false,
 	"svelteAllowShorthand": true,
 	"svelteIndentScriptAndStyle": true,
+	"editorconfig": true,
 	"plugins": [
 		"prettier-plugin-svelte"
 	]
