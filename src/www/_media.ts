@@ -5,8 +5,8 @@ export type Queries = {
 };
 
 type MediaObject = {
-    [key: string]: MediaQueryList
-}
+    [key: string]: MediaQueryList;
+};
 
 const queries: Queries = {
     xs: '(max-width: 480px)',
@@ -23,29 +23,35 @@ const queries: Queries = {
     touch: '(hover: none)',
 };
 
-export const media: Readable<Queries> = mediaStore(queries)
+export const media: Readable<Queries> = mediaStore(queries);
 
 function mediaStore(queries: Queries = {}) {
     return readable({}, (set) => {
-        let mqs = Object.entries(queries).reduce((mqs: MediaObject, [key, query]) => {
-            mqs[key] = window?.matchMedia(query as string);
-            mqs[key].onchange = (mq) => {
-                mqs[key] = mq;
-                update();
-            };
-            return mqs as MediaObject;
-        }, {});
+        let mqs = Object.entries(queries).reduce(
+            (mqs: MediaObject, [key, query]) => {
+                mqs[key] = window?.matchMedia(query as string);
+                mqs[key].onchange = (mq) => {
+                    mqs[key] = mq;
+                    update();
+                };
+                return mqs as MediaObject;
+            },
+            {}
+        );
 
         function update() {
-            const matches: Queries = Object.entries(mqs).reduce((matches: Queries, [key, mq]) => {
-                matches[key] = mq.matches;
-                return matches;
-            }, {});
+            const matches: Queries = Object.entries(mqs).reduce(
+                (matches: Queries, [key, mq]) => {
+                    matches[key] = mq.matches;
+                    return matches;
+                },
+                {}
+            );
             set(matches);
         }
 
         update();
 
-        return () => mqs = {};
+        return () => (mqs = {});
     });
 }
