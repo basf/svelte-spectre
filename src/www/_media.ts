@@ -1,13 +1,14 @@
-import { writable } from 'svelte/store';
+import { type Readable, readable } from 'svelte/store';
 
-type MediaQuery = {
+export type Queries = {
     [key: string]: boolean | string;
 };
-type BrowserStorage = {
-    type: string
-    key: string
-}
-const mediaQueries: MediaQuery = {
+
+type MediaObject = {
+    [key: string]: MediaQueryList;
+};
+
+const queries: Queries = {
     xs: '(max-width: 480px)',
     sm: '(max-width: 600px)',
     md: '(max-width: 840px)',
@@ -22,43 +23,35 @@ const mediaQueries: MediaQuery = {
     touch: '(hover: none)',
 };
 
-export const media = watchMedia(mediaQueries, { key: 'ss-media' })
+export const media: Readable<Queries> = mediaStore(queries);
 
-function watchMedia(queries: MediaQuery, storage: Partial<BrowserStorage>) {
-    const { subscribe, set, update } = writable({});
-    const base = { type: 'session', key: 'media-query' }
+function mediaStore(queries: Queries = {}) {
+    return readable({}, (set) => {
+        let mqs = Object.entries(queries).reduce(
+            (mqs: MediaObject, [key, query]) => {
+                mqs[key] = window?.matchMedia(query as string);
+                mqs[key].onchange = (mq) => {
+                    mqs[key] = mq;
+                    update();
+                };
+                return mqs as MediaObject;
+            },
+            {}
+        );
 
-    storage = { ...base, ...storage }
-
-    if (persist(storage)) {
-        const match: MediaQuery = JSON.parse(persist(storage).getItem(storage.key as string) as string) || {};
-
-        for (const query in queries) {
-            const media = window.matchMedia(queries[query] as string)
-            setMatches(media, query)
-            media.onchange = (e) => setMatches(e, query)
+        function update() {
+            const matches: Queries = Object.entries(mqs).reduce(
+                (matches: Queries, [key, mq]) => {
+                    matches[key] = mq.matches;
+                    return matches;
+                },
+                {}
+            );
+            set(matches);
         }
 
-        subscribe((match): void => persist(storage).setItem(storage.key as string, JSON.stringify(match)));
+        update();
 
-        function setMatches(media: MediaQueryList | MediaQueryListEvent, query: string) {
-            if ('target' in media) match[query] = media.matches;
-            else match[query] ??= media.matches;
-            set(match);
-            persist(storage).setItem(storage.key as string, JSON.stringify(match));
-        }
-    }
-
-    function persist(storage: Partial<BrowserStorage>): Storage {
-        try {
-            const store = storage.type === 'session' ? sessionStorage : localStorage
-            store.setItem(storage.key as string, storage.key as string);
-            store.removeItem(storage.key as string);
-            return store;
-        } catch (e) {
-            console.error(e)
-        }
-    }
-
-    return { subscribe, set, update }
+        return () => (mqs = {});
+    });
 }

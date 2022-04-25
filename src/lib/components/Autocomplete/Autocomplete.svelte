@@ -5,7 +5,7 @@
 				style={chip.style || ''}
 				closable
 				color={chip.type || ''}
-				on:close={() => removeSelected(i)}>{chip.label}</Chip
+				on:close={() => removeSelected(i)}>{@html chip.label}</Chip
 			>
 		{/each}
 
@@ -56,7 +56,7 @@
 				{/if}
 			{:else}
 				{#each Object.entries(makeGroups(suggested)) as [group, items], i}
-					{#if group && items.length}
+					{#if group && group !== 'undefined' && items.length}
 						<dt class="divider" data-content={group || ''} />
 					{/if}
 

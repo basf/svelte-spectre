@@ -90,8 +90,8 @@ Meters represent the value within the known range.
     import { Meter } from 'svelte-spectre'
 
     let state = {
-        value: 30, 
-        striped: true, 
+        value: 30,
+        striped: true,
         animated: true,
         min: 0,
         max: 100,

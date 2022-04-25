@@ -14,10 +14,10 @@ api:
                 animated: boolean;
                 invisible?: boolean;
                 tooltip?: {
-                    pos: string;
-                    label: string;
+                pos: string;
+                label: string;
                 };
-            };',
+                };',
         },
         {
             title: 'auto: boolean',
@@ -68,7 +68,7 @@ api:
             title: 'thin: boolean',
             description: 'Thin bar.',
             variables: 'true | false',
-        }
+        },
     ]
 config:
     {
@@ -113,7 +113,7 @@ config:
 
 # {title}
 
-Bars represent the progress of a task or the value within the known range. Bars are custom components for displaying HTML5 `<progress>`, `<meter>` and input range elements. 
+Bars represent the progress of a task or the value within the known range. Bars are custom components for displaying HTML5 `<progress>`, `<meter>` and input range elements.
 
 <p>
     <Bars { ...state } bind:items />
@@ -125,28 +125,30 @@ Bars represent the progress of a task or the value within the known range. Bars 
 
 ```html
 <script>
-    import { Bars } from 'svelte-spectre'
+    import { Bars } from 'svelte-spectre';
 
     let state = {
-        value: 100, 
-        min: 10, 
-        low: 25, 
-        high: 50, 
-        max: 90, 
-        striped: false, 
+        value: 100,
+        min: 10,
+        low: 25,
+        high: 50,
+        max: 90,
+        striped: false,
         animated: false,
         labled: true,
-        auto: false
-    }
+        auto: false,
+    };
 
-    $: items = state.auto ? [] : [
-        {value: 10, striped: true, animated: true, color: 'secondary'},
-        {value: 15, striped: true, animated: true, color: 'error'},
-        {value: 25, striped: true, animated: true, color: 'warning'},
-        {value: 40, striped: true, animated: true, color: 'success'},
-        {value: 10, striped: true, animated: true},
-    ]
+    $: items = state.auto
+        ? []
+        : [
+              { value: 10, striped: true, animated: true, color: 'secondary' },
+              { value: 15, striped: true, animated: true, color: 'error' },
+              { value: 25, striped: true, animated: true, color: 'warning' },
+              { value: 40, striped: true, animated: true, color: 'success' },
+              { value: 10, striped: true, animated: true },
+          ];
 </script>
 
- <Bars { ...state } bind:items />
+<Bars { ...state } bind:items />
 ```

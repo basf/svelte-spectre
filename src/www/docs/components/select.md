@@ -28,10 +28,7 @@ api:
             description: 'Select multiple',
             variables: 'true | false',
         },
-        {
-            title: 'placeholder: string',
-            description: 'Select placeholder',
-        },
+        { title: 'placeholder: string', description: 'Select placeholder' },
         {
             title: 'size: Size',
             description: 'Select size',
