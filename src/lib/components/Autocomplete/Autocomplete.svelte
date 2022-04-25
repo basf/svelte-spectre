@@ -5,7 +5,7 @@
 				style={chip.style || ''}
 				closable
 				color={chip.type || ''}
-				on:close={() => removeSelected(i)}>{chip.label}</Chip
+				on:close={() => removeSelected(i)}>{@html chip.label}</Chip
 			>
 		{/each}
 
