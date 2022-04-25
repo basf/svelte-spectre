@@ -56,7 +56,7 @@
 				{/if}
 			{:else}
 				{#each Object.entries(makeGroups(suggested)) as [group, items], i}
-					{#if group && items.length}
+					{#if group && group !== 'undefined' && items.length}
 						<dt class="divider" data-content={group || ''} />
 					{/if}
 
