@@ -754,10 +754,10 @@
 
 				// CHIP
 				.chip {
-					background-color: $bg-color-dark;
+					background: $bg-color-dark !important;
 					color: $body-font-color;
 					&.bg-secondary {
-						background-color: $secondary-color !important;
+						background: $secondary-color !important;
 					}
 				}
 
