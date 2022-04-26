@@ -232,7 +232,7 @@
 						background: $primary-color !important;
 					}
 					&.bg-secondary {
-						background-color: $dark-secondary !important;
+						background: $dark-secondary !important;
 					}
 					&.bg-gray,
 					&.bg-light {
@@ -496,7 +496,7 @@
 						background: $primary-color !important;
 					}
 					&.bg-secondary {
-						background-color: $dark-secondary !important;
+						background: $dark-secondary !important;
 					}
 					&.bg-gray,
 					&.bg-light {
