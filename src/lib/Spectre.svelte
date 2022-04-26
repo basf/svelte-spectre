@@ -232,7 +232,7 @@
 						background: $primary-color !important;
 					}
 					&.bg-secondary {
-						background-color: $dark-secondary !important;
+						background: $dark-secondary !important;
 					}
 					&.bg-gray,
 					&.bg-light {
@@ -496,7 +496,7 @@
 						background: $primary-color !important;
 					}
 					&.bg-secondary {
-						background-color: $dark-secondary !important;
+						background: $dark-secondary !important;
 					}
 					&.bg-gray,
 					&.bg-light {
@@ -754,10 +754,10 @@
 
 				// CHIP
 				.chip {
-					background-color: $bg-color-dark;
+					background: $bg-color-dark !important;
 					color: $body-font-color;
 					&.bg-secondary {
-						background-color: $secondary-color !important;
+						background: $secondary-color !important;
 					}
 				}
 
