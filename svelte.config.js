@@ -76,6 +76,9 @@ export default {
 			// files: (filepath) => !/^_|\/_|\.scss$/.test(filepath),
 			emitTypes: true,
 		},
+		paths: {
+			base: dev ? '' : '/svelte-spectre'
+		},
 		vite: () => ({
 			resolve: {
 				alias: {
