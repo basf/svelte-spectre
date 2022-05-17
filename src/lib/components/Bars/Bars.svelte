@@ -124,13 +124,13 @@
 			background-size: 1em 1em;
 		}
 		&.animated {
-			-webkit-animation: 1s linear infinite progress-bar-stripes;
-			animation: 1s linear infinite progress-bar-stripes;
+			-webkit-animation: 1s linear infinite stripes;
+			animation: 1s linear infinite stripes;
 		}
 	}
 
-	@keyframes progress-bar-stripes {
-		0% {
+	@keyframes stripes {
+		to {
 			background-position-x: 1em;
 		}
 	}
