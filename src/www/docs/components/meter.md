@@ -43,11 +43,17 @@ api:
             description: 'Striped animated indicator.',
             variables: 'true | false',
         },
+        {
+            title: 'progress: boolean',
+            description: 'Striped indicator like progress value',
+            variables: 'true | false',
+        },
     ]
 config:
     {
         striped: { type: 'checkbox' },
         animated: { type: 'checkbox' },
+        progress: { type: 'checkbox' },
         value: { type: 'number', min: 0, max: 100, size: 5 },
         min: { type: 'number', min: 0, max: 100, size: 5 },
         max: { type: 'number', min: 0, max: 100, size: 5 },
@@ -65,6 +71,7 @@ config:
         value: 25, 
         striped: true, 
         animated: true,
+        progress: true,
         min: 0,
         max: 100,
         low: 26,

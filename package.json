@@ -1,6 +1,6 @@
 {
 	"name": "svelte-spectre",
-	"version": "0.3.3",
+	"version": "0.3.2",
 	"description": "UI-kit based on spectre.css and powered by SvelteJS",
 	"main": "./package/index.js",
 	"files": [
@@ -32,11 +32,11 @@
 	},
 	"devDependencies": {
 		"@poppanator/sveltekit-svg": "^0.3.2",
-		"@sveltejs/adapter-static": "^1.0.0-next.30",
+		"@sveltejs/adapter-static": "^1.0.0-next.31",
 		"@sveltejs/kit": "next",
 		"@types/jsdom": "^16.2.14",
-		"@typescript-eslint/eslint-plugin": "^5.23.0",
-		"@typescript-eslint/parser": "^5.23.0",
+		"@typescript-eslint/eslint-plugin": "^5.24.0",
+		"@typescript-eslint/parser": "^5.24.0",
 		"eslint": "^8.15.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^3.4.1",

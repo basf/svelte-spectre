@@ -265,6 +265,21 @@
             }
         }
 
+        // METER
+        .meter {
+            background: $dark-color;
+        }
+
+        // BARS
+        .bar {
+            background: $dark-color;
+            .bar-item {
+                &.bar-secondary {
+                    background-color: $dark-secondary;
+                }
+            }
+        }
+
         // CARD
         .card {
             background: $dark-background !important;
@@ -496,6 +511,21 @@
                 background: $dark-color
                     linear-gradient(to right, var(--progress-color, $primary-color) 30%, $dark-color 30%) top left /
                     150% 150% no-repeat;
+            }
+        }
+
+        // METER
+        .meter {
+            background: $dark-color;
+        }
+
+        // BARS
+        .bar {
+            background: $dark-color;
+            .bar-item {
+                &.bar-secondary {
+                    background-color: $dark-secondary;
+                }
             }
         }
 
