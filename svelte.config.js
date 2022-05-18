@@ -61,6 +61,9 @@ export default {
 			template: 'src/www/app.html',
 		},
 		trailingSlash: 'always',
+		prerender: {
+			default: true,
+		},
 		package: {
 			dir: 'package',
 			// excludes all .d.ts and files starting with _ as the name
