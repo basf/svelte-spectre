@@ -2,8 +2,6 @@
 	<title>{name}: {title || ''}</title>
 </svelte:head>
 
-<svelte:window bind:innerHeight={windowHeight} />
-
 <Spectre>
 	<Sidebar
 		extclose
@@ -40,8 +38,12 @@
 						</div>
 					{/if}
 					<div class="mr-2">
-						{#if $page.url.pathname.split('/').filter(Boolean).length > 1}
-							<IconButton icon="edit" href={docLink} target="_blank" />
+						{#if $page.routeId?.includes('/')}
+							<IconButton
+								icon="edit"
+								href={`${repo}/tree/master/src/www/${$page.routeId}.md`}
+								target="_blank"
+							/>
 						{:else}
 							<IconButton size="sm" iconSize="2x" href={repo} target="_blank">
 								<GitHub />
@@ -62,7 +64,7 @@
 								<li class="menu-item">
 									<a
 										href={setLink(base, path)}
-										class:active={activeLink($page.url.pathname, path)}
+										class:active={activeLink(path)}
 										on:click={() => (openLeft = false)}>{title}</a
 									>
 								</li>
@@ -81,7 +83,7 @@
 										<a
 											sveltekit:prefetch
 											href={setLink(base, path)}
-											class:active={activeLink($page.url.pathname, path)}
+											class:active={activeLink(path)}
 											on:click={() => (openLeft = false)}>{title}</a
 										>
 									</li>
@@ -145,7 +147,9 @@
 
 <script lang="ts" context="module">
 	const allMd = import.meta.glob('./**/*.md');
+
 	let body = [];
+
 	for (let path in allMd) {
 		body.push(
 			allMd[path]().then(({ metadata }) => {
@@ -154,7 +158,7 @@
 		);
 	}
 
-	export async function load({ url, params, fetch }) {
+	export async function load({ url }) {
 		const mds = await Promise.all(body);
 		const links = mds.reduce((accumulator: Links, current: Link) => {
 			const key: string = current.path.split('/')[2];
@@ -204,23 +208,16 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
-	import { browser } from '$app/env';
 	import { Accordion, Button, IconButton, Menu, Navbar, Sidebar, Spectre, Toaster } from '$lib';
 	import Xray from '$assets/b-science.svg';
 	import GitHub from '$assets/github.svg';
-	import Icon from '$lib/components/Icon';
 	import { media } from './_media';
 
 	let openLeft = false,
 		openRight = false,
 		show = false,
 		repo = import.meta.env.VITE_APP_GIT,
-		name = import.meta.env.VITE_APP_NAME,
-		windowHeight = 0;
-
-	$: browser &&
-		document?.documentElement.style.setProperty('--window-height', `${windowHeight}px`);
-	$: docLink = `${repo}/tree/master/src/www${$page.url.pathname.replace(/\/$/, '')}.md`;
+		name = import.meta.env.VITE_APP_NAME;
 
 	export let links: Links,
 		metadata: Meta,
@@ -228,8 +225,8 @@
 
 	const openedAccordion = (path: string, key: string, i: number) =>
 		path.includes(key.replace(' ', '_'));
-	const activeLink = (page: string, path: string) =>
-		page.replace(/\/$/, '') === path.replace(/\.|md/g, '');
+	const activeLink = (path: string) =>
+		$page.routeId?.includes('/') && path.includes($page.routeId as string);
 	const setLink = (base: string, path: string) => base + path.replace(/\.|md/g, '');
 </script>
 
