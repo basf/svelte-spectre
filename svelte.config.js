@@ -60,9 +60,6 @@ export default {
 			routes: 'src/www',
 			template: 'src/www/app.html',
 		},
-		paths: {
-			base: dev ? '' : '/svelte-spectre',
-		},
 		trailingSlash: 'always',
 		package: {
 			dir: 'package',
