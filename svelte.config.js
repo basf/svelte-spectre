@@ -61,7 +61,7 @@ export default {
 			template: 'src/www/app.html',
 		},
 		paths: {
-			base: dev ? '' : '/svelte-spectre'
+			base: dev ? '' : '/svelte-spectre',
 		},
 		trailingSlash: 'always',
 		package: {
