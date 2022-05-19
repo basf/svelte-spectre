@@ -1,9 +1,9 @@
-import { mdsvex } from 'mdsvex';
-import mdsvexConfig from './mdsvex.config.js';
-import preprocess from 'svelte-preprocess';
-import path from 'path';
 import fs from 'fs';
+import path from 'path';
+import { mdsvex } from 'mdsvex';
+import preprocess from 'svelte-preprocess';
 import svg from '@poppanator/sveltekit-svg';
+import mdsvexConfig from './mdsvex.config.js';
 import adapterStatic from '@sveltejs/adapter-static';
 
 const pkg = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf8'));
@@ -60,15 +60,10 @@ export default {
 			routes: 'src/www',
 			template: 'src/www/app.html',
 		},
+		trailingSlash: 'always',
 		prerender: {
 			default: true,
-			concurrency: 1,
-			crawl: true,
-			enabled: true,
-			entries: ['*'],
-			onError: 'fail',
 		},
-		trailingSlash: 'always',
 		package: {
 			dir: 'package',
 			// excludes all .d.ts and files starting with _ as the name
