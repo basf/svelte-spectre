@@ -9,7 +9,7 @@
 		<span on:click={close} class="modal-overlay" aria-label="Close" />
 	{/if}
 	<div class="modal-container">
-		<IconButton id="close" icon="cross" on:click={close} />
+		<IconButton id="close" icon="cross" on:click={close} size={size === 'fs' ? 'xxl' : 'md'} />
 		<div class="modal-header">
 			<slot name="header" />
 		</div>
