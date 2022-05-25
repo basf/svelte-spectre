@@ -19,6 +19,7 @@
 				type="text"
 				tabindex="0"
 				{placeholder}
+				{autofocus}
 				bind:value
 				on:focus={() => (focused = true)}
 				on:keydown={selectSuggestion}
@@ -116,6 +117,7 @@
 	export let created: Item[] = [];
 	export let creatable: boolean = false;
 	export let predictable: boolean = false;
+	export let autofocus: boolean;
 	export let groupBy: (item: Item | string) => string = () => '';
 
 	let focused: boolean = false,
