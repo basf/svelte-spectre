@@ -1,3 +1,5 @@
+<svelte:window on:keydown={open ? onKeydown : null} />
+
 <div
 	{...$$restProps}
 	class:modal={!custom}
@@ -41,14 +43,18 @@
 	export let custom: boolean = false;
 	export let open: boolean = false;
 	export let size: Size = 'md';
+	export let onKeydown = (e: KeyboardEvent) => {
+		e.preventDefault();
+		e.key === 'Escape' && close(e);
+	};
 
 	const mid: string = uuid();
 	const dispatch = createEventDispatcher();
 
-	const close = () => {
+	function close(e: Event) {
 		if (!custom) open = false;
-		dispatch('close', 'detail value');
-	};
+		dispatch('close', e.target);
+	}
 </script>
 
 <style lang="scss">
