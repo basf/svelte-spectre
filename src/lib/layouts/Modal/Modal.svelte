@@ -44,8 +44,10 @@
 	export let open: boolean = false;
 	export let size: Size = 'md';
 	export let onKeydown = (e: KeyboardEvent) => {
-		e.preventDefault();
-		e.key === 'Escape' && close(e);
+		if (e.key === 'Escape') {
+			e.preventDefault();
+			close(e);
+		}
 	};
 
 	const mid: string = uuid();
