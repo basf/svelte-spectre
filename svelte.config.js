@@ -1,19 +1,7 @@
-import fs from 'fs';
-import path from 'path';
 import { mdsvex } from 'mdsvex';
 import preprocess from 'svelte-preprocess';
-import svg from '@poppanator/sveltekit-svg';
 import mdsvexConfig from './mdsvex.config.js';
 import adapterStatic from '@sveltejs/adapter-static';
-
-const pkg = JSON.parse(fs.readFileSync(new URL('package.json', import.meta.url), 'utf8'));
-
-process.env.VITE_APP_NAME = pkg.name
-	.trim()
-	.toLowerCase()
-	.replace(/\w\S*/g, (w) => w.replace(/^\w/, (c) => c.toUpperCase()));
-process.env.VITE_APP_VERSION = pkg.version;
-process.env.VITE_APP_GIT = pkg.repository.url.replace(/git\+|\.git/g, '');
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -66,24 +54,7 @@ export default {
 		},
 		package: {
 			dir: 'package',
-			// excludes all .d.ts and files starting with _ as the name
-			// exports: (filepath) => !/^_|\/_|\.scss$/.test(filepath),
-			// files: (filepath) => !/^_|\/_|\.scss$/.test(filepath),
 			emitTypes: true,
 		},
-		// paths: {
-		// 	base: dev ? '' : '/svelte-spectre',
-		// },
-		vite: () => ({
-			resolve: {
-				alias: {
-					$assets: path.resolve('./src/www/assets'),
-				},
-			},
-			server: {
-				port: 3030,
-			},
-			plugins: [svg(options)],
-		}),
 	},
 };
