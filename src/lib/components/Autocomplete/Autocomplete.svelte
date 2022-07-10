@@ -108,6 +108,8 @@
 </script>
 
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
+
 	export let value: string = '';
 	export let empty: string = '';
 	export let placeholder: string = 'typing here';
@@ -123,6 +125,8 @@
 	let focused: boolean = false,
 		active: number = 0,
 		prompt: string = '';
+
+	const dispatch = createEventDispatcher();
 
 	$: if (focused) {
 		predefined = predefine(predefined);
@@ -197,10 +201,14 @@
 		suggested = [];
 		active = 0;
 		value = '';
+
+		dispatch('select', item);
 	}
 
 	function removeSelected(index: number) {
 		selected = selected.filter((s, i) => i !== index);
+
+		dispatch('remove', selected[index]);
 	}
 
 	function deleteCreated(index: number) {
