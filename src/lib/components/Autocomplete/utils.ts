@@ -17,7 +17,7 @@ function calcSuggestion(
     return predefined.filter(
         (p) =>
             stringIndex(p.label, value) >= 0 &&
-            !selected.some((s) => s.label === p.label)
+            !selected.some((s) => s.index === p.index)
     );
 }
 
