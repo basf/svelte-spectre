@@ -23,11 +23,7 @@
 							{item.text}
 						</label>
 					{:else}
-						<a
-							href={item.link || '#'}
-							class:active={item.active}
-							on:click|preventDefault
-						>
+						<a href={item.link || '#'} class:active={item.active}>
 							{#if item.icon}<Icon icon={item.icon} />{/if}
 							{item.text}
 						</a>
