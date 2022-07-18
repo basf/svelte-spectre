@@ -31,7 +31,7 @@
 				<button
 					class="btn btn-clear mr--1"
 					aria-label="Close"
-					on:click={() => (selected = [])}
+					on:click={() => removeSelected(0)}
 				/>
 			{/if}
 		</div>
@@ -206,7 +206,7 @@
 	}
 
 	function removeSelected(index: number) {
-		selected = selected.filter((s, i) => i !== index);
+		selected = index ? selected.filter((s, i) => i !== index) : [];
 
 		dispatch('remove', selected[index]);
 	}

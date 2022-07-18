@@ -69,7 +69,6 @@
 		.modal-container {
 			position: relative;
 			max-height: 100% !important;
-			overflow-y: auto;
 			:global(#close) {
 				position: absolute !important;
 				right: $unit-4;
