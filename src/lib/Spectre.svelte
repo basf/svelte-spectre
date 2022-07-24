@@ -101,6 +101,7 @@
 				justify-content: center;
 				background: rgba($bg-color, 0.75);
 				color: $error-color;
+				z-index: 100;
 			}
 
 			// @for $i from 3 through 9 {

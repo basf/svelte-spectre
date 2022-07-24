@@ -71,7 +71,7 @@
 	{#if perpage}
 		<div class="column col-2 col-xs-12 my-2">
 			<Select
-				on:select={() => dispatch('limited', limit)}
+				on:change={() => dispatch('limited', limit)}
 				bind:value={limit}
 				options={limits}
 				size="xs"
@@ -99,6 +99,7 @@
 	$: length = Math.ceil(total / limit);
 	$: shift = Math.trunc(rest / 2);
 	$: page = page > length ? length : page;
+	$: page && dispatch('paged', page);
 </script>
 
 <style lang="scss">
