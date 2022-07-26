@@ -6,12 +6,14 @@
 			tabindex="0"
 			use:select={i}
 			bind:this={nodes[i]}
+			on:click={() => dispatch('select', item)}
 		>
-			<a href={item.path} use:addBadge={item.badge}>
+			<a href={item.path} target={item.target} use:addBadge={item.badge}>
 				{#if item.icon}<Icon icon={item.icon} />{/if}
 				{#if item.title}{item.title}{/if}
 				{#if item.clear}<IconButton variant="clear" />{/if}
 			</a>
+			<slot {item} />
 		</li>
 	{/each}
 
@@ -23,6 +25,7 @@
 </ul>
 
 <script lang="ts" context="module">
+	import { createEventDispatcher } from 'svelte';
 	import Icon from '../Icon/Icon.svelte';
 	import IconButton from '../Button/Button.svelte';
 	import { badge as addBadge } from '../Badge';
@@ -30,10 +33,12 @@
 	interface Item {
 		title: string;
 		path?: string;
+		target?: string;
 		icon?: Icons;
 		badge?: string;
 		clear?: boolean;
 	}
+	const dispatch = createEventDispatcher();
 	export type { Icons, Item };
 </script>
 
@@ -41,8 +46,10 @@
 	export let items: Item[] = [];
 	export let active: number = 0;
 	export let block: boolean = false;
+
 	let index = active,
-		nodes = [];
+		nodes: HTMLLIElement[] = [];
+
 	function select(node: HTMLElement, i: number) {
 		node.onkeydown = (e) => {
 			switch (e.key) {
