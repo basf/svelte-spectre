@@ -28,11 +28,7 @@
 			{#if value.length}
 				<i class="form-icon loading" />
 			{:else if selected.length}
-				<button
-					class="btn btn-clear mr--1"
-					aria-label="Close"
-					on:click={() => removeSelected(0)}
-				/>
+				<button class="btn btn-clear mr--1" aria-label="Close" on:click={removeSelected} />
 			{/if}
 		</div>
 	</div>
@@ -205,10 +201,10 @@
 		dispatch('select', item);
 	}
 
-	function removeSelected(index: number) {
-		selected = index ? selected.filter((s, i) => i !== index) : [];
+	function removeSelected(index?: number) {
+		selected = !isNaN(index as number) ? selected.filter((s, i) => i !== index) : [];
 
-		dispatch('remove', selected[index]);
+		dispatch('remove', index ? selected[index] : selected);
 	}
 
 	function deleteCreated(index: number) {
