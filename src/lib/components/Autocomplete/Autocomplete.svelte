@@ -49,7 +49,7 @@
 						</a>
 					</dd>
 				{:else}
-					<dt class="divider" data-content={empty || 'No suggested'} />
+					<dt class="divider" data-content={empty || 'Nothing found'} />
 				{/if}
 			{:else}
 				{#each Object.entries(makeGroups(suggested)) as [group, items], i}
@@ -108,7 +108,7 @@
 
 	export let value: string = '';
 	export let empty: string = '';
-	export let placeholder: string = 'typing here';
+	export let placeholder: string = 'type here';
 	export let predefined: string[] | Item[] = [];
 	export let suggested: Item[] = [];
 	export let selected: Item[] = [];
