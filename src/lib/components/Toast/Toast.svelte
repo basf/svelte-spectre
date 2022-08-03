@@ -83,13 +83,13 @@
 
 	function pausable(node: HTMLElement, paused: boolean) {
 		if (paused) {
-			node.onmouseenter = pause;
-			node.onmouseleave = resume;
+			node.onpointerenter = pause;
+			node.onpointerleave = resume;
 		}
 		return {
 			destroy() {
-				node.onmouseenter = null;
-				node.onmouseleave = null;
+				node.onpointerenter = null;
+				node.onpointerleave = null;
 			},
 		};
 	}
