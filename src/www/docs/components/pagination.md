@@ -4,9 +4,9 @@ title: Pagination
 api: [
 	{title: 'page: number', description: 'Active page number', variables: 'any number'},
 	{title: 'total: number', description: 'Total items', variables: 'any number'},
-	{title: 'limit: number', description: 'Limit items perpage', variables: 'any number'},
-	{title: 'rest: number', description: 'Rest pages', variables: 'any number'},
-	{title: 'perpage: boolean', description: 'Select limit perpage', variables: 'true | false'},
+	{title: 'limit: number', description: 'Limit items per page', variables: 'any number'},
+	{title: 'rest: number', description: 'Links to pages to be shown', variables: 'any number'},
+	{title: 'perpage: boolean', description: 'Select limit per page', variables: 'true | false'},
 ]
 config:
     {
