@@ -151,11 +151,7 @@
 	let body = [];
 
 	for (let path in allMd) {
-		body.push(
-			allMd[path]().then(({ metadata }) => {
-				return { path, metadata };
-			})
-		);
+		body.push(allMd[path]().then(({ metadata }) => ({ path, metadata })));
 	}
 
 	export async function load({ url }) {

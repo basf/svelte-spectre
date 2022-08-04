@@ -107,13 +107,15 @@ tab-item or its child with the active class will be highlighted.
 <p>
     <Grid stack>
         <Col xs="12">
-        {#if browser}
-            <Tabs active={$page.url.searchParams} {items} block={state.block}/>
-            active: {$page.url.searchParams}
+            {#if browser}
+                <Tabs active={$page.url.searchParams} {items} block={state.block}/>
+                <span>active: {$page.url.searchParams}</span>
             {/if}
         </Col>
         <Col xs="12">
-            <Tabs items={items2} block/>
+            {#if browser}
+                <Tabs items={items2} block/>
+            {/if}
         </Col>
     </Grid>
 </p>
@@ -141,10 +143,14 @@ tab-item or its child with the active class will be highlighted.
 <p>
     <Grid stack>
         <Col xs="12">
-            <Tabs items={items2}/>
+            {#if browser}
+                <Tabs items={items2}/>
+            {/if}
         </Col>
         <Col xs="12">
-            <Tabs items={items2} block/>
+            {#if browser}
+                <Tabs items={items2} block/>
+            {/if}
         </Col>
     </Grid>
 </p>
@@ -169,12 +175,14 @@ You could add a search box or buttons inside a tab. Add the `tab-action` class
 to the `tab-item`.
 
 <p>
-    <Tabs items={items2} block>
-        <div slot="action" class="input-group input-inline">
-            <input class="form-input input-sm" type="text">
-            <button class="btn btn-primary btn-sm input-group-btn">Search</button>
-        </div>
-    </Tabs>
+    {#if browser}
+        <Tabs items={items2} block>
+            <div slot="action" class="input-group input-inline">
+                <input class="form-input input-sm" type="text">
+                <button class="btn btn-primary btn-sm input-group-btn">Search</button>
+            </div>
+        </Tabs>
+    {/if}
 </p>
 
 ```sv
