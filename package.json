@@ -35,9 +35,9 @@
 		"@sveltejs/adapter-static": "^1.0.0-next.38",
 		"@sveltejs/kit": "next",
 		"@types/jsdom": "^16.2.15",
-		"@typescript-eslint/eslint-plugin": "^5.30.7",
-		"@typescript-eslint/parser": "^5.30.7",
-		"eslint": "^8.20.0",
+		"@typescript-eslint/eslint-plugin": "^5.32.0",
+		"@typescript-eslint/parser": "^5.32.0",
+		"eslint": "^8.21.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"husky": "^8.0.1",
@@ -46,17 +46,17 @@
 		"pirates": "^4.0.5",
 		"prettier": "^2.7.1",
 		"prettier-plugin-svelte": "^2.7.0",
-		"sass": "^1.54.0",
+		"sass": "^1.54.2",
 		"spectre.css": "^0.5.9",
 		"svelte": "^3.49.0",
 		"svelte-check": "^2.8.0",
 		"svelte-preprocess": "^4.10.7",
-		"svelte2tsx": "^0.5.12",
+		"svelte2tsx": "^0.5.13",
 		"tslib": "^2.4.0",
 		"tsm": "^2.2.2",
 		"typescript": "~4.7.4",
 		"uvu": "^0.5.6",
-		"vite": "^3.0.2"
+		"vite": "^3.0.4"
 	},
 	"dependencies": {
 		"@ctrl/tinycolor": "^3.4.1"

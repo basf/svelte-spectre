@@ -38,7 +38,6 @@
 		badge?: string;
 		clear?: boolean;
 	}
-	const dispatch = createEventDispatcher();
 	export type { Icons, Item };
 </script>
 
@@ -47,8 +46,10 @@
 	export let active: number = 0;
 	export let block: boolean = false;
 
-	let index = active,
-		nodes: HTMLLIElement[] = [];
+	let index = active;
+	let nodes: HTMLLIElement[] = [];
+
+	const dispatch = createEventDispatcher();
 
 	function select(node: HTMLElement, i: number) {
 		node.onkeydown = (e) => {
