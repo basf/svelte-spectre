@@ -223,10 +223,13 @@
 		metadata: Meta,
 		title: string = '';
 
+	$: activeLink = (path: string) => {
+		return $page.routeId?.includes('/') && path.includes($page.routeId);
+	};
+
 	const openedAccordion = (path: string, key: string, i: number) =>
 		path.includes(key.replace(' ', '_'));
-	const activeLink = (path: string) =>
-		$page.routeId?.includes('/') && path.includes($page.routeId as string);
+
 	const setLink = (base: string, path: string) => base + path.replace(/\.|md/g, '');
 </script>
 
