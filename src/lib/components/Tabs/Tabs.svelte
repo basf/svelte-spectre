@@ -62,7 +62,7 @@
 				case ' ':
 				case 'Enter':
 					e.preventDefault();
-					nodes[i].firstChild.click();
+					nodes[i]?.firstChild?.click();
 					if (typeof active === 'number') {
 						active = i;
 					}
