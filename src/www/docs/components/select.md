@@ -45,7 +45,6 @@ config:
         label: { size: 12 },
         selected: { type: 'number', min: 0, max: 2, size: 5 },
         size: { options: ['sm', 'md', 'lg'] },
-        multiple: { type: 'checkbox' },
         inline: { type: 'checkbox' },
         validity: { options: [null, 'success', 'error'] },
     }
@@ -55,9 +54,8 @@ config:
     import {Form, FormGroup, Select} from '$lib'
     import Knobs from '../_knobs.svelte'
 
-    let state = { selected: 1, size: 'md', multiple: false, inline: false, validity: null }
-
-    let selected = 1, 
+    let multiple = false, 
+        selected = 1,
         multi = [1], 
         questions = [
             { value: 1, label: `Where did you go to school?` },
@@ -67,11 +65,18 @@ config:
                 label: `What is another personal fact that an attacker could easily find with Google?`
             }
         ]
+    
+    let state = { 
+        selected: multiple ? [1] : 1, 
+        size: 'md', 
+        inline: false, 
+        validity: null 
+    }
 </script>
 
 # {title}
 
-> 🚧 Under construction
+## Single select
 
 <p>
     <Form>
@@ -82,13 +87,11 @@ config:
                 bind:selected={state.selected}
                 bind:multiple={state.multiple}
                 validity={state.validity}
-                size={state.size} />
+                size={state.size}>
+            <span slot="label">{state.label}</span>
+            </Select>
         </FormGroup>
-        {selected}
-        <FormGroup>
-            <Select options={questions} bind:value={multi} multiple />
-        </FormGroup>
-        {multi}
+        Selected: {selected}
     </Form>
 </p>
 
@@ -114,4 +117,41 @@ config:
     bind:multiple={multiple}
     validity={validity}
     size={size} />
+```
+
+## Multiple select
+
+<p>
+    <Form>
+        <FormGroup>
+            <Select options={questions} bind:value={multi} multiple>
+                <span slot="label">{state.label}</span>
+            </Select>
+        </FormGroup>
+        Selected: {multi}
+    </Form>
+</p>
+
+<p>
+    <Knobs bind:state {config}/>
+</p>
+
+```sv
+<script>
+    import { Select } from 'svelte-spectre'
+
+    let selected = 1,
+        options = [ 1, 2, 3 ],
+        multiple = false,
+        validity = null,
+        size = 'md'
+</script>
+
+<Select
+    options={options}
+    bind:value={selected}
+    bind:selected={selected}
+    validity={validity}
+    size={size}
+    multiple />
 ```

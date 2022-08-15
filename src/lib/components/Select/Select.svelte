@@ -1,6 +1,13 @@
+{#if $$slots.label}
+	<div class="col-4 col-{expand}-12">
+		<label for="select-{fid}" class="form-label label-{size}">
+			<slot name="label" />
+		</label>
+	</div>
+{/if}
+
 {#if multiple}
 	<select
-		{...$$restProps}
 		multiple
 		size={options.length}
 		id="select-{fid}"
@@ -20,7 +27,7 @@
 		{/if}
 		{#each options as option, index}
 			<option value={getValue(option, index)}>
-				<slot {option}>{getLabel(option, index)}</slot>
+				<slot name="option" {option}>{getLabel(option, index)}</slot>
 			</option>
 		{/each}
 	</select>
@@ -44,7 +51,7 @@
 		{/if}
 		{#each options as option, index}
 			<option value={getValue(option, index)}>
-				<slot {option}>{getLabel(option, index)}</slot>
+				<slot name="option" {option}>{getLabel(option, index)}</slot>
 			</option>
 		{/each}
 	</select>
@@ -73,6 +80,7 @@
 	export let placeholder: string;
 	export let size: Size;
 	export let validity: Validity = false;
+	export let expand: Size = 'xs';
 
 	const fid: string = uuid();
 
@@ -85,7 +93,7 @@
 		: getSelected(options, value)),
 		selected;
 
-	function getSelected(options, value) {
+	function getSelected(options: Option[], value?: Option) {
 		const i = options.findIndex((option, index) => getValue(option, index) === value);
 		return i < 0 ? undefined : i;
 	}
