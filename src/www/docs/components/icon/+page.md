@@ -97,7 +97,7 @@ config:
             },
         svg:
             {
-                svg: { options: [null, 'Basf', 'Xray', 'GitHub'] },
+                svg: { options: [null, 'Xray', 'GitHub'] },
                 size: { options: ['1x', '2x', '3x', '4x'] },
                 color:
                     {
@@ -122,8 +122,7 @@ config:
     import {Button, Col, Grid, Hero, Icon, IconButton} from '$lib'
     import Knobs from '../../_knobs.svelte'
     import Xray from '$assets/b-science.svg';
-    import Basf from '$assets/BASF-invert.svg';
-	import GitHub from '$assets/github.svg';
+    import GitHub from '$assets/github.svg';
 
     let icons = {
         navigation: ['arrow-up', 'arrow-right', 'arrow-down', 'arrow-left', 'upward', 'forward', 'downward', 'back', 'caret', 'menu', 'apps', 'more-horiz','more-vert'],
@@ -163,30 +162,25 @@ config:
         ]
     }, state = {
         icons: { icon: 'emoji', size: '2x', color: 'primary'},
-        svg: {size: '4x', color: 'primary', svg: 'Basf'}
-        },
-         component = null
+        svg: {size: '4x', color: 'primary', svg: 'Xray'}
+    },
+    component = null;
 
     $: switch (state.svg.svg) {
-		case 'Basf':
-			component = Basf
-            state.icon = null
-            break
-
         case 'Xray':
-			component = Xray
+            component = Xray
             state.icon = null
             break
 
         case 'GitHub':
-			component = GitHub
+            component = GitHub
             state.icon = null
             break
 
-		default:
+        default:
             component = null
             break
-	}
+    }
 </script>
 
 # {title}
@@ -236,17 +230,17 @@ CSS icons.
 
 ```sv
 <script>
-    import Basf from 'basf.svg'
+    import Xray from 'xray.svg'
 </script>
 
 <Icon size="4x" color="primary">
-    <Basf />
+    <Xray />
     <!-- or -->
-    <svelte:component this={Basf}/>
+    <svelte:component this={Xray}/>
     <!-- or -->
-    <svg name="basf"/>
+    <svg name="xray"/>
     <!-- or -->
-    <img src="basf.svg" />
+    <img src="xray.svg" />
 </Icon>
 ```
 
