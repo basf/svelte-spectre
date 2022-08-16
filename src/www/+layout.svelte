@@ -178,7 +178,7 @@
 	import { media } from './_media';
 
 	export let data: { links: Links; meta: Meta; title: string };
-	$: console.log(data);
+	//$: console.log(data);
 	let openLeft = false,
 		openRight = false,
 		show = false,
