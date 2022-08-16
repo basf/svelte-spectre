@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>{name}: {title || ''}</title>
+	<title>{name}: {data.title || ''}</title>
 </svelte:head>
 
 <Spectre>
@@ -32,7 +32,7 @@
 				</IconButton>
 
 				<nav class="d-flex mr-2" slot="right">
-					{#if !show && metadata?.api}
+					{#if !show && data.meta?.api}
 						<div class="mr-2">
 							<Button on:click={() => (openRight = !openRight)}>Api</Button>
 						</div>
@@ -56,8 +56,8 @@
 
 		<nav id="sidebar" slot="sidebarLeft" class="m-2">
 			<h5><a href={`${base}/`} on:click={() => (openLeft = false)}>{name}</a></h5>
-			{#if links}
-				{#each Object.entries(links) as [key, value], i}
+			{#if data.links}
+				{#each Object.entries(data.links) as [key, value], i}
 					{#if key === 'root'}
 						<Menu nav>
 							{#each value as { path, metadata: { title } }, i}
@@ -103,16 +103,16 @@
 		</main>
 
 		<svelte:fragment slot="sidebarRight">
-			{#if metadata?.api}
+			{#if data.meta?.api}
 				{#if !show}
 					<span style="position: absolute; right: 0.5rem">
 						<IconButton icon="cross" on:click={() => (openRight = false)} />
 					</span>
 				{/if}
 				<article class="p-2 mx-2">
-					<h4>API {metadata.title}</h4>
+					<h4>API {data.meta.title}</h4>
 					<dl>
-						{#each metadata.api as api}
+						{#each data.meta.api as api}
 							<dt class="text-normal pt-2">
 								{#if api.title}
 									<code class="text-bold">
@@ -176,15 +176,13 @@
 	import GitHub from '$assets/github.svg';
 	import { media } from './_media';
 
-	export let data: { links: Links; metadata: Meta; title: string };
-
+	export let data: { links: Links; meta: Meta; title: string };
+	$: console.log(data);
 	let openLeft = false,
 		openRight = false,
 		show = false,
 		repo = import.meta.env.VITE_APP_GIT,
 		name = import.meta.env.VITE_APP_NAME;
-
-	const { links, metadata, title } = data;
 
 	$: activeLink = (path: string) => {
 		return $page.routeId?.includes('/') && path.includes($page.routeId);

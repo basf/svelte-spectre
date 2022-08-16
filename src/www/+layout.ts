@@ -19,8 +19,9 @@ export async function load({ url }) {
                 : [current],
         };
     }, {});
-    const metadata = getMeta(url.pathname) || null;
-    const title = metadata?.title;
+
+    const meta = getMeta(url.pathname) || null;
+    const title = meta?.title;
 
     function getMeta(path: string) {
         const parts = path.split('/').filter(Boolean);
@@ -30,7 +31,7 @@ export async function load({ url }) {
         return links[category]?.find((link: Link) => link.path.includes(page))
             .metadata;
     }
-    return { links, metadata, title };
+    return { links, meta, title };
 }
 
 interface Meta {
