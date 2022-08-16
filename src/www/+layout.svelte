@@ -82,6 +82,7 @@
 								{#each value as { path, metadata: { title } }, i}
 									<li class="menu-item">
 										<a
+											sveltekit:prefetch
 											href={setLink(base, path)}
 											class:active={activeLink(path)}
 											on:click={() => (openLeft = false)}>{title}</a
