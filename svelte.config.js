@@ -4,11 +4,14 @@ import mdsvexConfig from './mdsvex.config.js';
 import adapterStatic from '@sveltejs/adapter-static';
 
 const mode = process.env.NODE_ENV;
+const primaryColor = process.argv.includes('package') ? '' : '$primary-color: pink;';
+
 const dev = mode === 'development';
 const options = {
 	sourceMap: dev,
 	scss: {
 		prependData: `
+			${primaryColor}
 			@import './node_modules/spectre.css/src/variables';
 			@import './node_modules/spectre.css/src/mixins';
 			@import './src/lib/dark';
