@@ -97,7 +97,7 @@ config:
             },
         svg:
             {
-                svg: { options: [null, 'Basf', 'Xray', 'GitHub'] },
+                svg: { options: ['Xray', 'GitHub'] },
                 size: { options: ['1x', '2x', '3x', '4x'] },
                 color:
                     {
@@ -122,7 +122,6 @@ config:
     import {Button, Col, Grid, Hero, Icon, IconButton} from '$lib'
     import Knobs from '../../knobs.svelte'
     import Xray from '$assets/Xray.svg';
-    import Basf from '$assets/BASF-invert.svg';
 	import GitHub from '$assets/github.svg';
 
     let icons = {
@@ -163,15 +162,11 @@ config:
         ]
     }, state = {
         icons: { icon: 'emoji', size: '2x', color: 'primary'},
-        svg: {size: '4x', color: 'primary', svg: 'Basf'}
+        svg: {size: '4x', color: 'primary', svg: 'Xray'}
         },
          component = null
 
     $: switch (state.svg.svg) {
-		case 'Basf':
-			component = Basf
-            state.icon = null
-            break
 
         case 'Xray':
 			component = Xray
