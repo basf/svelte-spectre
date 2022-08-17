@@ -25,7 +25,7 @@ config: { toggle: { type: 'checkbox' } }
 <script>
     import {fade} from 'svelte/transition'
     import {Button, Toggle} from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let state = {toggle: false}
 </script>

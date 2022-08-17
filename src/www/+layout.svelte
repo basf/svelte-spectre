@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>{name}: {data.title || ''}</title>
+	<title>{name + '@' + version}: {data.title || ''}</title>
 </svelte:head>
 
 <Spectre>
@@ -147,43 +147,26 @@
 </Spectre>
 
 <script lang="ts" context="module">
-	interface Meta {
-		file: string;
-		title: string;
-		config?: any;
-		api?: Api[];
-	}
-
-	interface Api {
-		title?: string;
-		variables?: string;
-		description?: string;
-	}
-
-	interface Link {
-		metadata: Meta;
-		path: string;
-	}
-	interface Links {
-		[key: string]: Link[];
-	}
+	import type { Data } from './types';
 </script>
 
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
 	import { Accordion, Button, IconButton, Menu, Navbar, Sidebar, Spectre, Toaster } from '$lib';
-	import Xray from '$assets/b-science.svg';
-	import GitHub from '$assets/github.svg';
-	import { media } from './_media';
 
-	export let data: { links: Links; meta: Meta; title: string };
-	//$: console.log(data);
-	let openLeft = false,
-		openRight = false,
-		show = false,
-		repo = import.meta.env.VITE_APP_GIT,
-		name = import.meta.env.VITE_APP_NAME;
+	import Xray from '$assets/Xray.svg';
+	import GitHub from '$assets/github.svg';
+	import { media } from './media';
+
+	export let data: Data;
+
+	let openLeft = false;
+	let openRight = false;
+	let show = false;
+	let repo = import.meta.env.VITE_APP_GIT;
+	let name = import.meta.env.VITE_APP_NAME;
+	let version = import.meta.env.VITE_APP_VERSION;
 
 	$: activeLink = (path: string) => {
 		return $page.routeId?.includes('/') && path.includes($page.routeId);

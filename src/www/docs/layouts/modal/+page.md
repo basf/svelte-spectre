@@ -49,7 +49,7 @@ config:
 
 <script>
     import {Button, Modal} from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let state = {size: 'md', open: false, custom: false}
 </script>

@@ -42,7 +42,7 @@ config:
 
 <script>
     import {Steps} from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let state = { active: 3, length: 5 }
 

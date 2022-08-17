@@ -87,7 +87,7 @@ config:
 
 <script>
     import { Bars } from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let state = {
         value: 100, 

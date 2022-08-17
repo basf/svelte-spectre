@@ -40,7 +40,7 @@ config:
 <script>
     import { base } from '$app/paths';
     import {Avatar, Button, ButtonGroup, Card, Col, Dropdown, Icon, IconButton, Grid, Menu, Popover, Tile} from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let state = {side: 'top', transparent: false, shadowed: true}
 </script>

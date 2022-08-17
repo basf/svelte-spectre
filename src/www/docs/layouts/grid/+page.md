@@ -5,7 +5,7 @@ title: Grid
 
 <script>
     import {Button, Col, Grid} from '$lib'
-    import {media} from '../../../_media'
+    import {media} from '../../../media'
 </script>
 
 # {title}

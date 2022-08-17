@@ -69,7 +69,7 @@ config:
     import { page } from '$app/stores';
     import { base } from '$app/paths';
     import { Col, Grid, Tabs } from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let items = [
             { title: 'Tab1', path: '?tab=1', clear: true },

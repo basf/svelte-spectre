@@ -45,7 +45,7 @@ config:
 
 <script>
     import {Form, FormGroup, Radio} from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let state = { label: 'Label', group: 1, inline: false, validity: null }
 

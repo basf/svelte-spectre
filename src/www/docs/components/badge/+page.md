@@ -22,7 +22,7 @@ config:
 <script>
     import { base } from '$app/paths';
     import {Avatar, badge, Badge, Button, Col, Divider, Grid} from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let bdg = '0'
 

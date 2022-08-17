@@ -70,7 +70,7 @@ config:
 
 <script>
     import {Button, ButtonGroup, Col, Divider, Grid,IconButton, Toast, toast} from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let state = { type: 'initial', icon: 'arrow-right', closable: true, timeout: 0, visible: true, invert: false, reverse: false, clearall: toast.clear }
 

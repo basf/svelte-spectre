@@ -113,7 +113,7 @@ config:
 
 <script>
     import {Button, ButtonGroup, Col, Divider, Grid, Icon, IconButton} from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let state = {
         Variants: { variant: 'default' },

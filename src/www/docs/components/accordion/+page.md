@@ -17,7 +17,7 @@ config: {
 
 <script>
     import {Accordion, Accordioner, Col, Grid, Divider} from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let opened = 1, state = { toggled: true, group1: 'demo1', group2: 'demo2', opened, expand: false }
 </script>

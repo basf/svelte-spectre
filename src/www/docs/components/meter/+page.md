@@ -65,7 +65,7 @@ config:
 
 <script>
     import { Meter } from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let state = {
         value: 25, 

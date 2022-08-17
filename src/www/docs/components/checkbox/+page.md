@@ -34,7 +34,7 @@ config:
 
 <script>
     import {Checkbox, Form, FormGroup } from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let state = { indeterminate: false, inline: false, validity: null }
 </script>
