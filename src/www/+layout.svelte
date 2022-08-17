@@ -147,37 +147,19 @@
 </Spectre>
 
 <script lang="ts" context="module">
-	interface Meta {
-		file: string;
-		title: string;
-		config?: any;
-		api?: Api[];
-	}
-
-	interface Api {
-		title?: string;
-		variables?: string;
-		description?: string;
-	}
-
-	interface Link {
-		metadata: Meta;
-		path: string;
-	}
-	interface Links {
-		[key: string]: Link[];
-	}
+	import type { Data } from './types';
 </script>
 
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
 	import { Accordion, Button, IconButton, Menu, Navbar, Sidebar, Spectre, Toaster } from '$lib';
+
 	import Xray from '$assets/Xray.svg';
 	import GitHub from '$assets/github.svg';
 	import { media } from './media';
 
-	export let data: { links: Links; meta: Meta; title: string };
+	export let data: Data;
 
 	let openLeft = false;
 	let openRight = false;
