@@ -1,7 +1,3 @@
-<svelte:head>
-	<title>{name}</title>
-</svelte:head>
-
 <Hero size="md" bg={$media.dark ? 'darked' : 'light'} center>
 	<Container>
 		<h1>{name}</h1>
@@ -64,12 +60,12 @@
 <script context="module" lang="ts">
 	import { base } from '$app/paths';
 	import { Button, Card, Col, Container, Hero, Grid } from '$lib';
-	import { media } from './_media';
+	import { media } from './media';
 </script>
 
 <script lang="ts">
-	let name = import.meta.env.VITE_APP_NAME,
-		version = import.meta.env.VITE_APP_VERSION;
+	let name = import.meta.env.VITE_APP_NAME;
+	let version = import.meta.env.VITE_APP_VERSION;
 </script>
 
 <style lang="scss">

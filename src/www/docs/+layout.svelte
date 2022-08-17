@@ -7,7 +7,7 @@
 </script>
 
 <style lang="scss" global>
-	@import '_code';
+	@import 'code';
 	@import 'spectre.css/src/codes';
 	@import 'spectre.css/src/icons';
 	.off-canvas-content {

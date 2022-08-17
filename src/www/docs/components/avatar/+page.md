@@ -51,7 +51,7 @@ config:
 <script>
     import { base } from '$app/paths';
     import { Avatar, Divider } from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let state = {
         size: 'xl',

@@ -5,7 +5,7 @@ title: Hero
 
 <script>
     import {Hero} from '$lib'
-    import {media} from '../../../_media'
+    import {media} from '../../../media'
 </script>
 
 # {title}

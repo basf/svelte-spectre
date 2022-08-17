@@ -5,7 +5,7 @@ title: Navbar
 
 <script>
     import {Button, IconButton, Navbar} from '$lib'
-    import {media} from '../../../_media'
+    import {media} from '../../../media'
 </script>
 
 # {title}

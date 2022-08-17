@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>{name}: Getting started</title>
+	<title>{name + '@' + version}: Getting started</title>
 </svelte:head>
 
 <h1>Getting started</h1>
@@ -67,4 +67,5 @@
 	import { Card, Col, Grid, Button } from '$lib';
 
 	let name = import.meta.env.VITE_APP_NAME;
+	let version = import.meta.env.VITE_APP_VERSION;
 </script>

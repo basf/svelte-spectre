@@ -41,7 +41,7 @@ config:
 
 <script>
     import {Form, FormGroup, Range} from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let state = { range: 45, min: 0, max: 100, inline: false, validity: null }
 </script>

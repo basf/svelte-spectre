@@ -17,7 +17,7 @@ config: {
 
 <script>
     import {Col, Grid, Progress} from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let state = { value: 75, max: 100, color: 'primary', invert: false }
 </script>

@@ -54,7 +54,7 @@
 
 <script lang="ts">
 	import { Grid, Col } from '$lib';
-	import { media } from '../_media';
+	import { media } from '../media';
 
 	export let state: Record<string, unknown> = {};
 	export let config: Record<

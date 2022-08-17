@@ -76,7 +76,7 @@ config:
 
 <script>
     import {Button, Checkbox, Form, FormGroup, Icon, IconButton, Input, InputGroup, Select, Switch} from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let state = { label: 'Input', value: '', hint: 'hint', icon: null, rows: 1, size: 'md', width: 0, expand: 'xs', validity: null, FormHorizontal: false }
 

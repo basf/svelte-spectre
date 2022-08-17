@@ -52,7 +52,7 @@ config:
 
 <script>
     import {Form, FormGroup, Select} from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let multiple = false, 
         selected = 1,

@@ -20,7 +20,7 @@ config:
 
 <script>
     import {Button, Hero, Pagination} from '$lib'
-	import Knobs from '../../_knobs.svelte'
+	import Knobs from '../../knobs.svelte'
 
 	let state = {
         page: 75,

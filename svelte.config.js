@@ -4,7 +4,7 @@ import mdsvexConfig from './mdsvex.config.js';
 import adapterStatic from '@sveltejs/adapter-static';
 
 const mode = process.env.NODE_ENV;
-const primaryColor = process.argv.includes('package') ? '' : '$primary-color: pink;';
+const primaryColor = process.argv.includes('package') ? '' : '$primary-color: hsl(215, 15%, 33%);';
 
 const dev = mode === 'development';
 const options = {

@@ -120,8 +120,8 @@ config:
 
 <script>
     import {Button, Col, Grid, Hero, Icon, IconButton} from '$lib'
-    import Knobs from '../../_knobs.svelte'
-    import Xray from '$assets/b-science.svg';
+    import Knobs from '../../knobs.svelte'
+    import Xray from '$assets/Xray.svg';
     import Basf from '$assets/BASF-invert.svg';
 	import GitHub from '$assets/github.svg';
 

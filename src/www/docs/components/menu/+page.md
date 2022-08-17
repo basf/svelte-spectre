@@ -8,7 +8,7 @@ config: { nav: { type: 'checkbox' } }
 <script>
     import { base } from '$app/paths';
     import {Avatar, Button, Col, Grid, Menu, Tile} from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let radiogroup = '',
         menu = [

@@ -5,7 +5,7 @@ title: Container
 
 <script>
     import {Button, Container} from '$lib'
-    import {media} from '../../../_media'
+    import {media} from '../../../media'
 </script>
 
 # {title}

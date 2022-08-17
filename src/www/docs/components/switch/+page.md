@@ -28,7 +28,7 @@ config:
 
 <script>
     import {Switch, Form, FormGroup } from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let state = { inline: false, validity: null }
 </script>

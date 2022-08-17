@@ -31,7 +31,7 @@ config:
 
 <script>
     import { Autocomplete } from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let objects = [
             {label: '{ top_left }', value: 'top_left', group: 'top'},

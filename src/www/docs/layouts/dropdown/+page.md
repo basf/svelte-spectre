@@ -34,7 +34,7 @@ config:
 <script>
     import { base } from '$app/paths';
     import {Avatar, Button, ButtonGroup, Col, Dropdown, Icon, IconButton, Grid, Menu, Tile} from '$lib'
-    import Knobs from '../../_knobs.svelte'
+    import Knobs from '../../knobs.svelte'
 
     let menu = [
             { divider: `TOP` },
