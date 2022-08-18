@@ -35,6 +35,7 @@ export default {
 			'a11y-label-has-associated-control',
 			'a11y-missing-content',
 			'a11y-structure',
+			'a11y-autofocus',
 			'css-unused-selector',
 			'missing-declaration',
 			'unused-export-let',
