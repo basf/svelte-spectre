@@ -55,9 +55,9 @@ export default {
 		prerender: {
 			default: true,
 		},
-		package: {
-			dir: 'package',
-			emitTypes: true,
-		},
+	},
+	package: {
+		dir: 'package',
+		emitTypes: true,
 	},
 };
