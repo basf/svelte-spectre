@@ -29,7 +29,7 @@ function mediaStore(queries: Queries = {}) {
     return readable({}, (set) => {
         let mqs = Object.entries(queries).reduce(
             (mqs: MediaObject, [key, query]) => {
-                if (typeof window === 'object') {
+                if (window instanceof Object) {
                     mqs[key] = matchMedia(query as string);
                     mqs[key].onchange = (mq) => {
                         mqs[key] = mq;
