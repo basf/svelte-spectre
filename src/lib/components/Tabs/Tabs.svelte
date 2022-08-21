@@ -1,7 +1,7 @@
 <ul {...$$restProps} class="tab" class:tab-block={block}>
 	{#each items as item, i}
 		<li
-			class:active={active === i || item?.path?.includes(`${active}`)}
+			class:active={!isNaN(active) ? active === i : item?.path?.includes(active)}
 			class="tab-item"
 			tabindex="0"
 			use:select={i}
@@ -43,8 +43,8 @@
 
 <script lang="ts">
 	export let items: Item[] = [];
-	export let active: number = 0;
-	export let block: boolean = false;
+	export let active: number | string = 0;
+	export let block = false;
 
 	let index = active;
 	let nodes: HTMLLIElement[] = [];

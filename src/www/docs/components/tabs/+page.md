@@ -114,7 +114,7 @@ tab-item or its child with the active class will be highlighted.
         </Col>
         <Col xs="12">
             {#if browser}
-                <Tabs items={items2} block/>
+                <Tabs active={$page.url.searchParams} items={items2} block/>
             {/if}
         </Col>
     </Grid>
