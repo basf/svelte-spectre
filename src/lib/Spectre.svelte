@@ -104,6 +104,13 @@
 				z-index: 100;
 			}
 
+			//TOAST
+			.toast {
+				background: $gray-color-light !important;
+				color: inherit !important;
+				border: inherit !important;
+			}
+
 			// @for $i from 3 through 9 {
 			// 	$unit: '$unit-';
 			// 	$index: $unit + $i;
@@ -145,6 +152,10 @@
 			color: $dark-text;
 
 			:global {
+				//TOAST
+				.toast {
+					background: $dark-color !important;
+				}
 				//FORMS
 				.form-input,
 				.form-select {
@@ -408,7 +419,10 @@
 			color: $dark-text;
 
 			:global {
-				//FORMS
+				//TOAST
+				.toast {
+					background: $dark-color !important;
+				}
 				//FORMS
 				.form-input,
 				.form-select {
@@ -672,6 +686,11 @@
 			color: $body-font-color;
 
 			:global {
+				//TOAST
+				.toast {
+					background: $gray-color-light !important;
+				}
+
 				//FORMS
 				.form-input,
 				.form-select {
