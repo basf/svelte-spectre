@@ -65,7 +65,7 @@ config:
 <script>
     import {onMount} from 'svelte'
     import { goto, invalidate, prefetch, prefetchRoutes } from '$app/navigation';
-    import { browser } from '$app/env';
+    import { browser } from '$app/environment';
     import { page } from '$app/stores';
     import { base } from '$app/paths';
     import { Col, Grid, Tabs } from '$lib'
