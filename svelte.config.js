@@ -46,16 +46,15 @@ export default {
 	},
 
 	kit: {
-		adapter: adapterStatic(),
+		adapter: adapterStatic({
+			fallback: '200.html',
+		}),
 		files: {
 			assets: 'src/www/assets',
 			routes: 'src/www',
-			template: 'src/www/app.html',
+			appTemplate: 'src/www/app.html',
 		},
 		trailingSlash: 'always',
-		prerender: {
-			default: true,
-		},
 	},
 	package: {
 		dir: 'package',
