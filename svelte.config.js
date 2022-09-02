@@ -47,7 +47,7 @@ export default {
 
 	kit: {
 		adapter: adapterStatic({
-			fallback: '200.html',
+			fallback: 'index.html',
 		}),
 		files: {
 			assets: 'src/www/assets',
