@@ -1,3 +1,5 @@
+export const prerender = true;
+
 const allMd = import.meta.glob('./**/*.md');
 
 let body = [];

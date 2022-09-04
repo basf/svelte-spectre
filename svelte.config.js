@@ -3,10 +3,10 @@ import preprocess from 'svelte-preprocess';
 import mdsvexConfig from './mdsvex.config.js';
 import adapterStatic from '@sveltejs/adapter-static';
 
-const mode = process.env.NODE_ENV;
+const dev = process.env.npm_lifecycle_event === 'dev';
+
 const primaryColor = process.argv.includes('package') ? '' : '$primary-color: hsl(215, 15%, 33%);';
 
-const dev = mode === 'development';
 const options = {
 	sourceMap: dev,
 	scss: {
@@ -46,9 +46,7 @@ export default {
 	},
 
 	kit: {
-		adapter: adapterStatic({
-			fallback: 'index.html',
-		}),
+		adapter: adapterStatic(),
 		files: {
 			assets: 'src/www/assets',
 			routes: 'src/www',

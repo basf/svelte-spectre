@@ -148,8 +148,6 @@
 
 <script lang="ts" context="module">
 	import type { Data } from './types';
-
-	export const prerender = true;
 </script>
 
 <script lang="ts">
