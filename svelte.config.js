@@ -53,9 +53,6 @@ export default {
 			appTemplate: 'src/www/app.html',
 		},
 		trailingSlash: 'always',
-		paths: {
-			base: dev ? '' : '/svelte-spectre',
-		},
 	},
 	package: {
 		dir: 'package',
