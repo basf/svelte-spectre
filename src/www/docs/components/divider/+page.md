@@ -97,11 +97,11 @@ dictum in vehicula sit amet, feugiat tempus tellus.
 
 <Grid>
     <Col xs="12">
-        <Figure src="{base}/img/osx-el-capitan-2.jpg" alt="macOS Yosemite Wallpaper" cover></Figure>
+        <Figure src="{base}/img/4603a846-4daf-4018-aa74-e3ab567a69fc.webp" alt="Stable Diffusion Neural Art" cover></Figure>
     </Col>
     <Divider text="OR" align={$media.xs ? 'horizontal center' : 'vertical'} />
     <Col xs="12">
-        <Figure src="{base}/img/osx-el-capitan.jpg" alt="macOS Yosemite Wallpaper" cover></Figure>
+        <Figure src="{base}/img/04696e1a-eb5d-43b9-bb1d-d2ee117f4430.webp" alt="Stable Diffusion Neural Art" cover></Figure>
     </Col>
 </Grid>
 
@@ -112,11 +112,11 @@ dictum in vehicula sit amet, feugiat tempus tellus.
 
 <Grid>
     <Col xs="12">
-        <Figure src="/img/osx-el-capitan-2.jpg" alt="macOS Yosemite Wallpaper"/>
+        <Figure src="/img/4603a846-4daf-4018-aa74-e3ab567a69fc.webp" alt="Stable Diffusion Neural Art"/>
     </Col>
     <Divider text="OR" align="vertical"/>
     <Col xs="12">
-        <Figure src="/img/osx-el-capitan.jpg" alt="macOS Yosemite Wallpaper"/>
+        <Figure src="/img/04696e1a-eb5d-43b9-bb1d-d2ee117f4430.webp" alt="Stable Diffusion Neural Art"/>
     </Col>
 </Grid>
 ```

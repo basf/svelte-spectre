@@ -11,31 +11,31 @@ title: Card
 			{
 				pos: 'top',
 				col: '4',
-				img: 'macos-sierra.jpg',
+				img: '1b9a004a-db27-45e4-b762-0fa21bc97277.webp',
 				text: 'Lightweight (~10KB gzipped) starting point for your projects',
 			},
 			{
 				pos: 'middle',
 				col: '6',
-				img: 'macos-sierra-2.jpg',
+				img: 'c2179403-954f-4f5d-82a4-3dfdeaba9597.webp',
 				text: 'Flexbox-based, responsive and mobile-friendly layout',
 			},
 			{
 				pos: 'bottom',
 				col: '8',
-				img: 'osx-el-capitan.jpg',
+				img: 'b64f151d-e194-497a-9b70-e15ffdd8730d.webp',
 				text: 'Elegantly designed and developed elements and components',
 			},
 			{
 				pos: 'middle',
 				col: '10',
-				img: 'osx-yosemite.jpg',
+				img: '4603a846-4daf-4018-aa74-e3ab567a69fc.webp',
 				text: 'Lightweight (~10KB gzipped) starting point for your projects',
 			},
 			{
 				pos: 'top',
 				col: '12',
-				img: 'osx-yosemite-2.jpg',
+				img: '04696e1a-eb5d-43b9-bb1d-d2ee117f4430.webp',
 				text: 'Flexbox-based, responsive and mobile-friendly layout',
 			},
 		]
