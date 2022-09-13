@@ -38,10 +38,10 @@ export type Icons =
     | 'location'
     | 'link'
     | 'emoji'
-    | 'xray'
     | 'home'
     | 'circle-check'
     | 'wifi'
     | 'audio'
     | 'tag'
-    | '';
+    | ''
+    | string;
