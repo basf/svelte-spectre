@@ -41,7 +41,7 @@
 						{#if $page.routeId?.includes('/')}
 							<IconButton
 								icon="edit"
-								href={`${repo}/tree/master/src/www/${$page.routeId}.md`}
+								href={`${repo}/tree/master/src/www/${$page.routeId}/+page.md`}
 								target="_blank"
 							/>
 						{:else}
