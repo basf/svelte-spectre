@@ -82,22 +82,22 @@ Avatars are user profile pictures or similar elements presenting their status
         caption={state.caption}
         bind:bg={state.bg}>
         {#if state.image}
-            <img src="{base}/img/{state.image}" alt="Thor Odinson" />
+            <img src="{base}/img/{state.image}" alt="Albert Einstein" />
         {/if}
         <svelte:fragment slot="sub">
             {#if state.sub}
-                <img src="{`${base}/img/${state.sub}`}" alt="Thor Odinson" />
+                <img src="{`${base}/img/${state.sub}`}" alt="Albert Einstein" />
             {/if}
         </svelte:fragment>
     </Avatar> &nbsp;
     <Avatar name="AV" status="online" size="lg" badge="1">
-        <img src="{base}/img/avatar-3.png" alt="Thor Odinson" />
+        <img src="{base}/img/avatar-3.png" alt="Albert Einstein" />
     </Avatar> &nbsp;
     <Avatar name="AV" status="away" size="md" badge="2">
-        <img src="{base}/img/avatar-4.png" alt="Thor Odinson" />
+        <img src="{base}/img/avatar-4.png" alt="Albert Einstein" />
     </Avatar> &nbsp;
     <Avatar name="AV" status="busy" size="sm" badge>
-        <img src="{base}/img/avatar-5.png" alt="Thor Odinson" />
+        <img src="{base}/img/avatar-5.png" alt="Albert Einstein" />
     </Avatar> &nbsp;
     <Avatar name="AV" status="offline" size="xs" /> &nbsp;
 </p>
@@ -112,17 +112,17 @@ Avatars are user profile pictures or similar elements presenting their status
 </script>
 
 <Avatar name="AV" size="xl" badge="0">
-    <img src="/img/avatar-1.png" alt="Thor Odinson" />
-    <img slot="sub" src="/img/avatar-2.png" alt="Thor Odinson" />
+    <img src="/img/avatar-1.png" alt="Albert Einstein" />
+    <img slot="sub" src="/img/avatar-2.png" alt="Albert Einstein" />
 </Avatar>
 <Avatar name="AV" size="lg" status="online" badge="1">
-    <img src="/img/avatar-3.png" alt="Thor Odinson" />
+    <img src="/img/avatar-3.png" alt="Albert Einstein" />
 </Avatar>
 <Avatar name="AV" size="md" status="away" badge="2">
-    <img src="/img/avatar-4.png" alt="Thor Odinson" />
+    <img src="/img/avatar-4.png" alt="Albert Einstein" />
 </Avatar>
 <Avatar name="AV" size="sm" status="busy" badge>
-    <img src="/img/avatar-5.png" alt="Thor Odinson" />
+    <img src="/img/avatar-5.png" alt="Albert Einstein" />
 </Avatar>
 <Avatar name="AV" size="xs" status="offline" />
 ```

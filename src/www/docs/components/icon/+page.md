@@ -11,7 +11,7 @@ api:
         {
             title: 'icon: Icons = ""',
             description: 'Icon icons',
-            variables: 'arrow-up | arrow-right | arrow-down | arrow-left | upward | forward | downward | back | caret | menu | apps | more-horiz | more-vert | resize-horiz | resize-vert | plus | minus | cross | check | stop | shutdown | refresh | search | flag | bookmark | edit | delete | share | download | upload | copy | mail | people | message | photo | time | location | link | emoji | xray | home | circle-check | wifi | audio',
+            variables: 'arrow-up | arrow-right | arrow-down | arrow-left | upward | forward | downward | back | caret | menu | apps | more-horiz | more-vert | resize-horiz | resize-vert | plus | minus | cross | check | stop | shutdown | refresh | search | flag | bookmark | edit | delete | share | download | upload | copy | mail | people | message | photo | time | location | link | emoji | Metis | home | circle-check | wifi | audio',
         },
         {
             title: 'size: Size = "1x"',
@@ -97,7 +97,7 @@ config:
             },
         svg:
             {
-                svg: { options: ['Xray', 'GitHub'] },
+                svg: { options: ['Metis', 'GitHub'] },
                 size: { options: ['1x', '2x', '3x', '4x'] },
                 color:
                     {
@@ -121,11 +121,11 @@ config:
 <script>
     import {Button, Col, Grid, Hero, Icon, IconButton} from '$lib'
     import Knobs from '../../knobs.svelte'
-    import Xray from '$assets/Xray.svg';
-	import GitHub from '$assets/github.svg';
+    import Metis from '$assets/metis.svg';
+    import GitHub from '$assets/github.svg';
 
     let icons = {
-        navigation: ['arrow-up', 'arrow-right', 'arrow-down', 'arrow-left', 'upward', 'forward', 'downward', 'back', 'caret', 'menu', 'apps', 'more-horiz','more-vert'],
+        navigation: ['arrow-up', 'arrow-right', 'arrow-down', 'arrow-left', 'upward', 'forward', 'downward', 'back', 'caret', 'menu', 'apps', 'more-horiz', 'more-vert'],
         action: [
             'resize-horiz',
             'resize-vert',
@@ -161,27 +161,26 @@ config:
             'audio'
         ]
     }, state = {
-        icons: { icon: 'emoji', size: '2x', color: 'primary'},
-        svg: {size: '4x', color: 'primary', svg: 'Xray'}
-        },
-         component = null
+        icons: {icon: 'emoji', size: '2x', color: 'primary'},
+        svg: {size: '4x', color: 'primary', svg: 'Metis'}
+    }, component = null
 
     $: switch (state.svg.svg) {
 
-        case 'Xray':
-			component = Xray
+        case 'Metis':
+            component = Metis
             state.icon = null
             break
 
         case 'GitHub':
-			component = GitHub
+            component = GitHub
             state.icon = null
             break
 
-		default:
+        default:
             component = null
             break
-	}
+    }
 </script>
 
 # {title}
@@ -237,9 +236,9 @@ CSS icons.
 <Icon size="4x" color="primary">
     <Basf />
     <!-- or -->
-    <svelte:component this={Basf}/>
+    <svelte:component this={Basf} />
     <!-- or -->
-    <svg name="basf"/>
+    <svg name="basf" />
     <!-- or -->
     <img src="basf.svg" />
 </Icon>

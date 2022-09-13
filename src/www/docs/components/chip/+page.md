@@ -93,7 +93,7 @@ class.
         status={state.status}>
         <svelte:fragment slot="avatar">
             {#if state.image}
-                <img src="{base}/img/{state.image}" alt="Thor Odinson" />
+                <img src="{base}/img/{state.image}" alt="Albert Einstein" />
             {/if}
         </svelte:fragment>
         {state.slot}
@@ -103,7 +103,7 @@ class.
     <Chip name="CP" status="online" avatar>Online</Chip>
     <Chip name="CP" status="busy" avatar>Busy</Chip>
     <Chip name="CP" status="busy" closable avatar>
-    	<img slot="avatar" src="{base}/img/avatar-1.png" alt="Thor Odinson" />Closable
+        <img slot="avatar" src="{base}/img/avatar-1.png" alt="Albert Einstein" />Closable
     </Chip>
 <p>
 
@@ -122,6 +122,6 @@ class.
 <Chip name="CP" status="online">Online</Chip>
 <Chip name="CP" status="busy">Busy</Chip>
 <Chip name="CP" status="busy" closable>
-    <img slot="avatar" src="{base}/img/avatar-1.png" alt="Thor Odinson" />Closable
+    <img slot="avatar" src="{base}/img/avatar-1.png" alt="Albert Einstein" />Closable
 </Chip>
 ```

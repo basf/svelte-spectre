@@ -28,7 +28,7 @@
 					color={$media.dark ? 'gray' : 'dark'}
 					href={`${base}/`}
 				>
-					<Xray />
+					<Metis />
 				</IconButton>
 
 				<nav class="d-flex mr-2" slot="right">
@@ -155,7 +155,7 @@
 	import { base } from '$app/paths';
 	import { Accordion, Button, IconButton, Menu, Navbar, Sidebar, Spectre, Toaster } from '$lib';
 
-	import Xray from '$assets/Xray.svg';
+	import Metis from '$assets/metis.svg';
 	import GitHub from '$assets/github.svg';
 	import { media } from './media';
 
