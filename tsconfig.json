@@ -2,12 +2,12 @@
 	"extends": "./.svelte-kit/tsconfig.json",
 	"compilerOptions": {
 		"moduleResolution": "node",
-		"module": "es2020",
+		"module": "ESNext",
 		"lib": [
-			"es2020",
+			"ESNext",
 			"DOM"
 		],
-		"target": "es2019",
+		"target": "ESNext",
 		"importsNotUsedAsValues": "error",
 		"preserveValueImports": true,
 		"isolatedModules": true,
