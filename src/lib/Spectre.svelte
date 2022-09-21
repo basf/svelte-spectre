@@ -99,7 +99,7 @@
 				flex-flow: column nowrap;
 				align-items: center;
 				justify-content: center;
-				background: rgba($bg-color, 0.75);
+				background: rgba($bg-color, 0.97);
 				color: $error-color;
 				z-index: 100;
 			}
