@@ -14,7 +14,7 @@ title: Figure
 
 <Grid stack>
     <Col col="4" sm="12">
-        <Figure src="{base}/img/osx-el-capitan-2.jpg" alt="macOS Yosemite Wallpaper" contain />
+        <Figure src="{base}/img/1b9a004a-db27-45e4-b762-0fa21bc97277.webp" alt="Stable Diffusion Neural Art" contain />
     </Col>
     <Col col="4" sm="12">
         <Figure

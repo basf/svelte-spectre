@@ -106,7 +106,7 @@
 
 			//TOAST
 			.toast {
-				background: $gray-color-light !important;
+				background: $gray-color-light;
 				color: inherit !important;
 				border: inherit !important;
 			}
@@ -154,7 +154,7 @@
 			:global {
 				//TOAST
 				.toast {
-					background: $dark-color !important;
+					background: $dark-color;
 				}
 				//FORMS
 				.form-input,
@@ -421,7 +421,7 @@
 			:global {
 				//TOAST
 				.toast {
-					background: $dark-color !important;
+					background: $dark-color;
 				}
 				//FORMS
 				.form-input,
@@ -688,7 +688,7 @@
 			:global {
 				//TOAST
 				.toast {
-					background: $gray-color-light !important;
+					background: $gray-color-light;
 				}
 
 				//FORMS
