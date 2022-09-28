@@ -3,12 +3,12 @@ import preprocess from 'svelte-preprocess';
 import mdsvexConfig from './mdsvex.config.js';
 import adapterStatic from '@sveltejs/adapter-static';
 
-const dev = process.env.npm_lifecycle_event === 'dev';
+const env = (type) => process.env.npm_lifecycle_event === type;
 
-const primaryColor = process.argv.includes('package') ? '' : '$primary-color: hsl(215, 15%, 33%);';
+const primaryColor = env('package') ? '' : '$primary-color: hsl(215, 15%, 33%);';
 
 const options = {
-	sourceMap: dev,
+	sourceMap: env('dev'),
 	scss: {
 		prependData: `
 			${primaryColor}
