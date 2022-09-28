@@ -107,8 +107,8 @@
 			//TOAST
 			.toast {
 				background: $gray-color-light;
-				color: inherit !important;
-				border: inherit !important;
+				color: $bg-color-light;
+				border: inherit;
 			}
 
 			// @for $i from 3 through 9 {
