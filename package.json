@@ -1,6 +1,6 @@
 {
 	"name": "svelte-spectre",
-	"version": "0.4.8",
+	"version": "0.4.10",
 	"description": "UI-kit based on spectre.css and powered by SvelteJS",
 	"main": "./package/index.js",
 	"files": [
