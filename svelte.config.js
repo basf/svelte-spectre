@@ -52,7 +52,7 @@ export default {
 			routes: 'src/www',
 			appTemplate: 'src/www/app.html',
 		},
-		trailingSlash: 'always',
+		// trailingSlash: 'always',
 	},
 	package: {
 		dir: 'package',
