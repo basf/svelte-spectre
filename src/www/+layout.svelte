@@ -38,10 +38,10 @@
 						</div>
 					{/if}
 					<div class="mr-2">
-						{#if $page.routeId?.includes('/')}
+						{#if $page.route.id?.includes('/')}
 							<IconButton
 								icon="edit"
-								href={`${repo}/tree/master/src/www/${$page.routeId}/+page.md`}
+								href={`${repo}/tree/master/src/www/${$page.route.id}/+page.md`}
 								target="_blank"
 							/>
 						{:else}
@@ -169,7 +169,7 @@
 	let version = import.meta.env.VITE_APP_VERSION;
 
 	$: activeLink = (path: string) => {
-		return $page.routeId?.includes('/') && path.includes($page.routeId);
+		return $page.route.id?.includes('/') && path.includes($page.route.id);
 	};
 
 	const openedAccordion = (path: string, key: string, i: number) =>
