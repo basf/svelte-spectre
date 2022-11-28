@@ -38,7 +38,7 @@
 						</div>
 					{/if}
 					<div class="mr-2">
-						{#if $page.route.id?.includes('/')}
+						{#if $page.route.id !== '/'}
 							<IconButton
 								icon="edit"
 								href={`${repo}/tree/master/src/www/${$page.route.id}/+page.md`}
