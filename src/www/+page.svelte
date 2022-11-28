@@ -9,7 +9,8 @@
 			<a href="https://kit.svelte.dev" target="_blank" alt="SvelteKit">SvelteKit</a>
 		</p>
 		<p>
-			<Button href="{base}/docs" variant="primary" size="lg" sveltekit:prefetch>Docs</Button
+			<Button href="{base}/docs" variant="primary" size="lg" data-sveltekit-prefetch
+				>Docs</Button
 			>&nbsp;
 			<Button
 				href="https://github.com/basf/svelte-spectre"
