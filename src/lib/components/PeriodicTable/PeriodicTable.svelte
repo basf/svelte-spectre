@@ -185,15 +185,13 @@
 <style lang="scss">
 	// @import 'spectre.css/src/periodictable';
 	.columns {
-		// position: relative!important;
-		height: 520px;
+		justify-content: center;
+		// overflow-x: scroll; // when screen resolution is below thank 1050px
 	}
 	#periodictable {
 		min-width: 1050px;
 		max-width: 1100px;
 		min-height: 520px;
-		position: absolute;
-		overflow: visible;
 		ul {
 			margin: 0;
 			padding: 0;
@@ -222,9 +220,8 @@
 					z-index: 100;
 				}
 
-				&:before,
-				&:after {
-					content: '';
+				&:before {
+					content: attr(data-pos);
 					position: absolute;
 					top: 3px;
 					left: 3px;
