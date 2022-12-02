@@ -3,14 +3,14 @@
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "triangle_col",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "col_1"
     },
@@ -18,7 +18,7 @@
         "name": "",
         "title": "",
         "class": "triangle_col",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "col_2"
     },
@@ -26,7 +26,7 @@
         "name": "",
         "title": "",
         "class": "triangle_col",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "col_3"
     },
@@ -34,7 +34,7 @@
         "name": "",
         "title": "",
         "class": "triangle_col",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "col_4"
     },
@@ -42,7 +42,7 @@
         "name": "",
         "title": "",
         "class": "triangle_col",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "col_5"
     },
@@ -50,7 +50,7 @@
         "name": "",
         "title": "",
         "class": "triangle_col",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "col_6"
     },
@@ -58,7 +58,7 @@
         "name": "",
         "title": "",
         "class": "triangle_col",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "col_7"
     },
@@ -66,7 +66,7 @@
         "name": "",
         "title": "",
         "class": "triangle_col",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "col_8"
     },
@@ -74,7 +74,7 @@
         "name": "",
         "title": "",
         "class": "triangle_col",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "col_9"
     },
@@ -82,7 +82,7 @@
         "name": "",
         "title": "",
         "class": "triangle_col",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "col_10"
     },
@@ -90,7 +90,7 @@
         "name": "",
         "title": "",
         "class": "triangle_col",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "col_11"
     },
@@ -98,7 +98,7 @@
         "name": "",
         "title": "",
         "class": "triangle_col",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "col_12"
     },
@@ -106,7 +106,7 @@
         "name": "",
         "title": "",
         "class": "triangle_col",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "col_13"
     },
@@ -114,7 +114,7 @@
         "name": "",
         "title": "",
         "class": "triangle_col",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "col_14"
     },
@@ -122,7 +122,7 @@
         "name": "",
         "title": "",
         "class": "triangle_col",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "col_15"
     },
@@ -130,7 +130,7 @@
         "name": "",
         "title": "",
         "class": "triangle_col",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "col_16"
     },
@@ -138,7 +138,7 @@
         "name": "",
         "title": "",
         "class": "triangle_col",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "col_17"
     },
@@ -146,7 +146,7 @@
         "name": "",
         "title": "",
         "class": "triangle_col",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "col_18"
     },
@@ -154,7 +154,7 @@
         "name": "",
         "title": "",
         "class": "triangle_row",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "row_1"
     },
@@ -162,133 +162,133 @@
         "name": "H",
         "title": "Hydrogen",
         "class": "type_1 cat_2 row_1 col_1",
-        "data-pos": "1",
+        "data-pos": 1,
         "type": "element"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "He",
         "title": "Helium",
         "class": "type_2 cat_2 row_1 col_18",
-        "data-pos": "2",
+        "data-pos": 2,
         "type": "element"
     },
     {
         "name": "",
         "title": "",
         "class": "triangle_row",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "row_2"
     },
@@ -296,133 +296,133 @@
         "name": "Li",
         "title": "Lithium",
         "class": "type_3 cat_0 row_2 col_1",
-        "data-pos": "3",
+        "data-pos": 3,
         "type": "element"
     },
     {
         "name": "Be",
         "title": "Beryllium",
         "class": "type_4 cat_0 row_2 col_2",
-        "data-pos": "4",
+        "data-pos": 4,
         "type": "element"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "B",
         "title": "Boron",
         "class": "type_5 cat_0 row_2 col_13",
-        "data-pos": "5",
+        "data-pos": 5,
         "type": "element"
     },
     {
         "name": "C",
         "title": "Carbon",
         "class": "type_5 cat_0 row_2 col_14",
-        "data-pos": "6",
+        "data-pos": 6,
         "type": "element"
     },
     {
         "name": "N",
         "title": "Nitrogen",
         "class": "type_5 cat_2 row_2 col_15",
-        "data-pos": "7",
+        "data-pos": 7,
         "type": "element"
     },
     {
         "name": "O",
         "title": "Oxygen",
         "class": "type_5 cat_2 row_2 col_16",
-        "data-pos": "8",
+        "data-pos": 8,
         "type": "element"
     },
     {
         "name": "F",
         "title": "Fluorine",
         "class": "type_5 cat_2 row_2 col_17",
-        "data-pos": "9",
+        "data-pos": 9,
         "type": "element"
     },
     {
         "name": "Ne",
         "title": "Neon",
         "class": "type_2 cat_2 row_2 col_18",
-        "data-pos": "10",
+        "data-pos": 10,
         "type": "element"
     },
     {
         "name": "",
         "title": "",
         "class": "triangle_row",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "row_3"
     },
@@ -430,133 +430,133 @@
         "name": "Na",
         "title": "Sodium",
         "class": "type_3 cat_0 row_3 col_1",
-        "data-pos": "11",
+        "data-pos": 11,
         "type": "element"
     },
     {
         "name": "Mg",
         "title": "Magnesium",
         "class": "type_4 cat_0 row_3 col_2",
-        "data-pos": "12",
+        "data-pos": 12,
         "type": "element"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "Al",
         "title": "Aluminium",
         "class": "type_7 cat_0 row_3 col_13",
-        "data-pos": "13",
+        "data-pos": 13,
         "type": "element"
     },
     {
         "name": "Si",
         "title": "Silicon",
         "class": "type_5 cat_0 row_3 col_14",
-        "data-pos": "14",
+        "data-pos": 14,
         "type": "element"
     },
     {
         "name": "P",
         "title": "Phosphorus",
         "class": "type_5 cat_0 row_3 col_15",
-        "data-pos": "15",
+        "data-pos": 15,
         "type": "element"
     },
     {
         "name": "S",
         "title": "Sulfur",
         "class": "type_5 cat_0 row_3 col_16",
-        "data-pos": "16",
+        "data-pos": 16,
         "type": "element"
     },
     {
         "name": "Cl",
         "title": "Chlorine",
         "class": "type_5 cat_2 row_3 col_17",
-        "data-pos": "17",
+        "data-pos": 17,
         "type": "element"
     },
     {
         "name": "Ar",
         "title": "Argon",
         "class": "type_2 cat_2 row_3 col_18",
-        "data-pos": "18",
+        "data-pos": 18,
         "type": "element"
     },
     {
         "name": "",
         "title": "",
         "class": "triangle_row",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "row_4"
     },
@@ -564,133 +564,133 @@
         "name": "K",
         "title": "Potassium",
         "class": "type_3 cat_0 row_4 col_1",
-        "data-pos": "19",
+        "data-pos": 19,
         "type": "element"
     },
     {
         "name": "Ca",
         "title": "Calcium",
         "class": "type_4 cat_0 row_4 col_2",
-        "data-pos": "20",
+        "data-pos": 20,
         "type": "element"
     },
     {
         "name": "Sc",
         "title": "Scandium",
         "class": "type_6 cat_0 row_4 col_3",
-        "data-pos": "21",
+        "data-pos": 21,
         "type": "element"
     },
     {
         "name": "Ti",
         "title": "Titanium",
         "class": "type_6 cat_0 row_4 col_4",
-        "data-pos": "22",
+        "data-pos": 22,
         "type": "element"
     },
     {
         "name": "V",
         "title": "Vanadium",
         "class": "type_6 cat_0 row_4 col_5",
-        "data-pos": "23",
+        "data-pos": 23,
         "type": "element"
     },
     {
         "name": "Cr",
         "title": "Chromium",
         "class": "type_6 cat_0 row_4 col_6",
-        "data-pos": "24",
+        "data-pos": 24,
         "type": "element"
     },
     {
         "name": "Mn",
         "title": "Manganese",
         "class": "type_6 cat_0 row_4 col_7",
-        "data-pos": "25",
+        "data-pos": 25,
         "type": "element"
     },
     {
         "name": "Fe",
         "title": "Iron",
         "class": "type_6 cat_0 row_4 col_8",
-        "data-pos": "26",
+        "data-pos": 26,
         "type": "element"
     },
     {
         "name": "Co",
         "title": "Cobalt",
         "class": "type_6 cat_0 row_4 col_9",
-        "data-pos": "27",
+        "data-pos": 27,
         "type": "element"
     },
     {
         "name": "Ni",
         "title": "Nickel",
         "class": "type_6 cat_0 row_4 col_10",
-        "data-pos": "28",
+        "data-pos": 28,
         "type": "element"
     },
     {
         "name": "Cu",
         "title": "Copper",
         "class": "type_6 cat_0 row_4 col_11",
-        "data-pos": "29",
+        "data-pos": 29,
         "type": "element"
     },
     {
         "name": "Zn",
         "title": "Zinc",
         "class": "type_6 cat_0 row_4 col_12",
-        "data-pos": "30",
+        "data-pos": 30,
         "type": "element"
     },
     {
         "name": "Ga",
         "title": "Gallium",
         "class": "type_7 cat_0 row_4 col_13",
-        "data-pos": "31",
+        "data-pos": 31,
         "type": "element"
     },
     {
         "name": "Ge",
         "title": "Germanium",
         "class": "type_7 cat_0 row_4 col_14",
-        "data-pos": "32",
+        "data-pos": 32,
         "type": "element"
     },
     {
         "name": "As",
         "title": "Arsenic",
         "class": "type_5 cat_0 row_4 col_15",
-        "data-pos": "33",
+        "data-pos": 33,
         "type": "element"
     },
     {
         "name": "Se",
         "title": "Selenium",
         "class": "type_5 cat_0 row_4 col_16",
-        "data-pos": "34",
+        "data-pos": 34,
         "type": "element"
     },
     {
         "name": "Br",
         "title": "Bromine",
         "class": "type_5 cat_1 row_4 col_17",
-        "data-pos": "35",
+        "data-pos": 35,
         "type": "element"
     },
     {
         "name": "Kr",
         "title": "Krypton",
         "class": "type_2 cat_2 row_4 col_18",
-        "data-pos": "36",
+        "data-pos": 36,
         "type": "element"
     },
     {
         "name": "",
         "title": "",
         "class": "triangle_row",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "row_5"
     },
@@ -698,133 +698,133 @@
         "name": "Rb",
         "title": "Rubidium",
         "class": "type_3 cat_0 row_5 col_1",
-        "data-pos": "37",
+        "data-pos": 37,
         "type": "element"
     },
     {
         "name": "Sr",
         "title": "Strontium",
         "class": "type_4 cat_0 row_5 col_2",
-        "data-pos": "38",
+        "data-pos": 38,
         "type": "element"
     },
     {
         "name": "Y",
         "title": "Yttrium",
         "class": "type_6 cat_0 row_5 col_3",
-        "data-pos": "39",
+        "data-pos": 39,
         "type": "element"
     },
     {
         "name": "Zr",
         "title": "Zirconium",
         "class": "type_6 cat_0 row_5 col_4",
-        "data-pos": "40",
+        "data-pos": 40,
         "type": "element"
     },
     {
         "name": "Nb",
         "title": "Niobium",
         "class": "type_6 cat_0 row_5 col_5",
-        "data-pos": "41",
+        "data-pos": 41,
         "type": "element"
     },
     {
         "name": "Mo",
         "title": "Molybdenum",
         "class": "type_6 cat_0 row_5 col_6",
-        "data-pos": "42",
+        "data-pos": 42,
         "type": "element"
     },
     {
         "name": "Tc",
         "title": "Technetium",
         "class": "type_6 cat_0 row_5 col_7",
-        "data-pos": "43",
+        "data-pos": 43,
         "type": "element"
     },
     {
         "name": "Ru",
         "title": "Ruthenium",
         "class": "type_6 cat_0 row_5 col_8",
-        "data-pos": "44",
+        "data-pos": 44,
         "type": "element"
     },
     {
         "name": "Rh",
         "title": "Rhodium",
         "class": "type_6 cat_0 row_5 col_9",
-        "data-pos": "45",
+        "data-pos": 45,
         "type": "element"
     },
     {
         "name": "Pd",
         "title": "Palladium",
         "class": "type_6 cat_0 row_5 col_10",
-        "data-pos": "46",
+        "data-pos": 46,
         "type": "element"
     },
     {
         "name": "Ag",
         "title": "Silver",
         "class": "type_6 cat_0 row_5 col_11",
-        "data-pos": "47",
+        "data-pos": 47,
         "type": "element"
     },
     {
         "name": "Cd",
         "title": "Cadmium",
         "class": "type_6 cat_0 row_5 col_12",
-        "data-pos": "48",
+        "data-pos": 48,
         "type": "element"
     },
     {
         "name": "In",
         "title": "Indium",
         "class": "type_7 cat_0 row_5 col_13",
-        "data-pos": "49",
+        "data-pos": 49,
         "type": "element"
     },
     {
         "name": "Sn",
         "title": "Tin",
         "class": "type_7 cat_0 row_5 col_14",
-        "data-pos": "50",
+        "data-pos": 50,
         "type": "element"
     },
     {
         "name": "Sb",
         "title": "Antimony",
         "class": "type_7 cat_0 row_5 col_15",
-        "data-pos": "51",
+        "data-pos": 51,
         "type": "element"
     },
     {
         "name": "Te",
         "title": "Tellurium",
         "class": "type_5 cat_0 row_5 col_16",
-        "data-pos": "52",
+        "data-pos": 52,
         "type": "element"
     },
     {
         "name": "I",
         "title": "Iodine",
         "class": "type_5 cat_0 row_5 col_17",
-        "data-pos": "53",
+        "data-pos": 53,
         "type": "element"
     },
     {
         "name": "Xe",
         "title": "Xenon",
         "class": "type_2 cat_2 row_5 col_18",
-        "data-pos": "54",
+        "data-pos": 54,
         "type": "element"
     },
     {
         "name": "",
         "title": "",
         "class": "triangle_row",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "row_6"
     },
@@ -832,133 +832,133 @@
         "name": "Cs",
         "title": "Caesium",
         "class": "type_3 cat_0 row_6 col_1",
-        "data-pos": "55",
+        "data-pos": 55,
         "type": "element"
     },
     {
         "name": "Ba",
         "title": "Barium",
         "class": "type_4 cat_0 row_6 col_2",
-        "data-pos": "56",
+        "data-pos": 56,
         "type": "element"
     },
     {
         "name": "Lu",
         "title": "Lutetium",
         "class": "type_6 cat_0 row_6 col_3",
-        "data-pos": "71",
+        "data-pos": 71,
         "type": "element"
     },
     {
         "name": "Hf",
         "title": "Hafnium",
         "class": "type_6 cat_0 row_6 col_4",
-        "data-pos": "72",
+        "data-pos": 72,
         "type": "element"
     },
     {
         "name": "Ta",
         "title": "Tantalum",
         "class": "type_6 cat_0 row_6 col_5",
-        "data-pos": "73",
+        "data-pos": 73,
         "type": "element"
     },
     {
         "name": "W",
         "title": "Tungsten",
         "class": "type_6 cat_0 row_6 col_6",
-        "data-pos": "74",
+        "data-pos": 74,
         "type": "element"
     },
     {
         "name": "Re",
         "title": "Rhenium",
         "class": "type_6 cat_0 row_6 col_7",
-        "data-pos": "75",
+        "data-pos": 75,
         "type": "element"
     },
     {
         "name": "Os",
         "title": "Osmium",
         "class": "type_6 cat_0 row_6 col_8",
-        "data-pos": "76",
+        "data-pos": 76,
         "type": "element"
     },
     {
         "name": "Ir",
         "title": "Iridium",
         "class": "type_6 cat_0 row_6 col_9",
-        "data-pos": "77",
+        "data-pos": 77,
         "type": "element"
     },
     {
         "name": "Pt",
         "title": "Platinum",
         "class": "type_6 cat_0 row_6 col_10",
-        "data-pos": "78",
+        "data-pos": 78,
         "type": "element"
     },
     {
         "name": "Au",
         "title": "Gold",
         "class": "type_6 cat_0 row_6 col_11",
-        "data-pos": "79",
+        "data-pos": 79,
         "type": "element"
     },
     {
         "name": "Hg",
         "title": "Mercury",
         "class": "type_6 cat_1 row_6 col_12",
-        "data-pos": "80",
+        "data-pos": 80,
         "type": "element"
     },
     {
         "name": "Tl",
         "title": "Thallium",
         "class": "type_7 cat_0 row_6 col_13",
-        "data-pos": "81",
+        "data-pos": 81,
         "type": "element"
     },
     {
         "name": "Pb",
         "title": "Lead",
         "class": "type_7 cat_0 row_6 col_14",
-        "data-pos": "82",
+        "data-pos": 82,
         "type": "element"
     },
     {
         "name": "Bi",
         "title": "Bismuth",
         "class": "type_7 cat_0 row_6 col_15",
-        "data-pos": "83",
+        "data-pos": 83,
         "type": "element"
     },
     {
         "name": "Po",
         "title": "Polonium",
         "class": "type_7 cat_0 row_6 col_16",
-        "data-pos": "84",
+        "data-pos": 84,
         "type": "element"
     },
     {
         "name": "At",
         "title": "Astatine",
         "class": "type_5 cat_0 row_6 col_17",
-        "data-pos": "85",
+        "data-pos": 85,
         "type": "element"
     },
     {
         "name": "Rn",
         "title": "Radon",
         "class": "type_2 cat_2 row_6 col_18",
-        "data-pos": "86",
+        "data-pos": 86,
         "type": "element"
     },
     {
         "name": "",
         "title": "",
         "class": "triangle_row",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "row_7"
     },
@@ -966,133 +966,133 @@
         "name": "Fr",
         "title": "Francium",
         "class": "type_3 cat_0 row_7 col_1",
-        "data-pos": "87",
+        "data-pos": 87,
         "type": "element"
     },
     {
         "name": "Ra",
         "title": "Radium",
         "class": "type_4 cat_0 row_7 col_2",
-        "data-pos": "88",
+        "data-pos": 88,
         "type": "element"
     },
     {
         "name": "Lr",
         "title": "Lawrencium",
         "class": "type_6 cat_0 row_7 col_3",
-        "data-pos": "103",
+        "data-pos": 103,
         "type": "element"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "triangle_row",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "row_8"
     },
@@ -1100,133 +1100,133 @@
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "La",
         "title": "Lanthanum",
         "class": "type_1 cat_0 row_8",
-        "data-pos": "57",
+        "data-pos": 57,
         "type": "element"
     },
     {
         "name": "Ce",
         "title": "Cerium",
         "class": "type_1 cat_0 row_8",
-        "data-pos": "58",
+        "data-pos": 58,
         "type": "element"
     },
     {
         "name": "Pr",
         "title": "Praseodymium",
         "class": "type_1 cat_0 row_8",
-        "data-pos": "59",
+        "data-pos": 59,
         "type": "element"
     },
     {
         "name": "Nd",
         "title": "Neodynium",
         "class": "type_1 cat_0 row_8",
-        "data-pos": "60",
+        "data-pos": 60,
         "type": "element"
     },
     {
         "name": "Pm",
         "title": "Promethium",
         "class": "type_1 cat_0 row_8",
-        "data-pos": "61",
+        "data-pos": 61,
         "type": "element"
     },
     {
         "name": "Sm",
         "title": "Samarium",
         "class": "type_1 cat_0 row_8",
-        "data-pos": "62",
+        "data-pos": 62,
         "type": "element"
     },
     {
         "name": "Eu",
         "title": "Europium",
         "class": "type_1 cat_0 row_8",
-        "data-pos": "63",
+        "data-pos": 63,
         "type": "element"
     },
     {
         "name": "Gd",
         "title": "Gadolinium",
         "class": "type_1 cat_0 row_8",
-        "data-pos": "64",
+        "data-pos": 64,
         "type": "element"
     },
     {
         "name": "Tb",
         "title": "Terbium",
         "class": "type_1 cat_0 row_8",
-        "data-pos": "65",
+        "data-pos": 65,
         "type": "element"
     },
     {
         "name": "Dy",
         "title": "Dysprosium",
         "class": "type_1 cat_0 row_8",
-        "data-pos": "66",
+        "data-pos": 66,
         "type": "element"
     },
     {
         "name": "Ho",
         "title": "Holmium",
         "class": "type_1 cat_0 row_8",
-        "data-pos": "67",
+        "data-pos": 67,
         "type": "element"
     },
     {
         "name": "Er",
         "title": "Erbium",
         "class": "type_1 cat_0 row_8",
-        "data-pos": "68",
+        "data-pos": 68,
         "type": "element"
     },
     {
         "name": "Tm",
         "title": "Thulium",
         "class": "type_1 cat_0 row_8",
-        "data-pos": "69",
+        "data-pos": 69,
         "type": "element"
     },
     {
         "name": "Yb",
         "title": "Ytterbium",
         "class": "type_1 cat_0 row_8",
-        "data-pos": "70",
+        "data-pos": 70,
         "type": "element"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "triangle_row",
-        "data-pos": "",
+        "data-pos": null,
         "type": "icon",
         "select": "row_9"
     },
@@ -1234,126 +1234,126 @@
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "Ac",
         "title": "Actinium",
         "class": "type_1 cat_0 row_9",
-        "data-pos": "89",
+        "data-pos": 89,
         "type": "element"
     },
     {
         "name": "Th",
         "title": "Thorium",
         "class": "type_1 cat_0 row_9",
-        "data-pos": "90",
+        "data-pos": 90,
         "type": "element"
     },
     {
         "name": "Pa",
         "title": "Protactinium",
         "class": "type_1 cat_0 row_9",
-        "data-pos": "91",
+        "data-pos": 91,
         "type": "element"
     },
     {
         "name": "U",
         "title": "Uranium",
         "class": "type_1 cat_0 row_9",
-        "data-pos": "92",
+        "data-pos": 92,
         "type": "element"
     },
     {
         "name": "Np",
         "title": "Neptunium",
         "class": "type_1 cat_0 row_9",
-        "data-pos": "93",
+        "data-pos": 93,
         "type": "element"
     },
     {
         "name": "Pu",
         "title": "Plutonium",
         "class": "type_1 cat_0 row_9",
-        "data-pos": "94",
+        "data-pos": 94,
         "type": "element"
     },
     {
         "name": "Am",
         "title": "Americium",
         "class": "type_1 cat_0 row_9",
-        "data-pos": "95",
+        "data-pos": 95,
         "type": "element"
     },
     {
         "name": "Cm",
         "title": "Curium",
         "class": "type_1 cat_0 row_9",
-        "data-pos": "96",
+        "data-pos": 96,
         "type": "element"
     },
     {
         "name": "Bk",
         "title": "Berkelium",
         "class": "type_1 cat_0 row_9",
-        "data-pos": "97",
+        "data-pos": 97,
         "type": "element"
     },
     {
         "name": "Cf",
         "title": "Californium",
         "class": "type_1 cat_0 row_9",
-        "data-pos": "98",
+        "data-pos": 98,
         "type": "element"
     },
     {
         "name": "Es",
         "title": "Einsteinium",
         "class": "type_1 cat_0 row_9",
-        "data-pos": "99",
+        "data-pos": 99,
         "type": "element"
     },
     {
         "name": "Fm",
         "title": "Fermium",
         "class": "type_1 cat_0 row_9",
-        "data-pos": "100",
+        "data-pos": 100,
         "type": "element"
     },
     {
         "name": "Md",
         "title": "Mendelevium",
         "class": "type_1 cat_0 row_9",
-        "data-pos": "101",
+        "data-pos": 101,
         "type": "element"
     },
     {
         "name": "No",
         "title": "Nobelium",
         "class": "type_1 cat_0 row_9",
-        "data-pos": "102",
+        "data-pos": 102,
         "type": "element"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     },
     {
         "name": "",
         "title": "",
         "class": "empty",
-        "data-pos": "",
+        "data-pos": null,
         "type": "empty"
     }
 ]
