@@ -3,7 +3,11 @@
 		<ul>
 			{#each table_data as item}
 				{#if item.type == 'element'}
-					<li data-pos={item['data-pos']} class={item['class']}>
+					<li
+						data-pos={item['data-pos']}
+						class={item['class'] + ' ' + item['name']}
+						on:click={() => clickEl(item.name)}
+					>
 						{item.name}<span>{item.title}</span>
 					</li>
 				{/if}
@@ -34,7 +38,7 @@
 <script lang="ts">
 	import { Icon } from '$lib';
 	import table_data from './table_data.json';
-
+	let clicked_data: string[] = [];
 	const selectRow = (id: string) => {
 		let divs = document.querySelectorAll(`#periodictable > ul > li.${id}`);
 		divs.forEach((item) => {
@@ -50,13 +54,43 @@
 			item.style.zIndex = 'revert-layer';
 		});
 	};
+
+	const clickEl = (el: string) => {
+		if (clicked_data.length < 3) {
+			clicked_data.push(el);
+		} else {
+			clicked_data.pop();
+			clicked_data.push(el);
+		}
+		console.log(clicked_data);
+		if (clicked_data.length >= 1) {
+			let lis = document.querySelectorAll(`#periodictable > ul > li`);
+			lis.forEach((item) => {
+				item.classList.add('active');
+			});
+			if (clicked_data.length == 1) {
+				let li = document.querySelector(`#periodictable > ul > li.${el}`);
+				li?.classList.add('active_1');
+			}
+			if (clicked_data.length == 2) {
+				let li = document.querySelector(`#periodictable > ul > li.${el}`);
+				li?.classList.add('active_2');
+			}
+			if (clicked_data.length == 3) {
+				let lis = document.querySelectorAll(`#periodictable > ul > li`);
+				for (let i = 0; i < lis.length; i++) {
+					lis[i].classList.remove('active_3');
+				}
+				let li = document.querySelector(`#periodictable > ul > li.${el}`);
+				li?.classList.add('active_3');
+			}
+		}
+	};
 </script>
 
 <style lang="scss">
-	// @import 'spectre.css/src/periodictable';
 	.columns {
 		justify-content: center;
-		// overflow-x: scroll; // when screen resolution is below thank 1050px
 	}
 	#periodictable {
 		min-width: 1105px;
@@ -138,6 +172,22 @@
 				z-index: 0;
 				border: none;
 				cursor: default;
+			}
+			li.active {
+				background-color: transparent !important;
+				color: black !important;
+			}
+			li.active_1 {
+				border: 2px solid #3f0;
+				box-shadow: 0 0 5px #3f0;
+			}
+			li.active_2 {
+				border: 2px solid #0cf;
+				box-shadow: 0 0 5px #0cf;
+			}
+			li.active_3 {
+				border: 2px solid #c00;
+				box-shadow: 0 0 5px #c00;
 			}
 			li.type_1 {
 				background: #ddd;
