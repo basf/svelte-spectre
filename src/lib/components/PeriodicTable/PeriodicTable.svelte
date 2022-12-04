@@ -56,35 +56,34 @@
 	};
 
 	const clickEl = (el: string) => {
-		if (clicked_data.length < 3) {
-			clicked_data.push(el);
+		if (clicked_data.find((item) => item == el)) {
+			const index = clicked_data.indexOf(el);
+			clicked_data.splice(index, 1);
 		} else {
-			clicked_data.pop();
-			clicked_data.push(el);
+			if (clicked_data.length < 3) {
+				clicked_data.push(el);
+			} else {
+				clicked_data.pop();
+				clicked_data.push(el);
+			}
 		}
-		console.log(clicked_data);
-		if (clicked_data.length >= 1) {
-			let lis = document.querySelectorAll(`#periodictable > ul > li`);
-			lis.forEach((item) => {
+		let lis = document.querySelectorAll(`#periodictable > ul > li`);
+		lis.forEach((item) => {
+			if (clicked_data.length >= 1) {
 				item.classList.add('active');
-			});
-			if (clicked_data.length == 1) {
-				let li = document.querySelector(`#periodictable > ul > li.${el}`);
-				li?.classList.add('active_1');
+			} else if (clicked_data.length == 0) {
+				item.classList.remove('active');
 			}
-			if (clicked_data.length == 2) {
-				let li = document.querySelector(`#periodictable > ul > li.${el}`);
-				li?.classList.add('active_2');
-			}
-			if (clicked_data.length == 3) {
-				let lis = document.querySelectorAll(`#periodictable > ul > li`);
-				for (let i = 0; i < lis.length; i++) {
-					lis[i].classList.remove('active_3');
-				}
-				let li = document.querySelector(`#periodictable > ul > li.${el}`);
-				li?.classList.add('active_3');
-			}
-		}
+			item.classList.remove('active_1');
+			item.classList.remove('active_2');
+			item.classList.remove('active_3');
+		});
+
+		clicked_data.map((item, index) => {
+			let li = document.querySelector(`#periodictable > ul > li.${item}`);
+			li?.classList.add(`active_${index + 1}`);
+		});
+		console.log(clicked_data);
 	};
 </script>
 
