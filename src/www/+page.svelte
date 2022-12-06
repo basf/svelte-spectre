@@ -2,12 +2,18 @@
 	<Container>
 		<h1>{name}</h1>
 		<p>
-			A Lightweight, Responsive and Modern UI-kit based on <a href="https://picturepan2.github.io/spectre">spectre.css</a>
+			A Lightweight, Responsive and Modern UI-kit based on <a
+				href="https://picturepan2.github.io/spectre">spectre.css</a
+			>
 			and powered by <a href="https://svelte.dev">Svelte</a> and
-			<a href="https://kit.svelte.dev" target="_blank" rel="noreferrer" alt="SvelteKit">SvelteKit</a>
+			<a href="https://kit.svelte.dev" target="_blank" rel="noreferrer" alt="SvelteKit"
+				>SvelteKit</a
+			>
 		</p>
 		<p>
-			<Button href="{base}/docs" variant="primary" size="md" data-sveltekit-prefetch>Docs</Button>
+			<Button href="{base}/docs" variant="primary" size="md" data-sveltekit-prefetch
+				>Docs</Button
+			>
 			&nbsp;
 			<Button
 				href="https://github.com/basf/svelte-spectre"
@@ -39,9 +45,15 @@
 			</Col>
 		</Grid>
 		<p>
-			<Button href="{base}/docs/01-getting_started/01-installation" variant="primary" size="xl">Get Started</Button>
+			<Button
+				href="{base}/docs/01-getting_started/01-installation"
+				variant="primary"
+				size="xl">Get Started</Button
+			>
 			&nbsp;
-			<Button href="{base}/docs/components/accordion" variant="success" size="xl">Components</Button>
+			<Button href="{base}/docs/components/accordion" variant="success" size="xl"
+				>Components</Button
+			>
 			&nbsp;
 			<Button href="{base}/docs/layouts/card" size="xl">Layouts</Button>
 		</p>
