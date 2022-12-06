@@ -47,15 +47,12 @@ config:
     import {Form, FormGroup, Radio} from '$lib'
     import Knobs from '../../knobs.svelte'
 
-    let state = { label: 'Label', group: 1, inline: false, validity: null }
+    let state = { label: 'What to show in the periodic table:', group: 1, inline: false, validity: null }
 
     let radios = 1, questions = [
-            { value: 1, label: `Where did you go to school?` },
-            { value: 2, label: `What is your mother's name?` },
-            {
-                value: 3,
-                label: `What is another personal fact that an attacker could easily find with Google?`,
-            },
+            { value: 1, label: `Phase diagrams` },
+            { value: 2, label: `Crystal structures` },
+            { value: 3, label: `Physical properties` },
         ]
 </script>
 

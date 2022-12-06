@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>{name + '@' + version}: {data.title || ''}</title>
+	<title>{name + '@' + version}: {data.title || 'Start'}</title>
 </svelte:head>
 
 <Spectre>
@@ -140,7 +140,7 @@
 			{/if}
 		</svelte:fragment>
 
-		<footer class="text-center p-2">&copy; {new Date().getFullYear()} BASF SE</footer>
+		<footer class="text-center p-2">&copy; 2022 &mdash; 2023 BASF SE</footer>
 	</Sidebar>
 
 	<Toaster />
