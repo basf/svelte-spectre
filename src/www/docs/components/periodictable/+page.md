@@ -21,7 +21,7 @@ config: {}
 
 ```sv
 <script>
-    import { PeriodicTable } from '$lib'
+    import { PeriodicTable } from 'svelte-spectre'
 </script>
 
 <PeriodicTable />

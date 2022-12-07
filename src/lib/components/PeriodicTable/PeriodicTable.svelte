@@ -3,6 +3,7 @@
 		<ul>
 			{#each table_data as item}
 				{#if item.type == 'element'}
+					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<li
 						data-pos={item['data-pos']}
 						class={item['class'] + ' ' + item['name']}
@@ -12,10 +13,12 @@
 					</li>
 				{/if}
 				{#if item.type == 'icon'}
+					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<li
 						class={item['class']}
-						on:mouseleave={() => deSelectRow(item?.select)}
-						on:mouseenter={() => selectRow(item?.select)}
+						on:mouseleave={() => deHoverRow(item?.select)}
+						on:mouseenter={() => hoverRow(item?.select)}
+						on:click={() => clickEl(item?.select)}
 					>
 						{#if item['class'] == 'triangle_col'}
 							<Icon icon={'arrow-down'} />
@@ -38,8 +41,11 @@
 <script lang="ts">
 	import { Icon } from '$lib';
 	import table_data from './table_data.json';
-	let clicked_data: string[] = [];
-	const selectRow = (id: string) => {
+
+	let clicked_data: string[] = []; // clicked row or col or element data
+	let selectedGroupDatas: any[] = []; //Clicked row or col's elements array
+
+	const hoverRow = (id: string) => {
 		let divs = document.querySelectorAll(`#periodictable > ul > li.${id}`);
 		divs.forEach((item) => {
 			item.style.transform = 'scale(1.2)';
@@ -47,7 +53,7 @@
 		});
 	};
 
-	const deSelectRow = (id: string) => {
+	const deHoverRow = (id: string) => {
 		let divs = document.querySelectorAll(`#periodictable > ul > li.${id}`);
 		divs.forEach((item) => {
 			item.style.transform = '';
@@ -56,17 +62,47 @@
 	};
 
 	const clickEl = (el: string) => {
-		if (clicked_data.find((item) => item == el)) {
-			const index = clicked_data.indexOf(el);
-			clicked_data.splice(index, 1);
+		if (el.length > 2) {
+			let temp_selectedDataOne: any[] = []; // selected row or col's elements
+			if (selectedGroupDatas.length >= 0 && selectedGroupDatas.length <= 2) {
+				table_data.forEach((item) => {
+					if (
+						item['class'] != 'empty' &&
+						item['class'] != 'triangle_col' &&
+						item['class'] != 'triangle_row' &&
+						item['class'].length > 6
+					) {
+						// instead of item['class'].includes(el), but it detects equal row_1 and row_10, row_11, etc
+						if (item['class'].split(' ').find((v: string) => v == el)) {
+							temp_selectedDataOne.push(item);
+						}
+					}
+				});
+				let temp =
+					temp_selectedDataOne[0]['name'] + '/' + temp_selectedDataOne.at(-1)['name'];
+				if (clicked_data.includes(temp)) {
+					const index = clicked_data.indexOf(temp);
+					clicked_data.splice(index, 1);
+					selectedGroupDatas.splice(index, 1);
+				} else {
+					selectedGroupDatas.push(temp_selectedDataOne);
+					clicked_data.push(temp);
+				}
+			}
 		} else {
-			if (clicked_data.length < 3) {
-				clicked_data.push(el);
+			if (clicked_data.find((item) => item == el)) {
+				const index = clicked_data.indexOf(el);
+				clicked_data.splice(index, 1);
 			} else {
-				clicked_data.pop();
-				clicked_data.push(el);
+				if (clicked_data.length < 3) {
+					clicked_data.push(el);
+				} else {
+					clicked_data.pop();
+					clicked_data.push(el);
+				}
 			}
 		}
+
 		let lis = document.querySelectorAll(`#periodictable > ul > li`);
 		lis.forEach((item) => {
 			if (clicked_data.length >= 1) {
@@ -80,8 +116,21 @@
 		});
 
 		clicked_data.map((item, index) => {
-			let li = document.querySelector(`#periodictable > ul > li.${item}`);
-			li?.classList.add(`active_${index + 1}`);
+			try {
+				let li = document.querySelector(`#periodictable > ul > li.${item}`);
+				li?.classList.add(`active_${index + 1}`);
+			} catch (err) {
+				selectedGroupDatas.map((element, i) => {
+					if (index == i) {
+						element.map((t: any) => {
+							let li = document.querySelector(
+								`#periodictable > ul > li.${t['name']}`
+							);
+							li?.classList.add(`active_${index + 1}`);
+						});
+					}
+				});
+			}
 		});
 		console.log(clicked_data);
 	};
