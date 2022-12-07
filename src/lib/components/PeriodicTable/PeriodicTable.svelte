@@ -64,7 +64,7 @@
 	const clickEl = (el: string) => {
 		if (el.length > 2) {
 			let temp_selectedDataOne: any[] = []; // selected row or col's elements
-			if (selectedGroupDatas.length >= 0 && selectedGroupDatas.length <= 2) {
+			if (selectedGroupDatas.length >= 0) {
 				table_data.forEach((item) => {
 					if (
 						item['class'] != 'empty' &&
@@ -85,8 +85,10 @@
 					clicked_data.splice(index, 1);
 					selectedGroupDatas.splice(index, 1);
 				} else {
-					selectedGroupDatas.push(temp_selectedDataOne);
-					clicked_data.push(temp);
+					if (selectedGroupDatas.length < 2) {
+						selectedGroupDatas.push(temp_selectedDataOne);
+						clicked_data.push(temp);
+					}
 				}
 			}
 		} else {
