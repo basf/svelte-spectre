@@ -52,6 +52,9 @@ export default {
 			routes: 'src/www',
 			appTemplate: 'src/www/app.html',
 		},
+		prerender: {
+			handleMissingId: 'warn',
+		},
 		// trailingSlash: 'always',
 	},
 	package: {
