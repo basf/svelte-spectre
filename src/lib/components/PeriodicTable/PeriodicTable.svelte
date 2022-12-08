@@ -92,7 +92,6 @@
 	const clickEl = (el: string) => {
 		// insert data
 		if (el.length > 2) {
-
 			let temp_selectedDataOne: any[] = []; // selected row or col's elements
 
 			if (selectedGroupDatas.length >= 0) {
@@ -110,7 +109,8 @@
 					}
 				});
 
-				let group_name = temp_selectedDataOne[0]['name'] + '/' + temp_selectedDataOne.at(-1)['name'],
+				let group_name =
+						temp_selectedDataOne[0]['name'] + '/' + temp_selectedDataOne.at(-1)['name'],
 					check = group_names.get(group_name) || group_name;
 
 				if (clicked_data.includes(check)) {
