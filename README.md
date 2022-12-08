@@ -4,7 +4,7 @@
 [![NPM downloads](https://img.shields.io/npm/dm/svelte-spectre.svg?style=flat)](https://www.npmjs.com/package/svelte-spectre)
 [![GitHub issues](https://img.shields.io/github/issues/basf/svelte-spectre?style=flat)](https://github.com/basf/svelte-spectre/issues)
 
-UI-kit based on [spectre.css](https://picturepan2.github.io/spectre/) and powered by SvelteJS. See [documentation](https://svelte-spectre.surge.sh), which is also a component explorer (storybook).
+UI-kit based on [spectre.css](https://picturepan2.github.io/spectre/) and powered by SvelteJS. See the [documentation](https://kit.metis.science), which is also a component explorer (storybook).
 
 ### Requirements
 
@@ -27,7 +27,7 @@ npm run package
 
 ## Developing
 
-This serves a demonstration website:
+This serves a [demonstration website](https://kit.metis.science):
 
 ```bash
 npm run dev
@@ -48,6 +48,6 @@ You can preview the built app with `npm run preview`, regardless of whether you 
 
 ## License
 
-Copyright 2021-2022 BASF SE
+Copyright 2021-2023 BASF SE
 
 BSD 3-Clause
