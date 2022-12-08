@@ -13,6 +13,7 @@ export * from './Input/';
 export * from './Menu/';
 export * from './Meter/';
 export * from './Pagination/';
+export * from './PeriodicTable/';
 export * from './Progress/';
 export * from './Radio';
 export * from './Range';
