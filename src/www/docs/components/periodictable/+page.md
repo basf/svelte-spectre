@@ -1,14 +1,15 @@
 ---
 file: periodictable.md
 title: Periodic Table
-api: []
+api: [
+	{title: 'selected: string[] = []', description: 'Selected element array output', variables: '[]'},
+]
 config: {}
 ---
 
 <script>
     import { PeriodicTable } from '$lib'
-    
-	let state = {}
+    let selected = [];
 </script>
 
 # {title}
@@ -16,7 +17,10 @@ config: {}
 > 🚧 Under construction
 
 <p>
-    <PeriodicTable />
+    Selected: [ {selected.map(s => s).join(', ')} ]
+</p>
+<p>
+    <PeriodicTable bind:selected/>
 </p>
 
 ```sv
@@ -24,5 +28,7 @@ config: {}
     import { PeriodicTable } from 'svelte-spectre'
 </script>
 
-<PeriodicTable />
+<PeriodicTable
+    bind:selected
+/>
 ```
