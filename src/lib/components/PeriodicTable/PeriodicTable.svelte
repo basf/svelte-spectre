@@ -39,7 +39,7 @@
 </script>
 
 <script lang="ts">
-	import { Icon } from '$lib';
+	import Icon from '../Icon/Icon.svelte';
 	import table_data from './table_data.json';
 
 	let clicked_data: string[] = []; // clicked row or col or element data
