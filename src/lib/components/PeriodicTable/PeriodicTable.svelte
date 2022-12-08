@@ -41,6 +41,7 @@
 <script lang="ts">
 	import Icon from '../Icon/Icon.svelte';
 	import table_data from './table_data.json';
+	export let selected: any[] = [];
 
 	let clicked_data: string[] = []; // clicked row or col or element data
 	let selectedGroupDatas: any[] = []; //Clicked row or col's elements array
@@ -79,6 +80,7 @@
 						}
 					}
 				});
+
 				let temp =
 					temp_selectedDataOne[0]['name'] + '/' + temp_selectedDataOne.at(-1)['name'];
 				if (clicked_data.includes(temp)) {
@@ -138,7 +140,7 @@
 				});
 			}
 		});
-		console.log(clicked_data, selectedGroupDatas);
+		selected = clicked_data;
 	};
 </script>
 
