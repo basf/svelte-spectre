@@ -62,6 +62,7 @@
 	};
 
 	const clickEl = (el: string) => {
+		// insert data
 		if (el.length > 2) {
 			let temp_selectedDataOne: any[] = []; // selected row or col's elements
 			if (selectedGroupDatas.length >= 0) {
@@ -81,20 +82,25 @@
 				let temp =
 					temp_selectedDataOne[0]['name'] + '/' + temp_selectedDataOne.at(-1)['name'];
 				if (clicked_data.includes(temp)) {
-					const index = clicked_data.indexOf(temp);
-					clicked_data.splice(index, 1);
-					selectedGroupDatas.splice(index, 1);
+					// if contain same item, remove it in array
+					clicked_data.splice(clicked_data.indexOf(temp), 1);
+					selectedGroupDatas.splice(
+						selectedGroupDatas.findIndex((elv) => Object.keys(elv)[0] == temp),
+						1
+					);
 				} else {
+					// if it's new item, add in array
 					if (selectedGroupDatas.length < 2) {
-						selectedGroupDatas.push(temp_selectedDataOne);
+						let a: any = {};
+						a[temp] = temp_selectedDataOne;
+						selectedGroupDatas.push(a);
 						clicked_data.push(temp);
 					}
 				}
 			}
 		} else {
 			if (clicked_data.find((item) => item == el)) {
-				const index = clicked_data.indexOf(el);
-				clicked_data.splice(index, 1);
+				clicked_data.splice(clicked_data.indexOf(el), 1);
 			} else {
 				if (clicked_data.length < 3) {
 					clicked_data.push(el);
@@ -105,6 +111,7 @@
 			}
 		}
 
+		// reset UI
 		let lis = document.querySelectorAll(`#periodictable > ul > li`);
 		lis.forEach((item) => {
 			if (clicked_data.length >= 1) {
@@ -117,24 +124,21 @@
 			item.classList.remove('active_3');
 		});
 
+		// add style
 		clicked_data.map((item, index) => {
 			try {
 				let li = document.querySelector(`#periodictable > ul > li.${item}`);
 				li?.classList.add(`active_${index + 1}`);
 			} catch (err) {
-				selectedGroupDatas.map((element, i) => {
-					if (index == i) {
-						element.map((t: any) => {
-							let li = document.querySelector(
-								`#periodictable > ul > li.${t['name']}`
-							);
-							li?.classList.add(`active_${index + 1}`);
-						});
-					}
+				selectedGroupDatas.map((element) => {
+					element[item]?.map((t: any) => {
+						let li = document.querySelector(`#periodictable > ul > li.${t['name']}`);
+						li?.classList.add(`active_${index + 1}`);
+					});
 				});
 			}
 		});
-		console.log(clicked_data);
+		console.log(clicked_data, selectedGroupDatas);
 	};
 </script>
 
