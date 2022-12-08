@@ -16,14 +16,14 @@
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<li
 						class={item['class']}
-						on:mouseleave={() => deHoverRow(item?.select)}
+						on:mouseleave={() => unhoverRow(item?.select)}
 						on:mouseenter={() => hoverRow(item?.select)}
 						on:click={() => clickEl(item?.select)}
 					>
 						{#if item['class'] == 'triangle_col'}
-							<Icon icon={'arrow-down'} />
+							<Icon icon={'downward'} />
 						{:else if item['class'] == 'triangle_row'}
-							<Icon icon={'arrow-right'} />
+							<Icon icon={'forward'} />
 						{/if}
 					</li>
 				{/if}
@@ -35,9 +35,6 @@
 	</div>
 </div>
 
-<script lang="ts" context="module">
-</script>
-
 <script lang="ts">
 	import Icon from '../Icon/Icon.svelte';
 	import table_data from './table_data.json';
@@ -46,15 +43,45 @@
 	let clicked_data: string[] = []; // clicked row or col or element data
 	let selectedGroupDatas: any[] = []; //Clicked row or col's elements array
 
+	const group_names = new Map<string, string>([
+		['H/He', 'period 1'],
+		['Li/Ne', 'period 2'],
+		['Na/Ar', 'period 3'],
+		['K/Kr', 'period 4'],
+		['Rb/Xe', 'period 5'],
+		['Cs/Rn', 'period 6'],
+		['Fr/Lr', 'period 7'],
+		['La/Yb', 'lanthanide'],
+		['Ac/No', 'actinide'],
+		['H/Fr', 'alkali'],
+		['Be/Ra', 'alkaline'],
+		['Sc/Lr', 'group 3'],
+		['Ti/Hf', 'group 4'],
+		['V/Ta', 'group 5'],
+		['Cr/W', 'group 6'],
+		['Mn/Re', 'group 7'],
+		['Fe/Os', 'group 8'],
+		['Co/Ir', 'group 9'],
+		['Ni/Pt', 'group 10'],
+		['Cu/Au', 'group 11'],
+		['Zn/Hg', 'group 12'],
+		['B/Tl', 'triels'],
+		['C/Pb', 'tetrels'],
+		['N/Bi', 'pnictogen'],
+		['O/Po', 'chalcogen'],
+		['F/At', 'halogen'],
+		['He/Rn', 'noble gas'],
+	]);
+
 	const hoverRow = (id: string) => {
 		let divs = document.querySelectorAll(`#periodictable > ul > li.${id}`);
 		divs.forEach((item) => {
 			item.style.transform = 'scale(1.2)';
-			item.style.zIndex = '999999999999999999999';
+			item.style.zIndex = '999';
 		});
 	};
 
-	const deHoverRow = (id: string) => {
+	const unhoverRow = (id: string) => {
 		let divs = document.querySelectorAll(`#periodictable > ul > li.${id}`);
 		divs.forEach((item) => {
 			item.style.transform = '';
@@ -65,7 +92,9 @@
 	const clickEl = (el: string) => {
 		// insert data
 		if (el.length > 2) {
+
 			let temp_selectedDataOne: any[] = []; // selected row or col's elements
+
 			if (selectedGroupDatas.length >= 0) {
 				table_data.forEach((item) => {
 					if (
@@ -81,22 +110,23 @@
 					}
 				});
 
-				let temp =
-					temp_selectedDataOne[0]['name'] + '/' + temp_selectedDataOne.at(-1)['name'];
-				if (clicked_data.includes(temp)) {
+				let group_name = temp_selectedDataOne[0]['name'] + '/' + temp_selectedDataOne.at(-1)['name'],
+					check = group_names.get(group_name) || group_name;
+
+				if (clicked_data.includes(check)) {
 					// if contain same item, remove it in array
-					clicked_data.splice(clicked_data.indexOf(temp), 1);
+					clicked_data.splice(clicked_data.indexOf(check), 1);
 					selectedGroupDatas.splice(
-						selectedGroupDatas.findIndex((elv) => Object.keys(elv)[0] == temp),
+						selectedGroupDatas.findIndex((elv) => Object.keys(elv)[0] == check),
 						1
 					);
 				} else {
 					// if it's new item, add in array
 					if (selectedGroupDatas.length < 2) {
 						let a: any = {};
-						a[temp] = temp_selectedDataOne;
+						a[check] = temp_selectedDataOne;
 						selectedGroupDatas.push(a);
-						clicked_data.push(temp);
+						clicked_data.push(check);
 					}
 				}
 			}
@@ -115,6 +145,7 @@
 
 		// reset UI
 		let lis = document.querySelectorAll(`#periodictable > ul > li`);
+
 		lis.forEach((item) => {
 			if (clicked_data.length >= 1) {
 				item.classList.add('active');

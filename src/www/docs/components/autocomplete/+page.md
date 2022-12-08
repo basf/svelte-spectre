@@ -65,8 +65,8 @@ config:
         },
         selected = [{label: '↘ bottom_right'}],
         created = []
-    
-    
+
+
     const groupBy = (item) => {
         return state.groups.split(', ').find((g) => item.value.includes(g))
     }
@@ -88,7 +88,7 @@ used for tags and contacts input.
         creatable={state.creatable}
         predictable={state.predictable}
         empty={state.empty}
-        {groupBy} 
+        {groupBy}
     />
     <small>Selected: [ {selected.map(s => s.label).join(', ')} ]</small>
     <br/>
@@ -125,7 +125,7 @@ used for tags and contacts input.
             '↓ bottom_center',
             '↘ bottom_right',
         ],
-        seleted = []
+        selected = []
 
     const groupsBy = (item) => {
         return groups.split(', ').find((g) => item.value.includes(g))
