@@ -55,7 +55,7 @@
 				>Components</Button
 			>
 			&nbsp;
-			<Button href="{base}/docs/layouts/card" size="xl">Layouts</Button>
+			<Button href="{base}/docs/layouts/card" size="xl" id="layout_button">Layouts</Button>
 		</p>
 	</Container>
 </Hero>
