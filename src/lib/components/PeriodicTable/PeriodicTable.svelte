@@ -274,10 +274,10 @@
 				color: black !important;
 			}
 			@media (prefers-color-scheme: dark) {
-				li::before {
-					color: #f2f2f2 !important;
+				li.active::before {
+					color: #f2f2f2;
 				}
-				li span {
+				li.active span {
 					color: #f2f2f2 !important;
 				}
 				li.active {
