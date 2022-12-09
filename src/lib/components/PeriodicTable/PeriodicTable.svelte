@@ -211,7 +211,7 @@
 				cursor: pointer;
 				padding-top: 14px;
 				transition: all 0.3s ease-in;
-				background-repeat: no-repeat;
+				background-repeat: no-repeat !important;
 
 				&:hover {
 					transform: scale(1.5);
@@ -267,10 +267,22 @@
 				z-index: 0;
 				border: none;
 				cursor: default;
+				background-color: transparent !important;
 			}
 			li.active {
 				background-color: transparent !important;
 				color: black !important;
+			}
+			@media (prefers-color-scheme: dark) {
+				li::before {
+					color: #f2f2f2 !important;
+				}
+				li span {
+					color: #f2f2f2 !important;
+				}
+				li.active {
+					color: #f2f2f2 !important;
+				}
 			}
 			li.active_1 {
 				border: 2px solid #3f0;
