@@ -121,7 +121,7 @@
 					);
 				} else {
 					// if it's new item, add in array
-					if (selectedGroupDatas.length < 2) {
+					if (selectedGroupDatas.length < 2 && clicked_data.length < 3) {
 						let group_object: any = {};
 						group_object[group_name] = temp_selectedDataOne;
 						selectedGroupDatas.push(group_object);
