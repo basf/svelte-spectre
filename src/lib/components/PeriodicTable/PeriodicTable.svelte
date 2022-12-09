@@ -110,23 +110,22 @@
 				});
 
 				let group_name =
-						temp_selectedDataOne[0]['name'] + '/' + temp_selectedDataOne.at(-1)['name'],
-					check = group_names.get(group_name) || group_name;
+					temp_selectedDataOne[0]['name'] + '/' + temp_selectedDataOne.at(-1)['name'];
 
-				if (clicked_data.includes(check)) {
+				if (clicked_data.includes(group_name)) {
 					// if contain same item, remove it in array
-					clicked_data.splice(clicked_data.indexOf(check), 1);
+					clicked_data.splice(clicked_data.indexOf(group_name), 1);
 					selectedGroupDatas.splice(
-						selectedGroupDatas.findIndex((elv) => Object.keys(elv)[0] == check),
+						selectedGroupDatas.findIndex((elv) => Object.keys(elv)[0] == group_name),
 						1
 					);
 				} else {
 					// if it's new item, add in array
-					if (selectedGroupDatas.length < 2) {
-						let a: any = {};
-						a[check] = temp_selectedDataOne;
-						selectedGroupDatas.push(a);
-						clicked_data.push(check);
+					if (selectedGroupDatas.length < 2 && clicked_data.length < 3) {
+						let group_object: any = {};
+						group_object[group_name] = temp_selectedDataOne;
+						selectedGroupDatas.push(group_object);
+						clicked_data.push(group_name);
 					}
 				}
 			}
@@ -137,6 +136,14 @@
 				if (clicked_data.length < 3) {
 					clicked_data.push(el);
 				} else {
+					if (clicked_data.at(-1)?.includes('/')) {
+						selectedGroupDatas.splice(
+							selectedGroupDatas.findIndex(
+								(elv) => Object.keys(elv)[0] == clicked_data.at(-1)
+							),
+							1
+						);
+					}
 					clicked_data.pop();
 					clicked_data.push(el);
 				}
@@ -171,7 +178,8 @@
 				});
 			}
 		});
-		selected = clicked_data;
+		// console.log(clicked_data, selectedGroupDatas);
+		selected = clicked_data.map((item) => group_names.get(item) || item);
 	};
 </script>
 
