@@ -68,8 +68,6 @@ config: { nav: { type: 'checkbox' } }
 
 # {title}
 
-> 🚧 Under construction
-
 Menus are vertical list of links or buttons for actions and navigation.
 
 Add a container element with the menu class. And add child elements with the
