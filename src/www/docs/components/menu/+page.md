@@ -14,7 +14,7 @@ api:
                 switch?: boolean;
                 badge?: boolean;
                 divider?: TOP | BOTTOM;
-            };',
+                };',
         },
         {
             title: 'nav: boolean',

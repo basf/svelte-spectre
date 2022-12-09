@@ -2,7 +2,7 @@
 file: periodictable.md
 title: Periodic Table
 api: [
-	{title: 'selected: string[] = []', description: 'Selected element array output', variables: '[]'},
+	{title: 'selected: string[] = []', description: 'Selected element array output', variables: 'any string'},
 ]
 config: {}
 ---
