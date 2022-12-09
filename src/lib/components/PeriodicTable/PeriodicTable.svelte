@@ -178,7 +178,7 @@
 				});
 			}
 		});
-		console.log(clicked_data, selectedGroupDatas);
+		// console.log(clicked_data, selectedGroupDatas);
 		selected = clicked_data.map((item) => group_names.get(item) || item);
 	};
 </script>
