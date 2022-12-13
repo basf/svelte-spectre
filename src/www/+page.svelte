@@ -44,7 +44,7 @@
 				</Card>
 			</Col>
 		</Grid>
-		<p>
+		<p class="basic_button_group">
 			<Button
 				href="{base}/docs/01-getting_started/01-installation"
 				variant="primary"
@@ -55,7 +55,7 @@
 				>Components</Button
 			>
 			&nbsp;
-			<Button href="{base}/docs/layouts/card" size="xl" id="layout_button">Layouts</Button>
+			<Button href="{base}/docs/layouts/card" size="xl">Layouts</Button>
 		</p>
 	</Container>
 </Hero>

@@ -164,3 +164,9 @@ code[class*="language-"] ::selection {
         color: $gray-color;
     }
 }
+
+@media (max-width: 417px) {
+    .basic_button_group a:nth-child(3) {
+        margin-top: 20px !important;
+    }
+}
