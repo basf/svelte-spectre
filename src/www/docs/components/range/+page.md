@@ -48,8 +48,6 @@ config:
 
 # {title}
 
-> 🚧 Under construction
-
 The Range are for selecting values from ranges.
 
 <p>

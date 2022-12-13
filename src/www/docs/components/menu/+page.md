@@ -1,7 +1,27 @@
 ---
 file: menu.md
 title: Menu
-api: []
+api:
+    [
+        {
+            title: 'menu: Array[]',
+            description: 'Menu item arry.',
+            variables: 'type Menu = {
+                text: string;
+                active?: boolean;
+                checkbox?: boolean;
+                icon?: boolean;
+                switch?: boolean;
+                badge?: boolean;
+                divider?: TOP | BOTTOM;
+                };',
+        },
+        {
+            title: 'nav: boolean',
+            description: 'Shadow box.',
+            variables: 'true | false',
+        },
+    ]
 config: { nav: { type: 'checkbox' } }
 ---
 
@@ -47,8 +67,6 @@ config: { nav: { type: 'checkbox' } }
 </script>
 
 # {title}
-
-> 🚧 Under construction
 
 Menus are vertical list of links or buttons for actions and navigation.
 

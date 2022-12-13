@@ -39,6 +39,7 @@
 	import Icon from '../Icon/Icon.svelte';
 	import table_data from './table_data.json';
 	export let selected: any[] = [];
+	export const clear = () => clearSelection();
 
 	let clicked_data: string[] = []; // clicked row or col or element data
 	let selectedGroupDatas: any[] = []; //Clicked row or col's elements array
@@ -180,6 +181,26 @@
 		});
 		// console.log(clicked_data, selectedGroupDatas);
 		selected = clicked_data.map((item) => group_names.get(item) || item);
+	};
+
+	const clearSelection = () => {
+		clicked_data = [];
+		selectedGroupDatas = [];
+		selected = [];
+
+		// reset UI
+		let lis = document.querySelectorAll(`#periodictable > ul > li`);
+
+		lis.forEach((item) => {
+			if (clicked_data.length >= 1) {
+				item.classList.add('active');
+			} else if (clicked_data.length == 0) {
+				item.classList.remove('active');
+			}
+			item.classList.remove('active_1');
+			item.classList.remove('active_2');
+			item.classList.remove('active_3');
+		});
 	};
 </script>
 

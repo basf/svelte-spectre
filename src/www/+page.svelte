@@ -44,7 +44,7 @@
 				</Card>
 			</Col>
 		</Grid>
-		<p>
+		<p class="basic_button_group">
 			<Button
 				href="{base}/docs/01-getting_started/01-installation"
 				variant="primary"
