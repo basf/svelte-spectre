@@ -27,7 +27,7 @@ The Periodic Table component allows to select chemical elements conveniently. Cu
     <div class="content">
         <p>
             <span>Selected: [ {selected.map(s => s).join(', ')} ]</span>
-            <span on:click={clear}><Icon icon="cross" color="error" size="1x" style="margin-left: 10px;margin-bottom: 4px"/></span>
+            <span on:click={clear} class="clearText"><Icon icon="cross" color="error" size="1x" /></span>
         </p>
         <p>
             <PeriodicTable bind:selected bind:clear = {clear}/>

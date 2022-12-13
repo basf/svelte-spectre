@@ -34,13 +34,9 @@
 		</ul>
 	</div>
 </div>
-<div class="clear">
-	<Button variant="success" size="lg" on:click={clearSelection}>Clear Selection</Button>
-</div>
 
 <script lang="ts">
 	import Icon from '../Icon/Icon.svelte';
-	import Button from '../Button/Button.svelte';
 	import table_data from './table_data.json';
 	export let selected: any[] = [];
 	export const clear = () => clearSelection();
@@ -352,10 +348,5 @@
 				color: #b10601;
 			}
 		}
-	}
-	.clear {
-		margin-top: 20px;
-		display: flex;
-		justify-content: center;
 	}
 </style>
