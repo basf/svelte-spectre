@@ -93,7 +93,7 @@ config:
 
     $: items[0] = state
 
-    onMount(() => goto(`${base + $page.url.pathname}${state.path}`, {keepfocus: true}))
+    onMount(() => goto(`${base + $page.url.pathname}${state.path}`, {keepFocus: true}))
 </script>
 
 # {title}
