@@ -2,7 +2,7 @@
 file: periodictable.md
 title: Periodic Table
 api: [
-	{title: 'selected: string[] = []', description: 'Selected element array output', variables: '["H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca", "Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Ga", "Ge", "As", "Se", "Br", "Kr", "Rb", "Sr", "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd", "In", "Sn", "Sb", "Te", "I", "Xe", "Cs", "Ba", "La", "Ce", "Pr", "Nd", "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu", "Hf", "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg", "Tl", "Pb", "Bi", "Po", "At", "Rn", "Fr", "Ra", "Ac", "Th", "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm", "Md", "No","Period 1", "Period 2", "Period 3", "Period 4", "Period 5", "Period 6", "Period 7", "Lanthanide", "Actinide", "Alkali", "Alkaline", "Group 3", "Group 4", "Group 5", "Group 6", "Group 7", "Group 8", "Group 9", "Group 10", "Group 11", "Group 12", "Triels", "Tetrels", "Pnictogen", "Chalcogen", "Halogen", "Noble Gas"]'},
+	{title: 'selected: string[] = []', description: 'Selected element array output', variables: '["H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca", "Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Ga", "Ge", "As", "Se", "Br", "Kr", "Rb", "Sr", "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd", "In", "Sn", "Sb", "Te", "I", "Xe", "Cs", "Ba", "La", "Ce", "Pr", "Nd", "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu", "Hf", "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg", "Tl", "Pb", "Bi", "Po", "At", "Rn", "Fr", "Ra", "Ac", "Th", "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm", "Md", "No","period 1", "period 2", "period 3", "period 4", "period 5", "period 6", "period 7", "lanthanide", "actinide", "alkali", "alkaline", "group 3", "group 4", "group 5", "group 6", "group 7", "group 8", "group 9", "group 10", "group 11", "group 12", "triels", "tetrels", "pnictogen", "chalcogen", "halogen", "noble gas"]'},
 	{title: 'clear: function()', description: 'Clear selection', variables: ''}
 ]
 config: {}
@@ -12,7 +12,7 @@ config: {}
 	import { PeriodicTable, Button, Modal, Autocomplete } from '$lib'
 
 	let selected = [], open = false, clear;
-    let predefined = ["H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca", "Sc", "Ti", "V", "Cr", "Mn", "Fe",     "Co", "Ni", "Cu", "Zn", "Ga", "Ge", "As", "Se", "Br", "Kr", "Rb", "Sr", "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd", "In", "Sn", "Sb", "Te", "I", "Xe", "Cs", "Ba", "La", "Ce", "Pr", "Nd", "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu", "Hf", "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg", "Tl", "Pb", "Bi", "Po", "At", "Rn", "Fr", "Ra", "Ac", "Th", "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm", "Md", "No","Period 1", "Period 2", "Period 3", "Period 4", "Period 5", "Period 6", "Period 7", "Lanthanide", "Actinide", "Alkali", "Alkaline", "Group 3", "Group 4", "Group 5", "Group 6", "Group 7", "Group 8", "Group 9", "Group 10", "Group 11", "Group 12", "Triels", "Tetrels", "Pnictogen", "Chalcogen", "Halogen", "Noble Gas"]
+    let predefined = ["H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca", "Sc", "Ti", "V", "Cr", "Mn", "Fe",     "Co", "Ni", "Cu", "Zn", "Ga", "Ge", "As", "Se", "Br", "Kr", "Rb", "Sr", "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd", "In", "Sn", "Sb", "Te", "I", "Xe", "Cs", "Ba", "La", "Ce", "Pr", "Nd", "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu", "Hf", "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg", "Tl", "Pb", "Bi", "Po", "At", "Rn", "Fr", "Ra", "Ac", "Th", "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm", "Md", "No","period 1", "period 2", "period 3", "period 4", "period 5", "period 6", "period 7", "lanthanide", "actinide", "alkali", "alkaline", "group 3", "group 4", "group 5", "group 6", "group 7", "group 8", "group 9", "group 10", "group 11", "group 12", "triels", "tetrels", "pnictogen", "chalcogen", "halogen", "noble gas"]
 
     $: if(selected.length > 3) {
         selected.pop();
@@ -28,7 +28,7 @@ config: {}
 
 # {title}
 
-The Periodic Table component allows to select chemical elements conveniently. Currently up to 3 distinct chemical elements or up to 3 named groups can be selected. A named Group is either a column or row in the periodic table, such as `Alkali`, `Alkalines`, `Pnictogens`, `Chalcogens`, `Period 2`, `Period 6`, `Lanthanides`, `Actinides`, etc.
+The Periodic Table component allows to select chemical elements conveniently. Currently up to 3 distinct chemical elements or up to 3 named groups can be selected. A named group is either a column or row in the periodic table, such as `alkali`, `alkalines`, `pnictogens`, `chalcogens`, `period 2`, `period 6`, `lanthanides`, `actinides`, etc.
 
 <Button on:click={() => open = !open}>Open Periodic Table</Button>
 
