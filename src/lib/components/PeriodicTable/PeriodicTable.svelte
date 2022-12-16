@@ -38,40 +38,39 @@
 <script lang="ts">
 	import Icon from '../Icon/Icon.svelte';
 	import table_data from './table_data.json';
+	import group_data from './group_data.json';
+
 	export let selected: any[] = [];
 	export const clear = () => clearSelection();
 
-	let clicked_data: any[] = []; // clicked row or col or element data
-	let selectedGroupDatas: any[] = []; //Clicked row or col's elements array
-
 	const group_names = new Map<string, string>([
-		['H/He', 'period 1'],
-		['Li/Ne', 'period 2'],
-		['Na/Ar', 'period 3'],
-		['K/Kr', 'period 4'],
-		['Rb/Xe', 'period 5'],
-		['Cs/Rn', 'period 6'],
-		['Fr/Lr', 'period 7'],
-		['La/Yb', 'lanthanide'],
-		['Ac/No', 'actinide'],
-		['H/Fr', 'alkali'],
-		['Be/Ra', 'alkaline'],
-		['Sc/Lr', 'group 3'],
-		['Ti/Hf', 'group 4'],
-		['V/Ta', 'group 5'],
-		['Cr/W', 'group 6'],
-		['Mn/Re', 'group 7'],
-		['Fe/Os', 'group 8'],
-		['Co/Ir', 'group 9'],
-		['Ni/Pt', 'group 10'],
-		['Cu/Au', 'group 11'],
-		['Zn/Hg', 'group 12'],
-		['B/Tl', 'triels'],
-		['C/Pb', 'tetrels'],
-		['N/Bi', 'pnictogen'],
-		['O/Po', 'chalcogen'],
-		['F/At', 'halogen'],
-		['He/Rn', 'noble gas'],
+		['H/He', 'Period 1'],
+		['Li/Ne', 'Period 2'],
+		['Na/Ar', 'Period 3'],
+		['K/Kr', 'Period 4'],
+		['Rb/Xe', 'Period 5'],
+		['Cs/Rn', 'Period 6'],
+		['Fr/Lr', 'Period 7'],
+		['La/Yb', 'Lanthanide'],
+		['Ac/No', 'Actinide'],
+		['H/Fr', 'Alkali'],
+		['Be/Ra', 'Alkaline'],
+		['Sc/Lr', 'Group 3'],
+		['Ti/Hf', 'Group 4'],
+		['V/Ta', 'Group 5'],
+		['Cr/W', 'Group 6'],
+		['Mn/Re', 'Group 7'],
+		['Fe/Os', 'Group 8'],
+		['Co/Ir', 'Group 9'],
+		['Ni/Pt', 'Group 10'],
+		['Cu/Au', 'Group 11'],
+		['Zn/Hg', 'Group 12'],
+		['B/Tl', 'Triels'],
+		['C/Pb', 'Tetrels'],
+		['N/Bi', 'Pnictogen'],
+		['O/Po', 'Chalcogen'],
+		['F/At', 'Halogen'],
+		['He/Rn', 'Noble Gas'],
 	]);
 
 	const hoverRow = (id: string) => {
@@ -107,43 +106,74 @@
 
 	const setGUI = (array: any) => {
 		array.map((item: any, index: number) => {
-			try {
+			if (item.label.length <= 2) {
 				let li = document.querySelector(`#periodictable > ul > li.${item['label']}`);
 				li?.classList.add(`active_${index + 1}`);
-			} catch (err) {
-				selectedGroupDatas.map((element) => {
-					element[item]?.map((t: any) => {
-						let li = document.querySelector(`#periodictable > ul > li.${t['name']}`);
-						li?.classList.add(`active_${index + 1}`);
-					});
+			} else {
+				group_data[item.label]?.map((element: string) => {
+					let li = document.querySelector(`#periodictable > ul > li.${element}`);
+					li?.classList.add(`active_${index + 1}`);
 				});
 			}
 		});
 	};
 
 	const clearSelection = () => {
-		clicked_data = [];
-		selectedGroupDatas = [];
 		selected = [];
-
 		resetGUI();
 	};
 
 	const clickEl = (el: string) => {
 		let item_data = { label: el, value: el };
 
-		if (selected.find((item) => item.label == el)) {
-			selected.splice(selected.indexOf(selected.find((item) => item.label == el)), 1);
-		} else {
-			if (selected.length < 3) {
-				selected.push(item_data);
+		if (el.length > 2) {
+			let temp_selectedDataOne: any[] = []; // selected row or col's elements
+
+			table_data.forEach((item) => {
+				if (
+					item['class'] != 'empty' &&
+					item['class'] != 'triangle_col' &&
+					item['class'] != 'triangle_row' &&
+					item['class'].length > 6
+				) {
+					if (item['class'].split(' ').find((v: string) => v == el)) {
+						temp_selectedDataOne.push(item);
+					}
+				}
+			});
+
+			let group_name =
+				temp_selectedDataOne[0]['name'] + '/' + temp_selectedDataOne.at(-1)['name'];
+
+			if (selected.find((item) => item.label == group_names.get(group_name))) {
+				selected.splice(
+					selected.indexOf(
+						selected.find((item) => item.label == group_names.get(group_name))
+					),
+					1
+				);
 			} else {
-				selected.pop();
-				selected.push(item_data);
+				if (selected.length > 2) {
+					selected.pop();
+				}
+				selected.push({
+					label: group_names.get(group_name),
+					value: group_names.get(group_name),
+				});
+			}
+		} else {
+			if (selected.find((item) => item.label == el)) {
+				selected.splice(selected.indexOf(selected.find((item) => item.label == el)), 1);
+			} else {
+				if (selected.length < 3) {
+					selected.push(item_data);
+				} else {
+					selected.pop();
+					selected.push(item_data);
+				}
 			}
 		}
-
-		selected = selected.map((item) => group_names.get(item.label) || item);
+		selected = selected;
 	};
 
 	$: if (typeof document != 'undefined') {
