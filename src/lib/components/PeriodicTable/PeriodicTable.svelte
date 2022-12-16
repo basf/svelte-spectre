@@ -90,32 +90,23 @@
 		});
 	};
 
-	const clickEl = (el: string) => {
-		let item_data = { label: el, value: el };
-
-		if (clicked_data.length < 3) {
-			clicked_data.push(item_data);
-		} else {
-			clicked_data.pop();
-			clicked_data.push(item_data);
-		}
-
-		// reset UI
+	const resetGUI = () => {
 		let lis = document.querySelectorAll(`#periodictable > ul > li`);
 
 		lis.forEach((item) => {
-			if (clicked_data.length >= 1) {
+			if (selected.length >= 1) {
 				item.classList.add('active');
-			} else if (clicked_data.length == 0) {
+			} else if (selected.length == 0) {
 				item.classList.remove('active');
 			}
 			item.classList.remove('active_1');
 			item.classList.remove('active_2');
 			item.classList.remove('active_3');
 		});
+	};
 
-		// add style
-		clicked_data.map((item, index) => {
+	const setGUI = (array: any) => {
+		array.map((item: any, index: number) => {
 			try {
 				let li = document.querySelector(`#periodictable > ul > li.${item['label']}`);
 				li?.classList.add(`active_${index + 1}`);
@@ -128,7 +119,6 @@
 				});
 			}
 		});
-		selected = clicked_data;
 	};
 
 	const clearSelection = () => {
@@ -136,28 +126,30 @@
 		selectedGroupDatas = [];
 		selected = [];
 
-		// reset UI
-		let lis = document.querySelectorAll(`#periodictable > ul > li`);
+		resetGUI();
+	};
 
-		lis.forEach((item) => {
-			if (clicked_data.length >= 1) {
-				item.classList.add('active');
-			} else if (clicked_data.length == 0) {
-				item.classList.remove('active');
+	const clickEl = (el: string) => {
+		let item_data = { label: el, value: el };
+
+		if (selected.find((item) => item.label == el)) {
+			selected.splice(selected.indexOf(selected.find((item) => item.label == el)), 1);
+		} else {
+			if (selected.length < 3) {
+				selected.push(item_data);
+			} else {
+				selected.pop();
+				selected.push(item_data);
 			}
-			item.classList.remove('active_1');
-			item.classList.remove('active_2');
-			item.classList.remove('active_3');
-		});
+		}
+
+		selected = selected.map((item) => group_names.get(item.label) || item);
 	};
 
 	$: if (typeof document != 'undefined') {
-		if (selected.length == 0) {
-			clearSelection();
-		}
+		resetGUI();
+		setGUI(selected);
 	}
-
-	$: console.log('selected', selected);
 </script>
 
 <style lang="scss">
