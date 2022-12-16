@@ -16,7 +16,7 @@
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<li
 						class={item['class']}
-						on:mouseleave={() => unhoverRow(item?.select)}
+						on:mouseleave={() => unHoverRow(item?.select)}
 						on:mouseenter={() => hoverRow(item?.select)}
 						on:click={() => clickEl(item?.select)}
 					>
@@ -41,7 +41,7 @@
 	export let selected: any[] = [];
 	export const clear = () => clearSelection();
 
-	let clicked_data: string[] = []; // clicked row or col or element data
+	let clicked_data: any[] = []; // clicked row or col or element data
 	let selectedGroupDatas: any[] = []; //Clicked row or col's elements array
 
 	const group_names = new Map<string, string>([
@@ -82,7 +82,7 @@
 		});
 	};
 
-	const unhoverRow = (id: string) => {
+	const unHoverRow = (id: string) => {
 		let divs = document.querySelectorAll(`#periodictable > ul > li.${id}`);
 		divs.forEach((item) => {
 			item.style.transform = '';
@@ -91,64 +91,13 @@
 	};
 
 	const clickEl = (el: string) => {
-		// insert data
-		if (el.length > 2) {
-			let temp_selectedDataOne: any[] = []; // selected row or col's elements
+		let item_data = { label: el, value: el };
 
-			if (selectedGroupDatas.length >= 0) {
-				table_data.forEach((item) => {
-					if (
-						item['class'] != 'empty' &&
-						item['class'] != 'triangle_col' &&
-						item['class'] != 'triangle_row' &&
-						item['class'].length > 6
-					) {
-						// instead of item['class'].includes(el), but it detects equal row_1 and row_10, row_11, etc
-						if (item['class'].split(' ').find((v: string) => v == el)) {
-							temp_selectedDataOne.push(item);
-						}
-					}
-				});
-
-				let group_name =
-					temp_selectedDataOne[0]['name'] + '/' + temp_selectedDataOne.at(-1)['name'];
-
-				if (clicked_data.includes(group_name)) {
-					// if contain same item, remove it in array
-					clicked_data.splice(clicked_data.indexOf(group_name), 1);
-					selectedGroupDatas.splice(
-						selectedGroupDatas.findIndex((elv) => Object.keys(elv)[0] == group_name),
-						1
-					);
-				} else {
-					// if it's new item, add in array
-					if (selectedGroupDatas.length < 2 && clicked_data.length < 3) {
-						let group_object: any = {};
-						group_object[group_name] = temp_selectedDataOne;
-						selectedGroupDatas.push(group_object);
-						clicked_data.push(group_name);
-					}
-				}
-			}
+		if (clicked_data.length < 3) {
+			clicked_data.push(item_data);
 		} else {
-			if (clicked_data.find((item) => item == el)) {
-				clicked_data.splice(clicked_data.indexOf(el), 1);
-			} else {
-				if (clicked_data.length < 3) {
-					clicked_data.push(el);
-				} else {
-					if (clicked_data.at(-1)?.includes('/')) {
-						selectedGroupDatas.splice(
-							selectedGroupDatas.findIndex(
-								(elv) => Object.keys(elv)[0] == clicked_data.at(-1)
-							),
-							1
-						);
-					}
-					clicked_data.pop();
-					clicked_data.push(el);
-				}
-			}
+			clicked_data.pop();
+			clicked_data.push(item_data);
 		}
 
 		// reset UI
@@ -168,7 +117,7 @@
 		// add style
 		clicked_data.map((item, index) => {
 			try {
-				let li = document.querySelector(`#periodictable > ul > li.${item}`);
+				let li = document.querySelector(`#periodictable > ul > li.${item['label']}`);
 				li?.classList.add(`active_${index + 1}`);
 			} catch (err) {
 				selectedGroupDatas.map((element) => {
@@ -179,8 +128,7 @@
 				});
 			}
 		});
-		// console.log(clicked_data, selectedGroupDatas);
-		selected = clicked_data.map((item) => group_names.get(item) || item);
+		selected = clicked_data;
 	};
 
 	const clearSelection = () => {
@@ -202,6 +150,14 @@
 			item.classList.remove('active_3');
 		});
 	};
+
+	$: if (typeof document != 'undefined') {
+		if (selected.length == 0) {
+			clearSelection();
+		}
+	}
+
+	$: console.log('selected', selected);
 </script>
 
 <style lang="scss">

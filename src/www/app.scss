@@ -18,3 +18,13 @@ body,
     margin-left: 10px;
     margin-bottom: 4px;
 }
+
+.periodic_table_input dl{
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.periodic_table_input .form-autocomplete-input{ 
+    max-width: 600px!important;
+    width: 600px!important
+}
