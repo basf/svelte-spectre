@@ -7,3 +7,24 @@ body,
     font-size: 20px;
     margin: 0;
 }
+
+@media (max-width: 417px) {
+    .basic_button_group a:nth-child(3) {
+        margin-top: 20px !important;
+    }
+}
+
+.clearText i{
+    margin-left: 10px;
+    margin-bottom: 4px;
+}
+
+.periodic_table_input dl{
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.periodic_table_input .form-autocomplete-input{ 
+    max-width: 600px!important;
+    width: 600px!important
+}
