@@ -38,7 +38,7 @@
 <script lang="ts">
 	import Icon from '../Icon/Icon.svelte';
 	import table_data from './table_data.json';
-	import group_data from './group_data.json';
+	import group_data from './chemical_content.json';
 
 	export let selected: any[] = [];
 	export const clear = () => clearSelection();

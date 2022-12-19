@@ -10,10 +10,15 @@ config: {}
 
 <script>
 	import { PeriodicTable, Button, Modal, Autocomplete } from '$lib'
-    import Chemistry_data from './chemistry_elements.json';
-
+    import Chemistry_data from '$lib/components/PeriodicTable/chemical_content.json';
+    
 	let selected = [], open = false, clear;
-    let predefined = Chemistry_data
+    let predefined = []
+
+    for (const [key, value] of Object.entries(Chemistry_data)) {
+        value.forEach(v=> predefined.push(v))
+        predefined.push(key)
+    }
 
     $: if(selected.length > 3) {
         selected.pop();
