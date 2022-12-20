@@ -35,6 +35,8 @@ config:
 
 # {title}
 
+The form switch is an important component that is required to get the activation value or on/off value from the user as usual.
+
 Switch component.
 
 <p>

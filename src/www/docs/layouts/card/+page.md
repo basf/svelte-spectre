@@ -43,9 +43,33 @@ title: Card
 
 # {title}
 
-> 🚧 Under construction
-
 Cards are flexible content containers.
+
+Add child elements with the image, title, subtitle, content and/or footer slot. <br/>
+The image can be placed in any position
+
+```sv
+<script>
+	import {Button, Card, Col, Divider, Grid} from 'svelte-spectre'
+
+	let pos = 'top',
+	img = '1b9a004a-db27-45e4-b762-0fa21bc97277.webp',
+	text = 'Lightweight (~10KB gzipped) starting point for your projects',
+	title = 'Title',
+	subTitle = 'SubTitle';
+</script>
+
+<Card {pos}>
+	<img class="img-responsive" src="{base}/img/{img}" alt="img" slot="img" />
+	<div slot="title" class="h5">{title}</div>
+	<div slot="subtitle" class="text-gray">{subTitle}</div>
+	<p>{text}</p>
+	<svelte:fragment slot="footer">
+		<Button variant="primary" href="#cards">Primary</Button>
+		<Button variant="link" href="#cards">Link</Button>
+	</svelte:fragment>
+</Card>
+```
 
 <Grid offset="my-2" oneline align="">
     <Divider align="vertical" text="LEFT" />

@@ -60,6 +60,7 @@ config:
 
 <p>
     <Form>
+        <p>The form radio is an important component that is required to get the boolean option from the user as usual.</p>
         <FormGroup>
             <Radio
                 label={state.label}

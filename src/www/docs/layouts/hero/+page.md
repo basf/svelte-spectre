@@ -10,6 +10,14 @@ title: Hero
 
 # {title}
 
-> 🚧 Under construction
+The Hero container shows key featured content or information.
+
+```sv
+<script>
+    import {Hero} from 'svelte-spectre'
+</script>
+
+<Hero bg="'dark' | 'gray'" center/>
+```
 
 <Hero bg="{$media.dark ? 'dark' : 'gray'}" center/>

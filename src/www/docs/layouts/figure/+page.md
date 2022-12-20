@@ -10,7 +10,20 @@ title: Figure
 
 # {title}
 
-> 🚧 Under construction
+You can use the element `<figure>` for an image with a caption. <br/>
+For fix the screen, you can add `contain`, `cover`, `align = true | false`
+
+```sv
+<script>
+    import { Figure } from 'svelte-spectre';
+</script>
+
+<Figure
+    src="{base}/img/04696e1a-eb5d-43b9-bb1d-d2ee117f4430.webp"
+    alt="Stable Diffusion Neural Art"
+    cover
+    >img-fit-cover</Figure>
+```
 
 <Grid stack>
     <Col col="4" sm="12">

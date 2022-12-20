@@ -38,7 +38,7 @@
 <script lang="ts">
 	import Icon from '../Icon/Icon.svelte';
 	import table_data from './table_data.json';
-	import group_data from './chemical_content.json';
+	import chemical_elements from './chemical_content.json';
 
 	export let selected: any[] = [];
 	export const clear = () => clearSelection();
@@ -110,7 +110,7 @@
 				let li = document.querySelector(`#periodictable > ul > li.${item['label']}`);
 				li?.classList.add(`active_${index + 1}`);
 			} else {
-				group_data[item.label]?.map((element: string) => {
+				chemical_elements[item.label]?.map((element: string) => {
 					let li = document.querySelector(`#periodictable > ul > li.${element}`);
 					li?.classList.add(`active_${index + 1}`);
 				});
