@@ -10,7 +10,19 @@ title: Navbar
 
 # {title}
 
-> 🚧 Under construction
+Navbar is a layout container that appears in the header of apps and websites.
+
+```sv
+<script>
+    import {Button, IconButton, Navbar} from '$lib'
+</script>
+
+<Navbar>
+    <IconButton icon="menu" slot="left" />
+    <IconButton icon="emoji" slot="center" />
+    <IconButton icon="location" slot="right"/>
+</Navbar>
+```
 
 <section class="bg-{$media.dark ? 'dark' : 'gray'} p-2">
     <Navbar>

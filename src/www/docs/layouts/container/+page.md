@@ -10,8 +10,19 @@ title: Container
 
 # {title}
 
-> 🚧 Under construction
+Container is for contain components or elements.
 
+```sv
+<script>
+    import {Button, Container} from 'svelte-spectre'
+</script>
+
+<Container>
+    <div class="bg-secondary p-2 text-center">I'm Container</div>
+</Container>
+```
+
+<br/>
 <Container>
     <div class="bg-secondary{$media.dark && '-darked'} p-2 text-center">I'm Container</div>
 </Container>
