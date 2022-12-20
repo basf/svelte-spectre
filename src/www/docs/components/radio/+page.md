@@ -50,17 +50,17 @@ config:
     let state = { label: 'What to show in the periodic table:', group: 1, inline: false, validity: null }
 
     let radios = 1, questions = [
-            { value: 1, label: `Phase diagrams` },
-            { value: 2, label: `Crystal structures` },
-            { value: 3, label: `Physical properties` },
-        ]
+        { value: 1, label: `Phase diagrams` },
+        { value: 2, label: `Crystal structures` },
+        { value: 3, label: `Physical properties` },
+    ]
 </script>
 
 # {title}
 
 <p>
     <Form>
-        <p>The form radio is an important component that is required to get the boolean option from the user as usual.</p>
+        <p>The form radio element is an important component required to get the multiple choice selection option from the user.</p>
         <FormGroup>
             <Radio
                 label={state.label}

@@ -9,5 +9,4 @@ title: Tile
 
 # {title}
 
-> 🚧 Under construction
-> Tiles are repeatable or embeddable information blocks.
+Tiles are repeatable or embeddable information blocks.

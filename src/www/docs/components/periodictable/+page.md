@@ -10,25 +10,25 @@ config: {}
 
 <script>
 	import { PeriodicTable, Button, Modal, Autocomplete } from '$lib'
-    import Chemistry_data from '$lib/components/PeriodicTable/chemical_content.json';
-    
+	import ptable_data from '$lib/components/PeriodicTable/chemical_content.json';
+
 	let selected = [], open = false, clear;
-    let predefined = []
+	let predefined = []
 
-    for (const [key, value] of Object.entries(Chemistry_data)) {
-        value.forEach(v=> predefined.push(v))
-        predefined.push(key)
-    }
+	for (const [key, value] of Object.entries(ptable_data)) {
+		value.forEach(v => predefined.push(v))
+		predefined.push(key)
+	}
 
-    $: if(selected.length > 3) {
-        selected.pop();
-    } else {
-        let counts = {};
-        selected.map(item=>item.label.length>2).forEach(x => counts[x] = (counts[x] || 0) + 1);
-        if(counts["true"] > 2 ){
-            selected.pop()
-        } 
-    }
+	$: if (selected.length > 3) {
+		selected.pop();
+	} else {
+		let counts = {};
+		selected.map(item => item.label.length > 2).forEach(x => counts[x] = (counts[x] || 0) + 1);
+		if (counts["true"] > 2){
+			selected.pop()
+		}
+	}
 
 </script>
 
@@ -40,13 +40,13 @@ The Periodic Table component allows to select chemical elements conveniently. Cu
 
 <Modal bind:open size="fs">
 	<div class="content">
-        <p class="periodic_table_input">
-            <Autocomplete
-                {predefined}
-                bind:selected
-                placeholder="Type or select 3 elements"
-            />
-        </p>
+		<p class="periodic_table_input">
+			<Autocomplete
+				{predefined}
+				bind:selected
+				placeholder="Type or select 3 elements"
+			/>
+		</p>
 		<p>
 			<PeriodicTable bind:selected bind:clear/>
 		</p>
@@ -54,11 +54,11 @@ The Periodic Table component allows to select chemical elements conveniently. Cu
 </Modal>
 
 <style>
-    .periodic_table_input{
-        display: flex;
-        justify-content: center;
-        width: 100%
-    }
+	.periodic_table_input{
+		display: flex;
+		justify-content: center;
+		width: 100%
+	}
 </style>
 
 ```sv

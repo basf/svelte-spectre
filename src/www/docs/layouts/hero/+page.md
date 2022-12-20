@@ -10,7 +10,7 @@ title: Hero
 
 # {title}
 
-The Hero container shows key featured content or information.
+The Hero container shows key featured content or important information.
 
 ```sv
 <script>

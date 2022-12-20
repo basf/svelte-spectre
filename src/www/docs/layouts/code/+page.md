@@ -43,14 +43,21 @@ title: Code
 
 # {title}
 
-Code are flexible code containers.<br/>
-Code is used for styling inline and multiline code snippets.
+Code is a flexible container. It is used for styling inline and multiline code snippets.
 
 ```sv
 import { Code } from 'svelte-spectre'
 
 
-<Code lang="js">console.log(code)</Code>
+<Code lang="js">
+
+let binding = Function.prototype.call.bind(Function.prototype.bind);
+
+</Code>
 ```
 
-<Code lang="js">console.log(code)</Code>
+<Code lang="js">
+
+let binding = Function.prototype.call.bind(Function.prototype.bind);
+
+</Code>
