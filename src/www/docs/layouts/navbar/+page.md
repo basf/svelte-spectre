@@ -10,7 +10,7 @@ title: Navbar
 
 # {title}
 
-Navbar is a layout container that appears in the header of apps and websites.
+Navbar is the layout container that normally appears in the header of the apps and websites.
 
 ```sv
 <script>

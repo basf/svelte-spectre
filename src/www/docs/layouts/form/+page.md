@@ -9,7 +9,7 @@ title: Form
 
 # {title}
 
-Form provide the most common control styles used in forms, including input, textarea, select, checkbox, radio and switch and their groups.
+Form provides the most common controls, including input, textarea, select, checkbox, radio, and switch, as well as their groups.
 
 ```sv
 <script>

@@ -10,8 +10,7 @@ title: Figure
 
 # {title}
 
-You can use the element `<figure>` for an image with a caption. <br/>
-For fix the screen, you can add `contain`, `cover`, `align = true | false`
+You can use the element `<figure>` for an image with a caption. You can also add `contain`, `cover`, `align = true | false`
 
 ```sv
 <script>

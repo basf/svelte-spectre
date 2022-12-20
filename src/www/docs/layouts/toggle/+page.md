@@ -32,8 +32,8 @@ config: { toggle: { type: 'checkbox' } }
 
 # {title}
 
-Toggle are flexible toggler wraper provides just slots for content & toggle
-control & 1 variable `toggle: boolen`.
+Toggle is a flexible wrapper which provides just the slots for the content. <br />
+You can control it with the `toggle: boolean` flag.
 
 <p>
     <Toggle bind:toggle={state.toggle}>

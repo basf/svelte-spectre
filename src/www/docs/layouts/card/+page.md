@@ -43,10 +43,7 @@ title: Card
 
 # {title}
 
-Cards are flexible content containers.
-
-Add child elements with the image, title, subtitle, content and/or footer slot. <br/>
-The image can be placed in any position
+Cards are flexible content containers. Add child elements with the image, title, subtitle, content and/or footer slot. The image can be placed in any position:
 
 ```sv
 <script>

@@ -10,8 +10,7 @@ title: Grid
 
 # {title}
 
-Layout includes flexbox based responsive grid system with 12 columns.<br/>
-You can specify the width of each column by adding attribute `col=<1-12>`
+Layout includes flexbox-based responsive grid system with 12 columns. You can specify the width of each column by adding attribute `col=<1-12>`
 
 ```sv
 <script>

@@ -10,7 +10,7 @@ title: Container
 
 # {title}
 
-Container is for contain components or elements.
+Container contains further components or elements.
 
 ```sv
 <script>
@@ -18,13 +18,17 @@ Container is for contain components or elements.
 </script>
 
 <Container>
-    <div class="bg-secondary p-2 text-center">I'm Container</div>
+    <div class="bg-secondary p-2 text-center">
+        I'm Container :-D
+    </div>
 </Container>
 ```
 
 <br/>
 <Container>
-    <div class="bg-secondary{$media.dark && '-darked'} p-2 text-center">I'm Container</div>
+    <div class="bg-secondary{$media.dark && '-darked'} p-2 text-center">
+        I'm Container :-D
+    </div>
 </Container>
 
 <style>
