@@ -14,11 +14,12 @@ config: {}
 
 	let selected = [], open = false, clear;
 	let predefined = []
-
-	for (const [key, value] of Object.entries(ptable_data)) {
-		value.forEach(v => predefined.push(v))
-		predefined.push(key)
-	}
+	
+	if(ptable_data)
+		for (const [key, value] of Object.entries(ptable_data)) {
+			value.forEach(v => predefined.push(v))
+			predefined.push(key)
+		}
 
 	$: if (selected.length > 3) {
 		selected.pop();
