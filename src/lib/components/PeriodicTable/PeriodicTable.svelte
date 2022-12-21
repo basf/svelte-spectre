@@ -43,11 +43,11 @@
 	export let selected: any[] = [];
 	export const clear = () => clearSelection();
 
-	let group_names: any = {};
+	let group_names = new Map();
 	if (chemical_content)
 		for (const [key, value] of Object.entries(chemical_content)) {
 			let new_key = value[0] + '/' + value.at(-1);
-			if (new_key) group_names[new_key] = key;
+			if (new_key) group_names.set(new_key, key);
 		}
 
 	const hoverRow = (id: string) => {
@@ -121,10 +121,10 @@
 
 			let group_name =
 				temp_selectedDataOne[0]['name'] + '/' + temp_selectedDataOne.at(-1)['name'];
-			if (selected.find((item) => item.label == group_names[group_name])) {
+			if (selected.find((item) => item.label == group_names.get(group_name))) {
 				selected.splice(
 					selected.indexOf(
-						selected.find((item) => item.label == group_names[group_name])
+						selected.find((item) => item.label == group_names.get(group_name))
 					),
 					1
 				);
@@ -133,8 +133,8 @@
 					selected.pop();
 				}
 				selected.push({
-					label: group_names[group_name],
-					value: group_names[group_name],
+					label: group_names.get(group_name),
+					value: group_names.get(group_name),
 				});
 			}
 		} else {
