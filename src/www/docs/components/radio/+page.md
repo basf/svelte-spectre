@@ -73,7 +73,7 @@ config:
             </Radio>
         </FormGroup>
     </Form>
-    <span>Selected: {radios}</span>
+    <span>Selected: {state.group}</span>
 </p>
 
 <p>
