@@ -11,7 +11,7 @@
 			>
 		</p>
 		<p>
-			<Button href="{base}/docs" variant="primary" size="md" data-sveltekit-prefetch
+			<Button href="{base}/docs" variant="primary" size="md" data-sveltekit-prefetch=""
 				>Docs</Button
 			>
 			&nbsp;

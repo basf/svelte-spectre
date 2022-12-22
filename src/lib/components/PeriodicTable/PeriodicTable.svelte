@@ -43,35 +43,12 @@
 	export let selected: any[] = [];
 	export const clear = () => clearSelection();
 
-	const group_names = new Map<string, string>([
-		['H/He', 'period 1'],
-		['Li/Ne', 'period 2'],
-		['Na/Ar', 'period 3'],
-		['K/Kr', 'period 4'],
-		['Rb/Xe', 'period 5'],
-		['Cs/Rn', 'period 6'],
-		['Fr/Lr', 'period 7'],
-		['La/Yb', 'lanthanide'],
-		['Ac/No', 'actinide'],
-		['H/Fr', 'alkali'],
-		['Be/Ra', 'alkaline'],
-		['Sc/Lr', 'group 3'],
-		['Ti/Hf', 'group 4'],
-		['V/Ta', 'group 5'],
-		['Cr/W', 'group 6'],
-		['Mn/Re', 'group 7'],
-		['Fe/Os', 'group 8'],
-		['Co/Ir', 'group 9'],
-		['Ni/Pt', 'group 10'],
-		['Cu/Au', 'group 11'],
-		['Zn/Hg', 'group 12'],
-		['B/Tl', 'triels'],
-		['C/Pb', 'tetrels'],
-		['N/Bi', 'pnictogen'],
-		['O/Po', 'chalcogen'],
-		['F/At', 'halogen'],
-		['He/Rn', 'noble gas'],
-	]);
+	let group_names = new Map();
+	if (chemical_content)
+		for (const [key, value] of Object.entries(chemical_content)) {
+			let new_key = value[0] + '/' + value.at(-1);
+			if (new_key) group_names.set(new_key, key);
+		}
 
 	const hoverRow = (id: string) => {
 		let divs = document.querySelectorAll(`#periodictable > ul > li.${id}`);
@@ -144,7 +121,6 @@
 
 			let group_name =
 				temp_selectedDataOne[0]['name'] + '/' + temp_selectedDataOne.at(-1)['name'];
-
 			if (selected.find((item) => item.label == group_names.get(group_name))) {
 				selected.splice(
 					selected.indexOf(
