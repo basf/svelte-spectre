@@ -28,3 +28,12 @@ body,
     max-width: 600px!important;
     width: 600px!important
 }
+
+.form-switch.is-success .form-icon{
+    border-color: green!important
+}
+
+.form-switch.is-success input:checked+.form-icon{
+    background: green!important;
+    border-color: green!important
+}
