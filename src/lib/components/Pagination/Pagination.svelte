@@ -108,7 +108,6 @@
 		flex-wrap: wrap;
 		.page-item {
 			a {
-				font-weight: bold;
 				:global(.icon) {
 					vertical-align: sub;
 				}
