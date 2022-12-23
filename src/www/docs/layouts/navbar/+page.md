@@ -1,6 +1,11 @@
 ---
 file: navbar.md
 title: Navbar
+api: [
+	{title: '<slot name="left">: HTMLelement | SvelteComponent', description: 'left component in navbar', variables: 'HTMLelement | SvelteComponent'},
+	{title: '<slot name="center">: HTMLelement | SvelteComponent', description: 'center component in navbar', variables: 'HTMLelement | SvelteComponent'},
+	{title: '<slot name="right">: HTMLelement | SvelteComponent', description: 'right component in navbar', variables: 'HTMLelement | SvelteComponent'},
+]
 ---
 
 <script>
