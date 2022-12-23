@@ -1,6 +1,13 @@
 ---
 file: card.md
 title: Card
+api: [
+	{title: 'pos: Position = "center"', description: 'Image Posistion', variables: 'center | top | bottom'},
+	{title: '<slot name="img">: HTMLelement | SvelteComponent', description: 'image in Card', variables: 'HTMLelement | SvelteComponent'},
+	{title: '<slot name="title">: HTMLelement | SvelteComponent', description: 'Card title or header', variables: 'HTMLelement | SvelteComponent'},
+	{title: '<slot name="subtitle">: HTMLelement | SvelteComponent', description: 'Card subtitle', variables: 'HTMLelement | SvelteComponent'},
+	{title: '<slot name="footer">: HTMLelement | SvelteComponent', description: 'Card footer', variables: 'HTMLelement | SvelteComponent'}
+]
 ---
 
 <script>
@@ -73,7 +80,7 @@ Cards are flexible content containers. Add child elements with the image, title,
     {#each CARDS as { col, pos, img, text }}
         <Col {col}>
             <Card {pos}>
-                <img class="img-responsive" src="{base}/img/{img}" alt="img" slot="img" />
+				<img class="img-responsive" src="{base}/img/{img}" alt="img" slot="img" />
                 <div slot="title" class="h5">Title</div>
                 <div slot="subtitle" class="text-gray">SubTitle</div>
                 <p>{text}</p>
