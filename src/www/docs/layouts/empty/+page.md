@@ -2,10 +2,10 @@
 file: empty.md
 title: Empty
 api: [
-	{title: '<slot name="icon">: HTMLelement | SvelteComponent', description: 'Icon in Hero', variables: 'HTMLelement | SvelteComponent'},
-	{title: '<slot name="title">: HTMLelement | SvelteComponent', description: 'Hero title or header', variables: 'HTMLelement | SvelteComponent'},
-	{title: '<slot name="subtitle">: HTMLelement | SvelteComponent', description: 'Hero subtitle', variables: 'HTMLelement | SvelteComponent'},
-	{title: '<slot name="action">: HTMLelement | SvelteComponent', description: 'Hero footer', variables: 'HTMLelement | SvelteComponent'}
+	{title: '<slot name="icon">: HTMLelement | SvelteComponent', description: 'Icon in Empty', variables: 'HTMLelement | SvelteComponent'},
+	{title: '<slot name="title">: HTMLelement | SvelteComponent', description: 'Empty title or header', variables: 'HTMLelement | SvelteComponent'},
+	{title: '<slot name="subtitle">: HTMLelement | SvelteComponent', description: 'Empty subtitle', variables: 'HTMLelement | SvelteComponent'},
+	{title: '<slot name="action">: HTMLelement | SvelteComponent', description: 'Empty footer', variables: 'HTMLelement | SvelteComponent'}
 ]
 ---
 

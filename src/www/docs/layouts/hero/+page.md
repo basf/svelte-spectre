@@ -1,6 +1,11 @@
 ---
 file: hero.md
 title: Hero
+api: [
+	{title: 'size: Size', description: 'component size', variables: 'xs | sm | md | lg | xl | xxl'},
+	{title: 'bg: Color', description: 'background color', variables: 'initial | primary | secondary | dark | darked | gray | light | success | warning | error'},
+	{title: 'center: Boolean', description: 'text center', variables: 'true | false'},
+]
 ---
 
 <script>
