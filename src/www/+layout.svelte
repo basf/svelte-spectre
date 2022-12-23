@@ -151,6 +151,8 @@
 </script>
 
 <script lang="ts">
+	export const trailingSlash = 'always';
+
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
 	import { Accordion, Button, IconButton, Menu, Navbar, Sidebar, Spectre, Toaster } from '$lib';
