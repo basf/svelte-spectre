@@ -19,5 +19,8 @@
 		.panel .panel-body {
 			overflow-y: visible;
 		}
+		.panel .panel-nav {
+			margin-left: 10px;
+		}
 	}
 </style>
