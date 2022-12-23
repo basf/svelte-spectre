@@ -1,6 +1,34 @@
 ---
 file: grid.md
 title: Grid
+api:
+    [
+        {
+            title: 'gapless: Boolean',
+            description: 'Provide gapless component',
+            variables: 'true | false',
+        },
+        {
+            title: 'oneline: Boolean',
+            description: 'Provide oneline component',
+            variables: 'true | false',
+        },
+        {
+            title: 'stack: Boolean',
+            description: 'Provide stacked component',
+            variables: ' true | false',
+        },
+        {
+            title: 'align: Align',
+            description: 'component position',
+            variables: ' start | center | end | stretch | ""',
+        },
+        {
+            title: 'justify: Justify',
+            description: 'component position',
+            variables: ' start | center | end | stretch | ""',
+        },
+    ]
 ---
 
 <script>

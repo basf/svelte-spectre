@@ -55,7 +55,6 @@ export default {
 		prerender: {
 			handleMissingId: 'warn',
 		},
-		// trailingSlash: 'always',
 	},
 	package: {
 		dir: 'package',

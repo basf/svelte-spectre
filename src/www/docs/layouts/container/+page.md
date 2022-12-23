@@ -1,6 +1,9 @@
 ---
 file: container.md
 title: Container
+api: [
+	{title: 'size: Size = "md"', description: 'Container width', variables: 'lg | md | sm | xs'}
+]
 ---
 
 <script>
@@ -18,7 +21,7 @@ Container contains further components or elements.
     import {media} from '../../../media'
 </script>
 
-<Container>
+<Container size="sm">
     <div class="bg-secondary{$media.dark && '-darked'} p-2 text-center">
         I'm Container :-D
     </div>
@@ -26,12 +29,8 @@ Container contains further components or elements.
 ```
 
 <br/>
-<Container>
+<Container size="sm">
     <div class="bg-secondary{$media.dark && '-darked'} p-2 text-center">
         I'm Container :-D
     </div>
 </Container>
-
-<style>
-    /* div { width: 100%} */
-</style>

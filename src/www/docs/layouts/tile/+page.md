@@ -1,6 +1,13 @@
 ---
 file: tile.md
 title: Tile
+api: [
+	{title: 'centered: Boolean', description: 'set component in center', variables: 'true | false'},
+	{title: '<slot name="icon">: HTMLelement | SvelteComponent', description: 'image or icon in tile', variables: 'HTMLelement | SvelteComponent'},
+	{title: '<slot name="title">: HTMLelement | SvelteComponent', description: 'title text in tile', variables: 'HTMLelement | SvelteComponent'},
+	{title: '<slot name="subtitle">: HTMLelement | SvelteComponent', description: 'subtitle text in tile', variables: 'HTMLelement | SvelteComponent'},
+	{title: '<slot name="action">: HTMLelement | SvelteComponent', description: 'action component in tile', variables: 'HTMLelement | SvelteComponent'},
+]
 ---
 
 <script>

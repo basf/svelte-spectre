@@ -1,16 +1,21 @@
 ---
 file: figure.md
 title: Figure
+api: [
+	{title: 'contain: Boolean', description: 'Image size(img-fit-contain)', variables: ' true | false'},
+	{title: 'cover: Boolean', description: 'Image size(img-fit-cover)', variables: ' true | false'},
+	{title: 'align: Align = "left"', description: 'Text position', variables: ' left | center | right'}
+]
 ---
 
 <script>
     import { base } from '$app/paths';
-    import {Col, Grid, Figure} from '$lib'
+    import {Col, Grid, Figure} from '$lib' 
 </script>
 
 # {title}
 
-You can use the element `<figure>` for an image with a caption. You can also add `contain`, `cover`, `align = true | false`
+You can use the element `<Figure>` for an image with a caption. You can also add `contain, cover = true | false`, `align = left | center | right`
 
 ```sv
 <script>
@@ -21,7 +26,9 @@ You can use the element `<figure>` for an image with a caption. You can also add
     src="{base}/img/04696e1a-eb5d-43b9-bb1d-d2ee117f4430.webp"
     alt="Stable Diffusion Neural Art"
     cover
-    >img-fit-cover</Figure>
+>
+    img-fit-cover
+</Figure>
 ```
 
 <Grid stack>
