@@ -1,6 +1,11 @@
 ---
 file: form.md
 title: Form
+api: [
+	{title: 'horizontal: Boolean', description: 'component horizon', variables: ' true | false'},
+	{title: 'validity: Validity', description: 'component validator', variables: ' success | error'},
+    
+]
 ---
 
 <script>
