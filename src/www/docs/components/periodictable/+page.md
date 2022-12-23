@@ -21,7 +21,7 @@ config: {}
 			predefined.push(key)
 		}
 
-	$: if (selected.length > 3) {
+	$: if (selected.length > 3) { // control select count
 		selected.pop();
 	} else {
 		let counts = {};

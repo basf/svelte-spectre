@@ -87,10 +87,17 @@
 				let li = document.querySelector(`#periodictable > ul > li.${item['label']}`);
 				li?.classList.add(`active_${index + 1}`);
 			} else {
-				chemical_content[item.label]?.map((element: string) => {
-					let li = document.querySelector(`#periodictable > ul > li.${element}`);
-					li?.classList.add(`active_${index + 1}`);
-				});
+				if (item.label === 'alkali') {
+					chemical_content[item.label].slice(1).map((element: string) => {
+						let li = document.querySelector(`#periodictable > ul > li.${element}`);
+						li?.classList.add(`active_${index + 1}`);
+					});
+				} else {
+					chemical_content[item.label]?.map((element: string) => {
+						let li = document.querySelector(`#periodictable > ul > li.${element}`);
+						li?.classList.add(`active_${index + 1}`);
+					});
+				}
 			}
 		});
 	};
@@ -130,6 +137,7 @@
 				);
 			} else {
 				if (selected.length > 2) {
+					// control select count
 					selected.pop();
 				}
 				selected.push({
@@ -142,6 +150,7 @@
 				selected.splice(selected.indexOf(selected.find((item) => item.label == el)), 1);
 			} else {
 				if (selected.length < 3) {
+					// control select count
 					selected.push(item_data);
 				} else {
 					selected.pop();
