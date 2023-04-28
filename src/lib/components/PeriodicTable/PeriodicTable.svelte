@@ -158,7 +158,7 @@
 				}
 			}
 		}
-		selected = selected;
+		selected = [...selected];
 	};
 
 	$: if (typeof document != 'undefined') {
