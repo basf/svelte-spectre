@@ -6,16 +6,19 @@
 
 UI-kit based on [spectre.css](https://picturepan2.github.io/spectre/) and powered by SvelteJS. See the [documentation](https://kit.metis.science), which is also a component explorer (storybook).
 
+
 ### Requirements
 
 -   `node -v >= 15`
 -   `npm -v >= 7`
+
 
 ## Installation
 
 ```bash
 npm install
 ```
+
 
 ## Building package
 
@@ -24,6 +27,7 @@ This builds the GUI components in a `package` folder:
 ```bash
 npm run package
 ```
+
 
 ## Developing
 
@@ -36,7 +40,10 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
+The demo website lives in a separate repo https://github.com/metis-science/svelte-spectre-storybook.
+
+
+## Integration
 
 Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then run:
 
@@ -45,6 +52,7 @@ npm run build
 ```
 
 You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+
 
 ## License
 
