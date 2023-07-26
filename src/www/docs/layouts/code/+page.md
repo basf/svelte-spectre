@@ -27,6 +27,6 @@ import { Code } from 'svelte-spectre'
 
 <Code lang="js">
 
-	let binding = Function.prototype.call.bind(Function.prototype.bind);
+    let binding = Function.prototype.call.bind(Function.prototype.bind);
 
 </Code>

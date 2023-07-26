@@ -87,7 +87,8 @@
 				let li = document.querySelector(`#periodictable > ul > li.${item['label']}`);
 				li?.classList.add(`active_${index + 1}`);
 			} else {
-				if (item.label === 'alkali') { // remove hydrogen "H" from "alkali" group // FIXME
+				if (item.label === 'alkali') {
+					// remove hydrogen "H" from "alkali" group // FIXME
 					chemical_content[item.label].slice(1).map((element: string) => {
 						let li = document.querySelector(`#periodictable > ul > li.${element}`);
 						li?.classList.add(`active_${index + 1}`);
