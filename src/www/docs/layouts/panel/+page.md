@@ -24,7 +24,7 @@ Panel is a flexible view container with an auto-expand content section. Panel is
 
 <Panel>
     <div slot="header">
-        <Icon icon="emoji" size="1x" color="primary" />
+        <Icon icon="check" size="1x" color="primary" />
         Svelte-Spectre
     </div>
     <div slot="nav">
@@ -42,7 +42,7 @@ Panel is a flexible view container with an auto-expand content section. Panel is
 
 <Panel>
     <div slot="header">
-        <Icon icon="emoji" size="1x" color="primary" />
+        <Icon icon="check" size="1x" color="primary" />
         Svelte-Spectre
     </div>
     <div slot="nav">

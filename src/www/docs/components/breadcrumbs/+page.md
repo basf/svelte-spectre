@@ -31,13 +31,13 @@ api:
 ---
 
 <script>
-    import {Breadcrumbs} from '$lib'
+    import {Breadcrumbs} from '$lib';
 
     let links = [
         {title:'Home', href: '#', tooltip: 'Home'},
         {title:'Settings', href: '#', tooltip: 'Settings'},
-        {title:'SvelteSpectre', href: '#', tooltip: 'SvelteSpectre'}
-        ]
+        {title:'Svelte-Spectre', href: '#', tooltip: 'Svelte-Spectre'}
+        ];
 </script>
 
 # {title}
@@ -53,13 +53,13 @@ the `breadcrumb-item` class.
 
 ```sv
 <script>
-    import {Breadcrumbs} from 'svelte-spectre'
+    import {Breadcrumbs} from 'svelte-spectre';
 
     let links = [
         {title:'Home', href: '#', tooltip: 'Home'},
         {title:'Settings', href: '#', tooltip: 'Settings'},
-        {title:'SvelteSpectre', href: '#', tooltip: 'SvelteSpectre'}
-        ]
+        {title:'Svelte-Spectre', href: '#', tooltip: 'Svelte-Spectre'}
+        ];
 </script>
 
 <Breadcrumbs {links}/>

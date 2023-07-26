@@ -51,26 +51,26 @@ config:
 ---
 
 <script>
-    import {Form, FormGroup, Select} from '$lib'
-    import Knobs from '../../knobs.svelte'
+    import {Form, FormGroup, Select} from '$lib';
+    import Knobs from '../../knobs.svelte';
 
-    let multiple = false, 
+    let multiple = false,
         selected = 1,
-        multi = [1], 
+        multi = [1],
         questions = [
-            { value: 1, label: `Where did you go to school?` },
-            { value: 2, label: `What is your mother's name?` },
+            { value: 1, label: `Which Swiss cantons speak Italian language?` },
+            { value: 2, label: `What is an answer to the ultimate question of life, the Universe, and everything?` },
             {
                 value: 3,
-                label: `What is another personal fact that an attacker could easily find with Google?`
+                label: `What is the value of dielectric constant of strontium titanate?`
             }
         ]
-    
-    let state = { 
-        selected: multiple ? [1] : 1, 
-        size: 'md', 
-        inline: false, 
-        validity: null 
+
+    let state = {
+        selected: multiple ? [1] : 1,
+        size: 'md',
+        inline: false,
+        validity: null
     }
 </script>
 

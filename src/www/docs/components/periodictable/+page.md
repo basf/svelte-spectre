@@ -9,16 +9,16 @@ config: {}
 ---
 
 <script>
-	import { PeriodicTable, Button, Modal, Autocomplete } from '$lib'
+	import { PeriodicTable, Button, Modal, Autocomplete } from '$lib';
 	import ptable_data from '$lib/components/PeriodicTable/chemical_content.json';
 
 	let selected = [], open = false, clear;
-	let predefined = []
-	
+	let predefined = [];
+
 	if(ptable_data)
 		for (const [key, value] of Object.entries(ptable_data)) {
-			value.forEach(v => predefined.push(v))
-			predefined.push(key)
+			value.forEach(v => predefined.push(v));
+			predefined.push(key);
 		}
 
 	$: if (selected.length > 3) { // control select count
@@ -27,7 +27,7 @@ config: {}
 		let counts = {};
 		selected.map(item => item.label.length > 2).forEach(x => counts[x] = (counts[x] || 0) + 1);
 		if (counts["true"] > 2){
-			selected.pop()
+			selected.pop();
 		}
 	}
 
@@ -45,7 +45,7 @@ The Periodic Table component allows to select chemical elements conveniently. Cu
 			<Autocomplete
 				{predefined}
 				bind:selected
-				placeholder="Type or select 3 elements"
+				placeholder="Type or select up to 3 elements"
 			/>
 		</p>
 		<p>
@@ -64,7 +64,7 @@ The Periodic Table component allows to select chemical elements conveniently. Cu
 
 ```sv
 <script>
-	import { PeriodicTable } from 'svelte-spectre'
+	import { PeriodicTable } from 'svelte-spectre';
 
 	let selected = [], clear;
 </script>

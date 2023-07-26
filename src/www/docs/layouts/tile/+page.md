@@ -30,7 +30,7 @@ Tiles are repeatable or embeddable information blocks.
         </div>
         <div slot="title">The Avengers</div>
         <div slot="subtitle">Earth's Mightiest Heroes joined forces to take on threats that were too big for any one hero to tackle...</div>
-        <div slot= "action">
+        <div slot="action">
             <Button variant="primary">Join</Button>
         </div>
     </Tile>
@@ -44,7 +44,7 @@ Tiles are repeatable or embeddable information blocks.
         </div>
         <div slot="title">The Avengers</div>
         <div slot="subtitle">Earth's Mightiest Heroes joined forces to take on threats that were too big for any one hero to tackle...</div>
-        <div slot= "action">
+        <div slot="action">
             <Button variant="primary">Join</Button>
         </div>
     </Tile>

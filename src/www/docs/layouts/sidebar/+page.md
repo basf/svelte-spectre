@@ -9,8 +9,6 @@ title: Sidebar
 
 # {title}
 
-> 🚧 Under construction
-
 The `Sidebar` is a navigation layout that the sidebar can slide in and out of
 the viewport. It is built in pure CSS.
 

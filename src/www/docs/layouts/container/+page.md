@@ -23,7 +23,7 @@ Container contains further components or elements.
 
 <Container size="sm">
     <div class="bg-secondary{$media.dark && '-darked'} p-2 text-center">
-        I'm Container :-D
+        Computer, show me periodic table!
     </div>
 </Container>
 ```
@@ -31,6 +31,6 @@ Container contains further components or elements.
 <br/>
 <Container size="sm">
     <div class="bg-secondary{$media.dark && '-darked'} p-2 text-center">
-        I'm Container :-D
+        Computer, show me periodic table!
     </div>
 </Container>

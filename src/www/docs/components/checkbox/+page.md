@@ -33,10 +33,10 @@ config:
 ---
 
 <script>
-    import {Checkbox, Form, FormGroup } from '$lib'
-    import Knobs from '../../knobs.svelte'
+    import {Checkbox, Form, FormGroup } from '$lib';
+    import Knobs from '../../knobs.svelte';
 
-    let state = { indeterminate: false, inline: false, validity: null }
+    let state = { indeterminate: false, inline: false, validity: null };
 </script>
 
 # {title}
@@ -50,11 +50,11 @@ property of input checkboxes to true.
             <Checkbox
                 indeterminate={state.indeterminate}
                 inline={state.inline}
-                validity={state.validity}>Checkbox</Checkbox>
+                validity={state.validity}>Have a lunch</Checkbox>
             <Checkbox
                 indeterminate={state.indeterminate}
                 inline={state.inline}
-                validity={state.validity}>Checkbox</Checkbox>
+                validity={state.validity}>Conquer the world</Checkbox>
         </FormGroup>
     </Form>
 </p>
