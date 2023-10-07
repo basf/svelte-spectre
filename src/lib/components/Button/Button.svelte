@@ -62,11 +62,11 @@
 	export let block: boolean = false;
 	export let input: boolean = false;
 	export let href: string = '';
-	export let badge: any;
-	export let tooltip: string;
-	export let tooltipLeft: string;
-	export let tooltipRight: string;
-	export let tooltipBottom: string;
+	export let badge: any = false;
+	export let tooltip: string = '';
+	export let tooltipLeft: string = '';
+	export let tooltipRight: string = '';
+	export let tooltipBottom: string = '';
 </script>
 
 <style lang="scss">
