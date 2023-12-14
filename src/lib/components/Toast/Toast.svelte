@@ -46,7 +46,7 @@
 	export let type = toastItem.type || 'initial';
 	export let icon = toastItem.icon;
 	export let timeout = toastItem.timeout || 0;
-	export let closable = toastItem.closable ?? true;
+	export let closable = toastItem.closable ?? !timeout;
 	export let invert: boolean = toastItem.invert || false;
 	export let reverse: boolean = toastItem.reverse || false;
 	export let visible: boolean = true;
