@@ -19,7 +19,7 @@ interface ToastItem {
 
 export type { Pos, ToastItem };
 
-const defaults: ToastItem = { closable: true, pos: 'top_center' };
+const defaults: ToastItem = { closable: false, pos: 'top_center' };
 
 function createToast() {
     const { subscribe, set, update } = writable([]);
