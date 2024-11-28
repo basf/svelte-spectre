@@ -33,12 +33,12 @@
 						</slot>
 					</li>
 				{/if}
-				{#if (p + 1 >= page - shift && p + 1 < page + (rest - shift)) || p + 1 === length || p + 1 === 1}
+				{#if (p + 1 >= page - shift && p + 1 < page + (rest - shift)) || p + 1 === length || p === 0}
 					<li class="page-item" class:active={page === p + 1}>
 						<a href="#_" on:click|preventDefault={() => (page = p + 1)}>{p + 1}</a>
 					</li>
 				{/if}
-				{#if p + 1 === 1}
+				{#if p === 0}
 					<li class="page-item" class:active={page === p + 1}>
 						<slot name="rest">
 							<span>...</span>
@@ -53,7 +53,7 @@
 						</slot>
 					</li>
 				{/if}
-				{#if p + 1 >= length - rest || p + 1 === 1}
+				{#if p + 1 >= length - rest || p === 0}
 					<li class="page-item" class:active={page === p + 1}>
 						<a href="#_" on:click|preventDefault={() => (page = p + 1)}>{p + 1}</a>
 					</li>
