@@ -4,7 +4,7 @@
 [![NPM downloads](https://img.shields.io/npm/dm/svelte-spectre.svg?style=flat)](https://www.npmjs.com/package/svelte-spectre)
 [![GitHub issues](https://img.shields.io/github/issues/basf/svelte-spectre?style=flat)](https://github.com/basf/svelte-spectre/issues)
 
-UI-kit based on [spectre.css](https://picturepan2.github.io/spectre/) and powered by SvelteJS. See the [documentation](https://kit.metis.science), which is also a component explorer (storybook).
+UI-kit based on [spectre.css](https://picturepan2.github.io/spectre/) and powered by SvelteJS. See the [documentation](https://kit.optimade.science), which is also a component explorer (storybook).
 
 ### Requirements
 
@@ -27,7 +27,7 @@ npm run package
 
 ## Developing
 
-This serves a [demonstration website](https://kit.metis.science):
+This serves a [demonstration website](https://kit.optimade.science):
 
 ```bash
 npm run dev
@@ -36,7 +36,7 @@ npm run dev
 npm run dev -- --open
 ```
 
-The demo website lives in a separate repo https://github.com/metis-science/svelte-spectre-storybook.
+The demo website lives in a separate repo https://github.com/tilde-lab/svelte-spectre-storybook.
 
 ## Integration
 
@@ -50,6 +50,7 @@ You can preview the built app with `npm run preview`, regardless of whether you 
 
 ## License
 
+Copyright 2024-2025 Materials Platform for Data Science LLC
 Copyright 2021-2023 BASF SE
 
 BSD 3-Clause
