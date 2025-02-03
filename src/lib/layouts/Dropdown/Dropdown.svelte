@@ -27,16 +27,16 @@
 		wH = 0;
 
 	let position: { right: boolean; center: boolean; bottom: boolean } = {
-		center: align === 'center' ? true : false,
-		right: align === 'right' ? true : false,
+		center: align === 'center',
+		right: align === 'right',
 		bottom: false,
 	};
 
 	function onToggle(e: any) {
 		position = {
-			center: align === 'center' ? true : false,
-			right: align === 'right' || e.clientX > wW / 2,
-			bottom: e.clientY > wH / 2,
+			center: align === 'center',
+			right: align === 'right' || wW - e.clientX < e.clientX,
+			bottom: wH - e.clientY < e.clientY,
 		};
 	}
 </script>
