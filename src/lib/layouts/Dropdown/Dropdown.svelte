@@ -35,7 +35,7 @@
 	function onToggle(e: any) {
 		position = {
 			center: align === 'center',
-			right: align === 'right' || wW - e.clientX < e.clientX,
+			right: align !== 'center' ? align === 'right' || wW - e.clientX < e.clientX : false,
 			bottom: wH - e.clientY < e.clientY,
 		};
 	}
