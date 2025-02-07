@@ -19,7 +19,7 @@ api:
             variables: 'true | false',
         },
         {
-            title: 'align: Aling = "left"',
+            title: 'align: Align = "left"',
             description: 'Dropdown align',
             variables: 'left | center | right',
         },

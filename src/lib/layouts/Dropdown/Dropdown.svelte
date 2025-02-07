@@ -2,10 +2,12 @@
 	{...$$restProps}
 	class="dropdown"
 	class:active
-	class:dropdown-center={align.center}
-	class:dropdown-right={align.right}
-	class:dropdown-bottom={align.bottom}
+	class:dropdown-center={position.center}
+	class:dropdown-right={position.right}
+	class:dropdown-bottom={position.bottom}
 >
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 	<div class="dropdown-toggle" on:click|stopPropagation on:click={onToggle} tabindex="0">
 		<slot />
 	</div>
@@ -19,14 +21,21 @@
 
 <script lang="ts">
 	export let active: boolean = false;
-	export let align: { [key: string]: boolean } = {};
+	export let align: string = '';
 
 	let wW = 0,
 		wH = 0;
 
-	function onToggle(e) {
-		align = {
-			right: wW - e.clientX < e.clientX,
+	let position: { right: boolean; center: boolean; bottom: boolean } = {
+		center: align === 'center',
+		right: align === 'right',
+		bottom: false,
+	};
+
+	function onToggle(e: any) {
+		position = {
+			center: align === 'center',
+			right: align !== 'center' ? align === 'right' || wW - e.clientX < e.clientX : false,
 			bottom: wH - e.clientY < e.clientY,
 		};
 	}
