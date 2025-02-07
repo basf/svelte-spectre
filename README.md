@@ -51,6 +51,7 @@ You can preview the built app with `npm run preview`, regardless of whether you 
 ## License
 
 Copyright 2024-2025 Materials Platform for Data Science LLC
+
 Copyright 2021-2023 BASF SE
 
 BSD 3-Clause
