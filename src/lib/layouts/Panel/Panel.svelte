@@ -15,7 +15,7 @@
 
 <style lang="scss">
 	:global(.spectre) {
-		@import 'spectre.css/src/panels';
+		@import '@spectre-org/spectre-css/src/panels';
 		.panel .panel-body {
 			overflow-y: visible;
 		}

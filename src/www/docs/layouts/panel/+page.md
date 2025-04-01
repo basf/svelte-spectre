@@ -31,7 +31,7 @@ Panel is a flexible view container with an auto-expand content section. Panel is
         <strong>About</strong>
     </div>
     <div slot="body">
-        A Lightweight, Responsive and Modern UI-kit based on spectre.css and powered by Svelte and SvelteKit
+        A Lightweight, Responsive and Modern UI-kit based on @spectre-org/spectre-css and powered by Svelte and SvelteKit
     </div>
     <p slot="footer">
         © 2022 — 2023 BASF SE
@@ -49,7 +49,7 @@ Panel is a flexible view container with an auto-expand content section. Panel is
         <strong>About</strong>
     </div>
     <div slot="body">
-        A Lightweight, Responsive and Modern UI-kit based on spectre.css and powered by Svelte and SvelteKit
+        A Lightweight, Responsive and Modern UI-kit based on @spectre-org/spectre-css and powered by Svelte and SvelteKit
     </div>
     <p slot="footer">
         © 2022 — 2023 BASF SE

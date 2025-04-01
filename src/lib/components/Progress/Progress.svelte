@@ -20,7 +20,7 @@
 
 <style lang="scss">
 	:global(.spectre) {
-		@import 'spectre.css/src/progress';
+		@import '@spectre-org/spectre-css/src/progress';
 
 		.progress {
 			--progress-color: currentColor;

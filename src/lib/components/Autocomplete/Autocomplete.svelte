@@ -215,9 +215,9 @@
 </script>
 
 <style lang="scss">
-	@import 'spectre.css/src/autocomplete';
-	@import 'spectre.css/src/menus';
-	@import 'spectre.css/src/forms';
+	@import '@spectre-org/spectre-css/src/autocomplete';
+	@import '@spectre-org/spectre-css/src/menus';
+	@import '@spectre-org/spectre-css/src/forms';
 	:global(.spectre) {
 		.form-autocomplete {
 			.form-autocomplete-input {

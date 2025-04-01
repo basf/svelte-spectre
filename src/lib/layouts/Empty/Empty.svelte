@@ -23,7 +23,7 @@
 
 <style lang="scss">
 	:global(.spectre) {
-		@import 'spectre.css/src/empty';
+		@import '@spectre-org/spectre-css/src/empty';
 
 		.empty {
 			& > :global(:nth-child(n + 2) > *) {

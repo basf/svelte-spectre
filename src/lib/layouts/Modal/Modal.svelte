@@ -61,8 +61,8 @@
 
 <style lang="scss">
 	:global(.spectre) {
-		@import 'spectre.css/src/modals';
-		@import 'spectre.css/src/animations';
+		@import '@spectre-org/spectre-css/src/modals';
+		@import '@spectre-org/spectre-css/src/animations';
 		.modal.active {
 			z-index: 500;
 		}

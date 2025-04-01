@@ -32,5 +32,5 @@
 </script>
 
 <style lang="scss">
-	@import 'spectre.css/src/forms';
+	@import '@spectre-org/spectre-css/src/forms';
 </style>

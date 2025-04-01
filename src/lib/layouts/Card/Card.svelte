@@ -61,7 +61,7 @@
 
 <style lang="scss">
 	:global(.spectre) {
-		@import 'spectre.css/src/cards';
+		@import '@spectre-org/spectre-css/src/cards';
 
 		.card {
 			margin: 0;

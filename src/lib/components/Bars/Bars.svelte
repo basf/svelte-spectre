@@ -86,7 +86,7 @@
 </script>
 
 <style lang="scss">
-	@import 'spectre.css/src/bars';
+	@import '@spectre-org/spectre-css/src/bars';
 
 	.bar {
 		.bar-item {

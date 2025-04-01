@@ -8,8 +8,8 @@
 
 <style lang="scss" global>
 	@import 'code';
-	@import 'spectre.css/src/codes';
-	@import 'spectre.css/src/icons';
+	@import '@spectre-org/spectre-css/src/codes';
+	@import '@spectre-org/spectre-css/src/icons';
 	.off-canvas-content {
 		h2 {
 			padding-top: $unit-4 !important;
