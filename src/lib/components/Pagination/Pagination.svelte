@@ -103,7 +103,7 @@
 </script>
 
 <style lang="scss">
-	@import 'spectre.css/src/pagination';
+	@import '@spectre-org/spectre-css/src/pagination';
 	.pagination {
 		flex-wrap: wrap;
 		.page-item {

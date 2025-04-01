@@ -88,7 +88,7 @@
 
 <style lang="scss">
 	:global(.spectre) {
-		@import 'spectre.css/src/tabs';
+		@import '@spectre-org/spectre-css/src/tabs';
 	}
 	.tab-item {
 		&:focus {

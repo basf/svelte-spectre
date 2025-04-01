@@ -22,7 +22,7 @@
 
 <style lang="scss">
 	:global(.spectre) {
-		@import 'spectre.css/src/hero';
+		@import '@spectre-org/spectre-css/src/hero';
 		.hero-xs {
 			padding-bottom: 1rem;
 			padding-top: 1rem;

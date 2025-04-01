@@ -38,7 +38,7 @@
 
 <style lang="scss">
 	:global(.spectre) {
-		@import 'spectre.css/src/chips';
+		@import '@spectre-org/spectre-css/src/chips';
 		.chip {
 			max-width: fit-content;
 			:global(.avatar) {

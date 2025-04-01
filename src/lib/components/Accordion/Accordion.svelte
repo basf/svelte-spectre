@@ -51,7 +51,7 @@
 </script>
 
 <style lang="scss">
-	@import 'spectre.css/src/accordions';
+	@import '@spectre-org/spectre-css/src/accordions';
 	.accordion {
 		&[open] {
 			& .accordion-header {

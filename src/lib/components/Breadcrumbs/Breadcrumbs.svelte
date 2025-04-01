@@ -22,5 +22,5 @@
 </script>
 
 <style lang="scss">
-	@import 'spectre.css/src/breadcrumbs';
+	@import '@spectre-org/spectre-css/src/breadcrumbs';
 </style>

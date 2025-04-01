@@ -84,7 +84,7 @@
 </script>
 
 <style lang="scss">
-	@import 'spectre.css/src/forms';
+	@import '@spectre-org/spectre-css/src/forms';
 	section {
 		// border: 1px dashed $gray-color;
 		// margin: 8px -8px;

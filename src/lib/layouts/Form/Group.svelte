@@ -19,7 +19,7 @@
 
 <style lang="scss">
 	:global {
-		@import 'spectre.css/src/forms';
+		@import '@spectre-org/spectre-css/src/forms';
 	}
 
 	// :global(.spectre) {

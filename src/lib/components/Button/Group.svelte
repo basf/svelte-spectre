@@ -8,6 +8,6 @@
 
 <style lang="scss" global>
 	:global(.spectre) {
-		@import 'spectre.css/src/buttons';
+		@import '@spectre-org/spectre-css/src/buttons';
 	}
 </style>

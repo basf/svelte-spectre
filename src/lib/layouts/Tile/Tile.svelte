@@ -30,6 +30,6 @@
 
 <style lang="scss">
 	:global(.spectre) {
-		@import 'spectre.css/src/tiles';
+		@import '@spectre-org/spectre-css/src/tiles';
 	}
 </style>

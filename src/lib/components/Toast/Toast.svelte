@@ -97,7 +97,7 @@
 
 <style lang="scss">
 	:global(.spectre) {
-		@import 'spectre.css/src/toasts';
+		@import '@spectre-org/spectre-css/src/toasts';
 
 		.toast {
 			position: relative;

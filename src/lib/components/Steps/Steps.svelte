@@ -26,6 +26,6 @@
 
 <style lang="scss">
 	:global(.spectre) {
-		@import 'spectre.css/src/steps';
+		@import '@spectre-org/spectre-css/src/steps';
 	}
 </style>
