@@ -43,7 +43,7 @@
 
 <style lang="scss">
 	:global(.spectre) {
-		@import 'spectre.css/src/dropdowns';
+		@import '@spectre-org/spectre-css/src/dropdowns';
 	}
 	.dropdown {
 		.dropdown-toggle {

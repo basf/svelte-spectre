@@ -18,15 +18,15 @@
 		color: $body-font-color;
 
 		:global {
-			@import 'spectre.css/src/base';
-			@import 'spectre.css/src/normalize';
-			@import 'spectre.css/src/typography';
-			@import 'spectre.css/src/layout';
-			@import 'spectre.css/src/animations';
-			@import 'spectre.css/src/utilities';
-			@import 'spectre.css/src/media';
-			@import 'spectre.css/src/badges';
-			@import 'spectre.css/src/tooltips';
+			@import '@spectre-org/spectre-css/src/base';
+			@import '@spectre-org/spectre-css/src/normalize';
+			@import '@spectre-org/spectre-css/src/typography';
+			@import '@spectre-org/spectre-css/src/layout';
+			@import '@spectre-org/spectre-css/src/animations';
+			@import '@spectre-org/spectre-css/src/utilities';
+			@import '@spectre-org/spectre-css/src/media';
+			@import '@spectre-org/spectre-css/src/badges';
+			@import '@spectre-org/spectre-css/src/tooltips';
 
 			.mx-auto {
 				margin-left: auto;

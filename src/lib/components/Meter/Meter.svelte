@@ -37,7 +37,7 @@
 </script>
 
 <style lang="scss">
-	@import 'spectre.css/src/meters';
+	@import '@spectre-org/spectre-css/src/meters';
 
 	.meter {
 		span {

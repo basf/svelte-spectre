@@ -29,7 +29,7 @@
 </script>
 
 <style lang="scss">
-	@import 'spectre.css/src/sliders';
+	@import '@spectre-org/spectre-css/src/sliders';
 
 	label {
 		display: block;

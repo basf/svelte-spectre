@@ -12,7 +12,7 @@
 </script>
 
 <style lang="scss">
-	@import 'spectre.css/src/labels';
+	@import '@spectre-org/spectre-css/src/labels';
 	:global(.spectre) {
 		.label {
 			font-size: 0.7rem;

@@ -5,7 +5,7 @@
 <h1>Getting started</h1>
 
 <p>
-	Spectre.css is a lightweight, responsive and modern CSS framework for faster and extensible
+	Spectre-css is a lightweight, responsive and modern CSS framework for faster and extensible
 	development.
 </p>
 
@@ -19,7 +19,7 @@
 	<Col col="6" xs="12">
 		<Card expand shadowed flat>
 			<h4 slot="title">Installation</h4>
-			<p>How to install and use Spectre.css</p>
+			<p>How to install and use Spectre-css</p>
 			<Button
 				slot="footer"
 				variant="primary"
@@ -30,7 +30,7 @@
 	<Col col="6" xs="12">
 		<Card expand shadowed flat>
 			<h4 slot="title">Customize</h4>
-			<p>Customize your version of Spectre.css</p>
+			<p>Customize your version of Spectre-css</p>
 			<Button
 				slot="footer"
 				variant="primary"
