@@ -61,8 +61,8 @@
 </script>
 
 <style lang="scss">
-	@import 'spectre.css/src/utilities';
-	@import 'spectre.css/src/avatars';
+	@import '@spectre-org/spectre-css/src/utilities';
+	@import '@spectre-org/spectre-css/src/avatars';
 
 	:global(.spectre) {
 		.avatar {

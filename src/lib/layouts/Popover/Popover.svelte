@@ -22,7 +22,7 @@
 
 <style lang="scss">
 	:global(.spectre) {
-		@import 'spectre.css/src/popovers';
+		@import '@spectre-org/spectre-css/src/popovers';
 	}
 	.popover-container {
 		z-index: 500 !important;

@@ -26,7 +26,7 @@
 
 <style lang="scss">
 	:global(.spectre) {
-		@import 'spectre.css/src/layout';
+		@import '@spectre-org/spectre-css/src/layout';
 	}
 	.col-stack {
 		margin-top: $layout-spacing * -2;

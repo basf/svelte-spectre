@@ -71,7 +71,7 @@ config: { nav: { type: 'checkbox' } }
 Menus are vertical list of links or buttons for actions and navigation.
 
 Add a container element with the menu class. And add child elements with the
-menu-item class. You can separate menu items with a divider. Spectre.css does
+menu-item class. You can separate menu items with a divider. Spectre-css does
 not include JavaScript code, you will need to implement your JS to interact with
 the menus.
 

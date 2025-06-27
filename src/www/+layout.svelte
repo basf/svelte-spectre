@@ -184,7 +184,7 @@
 	@import 'app';
 
 	nav#sidebar {
-		@import 'spectre.css/src/menus';
+		@import '@spectre-org/spectre-css/src/menus';
 		h5 {
 			text-transform: capitalize;
 			&.header {

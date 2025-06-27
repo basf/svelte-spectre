@@ -115,9 +115,9 @@
 </script>
 
 <style lang="scss">
-	@import 'spectre.css/src/off-canvas';
-	@import 'spectre.css/src/buttons';
-	@import 'spectre.css/src/icons';
+	@import '@spectre-org/spectre-css/src/off-canvas';
+	@import '@spectre-org/spectre-css/src/buttons';
+	@import '@spectre-org/spectre-css/src/icons';
 
 	:global(.spectre) {
 		.z-300 {

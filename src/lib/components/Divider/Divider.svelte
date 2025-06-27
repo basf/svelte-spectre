@@ -25,7 +25,7 @@
 
 <style lang="scss">
 	:global(.spectre) {
-		@import 'spectre.css/src/utilities/divider';
+		@import '@spectre-org/spectre-css/src/utilities/divider';
 
 		hr {
 			border: 0;

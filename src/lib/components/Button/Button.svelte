@@ -71,7 +71,7 @@
 
 <style lang="scss">
 	:global(.spectre) {
-		@import 'spectre.css/src/buttons';
+		@import '@spectre-org/spectre-css/src/buttons';
 	}
 	.btn {
 		position: relative !important;

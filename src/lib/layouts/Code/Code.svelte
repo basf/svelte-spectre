@@ -14,6 +14,6 @@
 
 <style lang="scss">
 	:global(.spectre) {
-		@import 'spectre.css/src/codes';
+		@import '@spectre-org/spectre-css/src/codes';
 	}
 </style>

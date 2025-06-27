@@ -83,9 +83,9 @@
 </script>
 
 <style lang="scss">
-	@import 'spectre.css/src/menus';
-	@import 'spectre.css/src/icons';
-	@import 'spectre.css/src/labels';
+	@import '@spectre-org/spectre-css/src/menus';
+	@import '@spectre-org/spectre-css/src/icons';
+	@import '@spectre-org/spectre-css/src/labels';
 
 	.menu {
 		.menu-item {
