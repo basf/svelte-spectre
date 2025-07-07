@@ -140,7 +140,9 @@
 			{/if}
 		</svelte:fragment>
 
-		<footer class="text-center p-2">&copy; 2022 &mdash; 2023 BASF SE</footer>
+		<footer class="text-center p-2">
+			&copy; 2022 &mdash; 2025 BASF SE and Materials Platform for Data Science O&Uuml;
+		</footer>
 	</Sidebar>
 
 	<Toaster />

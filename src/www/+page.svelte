@@ -5,10 +5,10 @@
 			A Lightweight, Responsive and Modern UI-kit based on <a
 				href="https://spectre-org.github.io/spectre-docs">Spectre CSS</a
 			>
-			and powered by <a href="https://svelte.dev">Svelte</a> plus
+			and powered by <a href="https://svelte.dev">Svelte</a> and
 			<a href="https://kit.svelte.dev" target="_blank" rel="noreferrer" alt="SvelteKit"
 				>SvelteKit</a
-			>
+			>.
 		</p>
 		<p>
 			<Button href="{base}/docs" variant="primary" size="md" data-sveltekit-prefetch=""
