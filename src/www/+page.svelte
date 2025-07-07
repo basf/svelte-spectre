@@ -3,9 +3,9 @@
 		<h1>{name}</h1>
 		<p>
 			A Lightweight, Responsive and Modern UI-kit based on <a
-				href="https://picturepan2.github.io/spectre">@spectre-org/spectre-css</a
+				href="https://spectre-org.github.io/spectre-docs">Spectre CSS</a
 			>
-			and powered by <a href="https://svelte.dev">Svelte</a> and
+			and powered by <a href="https://svelte.dev">Svelte</a> plus
 			<a href="https://kit.svelte.dev" target="_blank" rel="noreferrer" alt="SvelteKit"
 				>SvelteKit</a
 			>
