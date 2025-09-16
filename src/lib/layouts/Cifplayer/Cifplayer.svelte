@@ -1,0 +1,9 @@
+<iframe
+	title="Cifplayer"
+	name="CifplayerFrame"
+	src="http://nanoshow.mpds.io/"
+	style="width:100%;height:600px;border:none;"
+	allowfullscreen
+	scrolling="no"
+	frameborder="0"
+/>
