@@ -11,7 +11,7 @@
 
 <script lang="ts">
 	export let data: string = '';
-	export let src: string = 'http://nanoshow.mpds.io/';
+	export let src: string = 'https://nanoshow.mpds.io/';
 
 	function load(message: string) {
 		const timer = setInterval(() => {
@@ -20,6 +20,6 @@
 				CifplayerFrame.postMessage(message, '*');
 				clearInterval(timer);
 			}
-		}, 250);
+		}, 300);
 	}
 </script>
