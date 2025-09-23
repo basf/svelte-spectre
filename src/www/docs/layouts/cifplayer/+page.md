@@ -8,7 +8,7 @@ api: [
 
 <script>
 		import { CIFPlayer } from '$lib';
-		let initialData = `Ba Ti O  Ba Ti O  Ba Ti O  Ba Ti O  Ba Ti O  Ba Ti O  Ba Ti O  Ba Ti O
+		let initialData = `BaTiO3
 1.0000000000000000
 		8.0000000000000000    0.0000000000000000    0.0000000000000000
 		0.0000000000000000    8.0000000000000000    0.0000000000000000
@@ -60,7 +60,7 @@ Cartesian
 
 # CIFPlayer
 
-The `CIFPlayer` component allows you to embed the interactive NanoShow CIF viewer from [nanoshow.mpds.io](http://nanoshow.mpds.io/) directly in your Svelte application. This is useful for visualizing crystal structures and CIF files in scientific and educational projects.
+The `CIFPlayer` component allows you to embed the interactive [crystal structure viewer](https://nanoshow.mpds.io) directly into your Svelte application. This is useful for visualizing CIF, POSCAR, and Optimade formats in scientific and educational projects.
 
 ## Usage
 
@@ -69,15 +69,15 @@ The `CIFPlayer` component allows you to embed the interactive NanoShow CIF viewe
 
 <script>
     import { CIFPlayer } from 'svelte-spectre';
-    let initialData = `Ba Ti O ...`; // your CIF data
+    let initialData = `...`; // your crystal structure
 </CIFPlayer>
 ```
 
 ## Features
 
--   Embeds the NanoShow CIF viewer via an iframe
+-   Embeds the crystal structure viewer via an iframe
 -   Responsive width and fixed height (customizable)
--   Accepts CIF data as a prop and sends it to the viewer on load
+-   Accepts structure data as a prop and sends it to the viewer on load
 
 **Note:** The viewer is loaded from an external website. Ensure your users have internet access to use this feature.
 
