@@ -1,5 +1,4 @@
 export * from './Card/';
-export * from './CIFPlayer/';
 export * from './Code/';
 export * from './Container/';
 export * from './Dropdown/';
