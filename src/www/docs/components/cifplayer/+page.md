@@ -70,7 +70,7 @@ The `CIFPlayer` component allows you to embed the interactive [crystal structure
 <script>
     import { CIFPlayer } from 'svelte-spectre';
     let initialData = `...`; // your crystal structure
-</CIFPlayer>
+</script>
 ```
 
 ## Features
