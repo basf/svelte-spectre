@@ -22,5 +22,6 @@ export * from './Select';
 export * from './Steps/';
 export * from './Switch/';
 export * from './Tabs/';
+export * from './Timer/';
 export * from './Toast/';
 export * from './Transition/';
