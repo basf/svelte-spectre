@@ -2,7 +2,7 @@
 file: cifplayer.md
 title: CIFPlayer
 api: [
-{title: 'data :String', description: 'Show initial structure', variables: 'data: string (CIF data to visualize, sent to the viewer on load)'},
+{title: 'data: String', description: 'Show initial structure', variables: 'data: string (data to visualize, sent to the viewer on load)'},
 ]
 ---
 
@@ -60,7 +60,7 @@ Cartesian
 
 # CIFPlayer
 
-The `CIFPlayer` component allows you to embed the interactive [crystal structure viewer](https://nanoshow.mpds.io) directly into your Svelte application. This is useful for visualizing CIF, POSCAR, and Optimade formats in scientific and educational projects.
+The `CIFPlayer` component allows you to embed the interactive [crystal structure viewer](https://nanoshow.mpds.io) directly into your Svelte application. This is useful for visualizing the crystal structure formats CIF, POSCAR, and Optimade in scientific and educational projects.
 
 ## Usage
 
@@ -79,7 +79,7 @@ The `CIFPlayer` component allows you to embed the interactive [crystal structure
 -   Responsive width and fixed height (customizable)
 -   Accepts structure data as a prop and sends it to the viewer on load
 
-**Note:** The viewer is loaded from an external website. Ensure your users have internet access to use this feature.
+**Note:** The viewer is loaded from an external website https://nanoshow.mpds.io. Ensure your users have internet access to use this feature.
 
 ## Example
 

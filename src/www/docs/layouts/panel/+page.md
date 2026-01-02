@@ -34,10 +34,9 @@ Panel is a flexible view container with an auto-expand content section. Panel is
         A Lightweight, Responsive and Modern UI-kit based on @spectre-org/spectre-css and powered by Svelte and SvelteKit
     </div>
     <p slot="footer">
-        © 2022 — 2025 BASF SE and Materials Platform for Data Science OÜ
+        &copy; Authors of Svelte and Spectre CSS, Alexander Volkov, Pavel Malyshev, Aljaz Lee, and Evgeny Blokhin
     </p>
 </Panel>
-
 ```
 
 <Panel>
@@ -52,6 +51,6 @@ Panel is a flexible view container with an auto-expand content section. Panel is
         A Lightweight, Responsive and Modern UI-kit based on @spectre-org/spectre-css and powered by Svelte and SvelteKit
     </div>
     <p slot="footer">
-        © 2022 — 2025 BASF SE and Materials Platform for Data Science OÜ
+        &copy; Authors of Svelte and Spectre CSS, Alexander Volkov, Pavel Malyshev, Aljaz Lee, and Evgeny Blokhin
     </p>
 </Panel>

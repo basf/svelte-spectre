@@ -141,7 +141,7 @@
 		</svelte:fragment>
 
 		<footer class="text-center p-2">
-			&copy; 2022 &mdash; 2025 BASF SE and Materials Platform for Data Science O&Uuml;
+			&copy; 2021 &mdash; 2026 BASF SE and Materials Platform for Data Science O&Uuml;
 		</footer>
 	</Sidebar>
 
