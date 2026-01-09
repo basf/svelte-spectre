@@ -34,7 +34,7 @@
 		"@poppanator/sveltekit-svg": "^0.3.4",
 		"@spectre-org/spectre-css": "^1.2.0",
 		"@sveltejs/adapter-static": "^1.0.0-next.43",
-		"@sveltejs/kit": "^1.0.0-next.504",
+		"@sveltejs/kit": "^2.43.6",
 		"@sveltejs/package": "1.0.0-next.3",
 		"@types/jsdom": "^20.0.0",
 		"@typescript-eslint/eslint-plugin": "^5.38.1",
