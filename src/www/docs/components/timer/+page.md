@@ -36,25 +36,19 @@ The remaining time is calculated from the real time, not from the page load.
 
 ## Demo
 
-#### Start timestamp (Unix, seconds)
+#### Start timestamp (Unix time), duration (seconds)
 
 ```
 <Timer {duration} {startTimestamp}/>
 ```
 
+Start TimeStamp:
 <Input
 	type="number"
 	bind:value={startTimestamp}
 />
-<br/>
 
-We finish in <Timer {duration} {startTimestamp}/>.
-
-#### Duration (seconds)
-
-```
-<Timer {duration}/>
-```
+Duration:
 
 <Input
 	type="number"
@@ -62,4 +56,4 @@ We finish in <Timer {duration} {startTimestamp}/>.
 />
 <br/>
 
-We finish in <Timer {duration}/>.
+We finish in <Timer {duration} {startTimestamp}/>.
