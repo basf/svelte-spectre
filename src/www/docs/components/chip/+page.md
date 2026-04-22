@@ -43,11 +43,6 @@ api:
             description: 'Spectre color name for background (primary, secondary, success, etc.)',
             variables: 'primary | secondary | success | warning | error | gray | light | etc.',
         },
-        {
-            title: 'customColor: string = null',
-            description: 'Custom background color (hex, rgb, etc). Overrides color prop.',
-            variables: 'e.g. #FF0000, rgb(0,0,0)',
-        },
     ]
 config:
     {
@@ -111,8 +106,6 @@ class.
     <Chip active>Active</Chip>
     <Chip color="primary">Primary</Chip>
     <Chip color="success">Success</Chip>
-    <Chip customColor="#EF4444">Custom Red</Chip>
-    <Chip customColor="#10B981">Custom Green</Chip>
     <Chip name="CP" avatar>Avatar</Chip>
     <Chip name="CP" status="online" avatar>Online</Chip>
     <Chip name="CP" status="busy" avatar>Busy</Chip>
@@ -134,8 +127,6 @@ class.
 <Chip active>Active</Chip>
 <Chip color="primary">Primary</Chip>
 <Chip color="success">Success</Chip>
-<Chip customColor="#EF4444">Custom Red</Chip>
-<Chip customColor="#10B981">Custom Green</Chip>
 <Chip name="CP">Avatar</Chip>
 <Chip name="CP" status="online">Online</Chip>
 <Chip name="CP" status="busy">Busy</Chip>

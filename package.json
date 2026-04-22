@@ -22,6 +22,12 @@
 		"prepare": "husky install"
 	},
 	"author": "Alexander Volkov",
+	"contributors": [
+		{
+			"name": "luckylionheart",
+			"email": "uyscuti0513@gmail.com"
+		}
+	],
 	"license": "BSD 3-Clause",
 	"repository": {
 		"type": "git",

@@ -1,9 +1,4 @@
-<div
-	{...$$restProps}
-	class="chip {color && !customColor ? `bg-${color}` : ''}"
-	class:active
-	style={customColor ? `background-color: ${customColor} !important; color: white;` : undefined}
->
+<div {...$$restProps} class="chip {color ? `bg-${color}` : ''}" class:active>
 	{#if avatar}
 		<Avatar size="sm" {name} {status}>
 			<slot name="avatar" />
@@ -39,7 +34,6 @@
 	export let color: Color = null;
 	export let active: boolean = false;
 	export let closable: boolean = false;
-	export let customColor: string = null;
 </script>
 
 <style lang="scss">
