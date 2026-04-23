@@ -1,6 +1,6 @@
 {
 	"name": "svelte-spectre",
-	"version": "0.5.3",
+	"version": "0.5.4",
 	"description": "UI-kit based on spectre-css and powered by SvelteJS",
 	"main": "./package/index.js",
 	"files": [
@@ -22,6 +22,13 @@
 		"prepare": "husky install"
 	},
 	"author": "Alexander Volkov",
+	"contributors": [
+		{
+			"name": "luckylionheart",
+			"email": "uyscuti0513@gmail.com",
+			"url": "https://www.npmjs.com/~luckylionheart"
+		}
+	],
 	"license": "BSD 3-Clause",
 	"repository": {
 		"type": "git",

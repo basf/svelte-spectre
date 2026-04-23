@@ -1,4 +1,4 @@
-<div {...$$restProps} class="chip bg-{color}" class:active>
+<div {...$$restProps} class="chip {color ? `bg-${color}` : ''}" class:active>
 	{#if avatar}
 		<Avatar size="sm" {name} {status}>
 			<slot name="avatar" />

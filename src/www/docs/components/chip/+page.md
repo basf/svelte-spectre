@@ -38,6 +38,11 @@ api:
             description: 'Chip closable',
             variables: 'true | false',
         },
+        {
+            title: 'color: Color = null',
+            description: 'Spectre color name for background (primary, secondary, success, etc.)',
+            variables: 'primary | secondary | success | warning | error | gray | light | etc.',
+        },
     ]
 config:
     {
@@ -99,6 +104,8 @@ class.
         {state.slot}
     </Chip>
     <Chip active>Active</Chip>
+    <Chip color="primary">Primary</Chip>
+    <Chip color="success">Success</Chip>
     <Chip name="CP" avatar>Avatar</Chip>
     <Chip name="CP" status="online" avatar>Online</Chip>
     <Chip name="CP" status="busy" avatar>Busy</Chip>
@@ -118,6 +125,8 @@ class.
 
 <Chip>Chip</Chip>
 <Chip active>Active</Chip>
+<Chip color="primary">Primary</Chip>
+<Chip color="success">Success</Chip>
 <Chip name="CP">Avatar</Chip>
 <Chip name="CP" status="online">Online</Chip>
 <Chip name="CP" status="busy">Busy</Chip>
