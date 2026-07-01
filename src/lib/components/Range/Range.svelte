@@ -10,11 +10,11 @@
 	class:h-xl={height === 'xl'}
 	class:h-xxl={height === 'xxl'}
 	style="
-		--min: {ux_min}; --max: {ux_max};
-		--lo: {pct(lo)}%; --hi: {pct(hi)}%;
+		--ux-min: {ux_min}; --ux-max: {ux_max};
+		--user-min: {pct(user_min_val)}%; --user-max: {pct(user_max_val)}%;
 		--range-color: {validityColor};
 	"
-	data-range={isDual ? `${lo} – ${hi}` : `${range ?? hi}`}
+	data-range={isDual ? `${user_min_val} – ${user_max_val}` : `${range ?? user_max_val}`}
 >
 	<slot />
 	<div
@@ -29,49 +29,49 @@
 		{#if isDual}
 			<button
 				type="button"
-				class="range-handle range-handle-lo"
-				class:active={active === 'lo'}
-				style="left: {pct(lo)}%"
+				class="range-handle range-handle-min"
+				class:active={active === 'min'}
+				style="left: {pct(user_min_val)}%"
 				aria-label="minimum"
 				aria-valuemin={ux_min}
-				aria-valuemax={hi}
-				aria-valuenow={lo}
+				aria-valuemax={user_max_val}
+				aria-valuenow={user_min_val}
 				role="slider"
 				tabindex="0"
-				on:mousedown={(e) => onDown(e, 'lo')}
-				on:touchstart={(e) => onDown(e, 'lo')}
-				on:keydown={(e) => onKey(e, 'lo')}
+				on:mousedown={(e) => onDown(e, 'min')}
+				on:touchstart={(e) => onDown(e, 'min')}
+				on:keydown={(e) => onKey(e, 'min')}
 			/>
 			<button
 				type="button"
-				class="range-handle range-handle-hi"
-				class:active={active === 'hi'}
-				style="left: {pct(hi)}%"
+				class="range-handle range-handle-max"
+				class:active={active === 'max'}
+				style="left: {pct(user_max_val)}%"
 				aria-label="maximum"
-				aria-valuemin={lo}
+				aria-valuemin={user_min_val}
 				aria-valuemax={ux_max}
-				aria-valuenow={hi}
+				aria-valuenow={user_max_val}
 				role="slider"
 				tabindex="0"
-				on:mousedown={(e) => onDown(e, 'hi')}
-				on:touchstart={(e) => onDown(e, 'hi')}
-				on:keydown={(e) => onKey(e, 'hi')}
+				on:mousedown={(e) => onDown(e, 'max')}
+				on:touchstart={(e) => onDown(e, 'max')}
+				on:keydown={(e) => onKey(e, 'max')}
 			/>
 		{:else}
 			<button
 				type="button"
-				class="range-handle range-handle-hi"
-				class:active={active === 'hi'}
-				style="left: {pct(range ?? hi)}%"
+				class="range-handle range-handle-max"
+				class:active={active === 'max'}
+				style="left: {pct(range ?? user_max_val)}%"
 				aria-label="value"
 				aria-valuemin={ux_min}
 				aria-valuemax={ux_max}
-				aria-valuenow={range ?? hi}
+				aria-valuenow={range ?? user_max_val}
 				role="slider"
 				tabindex="0"
-				on:mousedown={(e) => onDown(e, 'hi')}
-				on:touchstart={(e) => onDown(e, 'hi')}
-				on:keydown={(e) => onKey(e, 'hi')}
+				on:mousedown={(e) => onDown(e, 'max')}
+				on:touchstart={(e) => onDown(e, 'max')}
+				on:keydown={(e) => onKey(e, 'max')}
 			/>
 		{/if}
 	</div>
@@ -101,8 +101,8 @@
 
 	$: isDual = dual || user_min !== null || user_max !== null;
 
-	$: lo = clamp(isDual ? user_min ?? ux_min : ux_min, ux_min, ux_max);
-	$: hi = clamp(isDual ? user_max ?? ux_max : range ?? 50, ux_min, ux_max);
+	$: user_min_val = clamp(isDual ? user_min ?? ux_min : ux_min, ux_min, ux_max);
+	$: user_max_val = clamp(isDual ? user_max ?? ux_max : range ?? 50, ux_min, ux_max);
 
 	$: validityColor =
 		validity === 'success'
@@ -115,8 +115,8 @@
 			? 'var(--info-color, var(--primary-color))'
 			: 'var(--primary-color)';
 
-	function clamp(v: number, lo: number, hi: number): number {
-		return Math.min(Math.max(v, lo), hi);
+	function clamp(v: number, minBound: number, maxBound: number): number {
+		return Math.min(Math.max(v, minBound), maxBound);
 	}
 
 	function pct(v: number): number {
@@ -125,7 +125,7 @@
 	}
 
 	let trackEl: HTMLElement;
-	let active: 'lo' | 'hi' | null = null;
+	let active: 'min' | 'max' | null = null;
 
 	function valueFromClientX(clientX: number): number {
 		const rect = trackEl.getBoundingClientRect();
@@ -135,7 +135,7 @@
 		return clamp(stepped, ux_min, ux_max);
 	}
 
-	function onDown(e: MouseEvent | TouchEvent, which: 'lo' | 'hi') {
+	function onDown(e: MouseEvent | TouchEvent, which: 'min' | 'max') {
 		e.preventDefault();
 		active = which;
 		window.addEventListener('mousemove', onMove);
@@ -149,17 +149,17 @@
 		e.preventDefault();
 		const clientX = 'touches' in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
 		const v = valueFromClientX(clientX);
-		if (active === 'lo') {
-			const newLo = Math.min(v, hi);
-			if (isDual) user_min = newLo;
-			else range = newLo;
+		if (active === 'min') {
+			const newVal = Math.min(v, user_max_val);
+			if (isDual) user_min = newVal;
+			else range = newVal;
 		} else {
-			const newHi = Math.max(v, lo);
+			const newVal = Math.max(v, user_min_val);
 			if (isDual) {
-				user_max = newHi;
-				range = newHi;
+				user_max = newVal;
+				range = newVal;
 			} else {
-				range = newHi;
+				range = newVal;
 			}
 		}
 		dispatchChange();
@@ -179,21 +179,21 @@
 		const v = valueFromClientX(clientX);
 		if (!isDual) {
 			range = v;
-			active = 'hi';
+			active = 'max';
 			window.addEventListener('mousemove', onMove);
 			window.addEventListener('mouseup', onUp);
 			window.addEventListener('touchmove', onMove, { passive: false });
 			window.addEventListener('touchend', onUp);
 		} else {
-			const dLo = Math.abs(v - lo);
-			const dHi = Math.abs(v - hi);
-			if (dLo <= dHi) {
-				user_min = Math.min(v, hi);
-				onDown(e, 'lo');
+			const dMin = Math.abs(v - user_min_val);
+			const dMax = Math.abs(v - user_max_val);
+			if (dMin <= dMax) {
+				user_min = Math.min(v, user_max_val);
+				onDown(e, 'min');
 			} else {
-				user_max = Math.max(v, lo);
+				user_max = Math.max(v, user_min_val);
 				range = user_max;
-				onDown(e, 'hi');
+				onDown(e, 'max');
 			}
 		}
 		dispatchChange();
@@ -202,14 +202,14 @@
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 	function dispatchChange() {
-		dispatch('input', isDual ? { user_min: lo, user_max: hi } : range);
-		dispatch('change', isDual ? { user_min: lo, user_max: hi } : range);
+		dispatch('input', isDual ? { user_min: user_min_val, user_max: user_max_val } : range);
+		dispatch('change', isDual ? { user_min: user_min_val, user_max: user_max_val } : range);
 	}
 
-	function onKey(e: KeyboardEvent, which: 'lo' | 'hi') {
+	function onKey(e: KeyboardEvent, which: 'min' | 'max') {
 		const small = step || 1;
 		const big = (ux_max - ux_min) / 10;
-		let v = which === 'lo' ? lo : hi;
+		let v = which === 'min' ? user_min_val : user_max_val;
 		switch (e.key) {
 			case 'ArrowLeft':
 			case 'ArrowDown':
@@ -236,12 +236,12 @@
 		}
 		e.preventDefault();
 		v = clamp(v, ux_min, ux_max);
-		if (which === 'lo') {
-			v = Math.min(v, hi);
+		if (which === 'min') {
+			v = Math.min(v, user_max_val);
 			if (isDual) user_min = v;
 			else range = v;
 		} else {
-			v = Math.max(v, lo);
+			v = Math.max(v, user_min_val);
 			if (isDual) {
 				user_max = v;
 				range = v;
@@ -269,7 +269,7 @@
 			&::after {
 				content: attr(data-range);
 				position: absolute;
-				left: var(--hi, 50%);
+				left: var(--user-max, 50%);
 				bottom: 150%;
 				color: $light-color;
 				background: rgba($dark-color, 0.95);
@@ -383,8 +383,8 @@
 	.range-selection {
 		position: absolute;
 		top: 50%;
-		left: var(--lo, 0%);
-		right: calc(100% - var(--hi, 100%));
+		left: var(--user-min, 0%);
+		right: calc(100% - var(--user-max, 100%));
 		height: $unit-h;
 		transform: translateY(-50%);
 		background: var(--range-color, $primary-color);
