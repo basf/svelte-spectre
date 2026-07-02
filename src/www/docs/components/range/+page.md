@@ -94,17 +94,16 @@ config:
 
 # {title}
 
-The Range component is for selecting values from ranges. It supports a single
-handle (default) and a dual-handle mode for selecting a min/max range.
+The Range component is required for selecting the numerical values according to the ranges.
+It supports a single-handle mode (default) and a dual-handle mode.
 
 ## Single range
 
-Use `bind:range` for a single-handle slider.
+Use `bind:range` for a single-handle mode.
 
 <p>
     <Form>
         <FormGroup>
-            <h4>Range (single)</h4>
             <Range
                 bind:range={state.Single.range}
                 bind:ux_min={state.Single.ux_min}
@@ -112,7 +111,7 @@ Use `bind:range` for a single-handle slider.
                 bind:step={state.Single.step}
                 height={state.Single.height}
                 inline={state.Single.inline}
-                validity={state.Single.validity}/>
+                validity={state.Single.validity} />
         </FormGroup>
     </Form>
 </p>
@@ -133,18 +132,17 @@ Use `bind:range` for a single-handle slider.
     ux_min={0}
     ux_max={100}
     inline={false}
-    validity={null}/>
+    validity={null} />
 ```
 
 ## Dual range
 
-Set `dual={true}` (or simply pass `user_min`/`user_max`) to enable two-handle
+Set `dual={true}` (or pass `user_min` and `user_max`) to enable two-handle
 range selection. Bind `user_min` and `user_max` to track the selected range.
 
 <p>
     <Form>
         <FormGroup>
-            <h4>Range (dual)</h4>
             <Range
                 dual={true}
                 bind:user_min={state.Dual.user_min}
@@ -177,5 +175,5 @@ range selection. Bind `user_min` and `user_max` to track the selected range.
     bind:user_max
     ux_min={0}
     ux_max={100}
-    step={1}/>
+    step={1} />
 ```
