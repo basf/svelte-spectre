@@ -1,7 +1,7 @@
-import { parse } from 'path';
-import { execSync } from 'child_process';
-import { compile } from 'svelte/compiler';
-import { getSvelteConfig } from './svelteconfig';
+const { parse } = require('path');
+const { execSync } = require('child_process');
+const { compile } = require('svelte/compiler');
+const { getSvelteConfig } = require('./svelteconfig.js');
 
 const processSync =
 	(options = {}) =>
@@ -42,4 +42,4 @@ const transform = (source, filename) => {
 	return js.code;
 };
 
-export { transform };
+module.exports = { transform };

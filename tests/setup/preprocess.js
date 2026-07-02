@@ -1,5 +1,5 @@
-import { preprocess } from 'svelte/compiler';
-import { pathToFileURL } from 'url';
+const { preprocess } = require('svelte/compiler');
+const { pathToFileURL } = require('url');
 
 const { source, filename, svelteConfig } = process.env;
 

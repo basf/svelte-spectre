@@ -1,9 +1,9 @@
-import { existsSync } from 'fs';
-import { dirname, resolve, join } from 'path';
+const { existsSync } = require('fs');
+const { dirname, resolve, join } = require('path');
 
 const configFilename = 'svelte.config.js';
 
-export function getSvelteConfig(rootMode, filename) {
+function getSvelteConfig(rootMode, filename) {
 	const configDir = rootMode === 'upward' ? getConfigDir(dirname(filename)) : process.cwd();
 
 	const configFile = resolve(configDir, configFilename);
@@ -24,3 +24,5 @@ const getConfigDir = (searchDir) => {
 
 	return parentDir !== searchDir ? getConfigDir(parentDir) : searchDir; // Stop walking at filesystem root
 };
+
+module.exports = { getSvelteConfig };
