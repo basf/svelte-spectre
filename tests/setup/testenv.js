@@ -1,9 +1,9 @@
-import { JSDOM } from 'jsdom';
-import { tick } from 'svelte';
+const { JSDOM } = require('jsdom');
+const { tick } = require('svelte');
 
 const { window } = new JSDOM('');
 
-export function setup() {
+function setup() {
 	// @ts-ignore
 	global.window = window;
 	global.document = window.document;
@@ -12,7 +12,7 @@ export function setup() {
 	global.requestAnimationFrame = null;
 }
 
-export function reset() {
+function reset() {
 	window.document.title = '';
 	window.document.head.innerHTML = '';
 	window.document.body.innerHTML = '';
@@ -27,7 +27,7 @@ export function reset() {
 /**
  * @return {RenderOutput}
  */
-export function render(Tag, props = {}) {
+function render(Tag, props = {}) {
 	Tag = Tag.default || Tag;
 	const container = window.document.body;
 	const component = new Tag({ props, target: container });
@@ -147,8 +147,10 @@ export function render(Tag, props = {}) {
  * @param {any} [details]
  * @returns Promise<void>
  */
-export function fire(elem, event, details) {
+function fire(elem, event, details) {
 	let evt = new window.Event(event, details);
 	elem.dispatchEvent(evt);
 	return tick();
 }
+
+module.exports = { setup, reset, render, fire };
