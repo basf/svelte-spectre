@@ -50,6 +50,8 @@ You can preview the built app with `npm run preview`, regardless of whether you 
 
 ## License
 
+Copyright 2026 Absolidix FZ-LLC
+
 Copyright 2024-2026 Materials Platform for Data Science OÜ
 
 Copyright 2021-2023 BASF SE

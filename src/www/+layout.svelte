@@ -141,7 +141,7 @@
 		</svelte:fragment>
 
 		<footer class="text-center p-2">
-			&copy; 2021 &mdash; 2026 BASF SE and Materials Platform for Data Science O&Uuml;
+			&copy; 2021 &mdash; 2026 BASF SE, Materials Platform for Data Science O&Uuml;, and Absolidix FZ-LLC
 		</footer>
 	</Sidebar>
 
