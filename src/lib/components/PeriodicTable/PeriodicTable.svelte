@@ -62,7 +62,7 @@
 		let divs = document.querySelectorAll(`#periodictable > ul > li.${id}`);
 		divs.forEach((item) => {
 			item.style.transform = '';
-			item.style.zIndex = 'revert-layer';
+			item.style.zIndex = '';
 		});
 	};
 
@@ -196,7 +196,6 @@
 				cursor: pointer;
 				padding-top: 14px;
 				transition: all 0.3s ease-in;
-				background-repeat: no-repeat !important;
 
 				&:hover {
 					transform: scale(1.5);
@@ -270,37 +269,37 @@
 				}
 			}
 			li.active_1 {
-				border: 2px solid #3f0;
-				box-shadow: 0 0 5px #3f0;
+				border: 2px solid #33ff00;
+				box-shadow: 0 0 5px #33ff00;
 			}
 			li.active_2 {
-				border: 2px solid #0cf;
-				box-shadow: 0 0 5px #0cf;
+				border: 2px solid #00ccff;
+				box-shadow: 0 0 5px #00ccff;
 			}
 			li.active_3 {
-				border: 2px solid #c00;
-				box-shadow: 0 0 5px #c00;
+				border: 2px solid #cc0000;
+				box-shadow: 0 0 5px #cc0000;
 			}
 			li.type_1 {
-				background: #ddd;
+				background-color: #ddd;
 			}
 			li.type_2 {
-				background: #a8bffa;
+				background-color: #a8bffa;
 			}
 			li.type_3 {
-				background: #f8b707;
+				background-color: #f8b707;
 			}
 			li.type_4 {
-				background: #f3f300;
+				background-color: #f3f300;
 			}
 			li.type_5 {
-				background: #3bd93b;
+				background-color: #3bd93b;
 			}
 			li.type_6 {
-				background: #dd9999;
+				background-color: #dd9999;
 			}
 			li.type_7 {
-				background: #fcc;
+				background-color: #fcc;
 			}
 			li.cat_0 {
 				color: #222;
