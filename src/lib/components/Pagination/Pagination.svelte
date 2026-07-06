@@ -52,7 +52,7 @@
 	export let page: number = 1;
 	export let total: number = 0;
 	export let limit: number = 10;
-	export let rest: number;
+	export let rest: number = 3;
 	export let perpage: boolean = true;
 	export let limits: number[] = Array.from({ length: 10 }, (_, i) => (i + 1) * limit);
 
