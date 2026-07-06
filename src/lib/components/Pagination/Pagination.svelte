@@ -76,8 +76,6 @@
 		}
 
 		const items: PageItem[] = [];
-		const left = rest;
-		const right = length - rest + 1;
 		const windowStart = page - shift;
 		const windowEnd = page + (rest - shift);
 
