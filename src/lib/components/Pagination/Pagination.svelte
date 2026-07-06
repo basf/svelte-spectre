@@ -7,57 +7,17 @@
 				</slot>
 			</a>
 		</li>
-		{#each Array(length).fill() as _, p (p)}
-			{#if !rest}
-				<li class="page-item" class:active={page === p + 1}>
-					<a href="#_" on:click|preventDefault={() => (page = p + 1)}>{p + 1}</a>
+		{#each visiblePages as p, i (i)}
+			{#if p === '...'}
+				<li class="page-item">
+					<slot name="rest">
+						<span>...</span>
+					</slot>
 				</li>
-			{:else if page <= rest}
-				{#if p + 1 <= rest + 1 || p + 1 === length}
-					<li class="page-item" class:active={page === p + 1}>
-						<a href="#_" on:click|preventDefault={() => (page = p + 1)}>{p + 1}</a>
-					</li>
-				{/if}
-				{#if p + 1 === rest + 1}
-					<li class="page-item" class:active={page === p + 1}>
-						<slot name="rest">
-							<span>...</span>
-						</slot>
-					</li>
-				{/if}
-			{:else if page > rest && page <= length - rest}
-				{#if p + 1 === length}
-					<li class="page-item" class:active={page === p + 1}>
-						<slot name="rest">
-							<span>...</span>
-						</slot>
-					</li>
-				{/if}
-				{#if (p + 1 >= page - shift && p + 1 < page + (rest - shift)) || p + 1 === length || p === 0}
-					<li class="page-item" class:active={page === p + 1}>
-						<a href="#_" on:click|preventDefault={() => (page = p + 1)}>{p + 1}</a>
-					</li>
-				{/if}
-				{#if p === 0}
-					<li class="page-item" class:active={page === p + 1}>
-						<slot name="rest">
-							<span>...</span>
-						</slot>
-					</li>
-				{/if}
-			{:else if page > length - rest}
-				{#if p + 1 === length - rest}
-					<li class="page-item" class:active={page === p + 1}>
-						<slot name="rest">
-							<span>...</span>
-						</slot>
-					</li>
-				{/if}
-				{#if p + 1 >= length - rest || p === 0}
-					<li class="page-item" class:active={page === p + 1}>
-						<a href="#_" on:click|preventDefault={() => (page = p + 1)}>{p + 1}</a>
-					</li>
-				{/if}
+			{:else}
+				<li class="page-item" class:active={page === p}>
+					<a href="#_" on:click|preventDefault={() => (page = p)}>{p}</a>
+				</li>
 			{/if}
 		{/each}
 		<li class="page-item" class:disabled={page === length}>
@@ -96,10 +56,49 @@
 	export let perpage: boolean = true;
 	export let limits: number[] = Array.from({ length: 10 }, (_, i) => (i + 1) * limit);
 
-	$: length = Math.ceil(total / limit);
+	$: length = Math.max(1, Math.ceil(total / limit));
 	$: shift = Math.trunc(rest / 2);
 	$: page = page > length ? length : page;
 	$: page && dispatch('paged', page);
+
+	type PageItem = number | '...';
+
+	$: visiblePages = computeVisiblePages(page, length, rest, shift);
+
+	function computeVisiblePages(
+		page: number,
+		length: number,
+		rest: number | undefined,
+		shift: number
+	): PageItem[] {
+		if (!rest || length <= rest * 2 + 2) {
+			return Array.from({ length }, (_, i) => i + 1);
+		}
+
+		const items: PageItem[] = [];
+		const left = rest;
+		const right = length - rest + 1;
+		const windowStart = page - shift;
+		const windowEnd = page + (rest - shift);
+
+		if (page <= rest) {
+			for (let p = 1; p <= rest + 1; p++) items.push(p);
+			items.push('...');
+			items.push(length);
+		} else if (page > rest && page <= length - rest) {
+			items.push(1);
+			items.push('...');
+			for (let p = windowStart; p < windowEnd; p++) items.push(p);
+			items.push('...');
+			items.push(length);
+		} else {
+			items.push(1);
+			items.push('...');
+			for (let p = length - rest; p <= length; p++) items.push(p);
+		}
+
+		return items;
+	}
 </script>
 
 <style lang="scss">
