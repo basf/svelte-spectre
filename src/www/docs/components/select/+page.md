@@ -155,3 +155,42 @@ config:
     size={size}
     multiple />
 ```
+
+## Pre-selecting a value
+
+To pre-select an option, set `value` to the option's value. Use `bind:value` for two-way binding. For `multiple` select, pass an array of values.
+
+```sv
+<script>
+  import { Select } from 'svelte-spectre'
+
+  // primitive options — set value to the option itself
+  let fruit = 'banana'
+  let fruits = ['apple', 'banana', 'cherry']
+</script>
+
+<Select bind:value={fruit} options={fruits} />
+<!-- 'banana' is pre-selected -->
+
+<script>
+  // object options — set value to the option's `value` field
+  let answer = 42
+  let questions = [
+    { value: 1, label: 'Italian cantons' },
+    { value: 42, label: 'Life, Universe, everything' },
+    { value: 3, label: 'Dielectric constant' },
+  ]
+</script>
+
+<Select bind:value={answer} options={questions} />
+<!-- 'Life, Universe, everything' is pre-selected -->
+
+<script>
+  // multiple — pass an array of values
+  let picked = [1, 3]
+  let options = [1, 2, 3, 4, 5]
+</script>
+
+<Select bind:value={picked} options={options} multiple />
+<!-- options 1 and 3 are pre-selected -->
+```
