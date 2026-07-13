@@ -71,7 +71,7 @@
 		rest: number | undefined,
 		shift: number
 	): PageItem[] {
-		if (!rest || length <= rest * 2 + 2) {
+		if (!rest || length <= rest + 2) {
 			return Array.from({ length }, (_, i) => i + 1);
 		}
 
