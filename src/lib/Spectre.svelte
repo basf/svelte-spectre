@@ -238,7 +238,9 @@
 
 				// CHIP
 				.chip {
-					background: $dark-color !important;
+					&:not([class*='bg-']) {
+						background: $dark-color !important;
+					}
 					color: $dark-text;
 					&.active {
 						background: $primary-color !important;
@@ -505,7 +507,9 @@
 
 				// CHIP
 				.chip {
-					background: $dark-color !important;
+					&:not([class*='bg-']) {
+						background: $dark-color !important;
+					}
 					color: $dark-text;
 					&.active {
 						background: $primary-color !important;
@@ -774,7 +778,9 @@
 
 				// CHIP
 				.chip {
-					background: $bg-color-dark !important;
+					&:not([class*='bg-']) {
+						background: $bg-color-dark !important;
+					}
 					color: $body-font-color;
 					&.bg-secondary {
 						background: $secondary-color !important;
