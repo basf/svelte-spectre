@@ -106,9 +106,11 @@
 
 			//TOAST
 			.toast {
-				background: $gray-color-light;
-				color: $bg-color-light;
-				border: inherit;
+				&:not([class*='toast-']) {
+					background: $gray-color-light;
+					color: $bg-color-light;
+					border: inherit;
+				}
 			}
 
 			// @for $i from 3 through 9 {
@@ -154,7 +156,9 @@
 			:global {
 				//TOAST
 				.toast {
-					background: $dark-color;
+					&:not([class*='toast-']) {
+						background: $dark-color;
+					}
 				}
 				//FORMS
 				.form-input,
@@ -242,6 +246,18 @@
 						background: $dark-color !important;
 					}
 					color: $dark-text;
+					&.bg-primary {
+						background: $primary-color !important;
+					}
+					&.bg-success {
+						background: $success-color !important;
+					}
+					&.bg-warning {
+						background: $warning-color !important;
+					}
+					&.bg-error {
+						background: $error-color !important;
+					}
 					&.active {
 						background: $primary-color !important;
 					}
@@ -423,7 +439,9 @@
 			:global {
 				//TOAST
 				.toast {
-					background: $dark-color;
+					&:not([class*='toast-']) {
+						background: $dark-color;
+					}
 				}
 				//FORMS
 				.form-input,
@@ -511,6 +529,18 @@
 						background: $dark-color !important;
 					}
 					color: $dark-text;
+					&.bg-primary {
+						background: $primary-color !important;
+					}
+					&.bg-success {
+						background: $success-color !important;
+					}
+					&.bg-warning {
+						background: $warning-color !important;
+					}
+					&.bg-error {
+						background: $error-color !important;
+					}
 					&.active {
 						background: $primary-color !important;
 					}
@@ -692,7 +722,9 @@
 			:global {
 				//TOAST
 				.toast {
-					background: $gray-color-light;
+					&:not([class*='toast-']) {
+						background: $gray-color-light;
+					}
 				}
 
 				//FORMS
@@ -782,6 +814,24 @@
 						background: $bg-color-dark !important;
 					}
 					color: $body-font-color;
+					&.bg-primary {
+						background: $primary-color !important;
+					}
+					&.bg-success {
+						background: $success-color !important;
+					}
+					&.bg-warning {
+						background: $warning-color !important;
+					}
+					&.bg-error {
+						background: $error-color !important;
+					}
+					&.bg-gray {
+						background: $gray-color !important;
+					}
+					&.bg-light {
+						background: $light-color !important;
+					}
 					&.bg-secondary {
 						background: $secondary-color !important;
 					}
